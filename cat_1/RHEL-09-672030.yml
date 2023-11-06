@@ -2,13 +2,13 @@
 
 {{ if .Vars.RHEL_09_672030}}
 command:
-  crypto_files_genuine:
+  crypto_policy_fips:
     title: RHEL-09-672030 | RHEL 9 must implement DOD-approved TLS encryption in the GnuTLS package.
     exec: rpm -V crypto-policies
     timeout: {{ .Vars.timeout_ms }}
     exit-status: 0
     stdout:
-    - '!/.*/'
+    - '/FIPS/'
     meta:
       Cat: 1
       CCI:
