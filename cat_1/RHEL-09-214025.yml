@@ -1,0 +1,23 @@
+---
+
+{{ if .Vars.RHEL_09_214025 }}
+command:
+  gpg_check_repos:
+    title: RHEL-09-214025 | RHEL 9 must have GPG signature verification enabled for all software repositories
+    exit-status:
+      or:
+      - 0
+      - 1
+    exec: grep -cR '.*gpgcheck.*=0' /etc/yum.repos.d/*.repo
+    timeout: {{ .Vars.timeout_ms }}
+    stdout:
+    - '!/.*[1-9][0-9]*$/'
+    meta:
+      Cat: 1
+      CCI: CCI-001749
+      Group_Title: SRG-OS-000366-GPOS-00153
+      NIST800-53R4: CM-5
+      Rule_ID: SV-257822r925453_rule
+      STIG_ID: RHEL-09-214025
+      Vul_ID: V-257822
+{{ end }}

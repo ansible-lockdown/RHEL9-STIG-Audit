@@ -1,0 +1,21 @@
+---
+
+{{ if .Vars.RHEL_09_212020 }}
+file:
+  grub_superuser:
+    title: RHEL-09-212020 | The x86 Ctrl-Alt-Delete key sequence must be disabled on RHEL 9.
+    exists: true
+    path: /etc/grub2.cfg
+    filetype: file
+    contents:
+    - '/^set superusers="{{ .Vars.rhel9stig_grub_superuser }}"/'
+    - '/export superusers/'
+    meta:
+      Cat: 1
+      CCI: CCI-000213
+      Group_Title: SRG-OS-000080-GPOS-00048
+      NIST800-53R4: AC-3
+      Rule_ID: SV-257789r925354_rule
+      STIG_ID: RHEL-09-212020
+      Vul_ID: V-257789
+{{ end }}

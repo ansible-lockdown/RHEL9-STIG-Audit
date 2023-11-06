@@ -1,0 +1,20 @@
+---
+
+{{ if .Vars.RHEL_09_255050 }}
+file:
+  sshd_use_pam:
+    title: RHEL-09-255050 | RHEL 9 must enable the Pluggable Authentication Module (PAM) interface for SSHD.
+    exists: true
+    path: /etc/ssh/sshd_config
+    contents:
+    - '/^UsePAM yes/'
+    - '!/^UsePAM no/'
+    meta:
+      Cat: 1
+      CCI: CCI-000877
+      Group_Title: SRG-OS-000125-GPOS-00065
+      NIST800-53R4: MA-4
+      Rule_ID: SV-257986r925945_rule
+      STIG_ID: RHEL-09-255050
+      Vul_ID: V-257986
+{{ end }}

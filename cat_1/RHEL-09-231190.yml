@@ -1,0 +1,48 @@
+---
+
+{{ if .Vars.RHEL_09_231190 }}
+package:
+  cryptsetup:
+    title: RHEL-09-231190 |  RHEL 9 local disk partitions must implement cryptographic mechanisms to prevent unauthorized disclosure or modification of all information that requires at rest protection.
+    installed: true
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-001199
+      - CCI-002475
+      - CCI-002476
+      Group_Title:
+      - SRG-OS-000405-GPOS-00184
+      - SRG-OS-000185-GPOS-00079
+      - SRG-OS-000404-GPOS-00183
+      NIST800-53R4:
+      - SC-28
+      - CM-6
+      Rule_ID: SV-257879r925624_rule
+      STIG_ID: RHEL-09-231190
+      Vul_ID: V-257879
+command:
+  check_encrypted_disks:
+    title: RHEL-09-231190 |  RHEL 9 local disk partitions must implement cryptographic mechanisms to prevent unauthorized disclosure or modification of all information that requires at rest protection. | disks encrypted
+    exit-status: 0
+    exec: if [ `dmsetup status | awk '{print $NF}' | grep -cv crypt` -ge 1 ] ; then echo "Fail - unencrypted disks"; else echo "OK - System disks encrypted"; fi
+    stdout:
+    - 'OK - System disks encrypted'
+    - '!/Fail - unencrypted disks/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-001199
+      - CCI-002475
+      - CCI-002476
+      Group_Title:
+      - SRG-OS-000405-GPOS-00184
+      - SRG-OS-000185-GPOS-00079
+      - SRG-OS-000404-GPOS-00183
+      NIST800-53R4:
+      - SC-28
+      - CM-6
+      Rule_ID: SV-257879r925624_rule
+      STIG_ID: RHEL-09-231190
+      Vul_ID: V-257879
+{{ end }}

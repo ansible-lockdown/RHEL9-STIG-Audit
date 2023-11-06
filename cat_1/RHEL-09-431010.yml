@@ -1,0 +1,25 @@
+---
+
+{{ if .Vars.RHEL_09_431010 }}
+file:
+  selinux_enforce:
+    title: RHEL-09-431010 | RHEL 9 must use a Linux Security Module configured to enforce limits on system services
+    exists: true
+    path: /etc/selinux/config
+    contents:
+    - '/^SELINUX=enforcing/'
+    meta:
+      Cat: 1
+      CCI:
+        - CCI-001084
+        - CCI-002696
+      Group_Title:
+        - SRG-OS-000445-GPOS-00199
+        - SRG-OS-000134-GPOS-00068
+      NIST800-53R4:
+        - SC-3
+        - SI-6
+      Rule_ID: SV-258078r926221_rule
+      STIG_ID: RHEL-09-431010
+      Vul_ID: V-258078
+{{ end }}

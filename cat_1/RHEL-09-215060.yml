@@ -1,0 +1,18 @@
+---
+
+{{ if .Vars.RHEL_09_215060 }}
+  {{ if not rhel9stig_is_tftp_server }}
+package:
+  tftp:
+    title: RHEL-09-215060 | RHEL 9 must not have a Trivial File Transfer Protocol (TFTP) server package installed.
+    installed: false
+    meta:
+      Cat: 1
+      CCI: CCI-000366
+      Group_Title: SRG-OS-000480-GPOS-00227
+      NIST800-53R4: CM-6
+      Rule_ID: SV-257835r925492_rule
+      STIG_ID: RHEL-09-215060
+      Vul_ID: SV-257835
+  {{ end }}
+{{ end }}

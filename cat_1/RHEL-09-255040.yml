@@ -1,0 +1,24 @@
+---
+
+{{ if .Vars.RHEL_09_255040 }}
+file:
+  sshd_blank_passwd:
+    title: RHEL-09-255040 | RHEL 9 SSHD must not allow blank passwords.
+    exists: true
+    path: /etc/ssh/sshd_config
+    contents:
+    - '/^PermitEmptyPassword no/'
+    - '!/^PermitEmptyPassword yes/'
+    meta:
+      Cat: 1
+      CCI:
+      - CCI-000366
+      - CCI-000766
+      Group_Title: SRG-OS-000106-GPOS-00053
+      NIST800-53R4:
+      - CM-6
+      - IA-2
+      Rule_ID: SV-257984r925939_rule
+      STIG_ID: RHEL-09-255040
+      Vul_ID: V-257984
+{{ end }}

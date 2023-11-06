@@ -1,0 +1,20 @@
+---
+
+{{ if .Vars.RHEL_09_214015 }}
+file:
+  gpg_checkdnf_conf:
+    title: RHEL-09-214015 | RHEL 9 must check the GPG signature of software packages originating from external software repositories before installation.
+    exists: true
+    path: /etc/dnf/dnf.conf
+    contents:
+    - '/^gpgcheck=1/'
+    - '!/^gpgcheck=0/'
+    meta:
+      Cat: 1
+      CCI: CCI-001749
+      Group_Title: SRG-OS-000366-GPOS-00153
+      NIST800-53R4: CM-5
+      Rule_ID: SV-257820r925447_rule
+      STIG_ID: RHEL-09-214015
+      Vul_ID: V-257820
+{{ end }}

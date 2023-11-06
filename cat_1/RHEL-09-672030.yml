@@ -1,0 +1,26 @@
+---
+
+{{ if .Vars.RHEL_09_672030}}
+command:
+  crypto_files_genuine:
+    title: RHEL-09-672030 | RHEL 9 must implement DOD-approved TLS encryption in the GnuTLS package.
+    exec: rpm -V crypto-policies
+    timeout: {{ .Vars.timeout_ms }}
+    exit-status: 0
+    stdout:
+    - '!/.*/'
+    meta:
+      Cat: 1
+      CCI:
+      - CCI-001453
+      - CCI-002418
+      Group_Title:
+      - SRG-OS-000250-GPOS-00093
+      - SRG-OS-000423-GPOS-00187
+      NIST800-53R4:
+      - AC-17
+      - SC-8
+      Rule_ID: SV-258235r926692_rule
+      STIG_ID: RHEL-09-672030
+      Vul_ID: V-258235
+{{ end }}

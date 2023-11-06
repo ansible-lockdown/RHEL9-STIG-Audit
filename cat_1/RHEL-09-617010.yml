@@ -1,0 +1,37 @@
+---
+
+{{ if .Vars.RHEL_09_617010 }}
+command:
+  fips_enabled:
+    title: RHEL-09-617010 | RHEL 9 must enable FIPS mode.
+    exec: fips-mode-setup --check
+    timeout: {{ .Vars.timeout_ms }}
+    exit-status:
+        or:
+        - 0
+        - 1
+    stdout:
+    - '/FIPS mode is enabled./'
+    - '!/FIPS mode is disabled./'
+    meta:
+      Cat: 1
+      CCI:
+      - CCI-000068
+      - CCI-000877
+      - CCI-002418
+      - CCI-002450
+      Group_Title:
+      - SRG-OS-000033-GPOS-00014
+      - SRG-OS-000125-GPOS-00065
+      - SRG-OS-000396-GPOS-00176
+      - SRG-OS-000423-GPOS-00187
+      - SRG-OS-000478-GPOS-00223
+      NIST800-53R4:
+      - AC-17
+      - MA-4
+      - SC-8
+      - SC-13
+      Rule_ID: SV-258230r926677_rule
+      STIG_ID: RHEL-09-617010
+      Vul_ID: V-258230
+{{ end }}

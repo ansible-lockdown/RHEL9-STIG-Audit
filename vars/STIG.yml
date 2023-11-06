@@ -1,0 +1,137 @@
+## metadata for Audit benchmark
+benchmark_version: '1.1'
+
+# set to redhat/rocky/alma
+rhel9stig_os_distribution: redhat
+rpm_gpg_key: /etc/pki/rpm-gpg/RPM-GPG-KEY-RPM-GPG-KEY-redhat-release
+gpg_key:
+  - name: 'release key 2'
+    fingerprint: '567E 347A D004 4ADE 55BA  8A5F 199E 2F91 FD43 1D51'
+  - name: 'auxiliary key'
+    fingerprint: '6A6A A7C9 7C88 90AE C6AE  BFE2 F76F 66C3 D409 2792'
+
+##rocky example rocky
+# rhel9stig_os_distribution: rocky
+# rpm_gpg_key: /etc/pki/rpm-gpg/RPM-GPG-KEY-rockyofficial
+#gpg_key:
+#  - name: 'Release Engineering'
+#    fingerprint: '7051 C470 A929 F454 CEBE  37B7 15AF 5DAC 6D74 5A60'
+
+## Alma
+# rhel9stig_os_distribution: almalinux
+# rpm_gpg_key: /etc/pki/rpm-gpg/RPM-GPG-KEY-AlmaLinux
+# gpg_key:
+#  - name: 'AlmaLinux'
+#    fingerprint: '5E9B 8F56 17B5 066C E920  57C3 488F CF7C 3ABB 34F8'
+
+## Oracle
+# rhel9stig_os_distribution: almalinux
+# gpg_package: /etc/pki/rpm-gpg/RPM-GPG-KEY-AlmaLinux
+# gpg_key:
+#  - name: 'AlmaLinux'
+#    fingerprint: '5E9B 8F56 17B5 066C E920  57C3 488F CF7C 3ABB 34F8'
+
+# turn the categories on/off
+rhel9stig_cat1: true
+rhel9stig_cat2: true
+rhel9stig_cat3: true
+
+# Some tests may need to scan every filesystem or have an impact on a system
+# these may need be scheduled to minimise impact
+run_heavy_tests: true
+timeout_ms: 120000
+
+# To be set if not running via run_audit.sh script
+os_release: 8.5  # This is also set and overridden by the run_audit script.
+
+# If using the supplied graphical interface
+rhel9stig_gui: false
+
+# system acts or requires router networking options
+rhel9stig_system_is_router: false
+
+# Assist with skips some audit checks
+skip_sssd_check: false
+skip_postfix_check: false
+skip_tftp_check: false
+
+# Cat 1 rules
+#### CAT 1
+rhel_09_211010: true
+rhel_09_211045: true
+rhel_09_211050: true
+rhel_09_212020: true
+rhel_09_214015: true
+rhel_09_214020: true
+rhel_09_214025: true
+rhel_09_215015: true
+rhel_09_215060: true
+rhel_09_231190: true
+rhel_09_252070: true
+rhel_09_252075: true
+rhel_09_255040: true
+rhel_09_255050: true
+rhel_09_271040: true
+rhel_09_411100: true
+rhel_09_431010: true
+rhel_09_611025: true
+rhel_09_671010: true
+rhel_09_672015: true
+rhel_09_672030: true
+
+# Cat 2 rules
+
+# Cat 3 controls
+
+# Variables
+
+rhel9stig_password_hash: grub.pbkdf2.sha512.changeme
+rhel9stig_grub_superuser: root
+
+## UID:
+MIN_UID: 1000
+MAX_UID: 65000
+
+rhel9stig_banner_file: /etc/issue
+rhel9stig_logon_banner:
+  - You are accessing a U.S. Government (USG) Information System (IS) that is provided for USG-authorized use only.
+  - By using this IS (which includes any device attached to this IS), you consent to the following conditions
+  - -The USG routinely intercepts and monitors communications on this IS for purposes including, but not limited to, penetration testing, COMSEC monitoring, network operations and defense, personnel misconduct (PM), law enforcement (LE), and counterintelligence (CI) investigations.
+  - -At any time, the USG may inspect and seize data stored on this IS.
+  - -Communications using, or data stored on, this IS are not private, are subject to routine monitoring, interception, and search, and may be disclosed or used for any USG-authorized purpose.
+  - -This IS includes security measures (e.g., authentication and access controls) to protect USG interests--not for your personal benefit or privacy.
+  - -Notwithstanding the above, using this IS does not constitute consent to PM, LE or CI investigative searching or monitoring of the content of privileged communications, or work product, related to personal representation or services by attorneys, psychotherapists, or clergy, and their assistants. Such communications and work product are private and confidential. See User Agreement for details.
+
+# Packages and services
+rhel9stig_is_ftp_server: false
+rhel9stig_is_tftp_server: false
+
+
+
+
+
+# RHEL8_09_010680 to change if using hostfile only - seperate checks
+rhel9stig_uses_dns: true
+
+# RHEL_09_010360 if run via ansible it is placed in cron.d setting as manually set in cron.daily
+rhel9stig_aide_cron_file: /etc/cron.daily/aide
+
+# RHEL_09_020010-020023 - RHEL-09-020017 states to not use default dir location which is /var/run/faillock
+rhel9stig_pam_faillock_dir: /var/log/faillock
+
+# RHEL_09_030040 - Options are SYSLOG, SINGLE, and HALT to fit STIG standards
+rhel9stig_auditd_disk_error_action: HALT
+
+# RHEL_09_030050 - Options are SYSLOG or KEEP_LOGS to fit STIG standards
+rhel9stig_auditd_max_log_file_action: SYSLOG
+
+# RHEL_09_030060 - Options are SYSLOG, HALT, and SINGLE to fit STIG standards
+rhel9stig_auditd_disk_full_action: HALT
+
+# RHEL_09_030690 if using remote syslog server
+rhel9stig_remotelog_server: 1.1.1.1
+rhel9stig_remotelog_port: 1549
+rhel9stig_remotelog_protocol: '@@'
+
+# RHEL_09_040137
+python_bin: '/usr/bin/python'
