@@ -107,7 +107,9 @@ rhel9stig_is_ftp_server: false
 rhel9stig_is_tftp_server: false
 
 
-
+# Threat Protection
+rhel9stig_av_pkg: 'mcafeetp'
+rhel9stig_av_service: 'mfetpd'
 
 
 # RHEL8_09_010680 to change if using hostfile only - seperate checks

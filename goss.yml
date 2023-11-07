@@ -4,7 +4,7 @@ gossfile:
   {{ end }}
 
   {{ if .Vars.rhel9stig_cat2 }}
-  cat_2/RHEL-09-21xxxx_215095/*.yml: {}
+  cat_2/RHEL-09-21xxxx/*.yml: {}
   {{ end }}
 
   {{ if .Vars.rhel9stig_cat3 }}

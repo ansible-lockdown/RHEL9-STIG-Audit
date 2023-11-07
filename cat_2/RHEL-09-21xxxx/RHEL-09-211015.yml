@@ -1,0 +1,26 @@
+---
+
+{{ if .Vars.run_heavy_tests }}
+  {{ if .Vars.RHEL_09_211015 }}
+command:
+  dnf_check_updates:
+    title: RHEL-09-211015 | RHEL 9 vendor packaged system security patches and updates must be installed and up to date.
+    exit-status:
+      or:
+      - 0
+      - 1
+    timeout: {{ .Vars.timeout_ms }}
+    exec: dnf check-update | grep -v Last | grep -cE "\.noarch|\.x86_64|\.386"
+    stdout:
+    - "/^0/"
+    - "!/^[1-9]/"
+    meta:
+      Cat: 2
+      CCI: CCI-000366
+      Group_Title: SRG-OS-000480-GPOS-00227
+      NIST800-53R4: CM-6
+      Rule_ID: SV-257778r925321_rule
+      STIG_ID: RHEL-09-211015
+      Vul_ID: V-257778
+  {{ end }}
+{{ end }}
