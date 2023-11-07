@@ -1,12 +1,12 @@
 ---
 
-{{ if .Vars.RHEL_09_271040 }}
+{{ if .Vars.rhel_09_271040 }}
 file:
   autologon_graphic_interface:
     title: RHEL-09-271040 | RHEL 9 must not allow unattended or automatic logon via the graphical user interface.
     exists: true
     path: /etc/gdm/custom.conf
-    contains:
+    contents:
     - '/AutomaticLoginEnable=false/'
     - '/AutomaticLoginEnable=true/'
     meta:

@@ -1,9 +1,9 @@
 ---
 
-{{ if .Vars.RHEL_09_617010 }}
+{{ if .Vars.rhel_09_671010 }}
 command:
   fips_enabled:
-    title: RHEL-09-617010 | RHEL 9 must enable FIPS mode.
+    title: RHEL-09-671010 | RHEL 9 must enable FIPS mode.
     exec: fips-mode-setup --check
     timeout: {{ .Vars.timeout_ms }}
     exit-status:
@@ -32,6 +32,6 @@ command:
       - SC-8
       - SC-13
       Rule_ID: SV-258230r926677_rule
-      STIG_ID: RHEL-09-617010
+      STIG_ID: RHEL-09-671010
       Vul_ID: V-258230
 {{ end }}

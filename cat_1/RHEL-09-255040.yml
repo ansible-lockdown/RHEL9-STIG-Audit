@@ -1,14 +1,14 @@
 ---
 
-{{ if .Vars.RHEL_09_255040 }}
+{{ if .Vars.rhel_09_255040 }}
 file:
   sshd_blank_passwd:
     title: RHEL-09-255040 | RHEL 9 SSHD must not allow blank passwords.
     exists: true
     path: /etc/ssh/sshd_config
     contents:
-    - '/^PermitEmptyPassword no/'
-    - '!/^PermitEmptyPassword yes/'
+    - '/^PermitEmptyPasswords no/'
+    - '!/^PermitEmptyPasswords yes/'
     meta:
       Cat: 1
       CCI:

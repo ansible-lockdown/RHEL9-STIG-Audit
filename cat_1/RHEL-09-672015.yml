@@ -1,6 +1,6 @@
 ---
 
-{{ if .Vars.RHEL_09_672015 }}
+{{ if .Vars.rhel_09_672015 }}
 command:
   crypto_files_genuine:
     title: RHEL-09-672015 | RHEL 9 crypto policy files must match files shipped with the operating system.

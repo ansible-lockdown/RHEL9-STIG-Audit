@@ -1,6 +1,6 @@
 ---
 
-{{ if .Vars.RHEL_09_255050 }}
+{{ if .Vars.rhel_09_255050 }}
 file:
   sshd_use_pam:
     title: RHEL-09-255050 | RHEL 9 must enable the Pluggable Authentication Module (PAM) interface for SSHD.

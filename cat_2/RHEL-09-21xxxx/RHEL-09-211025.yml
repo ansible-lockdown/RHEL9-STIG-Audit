@@ -1,10 +1,10 @@
 ---
 
-{{ if .Vars.RHEL_09_0211025 }}
+{{ if .Vars.rhel_09_211025 }}
 package:
   endpoint_sec_pkg:
     title: RHEL-09-211025 | RHEL 9 must implement the Endpoint Security for Linux Threat Prevention tool. | Package
-    name: {{ .Vars.rhel9stig_av_sftw }}
+    name: {{ .Vars.rhel9stig_av_pkg }}
     installed: true
 service:
   endpoint_sec_service:

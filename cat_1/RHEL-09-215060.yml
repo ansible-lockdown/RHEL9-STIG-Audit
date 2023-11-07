@@ -1,7 +1,7 @@
 ---
 
-{{ if .Vars.RHEL_09_215060 }}
-  {{ if not rhel9stig_is_tftp_server }}
+{{ if .Vars.rhel_09_215060 }}
+  {{ if not .Vars.rhel9stig_is_tftp_server }}
 package:
   tftp:
     title: RHEL-09-215060 | RHEL 9 must not have a Trivial File Transfer Protocol (TFTP) server package installed.

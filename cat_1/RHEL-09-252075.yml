@@ -1,6 +1,6 @@
 ---
 
-{{ if .Vars.RHEL_09_252075 }}
+{{ if .Vars.rhel_09_252075 }}
 command:
   shosts_check:
     title: RHEL-09-252075 | There must be no shosts files on RHEL 9.

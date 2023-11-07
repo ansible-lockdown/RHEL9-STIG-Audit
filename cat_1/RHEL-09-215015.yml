@@ -1,7 +1,7 @@
 ---
 
-{{ if .Vars.RHEL_09_215015 }}
-  {{ if not rhel9stig_is_ftp_server }}
+{{ if .Vars.rhel_09_215015 }}
+  {{ if not .Vars.rhel9stig_is_ftp_server }}
 package:
   vsftpd:
     title: RHEL-09-215015 | RHEL 9 must not have a File Transfer Protocol (FTP) server package installed.

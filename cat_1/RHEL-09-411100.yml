@@ -1,11 +1,14 @@
 ---
 
-{{ if .Vars.RHEL_09_411100 }}
+{{ if .Vars.rhel_09_411100 }}
 command:
   root_only_0:
     title: RHEL-09-411100 | The root account must be the only account having unrestricted access to RHEL 9 system.
-    exit-status: 0
-    exec: "awk -F: '$3 == 0 {print $1}' /etc/passwd"
+    exit-status:
+      or:
+      - 0
+      - 1
+    exec: "awk -F: '$3 == 0 {print $1}' /etc/passwd | grep -wv root"
     stdout:
     - '!/.*/'
     meta:
@@ -16,3 +19,4 @@ command:
       Rule_ID: SV-258059r926164_rule
       STIG_ID: RHEL-09-411100
       Vul_ID: V-258059
+{{ end }}

@@ -1,9 +1,9 @@
 ---
 
-{{ if .Vars.RHEL_09_231190 }}
+{{ if .Vars.rhel_09_231190 }}
 package:
   cryptsetup:
-    title: RHEL-09-231190 |  RHEL 9 local disk partitions must implement cryptographic mechanisms to prevent unauthorized disclosure or modification of all information that requires at rest protection.
+    title: RHEL-09-231190 | RHEL 9 local disk partitions must implement cryptographic mechanisms to prevent unauthorized disclosure or modification of all information that requires at rest protection.
     installed: true
     meta:
       Cat: 2
@@ -23,7 +23,7 @@ package:
       Vul_ID: V-257879
 command:
   check_encrypted_disks:
-    title: RHEL-09-231190 |  RHEL 9 local disk partitions must implement cryptographic mechanisms to prevent unauthorized disclosure or modification of all information that requires at rest protection. | disks encrypted
+    title: RHEL-09-231190 | RHEL 9 local disk partitions must implement cryptographic mechanisms to prevent unauthorized disclosure or modification of all information that requires at rest protection. | disks encrypted
     exit-status: 0
     exec: if [ `dmsetup status | awk '{print $NF}' | grep -cv crypt` -ge 1 ] ; then echo "Fail - unencrypted disks"; else echo "OK - System disks encrypted"; fi
     stdout:

@@ -1,6 +1,6 @@
 ---
 
-{{ if .Vars.RHEL_09_214025 }}
+{{ if .Vars.rhel_09_214025 }}
 command:
   gpg_check_repos:
     title: RHEL-09-214025 | RHEL 9 must have GPG signature verification enabled for all software repositories

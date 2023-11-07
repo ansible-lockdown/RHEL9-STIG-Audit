@@ -1,6 +1,6 @@
 ---
 
-{{ if .Vars.RHEL_09_211050 }}
+{{ if .Vars.rhel_09_211050 }}
 file:
   ctrl-alt-del.target_masked:
     title: RHEL-09-211050 | The x86 Ctrl-Alt-Delete key sequence must be disabled on RHEL 9.

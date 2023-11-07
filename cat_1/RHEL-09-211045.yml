@@ -1,6 +1,6 @@
 ---
 
-{{ if .Vars.RHEL_09_211045 }}
+{{ if .Vars.rhel_09_211045 }}
 file:
   ctrl_alt_del:
     title: RHEL-09-211045 | The systemd Ctrl-Alt-Delete burst key sequence in RHEL 9 must be disabled

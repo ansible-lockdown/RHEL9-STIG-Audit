@@ -1,13 +1,13 @@
 ---
 
-{{ if .Vars.RHEL_09_0211020 }}
+{{ if .Vars.rhel_09_211020 }}
 file:
   check_login_banner:
     title: RHEL-09-0211020 | RHEL 9 must display the Standard Mandatory DOD Notice and Consent Banner before granting local or remote access to the system via a command line user logon.
     path: /etc/issue
     exists: true
-    {{ range .Vars.rhel9stig_logon_banner }}
     contents:
+    {{ range .Vars.rhel9stig_logon_banner }}
     - {{ . }}
     {{ end }}
     meta:

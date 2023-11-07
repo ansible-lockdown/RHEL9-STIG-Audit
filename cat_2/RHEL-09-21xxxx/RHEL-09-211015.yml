@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.run_heavy_tests }}
-  {{ if .Vars.RHEL_09_211015 }}
+  {{ if .Vars.rhel_09_211015 }}
 command:
   dnf_check_updates:
     title: RHEL-09-211015 | RHEL 9 vendor packaged system security patches and updates must be installed and up to date.

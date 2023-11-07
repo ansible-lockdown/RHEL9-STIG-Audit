@@ -1,13 +1,13 @@
 ---
 
-{{ if .Vars.RHEL_09_211010 }}
+{{ if .Vars.rhel_09_211010 }}
 file:
   rhel_version_supported:
     title: RHEL-09-211010 | RHEL 9 must be a vendor-supported release. (Not checking for EUS)
     exists: true
     path: /etc/redhat-release
     contents:
-    - '/.* 9.[2-9]]/'
+    - '/.*9.[2-9]/'
     meta:
       Cat: 1
       CCI: CCI-000366
