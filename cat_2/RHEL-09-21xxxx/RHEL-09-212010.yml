@@ -1,0 +1,34 @@
+---
+
+{{ if .Vars.rhel_09_212010 }}
+file:
+  grub_superusers:
+    title: RHEL-09-212010 | RHEL 9 must require a boot loader superuser password. | Superuser in grub
+    path: /etc/grub2.cfg
+    exists: true
+    contents:
+    - '/password_pbkdf2\s+{{ .Vars. rhel9stig_grub_superuser }}\s+${GRUB2_PASSWORD}/'
+    meta:
+      Cat: 2
+      CCI: CCI-000213
+      Group_Title: SRG-OS-000080-GPOS-00048
+      NIST800-53R4: AC-3
+      Rule_ID: SV-257787r925348_rule
+      STIG_ID: RHEL-09-212010
+      Vul_ID: V-257787
+  grub_users_password:
+    title: RHEL-09-212010 | RHEL 9 must require a boot loader superuser password. | Superuser password set
+    path: /boot/grub2/user.cfg
+    exists: true
+    contents:
+    - '/GRUB2_PASSWORD=grub.pbkdf2.sha512.10000\..*/'
+    - '!/GRUB2_PASSWORD=grub.pbkdf2.sha512.changethispassword/'
+    meta:
+      Cat: 2
+      CCI: CCI-000213
+      Group_Title: SRG-OS-000080-GPOS-00048
+      NIST800-53R4: AC-3
+      Rule_ID: SV-257787r925348_rule
+      STIG_ID: RHEL-09-212010
+      Vul_ID: V-257787
+{{ end }}

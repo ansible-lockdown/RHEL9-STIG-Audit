@@ -1,0 +1,50 @@
+---
+
+{{ if .Vars.rhel_09_213025 }}
+kernel-param:
+  ktpr_restrict_live:
+    title: RHEL-09-213025 | RHEL 9 must prevent the loading of a new kernel for later execution.
+    name: kernel.kptr_restrict
+    value: 1
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000366
+      - CCI-001082
+      Group_Title:
+      - SRG-OS-000132-GPOS-00067
+      - SRG-OS-000433-GPOS-00192
+      - SRG-OS-000480-GPOS-00227
+      NIST800-53R4:
+      - CM-6
+      - SC-2
+      Rule_ID: SV-257800r925387_rule
+      STIG_ID: RHEL-09-213025
+      Vul_ID: V-257800
+command:
+  ktpr_restrict_file:
+    title: RHEL-09-213025 | RHEL 9 must prevent the loading of a new kernel for later execution.
+    exec: /usr/lib/systemd/systemd-sysctl --cat-config | egrep -v '^(#|;)' | grep -F kernel.kptr_restrict | tail -1
+    exit-status:
+      or:
+      - 0
+      - 1
+    stdout:
+    - '/^kernel.kptr_restrict\s*=\s*1/'
+    - '!/^kernel.kptr_restrict\s*=\s*0/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000366
+      - CCI-001082
+      Group_Title:
+      - SRG-OS-000132-GPOS-00067
+      - SRG-OS-000433-GPOS-00192
+      - SRG-OS-000480-GPOS-00227
+      NIST800-53R4:
+      - CM-6
+      - SC-2
+      Rule_ID: SV-257800r925387_rule
+      STIG_ID: RHEL-09-213025
+      Vul_ID: V-257800
+{{ end }}

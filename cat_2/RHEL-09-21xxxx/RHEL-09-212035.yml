@@ -1,0 +1,45 @@
+---
+
+{{ if .Vars.rhel_09_212035 }}
+command:
+  live_grub_vsyscall:
+    title: RHEL-09-212035 | RHEL 9 must disable virtual system calls.
+    exec: grubby --info=ALL | grep args | grep -v 'vsyscall=none'
+    exit-status:
+      or:
+      - 0
+      - 1
+    stdout:
+    - '!/.*/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000366
+      - CCI-001084
+      Group_Title: SRG-OS-000480-GPOS-00227
+      NIST800-53R4:
+      - CM-6
+      - SC-3
+      Rule_ID: SV-257792r925363_rule
+      STIG_ID: RHEL-09-212035
+      Vul_ID: V-257792
+file:
+  default_grub_vsyscall:
+    title: RHEL-09-212035 | RHEL 9 must disable virtual system calls. | default grub
+    path: /etc/default/grub
+    exists: true
+    contents:
+    - '!/^GRUB_CMDLINE_LINUX=".*vsyscall=(emulate|native)/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000366
+      - CCI-001084
+      Group_Title: SRG-OS-000480-GPOS-00227
+      NIST800-53R4:
+      - CM-6
+      - SC-3
+      Rule_ID: SV-257792r925363_rule
+      STIG_ID: RHEL-09-212035
+      Vul_ID: V-257792
+{{ end }}

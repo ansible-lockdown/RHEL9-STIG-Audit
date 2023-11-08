@@ -1,0 +1,19 @@
+---
+
+{{ if .Vars.rhel_09_211030 }}
+command:
+  check_multiuser:
+    title: RHEL-09-0211030 | The graphical display manager must not be the default target on RHEL 9 unless approved.
+    exec: systemctl get-default
+    exit-status: 0
+    stdout:
+    - 'multi-user.target'
+    meta:
+      Cat: 2
+      CCI: CCI-000366
+      Group_Title: SRG-OS-000480-GPOS-00227
+      NIST800-53R4: CM-6
+      Rule_ID: SV-257781r925330_rule
+      STIG_ID: RHEL-09-0211030
+      Vul_ID: V-257781
+{{ end }}

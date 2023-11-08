@@ -1,0 +1,49 @@
+---
+
+{{ if .Vars.rhel_09_212045 }}
+command:
+  live_grub_slub:
+    title: RHEL-09-212045 | RHEL 9 must clear SLUB/SLAB objects to prevent use-after-free attacks.
+    exec: grubby --info=ALL | grep args | grep -v 'slub_debug=P'
+    exit-status:
+      or:
+      - 0
+      - 1
+    stdout:
+    - '!/.*/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-001084
+      - CCI-002824
+      Group_Title:
+      - SRG-OS-000433-GPOS-00192
+      - SRG-OS-000134-GPOS-00068
+      NIST800-53R4:
+      - CM-6
+      - SC-3
+      Rule_ID: SV-257794r925369_rule
+      STIG_ID: RHEL-09-212045
+      Vul_ID: V-257794
+file:
+  default_grub_slub:
+    title: RHEL-09-212045 | RHEL 9 must clear SLUB/SLAB objects to prevent use-after-free attacks. | default grub
+    path: /etc/default/grub
+    exists: true
+    contents:
+    - '!/^GRUB_CMDLINE_LINUX=".*slub_debug=(F|Z|U|T|A|O|-)/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-001084
+      - CCI-002824
+      Group_Title:
+      - SRG-OS-000433-GPOS-00192
+      - SRG-OS-000134-GPOS-00068
+      NIST800-53R4:
+      - CM-6
+      - SC-3
+      Rule_ID: SV-257794r925369_rule
+      STIG_ID: RHEL-09-212045
+      Vul_ID: V-257794
+{{ end }}

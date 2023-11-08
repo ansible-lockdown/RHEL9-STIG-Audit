@@ -1,0 +1,47 @@
+---
+
+{{ if .Vars.rhel_09_212040 }}
+command:
+  live_grub_page_poison:
+    title: RHEL-09-212040 | RHEL 9 must clear the page allocator to prevent use-after-free attacks.
+    exec: grubby --info=ALL | grep args | grep -v 'page_poison=1'
+    exit-status:
+      or:
+      - 0
+      - 1
+    stdout:
+    - '!/.*/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000366
+      - CCI-001084
+      Group_Title:
+      - SRG-OS-000480-GPOS-00227
+      - SRG-OS-000134-GPOS-00068
+      NIST800-53R4:
+      - CM-6
+      - SC-3
+      Rule_ID: SV-257793r925366_rule
+      STIG_ID: RHEL-09-212040
+      Vul_ID: V-257793
+file:
+  default_grub_page_poison:
+    title: RHEL-09-212040 | RHEL 9 must clear the page allocator to prevent use-after-free attacks. | default grub
+    path: /etc/default/grub
+    exists: true
+    contents:
+    - '!/^GRUB_CMDLINE_LINUX=".*page_poison=1/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000366
+      - CCI-001084
+      Group_Title: SRG-OS-000480-GPOS-00227
+      NIST800-53R4:
+      - CM-6
+      - SC-3
+      Rule_ID: SV-257792r925363_rule
+      STIG_ID: RHEL-09-212040
+      Vul_ID: V-257792
+{{ end }}

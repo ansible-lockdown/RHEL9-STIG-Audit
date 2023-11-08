@@ -1,0 +1,48 @@
+---
+
+{{ if .Vars.rhel_09_213030 }}
+kernel-param:
+  protect_hardlinks_live:
+    title: RHEL-09-213030 | Verify RHEL 9 is configured to enable DAC on hardlinks.
+    name: fs.protected_hardlinks
+    value: 1
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-002165
+      - CCI-002235
+      Group_Title:
+      - SRG-OS-000312-GPOS-00123
+      - SRG-OS-000324-GPOS-00125
+      NIST800-53R4:
+      - AC-3
+      - AC-6
+      Rule_ID: SV-257801r925390_rule
+      STIG_ID: RHEL-09-213030
+      Vul_ID: V-257801
+command:
+  protect_hardlinks_file:
+    title: RHEL-09-213030 | Verify RHEL 9 is configured to enable DAC on hardlinks.
+    exec: /usr/lib/systemd/systemd-sysctl --cat-config | egrep -v '^(#|;)' | grep -F fs.protected_hardlinks | tail -1
+    exit-status:
+      or:
+      - 0
+      - 1
+    stdout:
+    - '/^fs.protected_hardlinks\s*=\s*1/'
+    - '!/^fs.protected_hardlinks\s*=\s*0/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-002165
+      - CCI-002235
+      Group_Title:
+      - SRG-OS-000312-GPOS-00123
+      - SRG-OS-000324-GPOS-00125
+      NIST800-53R4:
+      - AC-3
+      - AC-6
+      Rule_ID: SV-257801r925390_rule
+      STIG_ID: RHEL-09-213030
+      Vul_ID: V-257801
+{{ end }}

@@ -3,7 +3,7 @@
 {{ if .Vars.rhel_09_211020 }}
 file:
   check_login_banner:
-    title: RHEL-09-0211020 | RHEL 9 must display the Standard Mandatory DOD Notice and Consent Banner before granting local or remote access to the system via a command line user logon.
+    title: RHEL-09-211020 | RHEL 9 must display the Standard Mandatory DOD Notice and Consent Banner before granting local or remote access to the system via a command line user logon.
     path: /etc/issue
     exists: true
     contents:
@@ -25,6 +25,6 @@ file:
       NIST800-53R4:
       - AC-8
       Rule_ID: SV-257779r925324_rule
-      STIG_ID: RHEL-09-0211020
+      STIG_ID: RHEL-09-211020
       Vul_ID: V-257779
 {{ end }}

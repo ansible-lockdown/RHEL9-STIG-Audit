@@ -1,0 +1,18 @@
+---
+
+{{ if .Vars.rhel_09_212025 }}
+file:
+  grub_cfg_group:
+    title: RHEL-09-212025 | RHEL 9 /boot/grub2/grub.cfg file must be group-owned by root.
+    path: /boot/grub2/grub.cfg
+    exists: true
+    group: root
+    meta:
+      Cat: 2
+      CCI: CCI-000366
+      Group_Title: SRG-OS-000480-GPOS-00227
+      NIST800-53R4: CM-6
+      Rule_ID: SV-257790r925357_rule
+      STIG_ID: RHEL-09-212025
+      Vul_ID: V-257790
+{{ end }}

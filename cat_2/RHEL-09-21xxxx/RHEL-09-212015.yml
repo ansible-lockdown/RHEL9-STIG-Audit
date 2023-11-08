@@ -1,0 +1,37 @@
+---
+
+{{ if .Vars.rhel_09_212015 }}
+command:
+  live_grub_confirm_spawn:
+    title: RHEL-09-212015 | RHEL 9 must disable the ability of systemd to spawn an interactive boot process.
+    exec: grubby --info=ALL | grep args | grep 'systemd.confirm_spawn'
+    exit-status:
+      or:
+      - 0
+      - 1
+    stdout:
+    - '!/.*/'
+    meta:
+      Cat: 2
+      CCI: CCI-000366
+      Group_Title: SRG-OS-000480-GPOS-00227
+      NIST800-53R4: CM-6
+      Rule_ID: SV-257788r925351_rule
+      STIG_ID: RHEL-09-212015
+      Vul_ID: V-257788
+file:
+  default_grub_spawn:
+    title: RHEL-09-212015 | RHEL 9 must disable the ability of systemd to spawn an interactive boot process. | default grub
+    path: /etc/default/grub
+    exists: true
+    contents:
+    - '!/systemd.confirm_spawn=(1|yes|true|on)/'
+    meta:
+      Cat: 2
+      CCI: CCI-000366
+      Group_Title: SRG-OS-000480-GPOS-00227
+      NIST800-53R4: CM-6
+      Rule_ID: SV-257788r925351_rule
+      STIG_ID: RHEL-09-212015
+      Vul_ID: V-257788
+{{ end }}
