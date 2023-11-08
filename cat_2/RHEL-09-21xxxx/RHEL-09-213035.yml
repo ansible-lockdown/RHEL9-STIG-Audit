@@ -30,7 +30,7 @@ command:
       - 1
     stdout:
     - '/^fs.protected_symlinks\s*=\s*1/'
-    - '!/^fs.protected_symlinks\s*=\s*0/'
+    - '!/^fs.protected_symlinks\s*=\s*(?!1)\d*/'
     meta:
       Cat: 2
       CCI:

@@ -1,0 +1,36 @@
+---
+
+{{ if .Vars.rhel_09_213040 }}
+kernel-param:
+  kernel_core_pattern_live:
+    title: RHEL-09-213040 | RHEL 9 must disable the kernel.core_pattern.
+    name: kernel.core_pattern
+    value: '|/bin/false'
+    meta:
+      Cat: 2
+      CCI: CCI-000366
+      Group_Title: SRG-OS-000480-GPOS-00227
+      NIST800-53R4: CM-6
+      Rule_ID: SV-257803r925396_rule
+      STIG_ID: RHEL-09-213040
+      Vul_ID: V-257803
+command:
+  kernel_core_pattern_file:
+    title: RHEL-09-213040 | RHEL 9 must disable the kernel.core_pattern.
+    exec: /usr/lib/systemd/systemd-sysctl --cat-config | egrep -v '^(#|;)' | grep -F kernel.core_pattern | tail -1
+    exit-status:
+      or:
+      - 0
+      - 1
+    stdout:
+    - '/^kernel.core_pattern\s*=\s*\|/bin/false/'
+    - '!/^kernel.core_pattern\s*=\s*|/bin/true/'
+    meta:
+      Cat: 2
+      CCI: CCI-000366
+      Group_Title: SRG-OS-000480-GPOS-00227
+      NIST800-53R4: CM-6
+      Rule_ID: SV-257803r925396_rule
+      STIG_ID: RHEL-09-213040
+      Vul_ID: V-257803
+{{ end }}
