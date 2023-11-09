@@ -9,9 +9,10 @@ command:
       or:
       - 0
       - 1
+      - 2
     stdout:
-    - '/^install atm \/bin\/false/'
-    - '/^blacklist atm/'
+    - '/.*:install atm /bin/false/'
+    - '/.*:blacklist atm/'
     meta:
       Cat: 2
       CCI: CCI-000381

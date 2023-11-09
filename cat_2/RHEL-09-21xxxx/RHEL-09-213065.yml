@@ -9,9 +9,10 @@ command:
       or:
       - 0
       - 1
+      - 2
     stdout:
-    - '/^install tipc \/bin\/false/'
-    - '/^blacklist tipc/'
+    - '/.*:install tipc \/bin\/false/'
+    - '/.*:blacklist tipc/'
     meta:
       Cat: 2
       CCI: CCI-000381

@@ -9,9 +9,10 @@ command:
       or:
       - 0
       - 1
+      - 2
     stdout:
-    - '/^install can \/bin\/false/'
-    - '/^blacklist can/'
+    - '/.*:install can /bin/false/'
+    - '/.*:blacklist can/'
     meta:
       Cat: 2
       CCI: CCI-000381

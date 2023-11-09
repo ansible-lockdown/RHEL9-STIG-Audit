@@ -9,9 +9,10 @@ command:
       or:
       - 0
       - 1
+      - 2
     stdout:
-    - '/^install firewire-core \/bin\/true/'
-    - '/^blacklist firewire-core/'
+    - '/.*:install firewire-core \/bin\/true/'
+    - '/.*:blacklist firewire-core/'
     meta:
       Cat: 2
       CCI: CCI-000381

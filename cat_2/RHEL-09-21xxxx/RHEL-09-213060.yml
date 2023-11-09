@@ -9,9 +9,10 @@ command:
       or:
       - 0
       - 1
+      - 2
     stdout:
-    - '/^install sctp \/bin\/false/'
-    - '/^blacklist sctp/'
+    - '/.*:install sctp \/bin\/false/'
+    - '/.*:blacklist sctp/'
     meta:
       Cat: 2
       CCI: CCI-000381

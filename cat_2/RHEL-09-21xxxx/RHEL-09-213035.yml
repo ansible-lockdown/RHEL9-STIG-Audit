@@ -3,7 +3,7 @@
 {{ if .Vars.rhel_09_213035 }}
 kernel-param:
   protect_symlinks_live:
-    title: RHEL-09-213035 | Verify RHEL 9 is configured to enable DAC on symlinks.
+    title: RHEL-09-213035 | RHEL 9 must enable kernel parameters to enforce discretionary access control on symlinks.
     name: fs.protected_symlinks
     value: 1
     meta:
@@ -22,7 +22,7 @@ kernel-param:
       Vul_ID: V-257802
 command:
   protect_symlinks_file:
-    title: RHEL-09-213035 | Verify RHEL 9 is configured to enable DAC on symlinks.
+    title: RHEL-09-213035 | RHEL 9 must enable kernel parameters to enforce discretionary access control on symlinks.
     exec: /usr/lib/systemd/systemd-sysctl --cat-config | egrep -v '^(#|;)' | grep -F fs.protected_symlinks | tail -1
     exit-status:
       or:
@@ -30,7 +30,7 @@ command:
       - 1
     stdout:
     - '/^fs.protected_symlinks\s*=\s*1/'
-    - '!/^fs.protected_symlinks\s*=\s*(?!1)\d*/'
+    - '!/^fs.protected_symlinks\s*=\s*[^1]\d*/'
     meta:
       Cat: 2
       CCI:

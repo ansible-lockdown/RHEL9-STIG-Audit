@@ -24,7 +24,7 @@ command:
       - 1
     stdout:
     - '/^kernel.core_pattern\s*=\s*\|/bin/false/'
-    - '!/^kernel.core_pattern\s*=\s*|/bin/true/'
+    - '!/^kernel.core_pattern\s*=\s*\|/bin/true/'
     meta:
       Cat: 2
       CCI: CCI-000366

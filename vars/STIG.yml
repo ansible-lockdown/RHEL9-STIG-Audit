@@ -1,5 +1,6 @@
 ## metadata for Audit benchmark
-benchmark_version: '1.1'
+benchmark_version: '1.1.0'
+benchmark: RHEL9-STIG
 
 # set to redhat/rocky/alma
 rhel9stig_os_distribution: redhat
@@ -130,7 +131,6 @@ rhel9stig_grub_superuser: root
 MIN_UID: 1000
 MAX_UID: 65000
 
-rhel9stig_banner_file: /etc/issue
 rhel9stig_logon_banner:
   - You are accessing a U.S. Government (USG) Information System (IS) that is provided for USG-authorized use only.
   - By using this IS (which includes any device attached to this IS), you consent to the following conditions

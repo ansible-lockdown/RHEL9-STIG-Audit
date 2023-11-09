@@ -3,7 +3,7 @@
 {{ if .Vars.rhel_09_213115 }}
 service:
   kdump:
-    title: RHEL-09-0213115 | The kdump service on RHEL 9 must be disabled. | Stopped and disabled
+    title: RHEL-09-213115 | The kdump service on RHEL 9 must be disabled. | Stopped and disabled
     name: kdump
     running: false
     enabled: false
@@ -17,10 +17,11 @@ service:
       Vul_ID: V-257818
 file:
   kump_masked:
-    title: RHEL-09-0213115 | The kdump service on RHEL 9 must be disabled. | Stopped and disabled | Masked
+    title: RHEL-09-213115 | The kdump service on RHEL 9 must be disabled. | Stopped and disabled | Masked
+    exists: true
     filetype: symlink
     linked-to: /dev/null
-    path: etc/systemd/system/kdump.service
+    path: /etc/systemd/system/kdump.service
     meta:
       Cat: 2
       CCI: CCI-000366
