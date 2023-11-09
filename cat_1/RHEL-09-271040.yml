@@ -1,6 +1,7 @@
 ---
 
 {{ if .Vars.rhel_09_271040 }}
+  {{ if .Vars.rhel9stig_gui }}
 file:
   autologon_graphic_interface:
     title: RHEL-09-271040 | RHEL 9 must not allow unattended or automatic logon via the graphical user interface.
@@ -17,4 +18,5 @@ file:
       Rule_ID: SV-258018r926041_rule
       STIG_ID: RHEL-09-271040
       Vul_ID: V-258018
+  {{ end }}
 {{ end }}

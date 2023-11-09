@@ -122,8 +122,13 @@ rhel_09_214030: true
 
 # Cat 3 controls
 
+
+
+####
+
 # Variables
 
+# Bootloader Settings
 rhel9stig_password_hash: grub.pbkdf2.sha512.changeme
 rhel9stig_grub_superuser: root
 
