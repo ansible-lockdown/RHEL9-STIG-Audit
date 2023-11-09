@@ -3,7 +3,7 @@
 {{ if .Vars.rhel_09_213030 }}
 kernel-param:
   protect_hardlinks_live:
-    title: RHEL-09-213030 | Verify RHEL 9 is configured to enable DAC on hardlinks.
+    title: RHEL-09-213030 | RHEL 9 must enable kernel parameters to enforce discretionary access control on hardlinks.
     name: fs.protected_hardlinks
     value: 1
     meta:
@@ -22,7 +22,7 @@ kernel-param:
       Vul_ID: V-257801
 command:
   protect_hardlinks_file:
-    title: RHEL-09-213030 | Verify RHEL 9 is configured to enable DAC on hardlinks.
+    title: RHEL-09-213030 | RHEL 9 must enable kernel parameters to enforce discretionary access control on hardlinks.
     exec: /usr/lib/systemd/systemd-sysctl --cat-config | egrep -v '^(#|;)' | grep -F fs.protected_hardlinks | tail -1
     exit-status:
       or:
