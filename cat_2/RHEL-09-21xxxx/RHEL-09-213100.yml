@@ -2,7 +2,7 @@
 
 {{ if .Vars.rhel_09_213100 }}
 service:
-  debug-shell:
+  coredump_socket:
     title: RHEL-09-0213100 | RHEL 9 must disable acquiring, saving, and processing core dumps. | Stopped and disabled
     name: systemd-coredump.socket
     running: false
@@ -16,7 +16,7 @@ service:
       STIG_ID: RHEL-09-0213100
       Vul_ID: V-257815
 file:
-  debug_shell_masked:
+  coredump_socket_masked:
     title: RHEL-09-0213100 | RHEL 9 must disable acquiring, saving, and processing core dumps. | Masked
     filetype: symlink
     linked-to: /dev/null

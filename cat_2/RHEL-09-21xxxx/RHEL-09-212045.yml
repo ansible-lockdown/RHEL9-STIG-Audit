@@ -10,7 +10,7 @@ command:
       - 0
       - 1
     stdout:
-    - '!/.*/'
+    - '!/.*slub_debug/'
     meta:
       Cat: 2
       CCI:

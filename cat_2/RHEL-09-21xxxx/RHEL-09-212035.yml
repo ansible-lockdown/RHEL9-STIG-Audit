@@ -10,7 +10,7 @@ command:
       - 0
       - 1
     stdout:
-    - '!/.*/'
+    - '!/.*vsyscall=none/'
     meta:
       Cat: 2
       CCI:

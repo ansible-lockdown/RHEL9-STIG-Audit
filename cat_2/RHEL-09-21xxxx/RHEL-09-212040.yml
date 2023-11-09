@@ -10,7 +10,7 @@ command:
       - 0
       - 1
     stdout:
-    - '!/.*/'
+    - '!/.*page_poison/'
     meta:
       Cat: 2
       CCI:
