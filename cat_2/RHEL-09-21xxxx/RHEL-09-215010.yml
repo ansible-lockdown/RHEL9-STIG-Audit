@@ -1,0 +1,19 @@
+---
+
+{{ if .Vars.rhel_09_215010 }}
+  {{ if eq .Vars.rhel9stig_os_distribution "redhat"}}
+package:
+  subscription-manager:
+    title: RHEL-09-215010 | RHEL 9 subscription-manager package must be installed.
+    name: subscription-manager
+    installed: true
+    meta:
+      Cat: 2
+      CCI: CCI-001749
+      Group_Title: SRG-OS-000366-GPOS-00153
+      NIST800-53R4: CM-5
+      Rule_ID: SV-257825r925462_rule
+      STIG_ID: RHEL-09-215010
+      Vul_ID: V-257825
+  {{ end }}
+{{ end }}

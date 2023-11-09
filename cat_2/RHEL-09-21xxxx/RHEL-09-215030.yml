@@ -1,0 +1,19 @@
+---
+
+{{ if .Vars.rhel_09_215030 }}
+  {{ if not .Vars.rhel9stig_ypserv_required }}
+package:
+  ypserv:
+    title: RHEL-09-215030 | RHEL 9 must not have the ypserv package installed.
+    name: ypserv
+    installed: false
+    meta:
+      Cat: 2
+      CCI: CCI-000381
+      Group_Title: SRG-OS-000095-GPOS-00049
+      NIST800-53R4: CM-7
+      Rule_ID: SV-257829r925474_rule
+      STIG_ID: RHEL-09-215030
+      Vul_ID: V-257829
+  {{ end }}
+{{ end }}

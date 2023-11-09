@@ -1,0 +1,25 @@
+---
+
+{{ if .Vars.rhel_09_215055 }}
+  {{ if not .Vars.rhel9stig_tuned_required }}
+package:
+  tuned:
+    title: RHEL-09-215055 | RHEL 9 must not have the tuned package installed.
+    name: tuned
+    installed: false
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000366
+      - CCI-000381
+      Group_Title:
+      - SRG-OS-000095-GPOS-00049
+      - SRG-OS-000480-GPOS-00227
+      NIST800-53R4:
+      - CM-6
+      - CM-7
+      Rule_ID: SV-257833r925486_rule
+      STIG_ID: RHEL-09-215055
+      Vul_ID: V-257833
+  {{ end }}
+{{ end }}

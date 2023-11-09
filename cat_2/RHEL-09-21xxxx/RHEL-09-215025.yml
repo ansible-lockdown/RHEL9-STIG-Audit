@@ -1,0 +1,19 @@
+---
+
+{{ if .Vars.rhel_09_215025 }}
+  {{ if not .Vars.rhel9stig_nfs_utils_required }}
+package:
+  nfs-utils:
+    title: RHEL-09-215025 | RHEL 9 must not have the nfs-utils package installed.
+    name: nfs-utils
+    installed: false
+    meta:
+      Cat: 2
+      CCI: CCI-000381
+      Group_Title: SRG-OS-000095-GPOS-00049
+      NIST800-53R4: CM-7
+      Rule_ID: SV-257828r925471_rule
+      STIG_ID: RHEL-09-215025
+      Vul_ID: V-257828
+  {{ end }}
+{{ end }}

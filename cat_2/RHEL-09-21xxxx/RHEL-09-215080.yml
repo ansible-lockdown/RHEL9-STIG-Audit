@@ -1,0 +1,17 @@
+---
+
+{{ if .Vars.rhel_09_215080 }}
+package:
+  gnutls:
+    title: RHEL-09-215080 | RHEL 9 must have the gnutls-utils package installed.
+    name: gnutls-utils
+    installed: true
+    meta:
+      Cat: 2
+      CCI: CCI-000366
+      Group_Title: SRG-OS-000480-GPOS-00227
+      NIST800-53R4: CM-6
+      Rule_ID: SV-257839r925504_rule
+      STIG_ID: RHEL-09-215080
+      Vul_ID: V-257839
+{{ end }}

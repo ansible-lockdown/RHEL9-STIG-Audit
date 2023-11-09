@@ -1,0 +1,25 @@
+---
+
+{{ if .Vars.rhel_09_215020 }}
+  {{ if not .Vars.rhel9stig_sendmail_required }}
+package:
+  sendmail:
+    title: RHEL-09-215020 | RHEL 9 must not have the sendmail package installed.
+    name: sendmail
+    installed: false
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000366
+      - CCI-000381
+      Group_Title:
+      - SRG-OS-000480-GPOS-00227
+      - SRG-OS-000095-GPOS-00049
+      NIST800-53R4:
+      - CM-6
+      - CM-7
+      Rule_ID: SV-257827r925468_rule
+      STIG_ID: RHEL-09-215020
+      Vul_ID: V-257827
+  {{ end }}
+{{ end }}

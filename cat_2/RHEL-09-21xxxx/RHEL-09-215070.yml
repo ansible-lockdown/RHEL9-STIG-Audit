@@ -1,0 +1,24 @@
+---
+
+{{ if .Vars.rhel_09_215070 }}
+  {{ if not .Vars.rhel9stig_gui}}
+command:
+  gnome_removed:
+    title: RHEL-09-215070 | A graphical display manager must not be installed on RHEL 9 unless approved.
+    exec: dnf list --installed "xorg*common"
+    exit-status:
+      or:
+      - 0
+      - 1
+    stdout:
+    - '!/.*/'
+    meta:
+      Cat: 2
+      CCI: CCI-000366
+      Group_Title: SRG-OS-000480-GPOS-00227
+      NIST800-53R4: CM-6
+      Rule_ID: SV-257837r925498_rule
+      STIG_ID: RHEL-09-215070
+      Vul_ID: V-257837
+  {{ end }}
+{{ end }}
