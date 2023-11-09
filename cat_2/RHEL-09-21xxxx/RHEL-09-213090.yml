@@ -3,12 +3,12 @@
 {{ if .Vars.rhel_09_213090 }}
 file:
   storage_coredump:
-    title: RHEL-09-213090 | RHEL 9 must disable core dump backtraces.
+    title: RHEL-09-213090 | RHEL 9 must disable storing core dumps.
     path: /etc/systemd/coredump.conf
     exists: true
     contents:
     - '/^Storage\s*=\s*none/'
-    - '/^Storage\s*=\s*([^n]one|n[^o]ne|no[^n]e|non[^e]).*/'
+    - '!/^Storage\s*=\s*([^n]one|n[^o]ne|no[^n]e|non[^e]).*/'
     meta:
       Cat: 2
       CCI: CCI-000366
