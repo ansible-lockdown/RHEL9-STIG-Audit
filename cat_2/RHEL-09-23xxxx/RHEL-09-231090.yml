@@ -1,0 +1,20 @@
+---
+
+{{ if .Vars.rhel_09_231090 }}
+command:
+  removable_nosuid:
+    title: RHEL-09-231090 | RHEL 9 must prevent files with the setuid and setgid bit set from being executed on file systems that are used with removable media.
+    exec: grep "0" /sys/block/*/removable | wc -l
+    exit-status: 0
+    stdout:
+    - '0'
+    - '!/[1-9]/'
+    meta:
+      Cat: 2
+      CCI: CCI-000366
+      Group_Title: SRG-OS-000480-GPOS-00227
+      NIST800-53R4: CM-6
+      Rule_ID: SV-257859r925564_rule
+      STIG_ID: RHEL-09-231085
+      Vul_ID: V-257859
+{{ end }}

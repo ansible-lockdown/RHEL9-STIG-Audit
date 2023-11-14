@@ -1,0 +1,19 @@
+---
+
+{{ if .Vars.rhel_09_231145 }}
+mount:
+  var__log_mount_nodev:
+    title: RHEL-09-231145 | RHEL 9 must mount /var/log with the nodev option.
+    exists: true
+    mountpoint: /var/log
+    opts:
+    - nodev
+    meta:
+      Cat: 2
+      CCI: CCI-001764
+      Group_Title: SRG-OS-000368-GPOS-00154
+      NIST800-53R4: CM-7
+      Rule_ID: SV-257870r925597_rule
+      STIG_ID: RHEL-09-231145
+      Vul_ID: V-257870
+{{ end }}

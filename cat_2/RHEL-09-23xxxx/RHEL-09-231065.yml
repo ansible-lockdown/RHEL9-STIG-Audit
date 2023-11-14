@@ -1,0 +1,22 @@
+---
+
+{{ if .Vars.rhel_09_231065 }}
+command:
+  nfs_nodev:
+    title: RHEL-09-231065 | RHEL 9 must prevent special devices on file systems that are imported via Network File System (NFS).
+    exec: cat /etc/fstab | grep nfs
+    exit-status:
+      or:
+      - 0
+      - 1
+    stdout:
+    - '/.*nodev.*/'
+    meta:
+      Cat: 2
+      CCI: CCI-000366
+      Group_Title: SRG-OS-000480-GPOS-00227
+      NIST800-53R4: CM-6
+      Rule_ID: SV-257854r925546_rule
+      STIG_ID: RHEL-09-231065
+      Vul_ID: V-257854
+{{ end }}

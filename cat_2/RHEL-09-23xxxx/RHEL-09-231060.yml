@@ -1,0 +1,23 @@
+---
+
+{{ if .Vars.rhel_09_231060 }}
+command:
+  nfs_sec:
+    title: RHEL-09-231060 | RHEL 9 must be configured so that the Network File System (NFS) is configured to use RPCSEC_GSS.
+    exec: cat /etc/fstab | grep nfs
+    exit-status:
+      or:
+      - 0
+      - 1
+    stdout:
+    - '/.*sec=krb5p:krb5i:krb5/'
+    - '!/.*sec=.*sys/'
+    meta:
+      Cat: 2
+      CCI: CCI-000366
+      Group_Title: SRG-OS-000480-GPOS-00227
+      NIST800-53R4: CM-6
+      Rule_ID: SV-257853r925543_rule
+      STIG_ID: RHEL-09-231060
+      Vul_ID: V-257853
+{{ end }}

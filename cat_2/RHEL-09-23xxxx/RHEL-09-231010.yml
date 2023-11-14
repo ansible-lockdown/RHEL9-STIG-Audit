@@ -1,0 +1,17 @@
+---
+
+{{ if .Vars.rhel_09_231010 }}
+mount:
+  homedir_exists:
+    title: RHEL-09-231010 | A separate RHEL 9 file system must be used for user home directories (such as /home or an equivalent).
+    mountpoint: {{ .Vars.rhel9stig_home_filesystem }}
+    exists: true
+    meta:
+      Cat: 2
+      CCI: CCI-000366
+      Group_Title: SRG-OS-000480-GPOS-00227
+      NIST800-53R4: CM-6
+      Rule_ID: SV-257843r925516_rule
+      STIG_ID: RHEL-09-231010
+      Vul_ID: V-257843
+{{ end }}

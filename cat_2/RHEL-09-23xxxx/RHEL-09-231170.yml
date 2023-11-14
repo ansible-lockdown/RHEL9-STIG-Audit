@@ -1,0 +1,19 @@
+---
+
+{{ if .Vars.rhel_09_231170 }}
+mount:
+  var_log_audit_mount_nosuid:
+    title: RHEL-09-231170 | RHEL 9 must mount /var/log/audit with the nosuid option.
+    exists: true
+    mountpoint: /var/log/audit
+    opts:
+    - nosuid
+    meta:
+      Cat: 2
+      CCI: CCI-001764
+      Group_Title: SRG-OS-000368-GPOS-00154
+      NIST800-53R4: CM-7
+      Rule_ID: SV-257875r925612_rule
+      STIG_ID: RHEL-09-231170
+      Vul_ID: V-257875
+{{ end }}

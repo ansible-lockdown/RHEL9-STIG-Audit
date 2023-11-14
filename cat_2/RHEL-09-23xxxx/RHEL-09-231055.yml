@@ -1,0 +1,18 @@
+---
+
+{{ if .Vars.rhel_09_231055 }}
+mount:
+  home_noexec:
+    title: RHEL-09-231055 | RHEL 9 must prevent code from being executed on file systems that contain user home directories.
+    opts:
+     - noexec
+    exists: true
+    meta:
+      Cat: 2
+      CCI: CCI-000366
+      Group_Title: SRG-OS-000480-GPOS-00227
+      NIST800-53R4: CM-6
+      Rule_ID: SV-257852r925543_rule
+      STIG_ID: RHEL-09-231055
+      Vul_ID: V-257852
+{{ end }}

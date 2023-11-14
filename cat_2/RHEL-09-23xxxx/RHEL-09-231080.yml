@@ -1,0 +1,20 @@
+---
+
+{{ if .Vars.rhel_09_231080 }}
+command:
+  removable_noexec:
+    title: RHEL-09-231080 | RHEL 9 must prevent code from being executed on file systems that are used with removable media.
+    exec: grep "0" /sys/block/*/removable | wc -l
+    exit-status: 0
+    stdout:
+    - '0'
+    - '!/[1-9]/'
+    meta:
+      Cat: 2
+      CCI: CCI-000366
+      Group_Title: SRG-OS-000480-GPOS-00227
+      NIST800-53R4: CM-6
+      Rule_ID: SV-257857r925558_rule
+      STIG_ID: RHEL-09-231080
+      Vul_ID: V-257857
+{{ end }}

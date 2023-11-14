@@ -1,0 +1,22 @@
+---
+
+{{ if .Vars.rhel_09_231115 }}
+command:
+  nodev_de_shm:
+    title: RHEL-09-231115 | RHEL 9 must mount /dev/shm with the noexec option.
+    exec: mount | grep '\s/dev/shm\s' | grep noexec
+    exit-status:
+      or:
+      - 0
+      - 1
+    stdout:
+    - '/.*dev\/shm type.*noexec.*)/'
+    meta:
+      Cat: 2
+      CCI: CCI-001764
+      Group_Title: SRG-OS-000368-GPOS-00154
+      NIST800-53R4: CM-7
+      Rule_ID: SV-257864r925579_rule
+      STIG_ID: RHEL-09-231115
+      Vul_ID: V-257864
+{{ end }}

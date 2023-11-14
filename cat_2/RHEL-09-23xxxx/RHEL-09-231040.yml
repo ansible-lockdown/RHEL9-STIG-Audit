@@ -1,0 +1,49 @@
+---
+
+{{ if .Vars.rhel_09_231040 }}
+service:
+  autofs_notrunning:
+    title: RHEL-09-231040 | RHEL 9 file system automount function must be disabled unless required.
+    name: autofs.service
+    enabled: false
+    running: false
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000366
+      - CCI-000778
+      - CCI-001958
+      Group_Title:
+      - SRG-OS-000114-GPOS-00059
+      - SRG-OS-000378-GPOS-00163
+      - SRG-OS-000480-GPOS-00227
+      NIST800-53R4:
+      - CM-6
+      - IA-5
+      Rule_ID: SV-257849r925534_rule
+      STIG_ID: RHEL-09-231040
+      Vul_ID: V-257849
+file:
+  autofs_masked:
+    title: RHEL-09-231040 | RHEL 9 file system automount function must be disabled unless required.
+    exists: true
+    filetype: symlink
+    linked-to: /dev/null
+    path: /etc/systemd/system/autofs.service
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000366
+      - CCI-000778
+      - CCI-001958
+      Group_Title:
+      - SRG-OS-000114-GPOS-00059
+      - SRG-OS-000378-GPOS-00163
+      - SRG-OS-000480-GPOS-00227
+      NIST800-53R4:
+      - CM-6
+      - IA-5
+      Rule_ID: SV-257849r925534_rule
+      STIG_ID: RHEL-09-231040
+      Vul_ID: V-257849
+{{ end }}

@@ -1,0 +1,19 @@
+---
+
+{{ if .Vars.rhel_09_231165 }}
+mount:
+  var_log_audit_mount_noexec:
+    title: RHEL-09-231165 | RHEL 9 must mount /var/log/audit with the noexec option.
+    exists: true
+    mountpoint: /var/log/audit
+    opts:
+    - noexec
+    meta:
+      Cat: 2
+      CCI: CCI-001764
+      Group_Title: SRG-OS-000368-GPOS-00154
+      NIST800-53R4: CM-7
+      Rule_ID: SV-257874r925609_rule
+      STIG_ID: RHEL-09-231165
+      Vul_ID: V-257874
+{{ end }}
