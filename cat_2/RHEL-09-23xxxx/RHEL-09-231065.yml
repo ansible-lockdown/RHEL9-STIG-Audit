@@ -1,6 +1,7 @@
 ---
 
 {{ if .Vars.rhel_09_231065 }}
+  {{ if .Vars.rhel9stig_nfs_utils_required }}
 command:
   nfs_nodev:
     title: RHEL-09-231065 | RHEL 9 must prevent special devices on file systems that are imported via Network File System (NFS).
@@ -19,4 +20,5 @@ command:
       Rule_ID: SV-257854r925546_rule
       STIG_ID: RHEL-09-231065
       Vul_ID: V-257854
+  {{ end }}
 {{ end }}

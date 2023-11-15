@@ -2,7 +2,7 @@
 
 {{ if .Vars.rhel_09_231120 }}
 command:
-  nodev_de_shm:
+  nosuid_dev_shm:
     title: RHEL-09-231120 | RHEL 9 must mount /dev/shm with the nosuid option.
     exec: mount | grep '\s/dev/shm\s' | grep nosuid
     exit-status:
@@ -10,7 +10,7 @@ command:
       - 0
       - 1
     stdout:
-    - '/.*dev\/shm type.*nosuid.*)/'
+    - '/.*dev\/shm type.*nosuid.*/'
     meta:
       Cat: 2
       CCI: CCI-001764

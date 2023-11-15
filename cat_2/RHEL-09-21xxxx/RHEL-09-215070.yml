@@ -5,7 +5,7 @@
 command:
   gnome_removed:
     title: RHEL-09-215070 | A graphical display manager must not be installed on RHEL 9 unless approved.
-    exec: dnf list --installed "xorg*common"
+    exec: rpm -qa | grep xorg*
     exit-status:
       or:
       - 0

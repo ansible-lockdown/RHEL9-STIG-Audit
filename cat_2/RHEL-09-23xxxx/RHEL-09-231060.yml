@@ -1,6 +1,7 @@
 ---
 
 {{ if .Vars.rhel_09_231060 }}
+  {{ if .Vars.rhel9stig_nfs_utils_required }}
 command:
   nfs_sec:
     title: RHEL-09-231060 | RHEL 9 must be configured so that the Network File System (NFS) is configured to use RPCSEC_GSS.
@@ -20,4 +21,5 @@ command:
       Rule_ID: SV-257853r925543_rule
       STIG_ID: RHEL-09-231060
       Vul_ID: V-257853
+  {{ end }}
 {{ end }}

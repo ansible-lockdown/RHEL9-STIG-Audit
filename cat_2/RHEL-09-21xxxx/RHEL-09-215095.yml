@@ -4,7 +4,7 @@
 package:
   s-nail:
     title: RHEL-09-215095 | RHEL 9 must have the s-nail package installed.
-    name: mailx
+    name: s-nail
     installed: true
     meta:
       Cat: 2

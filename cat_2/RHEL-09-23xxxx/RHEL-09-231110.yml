@@ -2,7 +2,7 @@
 
 {{ if .Vars.rhel_09_231110 }}
 command:
-  nodev_de_shm:
+  nodev_dev_shm:
     title: RHEL-09-231110 | RHEL 9 must mount /dev/shm with the nodev option.
     exec: mount | grep '\s/dev/shm\s' | grep nodev
     exit-status:
@@ -10,7 +10,7 @@ command:
       - 0
       - 1
     stdout:
-    - '/.*dev\/shm type.*nodev.*)/'
+    - '/.*dev\/shm type.*nodev.*/'
     meta:
       Cat: 2
       CCI: CCI-001764

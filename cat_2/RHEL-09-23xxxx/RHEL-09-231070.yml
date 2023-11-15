@@ -1,6 +1,7 @@
 ---
 
 {{ if .Vars.rhel_09_231070 }}
+  {{ if .Vars.rhel9stig_nfs_utils_required }}
 command:
   nfs_noexec:
     title: RHEL-09-231070 | RHEL 9  must prevent code from being executed on file systems that are imported via Network File System (NFS).
@@ -19,4 +20,5 @@ command:
       Rule_ID: SV-257855r925552_rule
       STIG_ID: RHEL-09-231070
       Vul_ID: V-257855
+  {{ end }}
 {{ end }}

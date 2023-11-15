@@ -4,7 +4,7 @@
 command:
   removable_noexec:
     title: RHEL-09-231080 | RHEL 9 must prevent code from being executed on file systems that are used with removable media.
-    exec: grep "0" /sys/block/*/removable | wc -l
+    exec: grep "1" /sys/block/*/removable | wc -l
     exit-status: 0
     stdout:
     - '0'
