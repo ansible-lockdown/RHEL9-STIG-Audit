@@ -42,9 +42,6 @@ rhel9stig_cat3: true
 run_heavy_tests: true
 timeout_ms: 120000
 
-# To be set if not running via run_audit.sh script
-os_release: 8.5  # This is also set and overridden by the run_audit script.
-
 # If using the supplied graphical interface
 rhel9stig_gui: false
 
@@ -168,10 +165,55 @@ rhel_09_231170: true
 rhel_09_231175: true
 rhel_09_231180: true
 rhel_09_231185: true
+rhel_09_231200: true
+rhel_09_232010: true
+rhel_09_232015: true
+rhel_09_232020: true
+rhel_09_232025: true
+rhel_09_232030: true
+rhel_09_232035: true
+rhel_09_232040: true
+rhel_09_232045: true
+rhel_09_232050: true
+rhel_09_232055: true
+rhel_09_232060: true
+rhel_09_232065: true
+rhel_09_232070: true
+rhel_09_232075: true
+rhel_09_232080: true
+rhel_09_232085: true
+rhel_09_232090: true
+rhel_09_232095: true
+rhel_09_232100: true
+rhel_09_232105: true
+rhel_09_232110: true
+rhel_09_232115: true
+rhel_09_232120: true
+rhel_09_232125: true
+rhel_09_232130: true
+rhel_09_232135: true
+rhel_09_232140: true
+rhel_09_232145: true
+rhel_09_232150: true
+rhel_09_232155: true
+rhel_09_232160: true
+rhel_09_232165: true
+rhel_09_232170: true
+rhel_09_232175: true
+rhel_09_232180: true
+rhel_09_232185: true
+rhel_09_232190: true
+rhel_09_232195: true
+rhel_09_232200: true
+rhel_09_232205: true
+rhel_09_232210: true
+rhel_09_232215: true
+rhel_09_232220: true
+rhel_09_232225: true
+rhel_09_232230: true
+rhel_09_232235: true
 
 # Cat 3 controls
-
-
 
 ####
 
@@ -214,4 +256,4 @@ rhel9stig_av_pkg: 'mcafeetp'
 rhel9stig_av_service: 'mfetpd'
 
 # Filesystem and mount options
-rhel9stig_home_filesystem: {{ rhel9stig_home_filesystem }}
+rhel9stig_home_filesystem: /home
