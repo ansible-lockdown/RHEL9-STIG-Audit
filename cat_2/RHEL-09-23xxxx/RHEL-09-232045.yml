@@ -1,0 +1,19 @@
+---
+
+{{ if .Vars.rhel_09_232045 }}
+command:
+  user_initiate_files:
+    title: RHEL-09-232045 | All RHEL 9 local initialization files must have mode 0740 or less permissive.
+    exec: find /home/ -name "\.*" -perm /g+wx,o+wx
+    exit-status: 0
+    stdout:
+    - '!/.*/'
+    meta:
+      Cat: 2
+      CCI: CCI-000366
+      Group_Title: SRG-OS-000480-GPOS-00227
+      NIST800-53R4: CM-6
+      Rule_ID: SV-257890r925657_rule
+      STIG_ID: RHEL-09-232045
+      Vul_ID: V-257890
+{{ end }}

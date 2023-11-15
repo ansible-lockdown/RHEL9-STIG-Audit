@@ -1,0 +1,22 @@
+---
+
+{{ if .Vars.rhel_09_232020 }}
+command:
+  lib_file_perms:
+    title: RHEL-09-232020 | RHEL 9 library files must have mode 755 or less permissive.
+    exec: find -L /lib /lib64 /usr/lib /usr/lib64 -perm /022 -type f -exec ls -l {} \; | awk '{ print "Permissions Incorrect on " $NF}'
+    exit-status:
+      or:
+      - 0
+      - 1
+    stdout:
+    - '!/Permissions Incorrect.*/'
+    meta:
+      Cat: 2
+      CCI: CCI-001499
+      Group_Title: SRG-OS-000259-GPOS-00100
+      NIST800-53R4: CM-6
+      Rule_ID: SV-257884r925639_rule
+      STIG_ID: RHEL-09-232020
+      Vul_ID: V-257884
+{{ end }}

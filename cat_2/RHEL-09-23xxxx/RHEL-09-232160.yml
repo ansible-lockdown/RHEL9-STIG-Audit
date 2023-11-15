@@ -1,0 +1,18 @@
+---
+
+{{ if .Vars.rhel_09_232160 }}
+file:
+  etc_shadow-_owner:
+    title: RHEL-09-232160 | RHEL 9 /etc/shadow- file must be owned by root.
+    path: /etc/shadow-
+    exists: true
+    owner: root
+    meta:
+      Cat: 2
+      CCI: CCI-000366
+      Group_Title: SRG-OS-000480-GPOS-00227
+      NIST800-53R4: CM-6
+      Rule_ID: SV-257912r925723_rule
+      STIG_ID: RHEL-09-232160
+      Vul_ID: V-257912
+{{ end }}

@@ -1,0 +1,18 @@
+---
+
+{{ if .Vars.rhel_09_232145 }}
+file:
+  etc_passwd-_group:
+    title: RHEL-09-232145 | RHEL 9 /etc/passwd- file must be group-owned by root.
+    path: /etc/passwd-
+    exists: true
+    group: root
+    meta:
+      Cat: 2
+      CCI: CCI-000366
+      Group_Title: SRG-OS-000480-GPOS-00227
+      NIST800-53R4: CM-6
+      Rule_ID: SV-257909r925714_rule
+      STIG_ID: RHEL-09-232145
+      Vul_ID: V-257909
+{{ end }}

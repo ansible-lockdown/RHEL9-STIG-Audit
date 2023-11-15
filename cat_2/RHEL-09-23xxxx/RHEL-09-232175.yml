@@ -1,0 +1,19 @@
+---
+
+{{ if .Vars.rhel_09_232175 }}
+file:
+  var_log_group:
+    title: RHEL-09-232175 | RHEL 9 /var/log directory must be group-owned by root.
+    filetype: directory
+    path: /var/log
+    exists: true
+    group: root
+    meta:
+      Cat: 2
+      CCI: CCI-000366
+      Group_Title: SRG-OS-000480-GPOS-00227
+      NIST800-53R4: CM-6
+      Rule_ID: SV-257915r925732_rule
+      STIG_ID: RHEL-09-232170
+      Vul_ID: V-257915
+{{ end }}

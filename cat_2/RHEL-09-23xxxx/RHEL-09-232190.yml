@@ -1,0 +1,23 @@
+---
+
+{{ if .Vars.rhel_09_232190 }}
+command:
+  sys_cmds_owner:
+    title: RHEL-09-232190 | RHEL 9 system commands must be owned by root.
+    timeout: {{ .Vars.timeout_ms }}
+    exec: find -L /bin /sbin /usr/bin /usr/sbin /usr/libexec /usr/local/bin /usr/local/sbin ! -user root -exec ls {} \;
+    exit-status:
+      or:
+      - 0
+      - 1
+    stdout:
+      - '!/.*/'
+    meta:
+      Cat: 2
+      CCI: CCI-000366
+      Group_Title: SRG-OS-000480-GPOS-00227
+      NIST800-53R4: CM-6
+      Rule_ID: SV-257918r925741_rule
+      STIG_ID: RHEL-09-232190
+      Vul_ID: V-257918
+{{ end }}

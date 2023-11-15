@@ -1,0 +1,18 @@
+---
+
+{{ if .Vars.rhel_09_232065 }}
+file:
+  etc_gshadow_perms:
+    title: RHEL-09-232065 | RHEL 9 /etc/gshadow file must have mode 0000 or less permissive to prevent unauthorized access.
+    path: /etc/gshadow
+    exists: true
+    mode: '0000'
+    meta:
+      Cat: 2
+      CCI: CCI-000366
+      Group_Title: SRG-OS-000480-GPOS-00227
+      NIST800-53R4: CM-6
+      Rule_ID: SV-257893r925667_rule
+      STIG_ID: RHEL-09-232065
+      Vul_ID: V-257893
+{{ end }}

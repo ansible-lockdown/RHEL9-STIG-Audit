@@ -1,0 +1,18 @@
+---
+
+{{ if .Vars.rhel_09_232105 }}
+file:
+  etc_group-_group:
+    title: RHEL-09-232105 | RHEL 9 /etc/group- file must be group-owned by root.
+    path: /etc/group-
+    exists: true
+    group: root
+    meta:
+      Cat: 2
+      CCI: CCI-000366
+      Group_Title: SRG-OS-000480-GPOS-00227
+      NIST800-53R4: CM-6
+      Rule_ID: SV-257901r925690_rule
+      STIG_ID: RHEL-09-232105
+      Vul_ID: V-257901
+{{ end }}

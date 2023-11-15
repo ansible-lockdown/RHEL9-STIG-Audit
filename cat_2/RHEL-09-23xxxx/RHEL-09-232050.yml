@@ -1,0 +1,19 @@
+---
+
+{{ if .Vars.rhel_09_232050 }}
+command:
+  home_dirs_perms:
+    title: RHEL-09-232050 | All RHEL 9 local interactive user home directories must have mode 0750 or less permissive.
+    exec: "stat -c \"%a %n\" $(awk -F: '($3>=1000)&&($7 !~ /nologin/){print $6}' /etc/passwd) | awk '$1>750'"
+    exit-status: 0
+    stdout:
+    - '!/.*/'
+    meta:
+      Cat: 2
+      CCI: CCI-000366
+      Group_Title: SRG-OS-000480-GPOS-00227
+      NIST800-53R4: CM-6
+      Rule_ID: SV-257889r925654_rule
+      STIG_ID: RHEL-09-232050
+      Vul_ID: V-257889
+{{ end }}

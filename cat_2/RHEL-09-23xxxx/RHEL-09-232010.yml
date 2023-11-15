@@ -1,0 +1,22 @@
+---
+
+{{ if .Vars.rhel_09_232010 }}
+command:
+  sys_commands_perms:
+    title: RHEL-09-232010 | RHEL 9 system commands must have mode 755 or less permissive.
+    exec: find -L /bin /sbin /usr/bin /usr/sbin /usr/libexec /usr/local/bin /usr/local/sbin -perm /022 -type f -exec ls -l {} \; | awk '{ print "Permissions Incorrect on " $NF }'
+    exit-status:
+      or:
+      - 0
+      - 1
+    stdout:
+    - '!/Permissions Incorrect.*/'
+    meta:
+      Cat: 2
+      CCI: CCI-001499
+      Group_Title: SRG-OS-000259-GPOS-00100
+      NIST800-53R4: CM-6
+      Rule_ID: SV-257882r925633_rule
+      STIG_ID: RHEL-09-232010
+      Vul_ID: V-257882
+{{ end }}

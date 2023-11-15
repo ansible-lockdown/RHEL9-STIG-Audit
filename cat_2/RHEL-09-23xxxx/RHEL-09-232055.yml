@@ -1,0 +1,22 @@
+---
+
+{{ if .Vars.rhel_09_232055 }}
+file:
+  etc_group_perms:
+    title: RHEL-09-232055 | RHEL 9 /etc/group file must have mode 0644 or less permissive to prevent unauthorized access.
+    path: /etc/group
+    exists: true
+    mode:
+      or:
+      - '0644'
+      - '0640'
+      - '0600'
+    meta:
+      Cat: 2
+      CCI: CCI-000366
+      Group_Title: SRG-OS-000480-GPOS-00227
+      NIST800-53R4: CM-6
+      Rule_ID: SV-257891r925660_rule
+      STIG_ID: RHEL-09-232055
+      Vul_ID: V-257891
+{{ end }}

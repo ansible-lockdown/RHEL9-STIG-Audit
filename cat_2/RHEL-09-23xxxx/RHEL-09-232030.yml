@@ -1,0 +1,23 @@
+---
+
+{{ if .Vars.rhel_09_232030 }}
+file:
+  var_log_msgs_perms:
+    title: RHEL-09-232030 | RHEL 9 /var/log/messages file must have mode 0640 or less permissive.
+    exists: true
+    filetype: file
+    mode:
+      or:
+      - '0640'
+      - '0600'
+      - '0400'
+    path: /var/log/messages
+    meta:
+      Cat: 2
+      CCI: CCI-001314
+      Group_Title: SRG-OS-000206-GPOS-00084
+      NIST800-53R4: SI-11
+      Rule_ID: SV-257886r925645_rule
+      STIG_ID: RHEL-09-232030
+      Vul_ID: V-257886
+{{ end }}

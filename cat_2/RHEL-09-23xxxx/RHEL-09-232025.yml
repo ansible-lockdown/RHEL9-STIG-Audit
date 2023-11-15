@@ -1,0 +1,23 @@
+---
+
+{{ if .Vars.rhel_09_232025 }}
+file:
+  var_log_dir_perms:
+    title: RHEL-09-232025 | RHEL 9 /var/log directory must have mode 0755 or less permissive.
+    exists: true
+    filetype: directory
+    mode:
+      or:
+      - '0755'
+      - '0750'
+      - '0700'
+    path: /var/log
+    meta:
+      Cat: 2
+      CCI: CCI-001314
+      Group_Title: SRG-OS-000206-GPOS-00084
+      NIST800-53R4: SI-11
+      Rule_ID: SV-257885r925642_rule
+      STIG_ID: RHEL-09-232025
+      Vul_ID: V-257885
+{{ end }}

@@ -1,0 +1,18 @@
+---
+
+{{ if .Vars.rhel_09_232185 }}
+file:
+  var_log_msgs_group:
+    title: RHEL-09-232185 | RHEL 9 /var/log/messages file must be group-owned by root.
+    path: /var/log/messages
+    exists: true
+    group: root
+    meta:
+      Cat: 2
+      CCI: CCI-000366
+      Group_Title: SRG-OS-000480-GPOS-00227
+      NIST800-53R4: CM-6
+      Rule_ID: SV-257917r925738_rule
+      STIG_ID: RHEL-09-232185
+      Vul_ID: V-257917
+{{ end }}
