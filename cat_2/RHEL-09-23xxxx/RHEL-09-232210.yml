@@ -1,0 +1,19 @@
+---
+
+{{ if .Vars.rhel_09_232210 }}
+command:
+  lib_dirs_root_owned:
+    title: RHEL-09-232210 | RHEL 9 library directories must be owned by root.
+    exec: stat -c "%U" /lib /lib64 /usr/lib /usr/lib64
+    exit-status: 0
+    stdout:
+    - 'root'
+    meta:
+      Cat: 2
+      CCI: CCI-001499
+      Group_Title: SRG-OS-000259-GPOS-00100
+      NIST800-53R4: CM-5
+      Rule_ID: SV-257922r925753_rule
+      STIG_ID: RHEL-09-232210
+      Vul_ID: V-257922
+{{ end }}

@@ -1,0 +1,19 @@
+---
+
+{{ if .Vars.rhel_09_232235 }}
+command:
+  cron_conf_dirs_group:
+    title: RHEL-09-232235 | RHEL 9 cron configuration files directory must be group-owned by root.
+    exec: stat -c "%G" /etc/cron* | uniq | tr -d '\n'
+    exit-status: 0
+    stdout:
+    - 'root'
+    meta:
+      Cat: 2
+      CCI: CCI-000366
+      Group_Title: SRG-OS-000480-GPOS-00227
+      NIST800-53R4: CM-6
+      Rule_ID: SV-257927r925768_rule
+      STIG_ID: RHEL-09-232235
+      Vul_ID: V-257927
+{{ end }}

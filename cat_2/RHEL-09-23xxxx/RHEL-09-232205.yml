@@ -1,0 +1,23 @@
+---
+
+{{ if .Vars.rhel_09_232205 }}
+command:
+  lib_files_group:
+    title: RHEL-09-232205 | RHEL 9 library files must be group-owned by root or a system account.
+    timeout: {{ .Vars.timeout_ms }}
+    exec: find -L /lib /lib64 /usr/lib /usr/lib64 ! \( -group root -o -group utmp -o -group ssh_keys -o -group tty \) -exec ls {} \;
+    exit-status:
+      or:
+      - 0
+      - 1
+    stdout:
+      - '!/.*/'
+    meta:
+      Cat: 2
+      CCI: CCI-001499
+      Group_Title: SRG-OS-000259-GPOS-00100
+      NIST800-53R4: CM-5
+      Rule_ID: SV-257921r925750_rule
+      STIG_ID: RHEL-09-232205
+      Vul_ID: V-257921
+{{ end }}

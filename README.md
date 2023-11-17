@@ -148,6 +148,50 @@ Total Duration: 0.000s
 Count: 3, Failed: 1, Skipped: 0
 ```
 
+## Helpful
+
+If you want to run locally and se easy putput of failures, the following command helps
+
+```sh
+$ sudo ./run_audit.sh -f documentation
+
+## Pre-Checks Start
+
+OK - Audit binary /usr/local/bin/goss is available
+OK - Goss is installed and version is ok (0.4.4 >= 0.3.40)
+OK - /opt/RHEL9-STIG-Audit/goss.yml is available
+
+## Pre-checks Successful
+
+#############
+Audit Started
+#############
+
+Total Duration: 4.257s
+Count: 326, Failed: 16, Skipped: 2
+Completed file can be found at /opt/audit_rocky9-bios-STIG-RHEL9_1700237280.documentation
+###############
+Audit Completed
+###############
+
+$ awk 'f;/Failures/{f=1}' /opt/audit_rocky9-bios-STIG-RHEL9_1700237280.documentation | grep -w "Title" | cut -d: -f2 | sort
+RHEL-09-211025 | RHEL 9 must implement the Endpoint Security for Linux Threat Prevention tool. | Package
+ RHEL-09-211025 | RHEL 9 must implement the Endpoint Security for Linux Threat Prevention tool. | Service
+ RHEL-09-231090 | RHEL 9 must prevent files with the setuid and setgid bit set from being executed on file systems that are used with removable media.
+ RHEL-09-231105 | RHEL 9 must prevent files with the setuid and setgid bit set from being executed on the /boot/efi directory.
+ RHEL-09-231190 | RHEL 9 local disk partitions must implement cryptographic mechanisms to prevent unauthorized disclosure or modification of all information that requires at rest protection.
+ RHEL-09-231190 | RHEL 9 local disk partitions must implement cryptographic mechanisms to prevent unauthorized disclosure or modification of all information that requires at rest protection. | disks encrypted
+ RHEL-09-232240 | All RHEL 9 world-writable directories must be owned by root, sys, bin, or an application user.
+ RHEL-09-232245 | A sticky bit must be set on all RHEL 9 public directories.
+ RHEL-09-232250 | All RHEL 9 local files and directories must have a valid group owner.
+ RHEL-09-232255 | All RHEL 9 local files and directories must have a valid owner.
+ RHEL-09-232260 | RHEL 9 must be configured so that all system device files are correctly labeled to prevent unauthorized modification.
+ RHEL-09-232265 | RHEL 9 /etc/crontab file must have mode 0600.
+ RHEL-09-232270 | RHEL 9 /etc/crontab file must have mode 0600.
+ RHEL-09-671010 | RHEL 9 must enable FIPS mode.
+
+```
+
 ## further information
 
 - [goss documentation](https://github.com/goss-org/goss/blob/master/docs/manual.md#patterns)

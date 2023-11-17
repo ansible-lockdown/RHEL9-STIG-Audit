@@ -1,0 +1,23 @@
+---
+
+{{ if .Vars.rhel_09_232200 }}
+command:
+  lib_files_owner:
+    title: RHEL-09-232200 | RHEL 9 library files must be owned by root.
+    timeout: {{ .Vars.timeout_ms }}
+    exec: find -L /lib /lib64 /usr/lib /usr/lib64 ! -user root -exec ls {} \;
+    exit-status:
+      or:
+      - 0
+      - 1
+    stdout:
+      - '!/.*/'
+    meta:
+      Cat: 2
+      CCI: CCI-001499
+      Group_Title: SRG-OS-000259-GPOS-00100
+      NIST800-53R4: CM-5
+      Rule_ID: SV-257920r925747_rule
+      STIG_ID: RHEL-09-232200
+      Vul_ID: V-257920
+{{ end }}

@@ -1,0 +1,25 @@
+---
+
+{{ if .Vars.rhel_09_232240 }}
+command:
+  worldwrite_dirs_owned:
+    title: RHEL-09-232240 | All RHEL 9 world-writable directories must be owned by root, sys, bin, or an application user.
+    exec: df --local -P | awk {'if (NR!=1) print $6'} | xargs -I '{}' find '{}' -xdev -type d -perm -0002 -uid +0
+    exit-status: 0
+    stdout:
+    - '!/.*/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000366
+      - CCI-001090
+      Group_Title:
+      - SRG-OS-000480-GPOS-00227
+      - SRG-OS-000138-GPOS-00069
+      NIST800-53R4:
+      - CM-6
+      - SC-4
+      Rule_ID: SV-257928r925771_rule
+      STIG_ID: RHEL-09-232240
+      Vul_ID: V-257928
+{{ end }}

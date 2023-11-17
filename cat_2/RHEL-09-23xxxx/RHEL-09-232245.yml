@@ -1,0 +1,22 @@
+---
+
+{{ if .Vars.rhel_09_232245 }}
+command:
+  stickybit_public_dirs:
+    title: RHEL-09-232245 | A sticky bit must be set on all RHEL 9 public directories.
+    exec: df --local -P | awk {'if (NR!=1) print $6'} | xargs -I '{}' find '{}' -xdev -type d -perm -0002 -a ! -perm -1000 2>/dev/null
+    exit-status: 0
+    stdout:
+    - '!/.*/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-001090
+      Group_Title:
+      - SRG-OS-000138-GPOS-00069
+      NIST800-53R4:
+      - SC-4
+      Rule_ID: SV-257929r925774_rule
+      STIG_ID: RHEL-09-232245
+      Vul_ID: V-257929
+{{ end }}

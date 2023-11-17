@@ -1,0 +1,23 @@
+---
+
+{{ if .Vars.rhel_09_232260 }}
+command:
+  device_files_labelled:
+    title: RHEL-09-232260 | RHEL 9 must be configured so that all system device files are correctly labeled to prevent unauthorized modification.
+    exec: find / -context *:unlabeled_t:* \( -type c -o -type b \) -printf "%p %Z\n"
+    timeout: {{ .Vars.timeout_ms }}
+    exit-status:
+      or:
+      - 0
+      - 1
+    stdout:
+    - '!/.*/'
+    meta:
+      Cat: 2
+      CCI: CCI-000366
+      Group_Title: SRG-OS-000480-GPOS-00227
+      NIST800-53R4: CM-6
+      Rule_ID: SV-257932r925783_rule
+      STIG_ID: RHEL-09-232260
+      Vul_ID: V-257932
+{{ end }}
