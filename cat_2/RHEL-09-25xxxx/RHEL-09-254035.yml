@@ -1,0 +1,42 @@
+---
+
+{{ if .Vars.rhel_09_254035 }}
+kernel-param:
+  ipv6_def_accept_redirects_live:
+    title: RHEL-09-254035 | RHEL 9 must prevent IPv6 Internet Control Message Protocol (ICMP) redirect messages from being accepted. | live
+    name: net.ipv6.conf.default.accept_redirects
+    value: 0
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000366
+      Group_Title:
+      - SRG-OS-000480-GPOS-00227
+      NIST800-53R4:
+      - CM-6
+      Rule_ID: SV-257976r925915_rule
+      STIG_ID: RHEL-09-254035
+      Vul_ID: V-257976
+command:
+  ipv6_def_accept_redirects_conf:
+    title: RHEL-09-254035 | RHEL 9 must prevent IPv6 Internet Control Message Protocol (ICMP) redirect messages from being accepted. | conf
+    exec: grep net.ipv6.default.accept_redirects /etc/sysctl.d/*
+    exit-status:
+      or:
+      - 0
+      - 1
+    stdout:
+    - '/^net.ipv6.conf.default.accept_redirects\s*=\s*0/'
+    - '!/^net.ipv6.conf.default.accept_redirects\s*=\s*[^0]/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000366
+      Group_Title:
+      - SRG-OS-000480-GPOS-00227
+      NIST800-53R4:
+      - CM-6
+      Rule_ID: SV-257976r925915_rule
+      STIG_ID: RHEL-09-254035
+      Vul_ID: V-257976
+{{ end }}

@@ -1,0 +1,42 @@
+---
+
+{{ if .Vars.rhel_09_253065 }}
+kernel-param:
+  ipv4_conf_send_redirects_all_live:
+    title: RHEL-09-253065 | RHEL 9 must not send Internet Control Message Protocol (ICMP) redirects. | live
+    name: net.ipv4.conf.all.send_redirects
+    value: 0
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000366
+      Group_Title:
+      - SRG-OS-000480-GPOS-00227
+      NIST800-53R4:
+      - CM-6
+      Rule_ID: SV-257968r925891_rule
+      STIG_ID: RHEL-09-253065
+      Vul_ID: V-257968
+command:
+  ipv4_conf_send_redirects_all_conf:
+    title: RHEL-09-253065 | RHEL 9 must not send Internet Control Message Protocol (ICMP) redirects. | conf
+    exec: grep net.ipv4.conf.all.send_redirects /etc/sysctl.d/*
+    exit-status:
+      or:
+      - 0
+      - 1
+    stdout:
+    - '/^net.ipv4.conf.all.send_redirects\s*=\s*0/'
+    - '!/^net.ipv4.conf.all.send_redirects\s*=\s*[^0]/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000366
+      Group_Title:
+      - SRG-OS-000480-GPOS-00227
+      NIST800-53R4:
+      - CM-6
+      Rule_ID: SV-257968r925891_rule
+      STIG_ID: RHEL-09-253065
+      Vul_ID: V-257968
+{{ end }}

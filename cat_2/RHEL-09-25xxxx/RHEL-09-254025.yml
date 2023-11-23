@@ -1,0 +1,42 @@
+---
+
+{{ if .Vars.rhel_09_254025 }}
+kernel-param:
+  ipv6_all_forwarding_live:
+    title: RHEL-09-254025 | RHEL 9 must not enable IPv6 packet forwarding unless the system is a router. | live
+    name: net.ipv6.conf.all.forwarding
+    value: 0
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000366
+      Group_Title:
+      - SRG-OS-000480-GPOS-00227
+      NIST800-53R4:
+      - CM-6
+      Rule_ID: SV-257974r925909_rule
+      STIG_ID: RHEL-09-254025
+      Vul_ID: V-257974
+command:
+  ipv6_all_forwarding_conf:
+    title: RHEL-09-254025 | RHEL 9 must not enable IPv6 packet forwarding unless the system is a router. | conf
+    exec: grep net.ipv6.conf.all.forwarding /etc/sysctl.d/*
+    exit-status:
+      or:
+      - 0
+      - 1
+    stdout:
+    - '/^net.ipv6.conf.all.forwarding\s*=\s*0/'
+    - '!/^net.ipv6.conf.all.forwarding\s*=\s*[^0]/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000366
+      Group_Title:
+      - SRG-OS-000480-GPOS-00227
+      NIST800-53R4:
+      - CM-6
+      Rule_ID: SV-257974r925909_rule
+      STIG_ID: RHEL-09-254025
+      Vul_ID: V-257974
+{{ end }}

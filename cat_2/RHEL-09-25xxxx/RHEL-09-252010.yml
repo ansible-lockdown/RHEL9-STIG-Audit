@@ -1,0 +1,20 @@
+---
+
+{{ if .Vars.rhel_09_252010 }}
+package:
+  chrony:
+    title: RHEL-09-252010 | RHEL 9 must have the chrony package installed.
+    name: chrony
+    installed: true
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-001891
+      Group_Title:
+      - SRG-OS-000355-GPOS-00143
+      NIST800-53R4:
+      - AU-8
+      Rule_ID: SV-257943r925816_rule
+      STIG_ID: RHEL-09-252010
+      Vul_ID: V-257943
+{{ end }}

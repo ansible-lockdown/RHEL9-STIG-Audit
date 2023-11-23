@@ -1,0 +1,42 @@
+---
+
+{{ if .Vars.rhel_09_253030 }}
+kernel-param:
+  ipv4_def_martians_live:
+    title: RHEL-09-253030 | RHEL 9 must log IPv4 packets with impossible addresses by default. | live
+    name: net.ipv4.conf.default.log_martians
+    value: 1
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000366
+      Group_Title:
+      - SRG-OS-000480-GPOS-00227
+      NIST800-53R4:
+      - CM-6
+      Rule_ID: SV-257961r925870_rule
+      STIG_ID: RHEL-09-253030
+      Vul_ID: V-257961
+command:
+  ipv4_def_martians_conf:
+    title: RHEL-09-253030 | RHEL 9 must log IPv4 packets with impossible addresses by default. | conf
+    exec: grep net.ipv4.conf.default.log_martians /etc/sysctl.d/*
+    exit-status:
+      or:
+      - 0
+      - 1
+    stdout:
+    - '/^net.ipv4.conf.default.log_martians\s*=\s*1/'
+    - '!/^net.ipv4.conf.default.log_martians\s*=\s*[^1]/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000366
+      Group_Title:
+      - SRG-OS-000480-GPOS-00227
+      NIST800-53R4:
+      - CM-6
+      Rule_ID: SV-257961r925870_rule
+      STIG_ID: RHEL-09-253030
+      Vul_ID: V-257961
+{{ end }}

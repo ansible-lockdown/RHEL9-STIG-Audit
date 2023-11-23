@@ -1,0 +1,19 @@
+---
+
+{{ if .Vars.rhel_09_251025 }}
+command:
+  firewalld_approved:
+    title: RHEL-09-251025 | RHEL 9 must control remote access methods.
+    exec: echo "Manual Investigation required - Firewalld RHEL-09-251025"
+    exit-status: 0
+    stdout:
+    - '!/Manual/'
+    meta:
+      Cat: 2
+      CCI: CCI-000366
+      Group_Title: SRG-OS-000480-GPOS-00227
+      NIST800-53R4: CM-6
+      Rule_ID: SV-257938r925801_rule
+      STIG_ID: RHEL-09-251025
+      Vul_ID: V-257938
+{{ end }}

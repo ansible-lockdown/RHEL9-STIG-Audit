@@ -1,0 +1,21 @@
+---
+
+{{ if .Vars.rhel_09_251020 }}
+command:
+  firewalld_zone_service:
+    title: RHEL-09-251020 | A RHEL 9 firewall must employ a deny-all, allow-by-exception policy for allowing connections to other systems.
+    exec: firewall-cmd --get-default-zone
+    exit-status: 0
+    stdout:
+    {{ range .Vars.rhel9stig_white_list_services }}
+    - {{ . }}
+    {{ end }}
+    meta:
+      Cat: 2
+      CCI: CCI-000366
+      Group_Title: SRG-OS-000480-GPOS-00227
+      NIST800-53R4: CM-6
+      Rule_ID: SV-257937r925798_rule
+      STIG_ID: RHEL-09-251020
+      Vul_ID: V-257937
+{{ end }}

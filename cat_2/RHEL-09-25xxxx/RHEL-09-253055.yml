@@ -1,0 +1,42 @@
+---
+
+{{ if .Vars.rhel_09_253055 }}
+kernel-param:
+  ipv4_icmp_echo_ignore_broadcasts_live:
+    title: RHEL-09-253055 | RHEL 9 must not respond to Internet Control Message Protocol (ICMP) echoes sent to a broadcast address. | live
+    name: net.ipv4.icmp_echo_ignore_broadcasts
+    value: 1
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000366
+      Group_Title:
+      - SRG-OS-000480-GPOS-00227
+      NIST800-53R4:
+      - CM-6
+      Rule_ID: SV-257966r925885_rule
+      STIG_ID: RHEL-09-253055
+      Vul_ID: V-257966
+command:
+  ipv4_icmp_echo_ignore_broadcasts_conf:
+    title: RHEL-09-253055 | RHEL 9 must not respond to Internet Control Message Protocol (ICMP) echoes sent to a broadcast address. | conf
+    exec: grep net.ipv4.icmp_echo_ignore_broadcasts /etc/sysctl.d/*
+    exit-status:
+      or:
+      - 0
+      - 1
+    stdout:
+    - '/^net.ipv4.icmp_echo_ignore_broadcasts\s*=\s*1/'
+    - '!/^net.ipv4.icmp_echo_ignore_broadcasts\s*=\s*[^1]/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000366
+      Group_Title:
+      - SRG-OS-000480-GPOS-00227
+      NIST800-53R4:
+      - CM-6
+      Rule_ID: SV-257966r925885_rule
+      STIG_ID: RHEL-09-253055
+      Vul_ID: V-257966
+{{ end }}

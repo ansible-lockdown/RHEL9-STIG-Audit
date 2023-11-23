@@ -220,6 +220,100 @@ rhel_09_232260: true
 rhel_09_232265: true
 rhel_09_232270: true
 
+rhel_09_251010: true
+rhel_09_251015: true
+rhel_09_251020: true
+rhel_09_251025: true
+rhel_09_251030: true
+rhel_09_251035: true
+rhel_09_251040: true
+rhel_09_251045: true
+rhel_09_252010: true
+rhel_09_252015: true
+rhel_09_252020: true
+rhel_09_252025: true
+rhel_09_252030: true
+rhel_09_252035: true
+rhel_09_252040: true
+rhel_09_252045: true
+rhel_09_252050: true
+rhel_09_252055: true
+rhel_09_252060: true
+rhel_09_252065: true
+rhel_09_253010: true
+rhel_09_253015: true
+rhel_09_253020: true
+rhel_09_253025: true
+rhel_09_253030: true
+rhel_09_253035: true
+rhel_09_253040: true
+rhel_09_253045: true
+rhel_09_253050: true
+rhel_09_253055: true
+rhel_09_253060: true
+rhel_09_253065: true
+rhel_09_253070: true
+rhel_09_253075: true
+rhel_09_254010: true
+rhel_09_254015: true
+rhel_09_254020: true
+rhel_09_254025: true
+rhel_09_254030: true
+rhel_09_254035: true
+rhel_09_254040: true
+rhel_09_255010: true
+rhel_09_255015: true
+rhel_09_255020: true
+rhel_09_255025: true
+rhel_09_255030: true
+rhel_09_255035: true
+rhel_09_255045: true
+rhel_09_255055: true
+rhel_09_255060: true
+rhel_09_255065: true
+rhel_09_255070: true
+rhel_09_255075: true
+rhel_09_255080: true
+rhel_09_255085: true
+rhel_09_255090: true
+rhel_09_255095: true
+rhel_09_255100: true
+rhel_09_255105: true
+rhel_09_255110: true
+rhel_09_255115: true
+rhel_09_255120: true
+rhel_09_255125: true
+rhel_09_255130: true
+rhel_09_255135: true
+rhel_09_255140: true
+rhel_09_255145: true
+rhel_09_255150: true
+rhel_09_255155: true
+rhel_09_255160: true
+rhel_09_255165: true
+rhel_09_255170: true
+rhel_09_255175: true
+rhel_09_271010: true
+rhel_09_271015: true
+rhel_09_271020: true
+rhel_09_271025: true
+rhel_09_271030: true
+rhel_09_271035: true
+rhel_09_271045: true
+rhel_09_271050: true
+rhel_09_271055: true
+rhel_09_271060: true
+rhel_09_271065: true
+rhel_09_271070: true
+rhel_09_271075: true
+rhel_09_271080: true
+rhel_09_271085: true
+rhel_09_271090: true
+rhel_09_271100: true
+rhel_09_271105: true
+rhel_09_271110: true
+rhel_09_271115: true
+
 # Cat 3 controls
 
 ####
@@ -264,3 +358,16 @@ rhel9stig_av_service: 'mfetpd'
 
 # Filesystem and mount options
 rhel9stig_home_filesystem: /home
+
+# Firewall
+rhel9stig_white_list_services:
+- ssh
+
+
+# dns
+rhel9stig_dns_servers:
+- 8.8.8.8
+- 8.8.4.4
+
+# Mail
+rhel9stig_postfix_client_conf: permit_mynetworks,reject

@@ -1,0 +1,42 @@
+---
+
+{{ if .Vars.rhel_09_253020 }}
+kernel-param:
+  ipv4_all_accept_source_route_live:
+    title: RHEL-09-253020 | RHEL 9 must not forward Internet Protocol version 4 (IPv4) source-routed packets. | live
+    name: net.ipv4.conf.all.accept_source_route
+    value: 0
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000366
+      Group_Title:
+      - SRG-OS-000480-GPOS-00227
+      NIST800-53R4:
+      - CM-6
+      Rule_ID: SV-257959r925864_rule
+      STIG_ID: RHEL-09-253020
+      Vul_ID: V-257959
+command:
+  ipv4_all_accept_source_route_conf:
+    title: RHEL-09-253020 | RHEL 9 must not forward Internet Protocol version 4 (IPv4) source-routed packets. | conf
+    exec: grep net.ipv4.conf.all.accept_source_route /etc/sysctl.d/*
+    exit-status:
+      or:
+      - 0
+      - 1
+    stdout:
+    - '/^net.ipv4.conf.all.accept_source_route\s*=\s*0/'
+    - '!/^net.ipv4.conf.all.accept_source_route\s*=\s*[^0]/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000366
+      Group_Title:
+      - SRG-OS-000480-GPOS-00227
+      NIST800-53R4:
+      - CM-6
+      Rule_ID: SV-257959r925864_rule
+      STIG_ID: RHEL-09-253020
+      Vul_ID: V-257959
+{{ end }}

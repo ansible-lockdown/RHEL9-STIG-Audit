@@ -1,0 +1,22 @@
+---
+
+{{ if .Vars.rhel_09_251040 }}
+command:
+  network_promicuous:
+    title: RHEL-09-251040 |  RHEL 9 network interfaces must not be in promiscuous mode.
+    exec: ip link | grep -i promisc
+    exit-status:
+      or:
+      - 0
+      - 1
+    stdout:
+    - '!/.*/'
+    meta:
+      Cat: 2
+      CCI: CCI-000366
+      Group_Title: SRG-OS-000480-GPOS-00227
+      NIST800-53R4: CM-6
+      Rule_ID: SV-257941r925810_rule
+      STIG_ID: RHEL-09-251040
+      Vul_ID: V-257941
+{{ end }}

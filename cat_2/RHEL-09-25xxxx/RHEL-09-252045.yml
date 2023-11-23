@@ -1,0 +1,22 @@
+---
+
+{{ if .Vars.rhel_09_252045 }}
+command:
+  ipsec_tunnel:
+    title: RHEL-09-252045 | RHEL 9 must not have unauthorized IP tunnels configured.
+    exec: 'systemctl status ipsec | grep ": active" > /dev/null && grep -rni conn /etc/ipsec.conf /etc/ipsec.d/'
+    exit-status: 0
+    stdout:
+    - '/^dns\s*=\s*none/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-00366
+      Group_Title:
+      - SRG-OS-000480-GPOS-00227
+      NIST800-53R4:
+      - CM-6
+      Rule_ID: SV-257950r925837_rule
+      STIG_ID: RHEL-09-252045
+      Vul_ID: V-257950
+{{ end }}

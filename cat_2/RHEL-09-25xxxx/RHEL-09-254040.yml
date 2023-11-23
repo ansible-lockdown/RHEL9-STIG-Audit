@@ -1,0 +1,42 @@
+---
+
+{{ if .Vars.rhel_09_254040 }}
+kernel-param:
+  ipv6_def_accept_source_route_live:
+    title: RHEL-09-254040 | RHEL 9 must not forward IPv6 source-routed packets by default. | live
+    name: net.ipv6.conf.default.accept_source_route
+    value: 0
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000366
+      Group_Title:
+      - SRG-OS-000480-GPOS-00227
+      NIST800-53R4:
+      - CM-6
+      Rule_ID: SV-257977r925918_rule
+      STIG_ID: RHEL-09-254040
+      Vul_ID: V-257977
+command:
+  ipv6_def_accept_source_route_conf:
+    title: RHEL-09-254040 | RHEL 9 must not forward IPv6 source-routed packets by default. | conf
+    exec: grep net.ipv6.default.accept_source_route /etc/sysctl.d/*
+    exit-status:
+      or:
+      - 0
+      - 1
+    stdout:
+    - '/^net.ipv6.conf.default.accept_source_route\s*=\s*0/'
+    - '!/^net.ipv6.conf.default.accept_source_route\s*=\s*[^0]/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000366
+      Group_Title:
+      - SRG-OS-000480-GPOS-00227
+      NIST800-53R4:
+      - CM-6
+      Rule_ID: SV-257977r925918_rule
+      STIG_ID: RHEL-09-254040
+      Vul_ID: V-257977
+{{ end }}

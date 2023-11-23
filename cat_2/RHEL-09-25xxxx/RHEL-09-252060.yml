@@ -1,0 +1,21 @@
+---
+
+{{ if .Vars.rhel_09_252060 }}
+file:
+  postmaster_alias:
+    title: RHEL-09-252060 | RHEL 9 must forward mail from postmaster to the root account using a postfix alias.
+    path: /etc/aliases
+    contents:
+    - '^postmaster: root'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000139
+      Group_Title:
+      - SRG-OS-000046-GPOS-00022
+      NIST800-53R4:
+      - AU-5
+      Rule_ID: SV-257953r925846_rule
+      STIG_ID: RHEL-09-252060
+      Vul_ID: V-257953
+{{ end }}

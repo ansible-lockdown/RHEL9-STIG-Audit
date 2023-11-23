@@ -1,0 +1,42 @@
+---
+
+{{ if .Vars.rhel_09_253060 }}
+kernel-param:
+  ipv4_icmp_ignore_bogus_error_responses_live:
+    title: RHEL-09-253060 | RHEL 9 must limit the number of bogus Internet Control Message Protocol (ICMP) response errors logs. | live
+    name: net.ipv4.icmp_ignore_bogus_error_responses
+    value: 1
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000366
+      Group_Title:
+      - SRG-OS-000480-GPOS-00227
+      NIST800-53R4:
+      - CM-6
+      Rule_ID: SV-257967r925888_rule
+      STIG_ID: RHEL-09-253060
+      Vul_ID: V-257967
+command:
+  ipv4_icmp_ignore_bogus_error_responses_conf:
+    title: RHEL-09-253060 | RHEL 9 must limit the number of bogus Internet Control Message Protocol (ICMP) response errors logs. | conf
+    exec: grep net.ipv4.icmp_ignore_bogus_error_responses /etc/sysctl.d/*
+    exit-status:
+      or:
+      - 0
+      - 1
+    stdout:
+    - '/^net.ipv4.icmp_ignore_bogus_error_responses\s*=\s*1/'
+    - '!/^net.ipv4.icmp_ignore_bogus_error_responses\s*=\s*[^1]/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000366
+      Group_Title:
+      - SRG-OS-000480-GPOS-00227
+      NIST800-53R4:
+      - CM-6
+      Rule_ID: SV-257967r925888_rule
+      STIG_ID: RHEL-09-253060
+      Vul_ID: V-257967
+{{ end }}

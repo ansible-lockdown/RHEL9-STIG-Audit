@@ -1,0 +1,42 @@
+---
+
+{{ if .Vars.rhel_09_254030 }}
+kernel-param:
+  ipv6_def_accept_ra_live:
+    title: RHEL-09-254030 | RHEL 9 must not accept router advertisements on all IPv6 interfaces by default. | live
+    name: net.ipv6.conf.default.accept_ra
+    value: 0
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000366
+      Group_Title:
+      - SRG-OS-000480-GPOS-00227
+      NIST800-53R4:
+      - CM-6
+      Rule_ID: SV-257975r925912_rule
+      STIG_ID: RHEL-09-254030
+      Vul_ID: V-257975
+command:
+  ipv6_def_accept_ra_conf:
+    title: RHEL-09-254030 | RHEL 9 must not accept router advertisements on all IPv6 interfaces by default. | conf
+    exec: grep net.ipv6.default.accept_ra /etc/sysctl.d/*
+    exit-status:
+      or:
+      - 0
+      - 1
+    stdout:
+    - '/^net.ipv6.conf.default.accept_ra\s*=\s*0/'
+    - '!/^net.ipv6.conf.default.accept_ra\s*=\s*[^0]/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000366
+      Group_Title:
+      - SRG-OS-000480-GPOS-00227
+      NIST800-53R4:
+      - CM-6
+      Rule_ID: SV-257975r925912_rule
+      STIG_ID: RHEL-09-254030
+      Vul_ID: V-257975
+{{ end }}

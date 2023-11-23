@@ -1,0 +1,28 @@
+---
+
+{{ if .Vars.rhel_09_251015 }}
+service:
+  firewalld:
+    title: RHEL-09-251015 | The firewalld service on RHEL 9 must be active.
+    name: firewalld
+    running: true
+    enabled: true
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000366
+      - CCI-000382
+      - CCI-002314
+      Group_Title:
+      - SRG-OS-000096-GPOS-00050
+      - SRG-OS-000297-GPOS-00115
+      - SRG-OS-000480-GPOS-00227
+      - SRG-OS-000480-GPOS-00232
+      NIST800-53R4:
+      - CM-6
+      - CM-7
+      - AC-17
+      Rule_ID: SV-257936r925795_rule
+      STIG_ID: RHEL-09-251015
+      Vul_ID: V-257936
+{{ end }}

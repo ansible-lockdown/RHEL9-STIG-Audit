@@ -1,0 +1,42 @@
+---
+
+{{ if .Vars.rhel_09_254010 }}
+kernel-param:
+  ipv6_all_accept_ra_live:
+    title: RHEL-09-254010 | RHEL 9 must not accept router advertisements on all IPv6 interfaces. | live
+    name: net.ipv6.conf.all.accept_ra
+    value: 0
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000366
+      Group_Title:
+      - SRG-OS-000480-GPOS-00227
+      NIST800-53R4:
+      - CM-6
+      Rule_ID: SV-257971r925900_rule
+      STIG_ID: RHEL-09-254010
+      Vul_ID: V-257971
+command:
+  ipv6_all_accept_ra_conf:
+    title: RHEL-09-254010 | RHEL 9 must not accept router advertisements on all IPv6 interfaces. | conf
+    exec: grep net.ipv6.conf.all.accept_ra /etc/sysctl.d/*
+    exit-status:
+      or:
+      - 0
+      - 1
+    stdout:
+    - '/^net.ipv6.conf.all.accept_ra\s*=\s*0/'
+    - '!/^net.ipv6.conf.all.accept_ra\s*=\s*[^0]/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000366
+      Group_Title:
+      - SRG-OS-000480-GPOS-00227
+      NIST800-53R4:
+      - CM-6
+      Rule_ID: SV-257971r925900_rule
+      STIG_ID: RHEL-09-254010
+      Vul_ID: V-257971
+{{ end }}

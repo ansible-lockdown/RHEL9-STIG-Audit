@@ -1,0 +1,52 @@
+---
+
+{{ if .Vars.rhel_09_253010 }}
+kernel-param:
+  tcp_syncookie:
+    title: RHEL-09-253010 | RHEL 9 must be configured to use TCP syncookies | live
+    name: net.ipv4.tcp_syncookies
+    value: 1
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000366
+      - CCI-001095
+      - CCI-002385
+      Group_Title:
+      - SRG-OS-000480-GPOS-00227
+      - SRG-OS-000420-GPOS-00186
+      - SRG-OS-000142-GPOS-00071
+      NIST800-53R4:
+      - CM-6
+      - SC-5
+      Rule_ID: SV-257957r925858_rule
+      STIG_ID: RHEL-09-253010
+      Vul_ID: V-257957
+command:
+  tcp_syncookie_conf:
+    title: RHEL-09-253010 | RHEL 9 must be configured to use TCP syncookies. | conf
+    exec: grep net.ipv4.tcp_syncookies /etc/sysctl.d/*
+    exit-status:
+      or:
+      - 0
+      - 1
+    stdout:
+    - '/^net.ipv4.tcp_syncookies\s*=\s*1/'
+    - '!/^net.ipv4.tcp_syncookies\s*=\s*[^1]/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000366
+      - CCI-001095
+      - CCI-002385
+      Group_Title:
+      - SRG-OS-000480-GPOS-00227
+      - SRG-OS-000420-GPOS-00186
+      - SRG-OS-000142-GPOS-00071
+      NIST800-53R4:
+      - CM-6
+      - SC-5
+      Rule_ID: SV-257957r925858_rule
+      STIG_ID: RHEL-09-253010
+      Vul_ID: V-257957
+{{ end }}

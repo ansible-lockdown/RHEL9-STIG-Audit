@@ -1,0 +1,25 @@
+---
+
+{{ if .Vars.rhel_09_252020 }}
+file:
+  chrony_time_check:
+    title: RHEL-09-252020 | RHEL 9 must securely compare internal information system clocks at least every 24 hours.
+    path: /etc/chrony.conf
+    contents:
+    - '/^server.*\.mil.*maxpoll\s([1-9]|1[0-6])/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-01890
+      - CCI-01891
+      - CCI-02046
+      Group_Title:
+      - SRG-OS-000355-GPOS-00143
+      - SRG-OS-000356-GPOS-00144
+      - SRG-OS-000359-GPOS-00146
+      NIST800-53R4:
+      - AU-8
+      Rule_ID: SV-257944r925822_rule
+      STIG_ID: RHEL-09-252020
+      Vul_ID: V-257944
+{{ end }}
