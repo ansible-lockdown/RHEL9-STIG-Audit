@@ -21,16 +21,16 @@ kernel-param:
       STIG_ID: RHEL-09-213015
       Vul_ID: V-257798
 command:
-  perf_paranoid_file:
-    title: RHEL-09-213015 | RHEL 9 must prevent kernel profiling by nonprivileged users.
-    exec: /usr/lib/systemd/systemd-sysctl --cat-config | egrep -v '^(#|;)' | grep -F kernel.perf_event_paranoid | tail -1
+  perf_paranoid_conf:
+    title: RHEL-09-213015 | RHEL 9 must prevent kernel profiling by nonprivileged users.| conf
+    exec: grep kernel.perf_event_paranoid /etc/sysctl.d/*
     exit-status:
       or:
       - 0
       - 1
     stdout:
     - '/^kernel.perf_event_paranoid\s*=\s*2/'
-    - '!/^kernel.perf_event_paranoid\s*=\s*(0|1)/'
+    - '!/^kernel.perf_event_paranoid\s*=\s*[^2]/'
     meta:
       Cat: 2
       CCI:

@@ -17,7 +17,7 @@ kernel-param:
 command:
   kernel_core_pattern_file:
     title: RHEL-09-213040 | RHEL 9 must disable the kernel.core_pattern.
-    exec: /usr/lib/systemd/systemd-sysctl --cat-config | egrep -v '^(#|;)' | grep -F kernel.core_pattern | tail -1
+    exec: grep kernel.core_pattern /etc/sysctl.d/*
     exit-status:
       or:
       - 0
