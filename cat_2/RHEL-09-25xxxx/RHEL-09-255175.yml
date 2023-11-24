@@ -7,7 +7,7 @@ file:
     path: {{ .Vars.rhel9stig_sshd_config_file }}
     exists: true
     contents:
-    - '/^{{ .Vars.rhel9stig_sshd_config.x11uselocal }}/'
+    - '/^X11UseLocalhost {{ .Vars.rhel9stig_sshd_config.x11uselocal }}/'
     meta:
       Cat: 2
       CCI:

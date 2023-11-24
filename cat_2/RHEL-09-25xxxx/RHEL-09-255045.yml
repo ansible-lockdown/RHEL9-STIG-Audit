@@ -7,7 +7,7 @@ file:
     path: {{ .Vars.rhel9stig_sshd_config_file }}
     exists: true
     contents:
-    - '/^{{ .Vars.rhel9stig_sshd_config.permitroot }}/'
+    - '/^PermitRootLogin {{ .Vars.rhel9stig_sshd_config.permitroot }}/'
     meta:
       Cat: 2
       CCI:

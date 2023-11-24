@@ -7,7 +7,7 @@ file:
     path: {{ .Vars.rhel9stig_sshd_config_file }}
     exists: true
     contents:
-    - '/^{{ .Vars.rhel9stig_sshd_config.strictmodes }}/'
+    - '/^StrictModes {{ .Vars.rhel9stig_sshd_config.strictmodes }}/'
     meta:
       Cat: 2
       CCI:
