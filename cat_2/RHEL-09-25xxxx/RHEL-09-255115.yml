@@ -8,8 +8,8 @@ file:
     exists: true
     mode:
       or:
-      - 0400
-      - 0600
+      - '0400'
+      - '0600'
     meta:
       Cat: 2
       CCI:

@@ -8,7 +8,7 @@ file:
     exists: true
     contents:
     {{ range .Vars.rhel9stig_sshd_config.macs_server }}
-    - '/^MACs {{ . }}/'
+    - '/^MACs .*{{ . }}/'
     {{ end }}
     meta:
       Cat: 2

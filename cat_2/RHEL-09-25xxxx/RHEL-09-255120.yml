@@ -7,7 +7,7 @@ command:
     exec: stat -c "%a" /etc/ssh/*_key
     exit-status: 0
     stdout:
-    - '/0(4|6)40/'
+    - '/(4|6)40/'
     meta:
       Cat: 2
       CCI:

@@ -7,7 +7,7 @@ file:
     path: {{ .Vars.rhel9stig_sshd_config_file }}
     exists: true
     contents:
-    - '/^Include {{ .Vars.rhel9stig_sshd_config.include_conf }}/'
+    - '/^Include /etc/ssh/sshd_config.d/\*\.conf/'
     meta:
       Cat: 2
       CCI:
@@ -21,7 +21,7 @@ file:
       Vul_ID: V-257988
   sshd_config_ciphers_ssh_redhat:
     title: RHEL-09-255060 | RHEL 9 must implement DOD-approved encryption ciphers to protect the confidentiality of SSH client connections.
-    path: {{ .Vars.rhel9stig_sshd_config_file }}
+    path: /etc/ssh/sshd_config.d/50-redhat.conf
     exists: true
     contents:
     - '/^Include \/etc\/crypto-policies\/back-ends\/openssh.config/'
