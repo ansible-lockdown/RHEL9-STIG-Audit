@@ -8,7 +8,7 @@ file:
     exists: true
     contents:
     - '/^ProcessSizeMax\s*=\s*0/'
-    - '/^ProcessSizeMax\s*=\s*[^0]\d/'
+    - '!/^ProcessSizeMax\s*=\s*[1-9]/'
     meta:
       Cat: 2
       CCI: CCI-000366

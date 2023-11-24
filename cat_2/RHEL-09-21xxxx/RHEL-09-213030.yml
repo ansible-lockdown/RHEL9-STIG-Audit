@@ -30,7 +30,7 @@ command:
       - 1
     stdout:
     - '/^.*conf:fs.protected_hardlinks\s*=\s*1/'
-    - '!/^.*conf:fs.protected_hardlinks\s*=\s*[^1]/'
+    - '!/^.*conf:fs.protected_hardlinks\s*=\s*(0|[2-9])/'
     meta:
       Cat: 2
       CCI:

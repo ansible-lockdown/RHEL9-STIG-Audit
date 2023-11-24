@@ -30,7 +30,7 @@ command:
       - 1
     stdout:
     - '/^.*conf:kernel.randomize_va_space\s*=\s*2/'
-    - '!/^.*conf:kernel.randomize_va_space\s*=\s*[^2]/'
+    - '!/^.*conf:kernel.randomize_va_space\s*=\s*([0-1]|[3-9])/'
     meta:
       Cat: 2
       CCI:

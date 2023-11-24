@@ -20,14 +20,14 @@ kernel-param:
 command:
   ipv6_def_accept_source_route_conf:
     title: RHEL-09-254040 | RHEL 9 must not forward IPv6 source-routed packets by default. | conf
-    exec: grep net.ipv6.default.accept_source_route /etc/sysctl.d/*
+    exec: grep net.ipv6.conf.default.accept_source_route /etc/sysctl.d/*
     exit-status:
       or:
       - 0
       - 1
     stdout:
     - '/^.*conf:net.ipv6.conf.default.accept_source_route\s*=\s*0/'
-    - '!/^.*conf:net.ipv6.conf.default.accept_source_route\s*=\s*[^0]/'
+    - '!/^.*conf:net.ipv6.conf.default.accept_source_route\s*=\s*[1-9]/'
     meta:
       Cat: 2
       CCI:

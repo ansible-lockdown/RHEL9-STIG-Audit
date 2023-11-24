@@ -32,7 +32,7 @@ command:
       - 1
     stdout:
     - '/^.*conf:net.ipv4.tcp_syncookies\s*=\s*1/'
-    - '!/^.*conf:net.ipv4.tcp_syncookies\s*=\s*[^1]/'
+    - '!/^.*conf:net.ipv4.tcp_syncookies\s*=\s*(0|[2-9])/'
     meta:
       Cat: 2
       CCI:

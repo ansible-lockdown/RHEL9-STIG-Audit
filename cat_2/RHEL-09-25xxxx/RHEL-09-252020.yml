@@ -4,6 +4,7 @@
 file:
   chrony_time_check:
     title: RHEL-09-252020 | RHEL 9 must securely compare internal information system clocks at least every 24 hours.
+    exists: true
     path: /etc/chrony.conf
     contents:
     - '/^server.*\.mil.*maxpoll\s([1-9]|1[0-6])/'

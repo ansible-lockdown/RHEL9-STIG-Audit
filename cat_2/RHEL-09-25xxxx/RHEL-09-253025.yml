@@ -5,7 +5,7 @@ kernel-param:
   ipv4_martians_live:
     title: RHEL-09-253025 | RHEL 9 must log IPv4 packets with impossible addresses. | live
     name: net.ipv4.conf.all.log_martians
-    value: 0
+    value: 1
     meta:
       Cat: 2
       CCI:
@@ -26,8 +26,8 @@ command:
       - 0
       - 1
     stdout:
-    - '/^.*conf:net.ipv4.conf.all.log_martians\s*=\s*0/'
-    - '!/^.*conf:net.ipv4.conf.all.log_martians\s*=\s*[^0]/'
+    - '/^.*conf:net.ipv4.conf.all.log_martians\s*=\s*1/'
+    - '!/^.*conf:net.ipv4.conf.all.log_martians\s*=\s*(0|[2-9])/'
     meta:
       Cat: 2
       CCI:

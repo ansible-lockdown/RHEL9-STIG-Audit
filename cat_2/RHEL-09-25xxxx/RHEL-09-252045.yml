@@ -5,9 +5,12 @@ command:
   ipsec_tunnel:
     title: RHEL-09-252045 | RHEL 9 must not have unauthorized IP tunnels configured.
     exec: 'systemctl status ipsec | grep ": active" > /dev/null && grep -rni conn /etc/ipsec.conf /etc/ipsec.d/'
-    exit-status: 0
+    exit-status:
+      or:
+      - 0
+      - 1
     stdout:
-    - '/^dns\s*=\s*none/'
+    - '!/.*/'
     meta:
       Cat: 2
       CCI:

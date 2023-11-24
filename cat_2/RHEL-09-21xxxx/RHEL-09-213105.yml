@@ -24,7 +24,7 @@ command:
       - 1
     stdout:
     - '/^.*conf:user.max_user_namespaces=0/'
-    - '!/^.*conf:user.max_user_namespaces\s*=\s*[^0]/'
+    - '!/^.*conf:user.max_user_namespaces\s*=\s*[1-9]/'
     meta:
       Cat: 2
       CCI: CCI-000366

@@ -20,14 +20,14 @@ kernel-param:
 command:
   ipv6_def_accept_ra_conf:
     title: RHEL-09-254030 | RHEL 9 must not accept router advertisements on all IPv6 interfaces by default. | conf
-    exec: grep net.ipv6.default.accept_ra /etc/sysctl.d/*
+    exec: grep net.ipv6.conf.default.accept_ra /etc/sysctl.d/*
     exit-status:
       or:
       - 0
       - 1
     stdout:
     - '/^.*conf:net.ipv6.conf.default.accept_ra\s*=\s*0/'
-    - '!/^.*conf:net.ipv6.conf.default.accept_ra\s*=\s*[^0]/'
+    - '!/^.*conf:net.ipv6.conf.default.accept_ra\s*=\s*[1-9]/'
     meta:
       Cat: 2
       CCI:

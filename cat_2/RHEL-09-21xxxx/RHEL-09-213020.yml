@@ -30,7 +30,7 @@ command:
       - 1
     stdout:
     - '/^.*conf:kernel.kexec_load_disabled\s*=\s*1/'
-    - '!/^.*conf:kernel.kexec_load_disabled\s*=\s*[^1]/'
+    - '!/^.*conf:kernel.kexec_load_disabled\s*=\s*(0|[2-9])/'
     meta:
       Cat: 2
       CCI:
