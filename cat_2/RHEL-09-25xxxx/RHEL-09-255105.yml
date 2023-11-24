@@ -1,0 +1,21 @@
+---
+
+{{ if .Vars.rhel_09_255105 }}
+file:
+  ssh_config_groupowner:
+    title: RHEL-09-255105 | RHEL 9 SSH server configuration file must be group-owned by root.
+    path: {{ .Vars.rhel9stig_sshd_config_file }}
+    exists: true
+    group: root
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000366
+      Group_Title:
+      - SRG-OS-000480-GPOS-00227
+      NIST800-53R4:
+      - CM-6
+      Rule_ID: SV-257997r925978_rule
+      STIG_ID: RHEL-09-255105
+      Vul_ID: V-257997
+{{ end }}

@@ -1,0 +1,22 @@
+---
+
+{{ if .Vars.rhel_09_255120 }}
+command:
+  ssh_priv_keys:
+    title: RHEL-09-255120 | RHEL 9 SSH private host key files must have mode 0640 or less permissive.
+    exec: stat -c "%a" /etc/ssh/*_key
+    exit-status: 0
+    stdout:
+    - '/0(4|6)40/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000366
+      Group_Title:
+      - SRG-OS-000480-GPOS-00227
+      NIST800-53R4:
+      - CM-6
+      Rule_ID: SV-258000r925987_rule
+      STIG_ID: RHEL-09-255120
+      Vul_ID: V-258000
+{{ end }}

@@ -1,0 +1,22 @@
+---
+
+{{ if .Vars.rhel_09_255030 }}
+file:
+  ssh_config_loglevel:
+    title: RHEL-09-255030 | RHEL 9 must log SSH connection attempts and failures to the server.
+    path: {{ .Vars.rhel9stig_sshd_config_file }}
+    exists: true
+    contents:
+    - '/^{{ .Vars.rhel9stig_sshd_config.loglevel }}/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000067
+      Group_Title:
+      - SRG-OS-000032-GPOS-00013
+      NIST800-53R4:
+      - AC-17
+      Rule_ID: SV-257982r925933_rule
+      STIG_ID: RHEL-09-255030
+      Vul_ID: V-257982
+{{ end }}

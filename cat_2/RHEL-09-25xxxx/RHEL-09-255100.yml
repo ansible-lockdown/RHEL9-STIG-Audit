@@ -1,0 +1,30 @@
+---
+
+{{ if .Vars.rhel_09_255100 }}
+file:
+  ssh_config_clientaliveinterval:
+    title: RHEL-09-255100 | RHEL 9 must be configured so that all network connections associated with SSH traffic are terminated after 10 minutes of becoming unresponsive.
+    path: {{ .Vars.rhel9stig_sshd_config_file }}
+    exists: true
+    contents:
+    - '/^{{ .Vars.rhel9stig_sshd_config.clientaliveinterval }}/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000879
+      - CCI-001133
+      - CCI-002361
+      - CCI-002891
+      Group_Title:
+      - SRG-OS-000126-GPOS-00066
+      - SRG-OS-000163-GPOS-00072
+      - SRG-OS-000279-GPOS-00109
+      - SRG-OS-000395-GPOS-00175
+      NIST800-53R4:
+      - MA-4
+      - SC-10
+      - AC-12
+      Rule_ID: SV-257996r925975_rule
+      STIG_ID: RHEL-09-255100
+      Vul_ID: V-257996
+{{ end }}

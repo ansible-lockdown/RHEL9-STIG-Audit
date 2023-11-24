@@ -1,0 +1,27 @@
+---
+
+{{ if .Vars.rhel_09_255015 }}
+service:
+  ssh-server:
+    title: RHEL-09-255015 | All RHEL 9 networked systems must have SSH installed.
+    name: sshd
+    enabled: true
+    running: true
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-002418
+      - CCI-002420
+      - CCI-002421
+      - CCI-002322
+      Group_Title:
+      - SRG-OS-000423-GPOS-00187
+      - SRG-OS-000424-GPOS-00188
+      - SRG-OS-000425-GPOS-00189
+      - SRG-OS-000426-GPOS-00190
+      NIST800-53R4:
+      - SC-8
+      Rule_ID: SV-257979r925924_rule
+      STIG_ID: RHEL-09-255015
+      Vul_ID: V-257979
+{{ end }}

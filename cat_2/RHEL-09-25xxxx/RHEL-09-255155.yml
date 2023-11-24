@@ -1,0 +1,22 @@
+---
+
+{{ if .Vars.rhel_09_255155 }}
+file:
+  ssh_config_x11forward:
+    title: RHEL-09-255155 | RHEL 9 SSH daemon must disable remote X connections for interactive users.
+    path: {{ .Vars.rhel9stig_sshd_config_file }}
+    exists: true
+    contents:
+    - '/^{{ .Vars.rhel9stig_sshd_config.x11forward }}/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000366
+      Group_Title:
+      - SRG-OS-000480-GPOS-00227
+      NIST800-53R4:
+      - CM-6
+      Rule_ID: SV-258007r926008_rule
+      STIG_ID: RHEL-09-255155
+      Vul_ID: V-258007
+{{ end }}

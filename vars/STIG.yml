@@ -363,7 +363,6 @@ rhel9stig_home_filesystem: /home
 rhel9stig_white_list_services:
 - ssh
 
-
 # dns
 rhel9stig_dns_servers:
 - 8.8.8.8
@@ -371,3 +370,47 @@ rhel9stig_dns_servers:
 
 # Mail
 rhel9stig_postfix_client_conf: permit_mynetworks,reject
+
+## SSHD
+rhel9stig_sshd_config_file: /etc/ssh/sshd_config
+rhel9stig_ssh_required: true
+rhel9stig_sshd_config:
+  banner_file: /etc/issue
+  ciphers:
+  - aes256-gcm@openssh.com
+  - chacha20-poly1305@openssh.com
+  - aes256-ctr
+  - aes128-gcm@openssh.com
+  - aes128-ctr
+  clientalivecountmax: 1
+  clientaliveinterval: 600  # max 600
+  compress: 'no'
+  gssapiauth: 'no'
+  hostauth: 'no'
+  ignoreknownhosts: 'yes'
+  ignorerhosts: 'yes'
+  include_conf: /etc/ssh/sshd_config.d/*.conf
+  kerbauth: 'no'
+  lastlog: 'yes'
+  loglevel: VERBOSE
+  macs_clients:
+  - hmac-sha2-256-etm@openssh.com
+  - hmac-sha2-256
+  - hmac-sha2-512-etm@openssh.com
+  - hmac-sha2-512
+  macs_server:
+  - hmac-sha2-256-etm@openssh.com
+  - hmac-sha1-etm@openssh.com
+  - umac-128-etm@openssh.com
+  - hmac-sha2-512-etm@openssh.com
+  - hmac-sha2-256,hmac-sha1
+  - umac-128@openssh.com
+  - hmac-sha2-512
+  pubkeyauth: 'yes'
+  permitroot: 'no'
+  privsep: sandbox
+  rekeylimit: '1G 1h'
+  strictmodes: 'yes'
+  userenv: 'no'
+  x11forward: 'no'
+  x11uselocal: 'yes'

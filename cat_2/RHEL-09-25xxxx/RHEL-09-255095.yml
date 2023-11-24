@@ -1,0 +1,25 @@
+---
+
+{{ if .Vars.rhel_09_255095 }}
+file:
+  ssh_config_clientalivecountmax:
+    title: RHEL-09-255095 | RHEL 9 must be configured so that all network connections associated with SSH traffic terminate after becoming unresponsive.
+    path: {{ .Vars.rhel9stig_sshd_config_file }}
+    exists: true
+    contents:
+    - '/^{{ .Vars.rhel9stig_sshd_config.clientalivecountmax }}/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-001133
+      - CCI-002361
+      Group_Title:
+      - SRG-OS-000163-GPOS-00072
+      - SRG-OS-000279-GPOS-00109
+      NIST800-53R4:
+      - SC-10
+      - Ac-12
+      Rule_ID: SV-257995r925972_rule
+      STIG_ID: RHEL-09-255095
+      Vul_ID: V-257995
+{{ end }}

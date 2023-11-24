@@ -1,0 +1,25 @@
+---
+
+{{ if .Vars.rhel_09_255140 }}
+file:
+  ssh_config_kerbauth:
+    title: RHEL-09-255140 | RHEL 9 SSH daemon must not allow Kerberos authentication.
+    path: {{ .Vars.rhel9stig_sshd_config_file }}
+    exists: true
+    contents:
+    - '/^{{ .Vars.rhel9stig_sshd_config.kerbauth }}/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000366
+      - CCI-001813
+      Group_Title:
+      - SRG-OS-000364-GPOS-00151
+      - SRG-OS-000480-GPOS-00227
+      NIST800-53R4:
+      - CM-5
+      - CM-6
+      Rule_ID: SV-258004r925999_rule
+      STIG_ID: RHEL-09-255140
+      Vul_ID: V-258004
+{{ end }}

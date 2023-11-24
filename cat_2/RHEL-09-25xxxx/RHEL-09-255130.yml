@@ -1,0 +1,22 @@
+---
+
+{{ if .Vars.rhel_09_255130 }}
+file:
+  ssh_config_compress:
+    title: RHEL-09-255130 | RHEL 9 SSH daemon must not allow compression or must only allow compression after successful authentication.
+    path: {{ .Vars.rhel9stig_sshd_config_file }}
+    exists: true
+    contents:
+    - '/^{{ .Vars.rhel9stig_sshd_config.compress }}/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000366
+      Group_Title:
+      - SRG-OS-000480-GPOS-00227
+      NIST800-53R4:
+      - CM-6
+      Rule_ID: SV-258002r925993_rule
+      STIG_ID: RHEL-09-255130
+      Vul_ID: V-258002
+{{ end }}

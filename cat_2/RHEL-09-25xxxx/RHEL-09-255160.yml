@@ -1,0 +1,22 @@
+---
+
+{{ if .Vars.rhel_09_255160 }}
+file:
+  ssh_config_strictmodes:
+    title: RHEL-09-255160 | RHEL 9 SSH daemon must perform strict mode checking of home directory configuration files.
+    path: {{ .Vars.rhel9stig_sshd_config_file }}
+    exists: true
+    contents:
+    - '/^{{ .Vars.rhel9stig_sshd_config.strictmodes }}/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000366
+      Group_Title:
+      - SRG-OS-000480-GPOS-00227
+      NIST800-53R4:
+      - CM-6
+      Rule_ID: SV-258008r926011_rule
+      STIG_ID: RHEL-09-255160
+      Vul_ID: V-258008
+{{ end }}

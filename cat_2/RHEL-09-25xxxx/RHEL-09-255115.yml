@@ -1,0 +1,24 @@
+---
+
+{{ if .Vars.rhel_09_255115 }}
+file:
+  ssh_config_perms:
+    title: RHEL-09-255115 | RHEL 9 SSH server configuration file must have mode 0600 or less permissive.
+    path: {{ .Vars.rhel9stig_sshd_config_file }}
+    exists: true
+    mode:
+      or:
+      - 0400
+      - 0600
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000366
+      Group_Title:
+      - SRG-OS-000480-GPOS-00227
+      NIST800-53R4:
+      - CM-6
+      Rule_ID: SV-257999r925984_rule
+      STIG_ID: RHEL-09-255115
+      Vul_ID: V-257999
+{{ end }}

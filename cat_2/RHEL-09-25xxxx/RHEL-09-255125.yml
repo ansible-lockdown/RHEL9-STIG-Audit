@@ -1,0 +1,22 @@
+---
+
+{{ if .Vars.rhel_09_255125 }}
+command:
+  ssh_pub_keys:
+    title: RHEL-09-255125 | RHEL 9 SSH public host key files must have mode 0644 or less permissive.
+    exec: stat -c "%a" /etc/ssh/*.key
+    exit-status: 0
+    stdout:
+    - '/0(4|6)(0|4)(0|4)/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000366
+      Group_Title:
+      - SRG-OS-000480-GPOS-00227
+      NIST800-53R4:
+      - CM-6
+      Rule_ID: SV-258001r925990_rule
+      STIG_ID: RHEL-09-255125
+      Vul_ID: V-258001
+{{ end }}

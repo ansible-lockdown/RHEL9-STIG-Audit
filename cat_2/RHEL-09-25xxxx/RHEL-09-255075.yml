@@ -1,0 +1,24 @@
+---
+
+{{ if .Vars.rhel_09_255075 }}
+file:
+  ssh_config_macs_server:
+    title: RHEL-09-255075 | RHEL 9 SSH server must be configured to use only Message Authentication Codes (MACs) employing FIPS 140-3 validated cryptographic hash algorithms.
+    path: /etc/crypto-policies/back-ends/opensshserver.config
+    exists: true
+    contents:
+    {{ range .Vars.rhel9stig_sshd_config.macs_server }}
+    - '/^MACs {{ . }}/'
+    {{ end }}
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-001453
+      Group_Title:
+      - SRG-OS-000250-GPOS-00093
+      NIST800-53R4:
+      - AC-17
+      Rule_ID: SV-257991r925960_rule
+      STIG_ID: RHEL-09-255075
+      Vul_ID: V-257991
+{{ end }}

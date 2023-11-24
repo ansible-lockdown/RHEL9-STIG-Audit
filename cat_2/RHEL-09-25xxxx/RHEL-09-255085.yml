@@ -1,0 +1,22 @@
+---
+
+{{ if .Vars.rhel_09_255085 }}
+file:
+  ssh_config_userenv:
+    title: RHEL-09-255085 | RHEL 9 must not allow users to override SSH environment variables.
+    path: {{ .Vars.rhel9stig_sshd_config_file }}
+    exists: true
+    contents:
+    - '/^{{ .Vars.rhel9stig_sshd_config.userenv }}/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000366
+      Group_Title:
+      - SRG-OS-000480-GPOS-00229
+      NIST800-53R4:
+      - CM-6
+      Rule_ID: SV-257993r925966_rule
+      STIG_ID: RHEL-09-255085
+      Vul_ID: V-257993
+{{ end }}
