@@ -30,8 +30,8 @@ command:
       - 0
       - 1
     stdout:
-    - '/^kernel.kptr_restrict\s*=\s*1/'
-    - '!/^kernel.kptr_restrict\s*=\s*[^1]/'
+    - '/^.*conf:kernel.kptr_restrict\s*=\s*1/'
+    - '!/^.*conf:kernel.kptr_restrict\s*=\s*[^1]/'
     meta:
       Cat: 2
       CCI:

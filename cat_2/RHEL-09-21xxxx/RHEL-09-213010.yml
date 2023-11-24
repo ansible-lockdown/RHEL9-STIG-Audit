@@ -29,8 +29,8 @@ command:
       - 0
       - 1
     stdout:
-    - '/^kernel.dmesg_restrict\s*=\s*1/'
-    - '!/^kernel.dmesg_restrict\s*=\s*[^1]/'
+    - '/^.*conf:kernel.dmesg_restrict\s*=\s*1/'
+    - '!/^.*conf:kernel.dmesg_restrict\s*=\s*[^1]/'
     meta:
       Cat: 2
       CCI:

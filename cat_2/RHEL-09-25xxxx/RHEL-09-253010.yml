@@ -31,8 +31,8 @@ command:
       - 0
       - 1
     stdout:
-    - '/^net.ipv4.tcp_syncookies\s*=\s*1/'
-    - '!/^net.ipv4.tcp_syncookies\s*=\s*[^1]/'
+    - '/^.*conf:net.ipv4.tcp_syncookies\s*=\s*1/'
+    - '!/^.*conf:net.ipv4.tcp_syncookies\s*=\s*[^1]/'
     meta:
       Cat: 2
       CCI:

@@ -26,8 +26,8 @@ command:
       - 0
       - 1
     stdout:
-    - '/^net.ipv4.icmp_ignore_bogus_error_responses\s*=\s*1/'
-    - '!/^net.ipv4.icmp_ignore_bogus_error_responses\s*=\s*[^1]/'
+    - '/^.*conf:net.ipv4.icmp_ignore_bogus_error_responses\s*=\s*1/'
+    - '!/^.*conf:net.ipv4.icmp_ignore_bogus_error_responses\s*=\s*[^1]/'
     meta:
       Cat: 2
       CCI:

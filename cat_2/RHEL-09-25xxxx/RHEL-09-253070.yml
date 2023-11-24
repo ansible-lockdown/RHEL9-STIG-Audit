@@ -26,8 +26,8 @@ command:
       - 0
       - 1
     stdout:
-    - '/^net.ipv4.conf.default.send_redirects\s*=\s*0/'
-    - '!/^net.ipv4.conf.default.send_redirects\s*=\s*[^0]/'
+    - '/^.*conf:net.ipv4.conf.default.send_redirects\s*=\s*0/'
+    - '!/^.*conf:net.ipv4.conf.default.send_redirects\s*=\s*[^0]/'
     meta:
       Cat: 2
       CCI:

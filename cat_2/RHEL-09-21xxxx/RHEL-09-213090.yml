@@ -8,7 +8,7 @@ file:
     exists: true
     contents:
     - '/^Storage\s*=\s*none/'
-    - '!/^Storage\s*=\s*([^n]one|n[^o]ne|no[^n]e|non[^e]).*/'
+    - '/^Storage\s*=\s*([^n]one|n[^o]ne|no[^n]e|non[^e]).*/'
     meta:
       Cat: 2
       CCI: CCI-000366

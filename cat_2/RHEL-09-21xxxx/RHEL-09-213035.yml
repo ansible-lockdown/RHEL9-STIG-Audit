@@ -29,8 +29,8 @@ command:
       - 0
       - 1
     stdout:
-    - '/^fs.protected_symlinks\s*=\s*1/'
-    - '!/^fs.protected_symlinks\s*=\s*[^1]/'
+    - '/^.*conf:fs.protected_symlinks\s*=\s*1/'
+    - '!/^.*conf:fs.protected_symlinks\s*=\s*[^1]/'
     meta:
       Cat: 2
       CCI:
