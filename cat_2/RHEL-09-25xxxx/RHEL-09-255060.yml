@@ -24,7 +24,7 @@ file:
     path: /etc/ssh/sshd_config.d/50-redhat.conf
     exists: true
     contents:
-    - '/^Include \/etc\/crypto-policies\/back-ends\/openssh.config/'
+    - '/^Include \/etc\/crypto-policies\/back-ends\/opensshserver.config/'
     meta:
       Cat: 2
       CCI:

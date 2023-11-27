@@ -4,7 +4,7 @@
 command:
   ssh_pub_keys:
     title: RHEL-09-255125 | RHEL 9 SSH public host key files must have mode 0644 or less permissive.
-    exec: stat -c "%a" /etc/ssh/*.key
+    exec: stat -c "%a" /etc/ssh/*.pub
     exit-status: 0
     stdout:
     - '/(4|6)(0|4)(0|4)/'
