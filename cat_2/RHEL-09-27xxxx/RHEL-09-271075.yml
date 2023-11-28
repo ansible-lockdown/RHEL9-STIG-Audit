@@ -1,0 +1,23 @@
+---
+
+{{ if .Vars.rhel_09_271075 }}
+file:
+  gui_screensaver_activate:
+    title: RHEL-09-271075 |  RHEL 9 must initiate a session lock for graphical user interfaces when the screensaver is activated.
+    path: /etc/dconf/db/{{ .Vars.rhel9stig_dconf_db }}/00-screensaver
+    exists: true
+    contents:
+    - '/^\/[org\/gnome\/desktop\/screensaver\]/'
+    - '/^lock-delay=uint32 5/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000057
+      Group_Title:
+      - SRG-OS-000029-GPOS-00010
+      NIST800-53R4:
+      - AC-11
+      Rule_ID: SV-258025r926062_rule
+      STIG_ID: RHEL-09-271075
+      Vul_ID: V-258025
+{{ end }}

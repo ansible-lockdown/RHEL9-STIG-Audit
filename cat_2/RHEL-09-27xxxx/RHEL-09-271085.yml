@@ -1,0 +1,40 @@
+---
+
+{{ if .Vars.rhel_09_271085 }}
+file:
+  gui_screensaver_no_pic:
+    title: RHEL-09-271085 | RHEL 9 must conceal, via the session lock, information previously visible on the display with a publicly viewable image.
+    path: /etc/dconf/db/{{ .Vars.rhel9stig_dconf_db }}/00-security-settings
+    exists: true
+    contents:
+    - '/^\/[org\/gnome\/desktop\/screensaver\]/'
+    - '/^picture-uri=\'\'/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000060
+      Group_Title:
+      - SRG-OS-000031-GPOS-00012
+      NIST800-53R4:
+      - AC-11
+      Rule_ID: SV-258027r926068_rule
+      STIG_ID: RHEL-09-271085
+      Vul_ID: V-258027
+  gui_screensaver_no_pic_lock:
+    title: RHEL-09-271085 | RHEL 9 must conceal, via the session lock, information previously visible on the display with a publicly viewable image.
+    path: /etc/dconf/db/{{ .Vars.rhel9stig_dconf_db }}/locks/00-security-settings-lock
+    exists: true
+    contents:
+    - '/^\/org\/gnome\/desktop\/screensaver\/picture-uri/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000060
+      Group_Title:
+      - SRG-OS-000031-GPOS-00012
+      NIST800-53R4:
+      - AC-11
+      Rule_ID: SV-258027r926068_rule
+      STIG_ID: RHEL-09-271085
+      Vul_ID: V-258027
+{{ end }}

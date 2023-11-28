@@ -314,6 +314,28 @@ rhel_09_271105: true
 rhel_09_271110: true
 rhel_09_271115: true
 
+rhel_09_411010: true
+rhel_09_411015: true
+rhel_09_411020: true
+rhel_09_411025: true
+rhel_09_411030: true
+rhel_09_411035: true
+rhel_09_411040: true
+rhel_09_411045: true
+rhel_09_411050: true
+rhel_09_411055: true
+rhel_09_411060: true
+rhel_09_411065: true
+rhel_09_411070: true
+rhel_09_411075: true
+rhel_09_411080: true
+rhel_09_411085: true
+rhel_09_411090: true
+rhel_09_411095: true
+rhel_09_411105: true
+rhel_09_411110: true
+rhel_09_411115: true
+
 # Cat 3 controls
 
 ####
@@ -414,3 +436,36 @@ rhel9stig_sshd_config:
   userenv: 'no'
   x11forward: 'no'
   x11uselocal: 'yes'
+
+## 27XXXX GUI Settings
+rhel9stig_dconf_locald_files:
+  - /etc/dconf/db/local.d/
+
+rhel9stig_dconf_db: local.d
+
+### ACCOUNTS and AUTH ###
+## PAM and password settings
+rhel9stig_pass:
+  max_days: 60
+
+rhel9stig_user_inactive_days: '35'
+
+# Path to set for users initialization files e.g. echo $PATH expected results
+rhel9stig_env_path: '$PATH:$HOME/.local/bin:$HOME/bin'
+
+# Authselect profile settings
+rhel9stig_authselect_custom_profile: minimal
+# If Set to false will use authselect - Can cause disruption to authentication
+rhel9stig_add_faillock_without_authselect: true
+
+# Faillock settings
+rhel9stig_faillock:
+  deny: '3'  # 3 or less but not 0
+  fail_interval: '900'  # 900 or less is required
+  unlock_time: '0'
+  dir: '/var/log/faillock'
+
+rhel9stig_unnecessary_accounts:
+  - ftp
+  - games
+rhel9stig_remove_unnecessary_user_files: false

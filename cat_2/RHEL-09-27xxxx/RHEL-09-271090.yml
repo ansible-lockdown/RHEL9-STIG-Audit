@@ -1,0 +1,35 @@
+---
+
+{{ if .Vars.rhel_09_271090 }}
+command:
+  dconf_policy:
+    title: RHEL-09-271090 | RHEL 9 effective dconf policy must match the policy keyfiles.
+    exec: |
+      'function dconf_needs_update
+      { for db in $(find /etc/dconf/db -maxdepth 1 -type f);
+        do db_mtime=$(stat -c %Y "$db");
+          keyfile_mtime=$(stat -c %Y "$db".d/* | sort -n | tail -1);
+          if [ -n "$db_mtime" ] && [ -n "$keyfile_mtime" ] && [ "$db_mtime" -lt "$keyfile_mtime" ];
+            then echo "$db needs update"; return 1;
+          fi;
+        done;
+      };
+      dconf_needs_update'
+    exit-status:
+      or:
+      - 0
+      - 1
+    stdout:
+    - '!/.*needs update'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000366
+      Group_Title:
+      -  SRG-OS-000480-GPOS-00227
+      NIST800-53R4:
+      - CM-6
+      Rule_ID: SV-258028r926071_rule
+      STIG_ID: RHEL-09-271090
+      Vul_ID: V-258028
+{{ end }}

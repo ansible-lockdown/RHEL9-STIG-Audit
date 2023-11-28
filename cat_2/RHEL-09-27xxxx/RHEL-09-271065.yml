@@ -1,0 +1,26 @@
+---
+
+{{ if .Vars.rhel_09_271065 }}
+file:
+  gui_screensaver_timeout:
+    title: RHEL-09-271065 |  RHEL 9 must automatically lock graphical user sessions after 15 minutes of inactivity.
+    path: /etc/dconf/db/{{ .Vars.rhel9stig_dconf_db }}/00-screensaver
+    exists: true
+    contents:
+    - '/^\/[org\/gnome\/desktop\/session\]/'
+    - '/^idle-delay=([1-9]$|[1-8][0-9]{1,2}$|900)'
+    - '!/^idle-delay=(0$|90[1-9]|9[1-9][0-9]|[1-9][0-9]{3,})/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000057
+      - CCI-000060
+      Group_Title:
+      - SRG-OS-000029-GPOS-00010
+      - SRG-OS-000031-GPOS-00012
+      NIST800-53R4:
+      - AC-11
+      Rule_ID: SV-258023r926056_rule
+      STIG_ID: RHEL-09-271065
+      Vul_ID: V-258023
+{{ end }}

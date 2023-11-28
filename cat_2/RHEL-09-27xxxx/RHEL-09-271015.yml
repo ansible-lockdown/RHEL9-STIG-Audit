@@ -1,0 +1,28 @@
+---
+
+{{ if .Vars.rhel_09_271015 }}
+file:
+  gui_session_locks:
+    title: RHEL-09-271015 | RHEL 9 must prevent a user from overriding the banner-message-enable setting for the graphical user interface.
+    path: /etc/dconf/db/{{ .Vars.rhel9stig_dconf_db }}/locks/session
+    exists: true
+    contents:
+    - '/^banner-message-enable/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000048
+      - CCI-001384
+      - CCI-001385
+      - CCI-001386
+      - CCI-001387
+      - CCI-001388
+      Group_Title:
+      - SRG-OS-000023-GPOS-00006
+      - SRG-OS-000228-GPOS-00088
+      NIST800-53R4:
+      - AC-8
+      Rule_ID: SV-258013r926026_rule
+      STIG_ID: RHEL-09-271015
+      Vul_ID: V-258013
+{{ end }}

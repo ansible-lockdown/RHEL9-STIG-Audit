@@ -1,0 +1,22 @@
+---
+
+{{ if .Vars.rhel_09_271080 }}
+file:
+  gui_screensaver_activate_lock:
+    title: RHEL-09-271080 | RHEL 9 must prevent a user from overriding the session lock-delay setting for the graphical user interface.
+    path: /etc/dconf/db/{{ .Vars.rhel9stig_dconf_db }}/locks/session
+    exists: true
+    contents:
+    - '/^\/org\/gnome\/desktop\/screensaver\/lock-delay/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000057
+      Group_Title:
+      - SRG-OS-000029-GPOS-00010
+      NIST800-53R4:
+      - AC-11
+      Rule_ID: SV-258026r926065_rule
+      STIG_ID: RHEL-09-271080
+      Vul_ID: V-258026
+{{ end }}

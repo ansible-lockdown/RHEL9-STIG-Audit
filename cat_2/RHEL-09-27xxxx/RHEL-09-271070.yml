@@ -1,0 +1,24 @@
+---
+
+{{ if .Vars.rhel_09_271070 }}
+file:
+  gui_screensaver_timeout_lock:
+    title: RHEL-09-271070 | RHEL 9 must prevent a user from overriding the session idle-delay setting for the graphical user interface.
+    path: /etc/dconf/db/{{ .Vars.rhel9stig_dconf_db }}/locks/session
+    exists: true
+    contents:
+    - '/^\/org\/gnome\/desktop\/session\/idle-delay/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000057
+      - CCI-000060
+      Group_Title:
+      - SRG-OS-000029-GPOS-00010
+      - SRG-OS-000031-GPOS-00012
+      NIST800-53R4:
+      - AC-11
+      Rule_ID: SV-258024r926059_rule
+      STIG_ID: RHEL-09-271070
+      Vul_ID: V-258024
+{{ end }}
