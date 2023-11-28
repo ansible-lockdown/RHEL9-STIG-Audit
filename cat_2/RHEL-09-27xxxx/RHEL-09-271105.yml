@@ -1,0 +1,23 @@
+---
+
+{{ if .Vars.rhel_09_271105 }}
+file:
+  gui_disable_ctrl-alt-del:
+    title: RHEL-09-271105 | RHEL 9 must disable the ability of a user to accidentally press Ctrl-Alt-Del and cause a system to shut down or reboot.
+    path: /etc/dconf/db/{{ .Vars.rhel9stig_dconf_db }}/00-security-settings
+    exists: true
+    contents:
+    - '/^\[org\/gnome\/settings-daemon\/plugins\/media-keys\]/'
+    - '/^logout=\[\'\'\]/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000366
+      Group_Title:
+      - SRG-OS-000480-GPOS-00227
+      NIST800-53R4:
+      - CM-6
+      Rule_ID: SV-258031r926080_rule
+      STIG_ID: RHEL-09-271105
+      Vul_ID: V-258031
+{{ end }}

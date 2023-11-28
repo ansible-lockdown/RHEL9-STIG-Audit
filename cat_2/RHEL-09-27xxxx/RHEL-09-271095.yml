@@ -7,7 +7,7 @@ file:
     path: /etc/dconf/db/{{ .Vars.rhel9stig_dconf_db }}/00-security-settings
     exists: true
     contents:
-    - '/^\/[org\/gnome\/settings-daemon\/peripherals\/smartcard]/'
+    - '/^\[org\/gnome\/settings-daemon\/peripherals\/smartcard\]/'
     - '/^disable-restart-buttons=\'true\'/'
     meta:
       Cat: 2

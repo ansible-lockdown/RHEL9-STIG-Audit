@@ -1,0 +1,22 @@
+---
+
+{{ if .Vars.rhel_09_2710110 }}
+file:
+  gui_disable_ctrl-alt-del_lock:
+    title: RHEL-09-271110 | RHEL 9 must prevent a user from overriding the Ctrl-Alt-Del sequence settings for the graphical user interface.
+    path: /etc/dconf/db/{{ .Vars.rhel9stig_dconf_db }}/locks/session
+    exists: true
+    contents:
+    - '/^\/org\/gnome\/settings-daemon\/plugins\/media-keys\/logout/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000366
+      Group_Title:
+      - SRG-OS-000480-GPOS-00227
+      NIST800-53R4:
+      - CM-6
+      Rule_ID: SV-258032r926083_rule
+      STIG_ID: RHEL-09-271110
+      Vul_ID: V-258032
+{{ end }}
