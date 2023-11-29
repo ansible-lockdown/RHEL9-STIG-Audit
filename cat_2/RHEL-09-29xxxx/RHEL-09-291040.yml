@@ -1,0 +1,32 @@
+---
+
+{{ if .Vars.rhel_09_291040 }}
+command:
+  wireless_disabled:
+    title: RHEL-09-291040 | RHEL 9 wireless network adapters must be disabled.
+    exec: nmcli connection show | grep -i wifi
+    exit-status:
+      or:
+      - 0
+      - 1
+    stdout:
+    - '!/^.*/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-001443
+      - CCI-001444
+      - CCI-002418
+      - CCI-002421
+      Group_Title:
+      - SRG-OS-000299-GPOS-00117
+      - SRG-OS-000300-GPOS-00118
+      - SRG-OS-000424-GPOS-00188
+      - SRG-OS-000481-GPOS-00481
+      NIST800-53R4:
+      - SC-8
+      - AC-18
+      Rule_ID: SV-258040r926107_rule
+      STIG_ID: RHEL-09-29140
+      Vul_ID: V-258040
+{{ end }}

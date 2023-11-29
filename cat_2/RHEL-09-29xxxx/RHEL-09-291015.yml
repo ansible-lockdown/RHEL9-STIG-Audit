@@ -1,0 +1,20 @@
+---
+
+{{ if .Vars.rhel_09_291015 }}
+package:
+  usbguard_pkg:
+    title: RHEL-09-291015 | RHEL 9 must have the USBGuard package installed.
+    name: usbguard
+    installed: true
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-001958
+      Group_Title:
+      - SRG-OS-000378-GPOS-00163
+      NIST800-53R4:
+      - IA-3
+      Rule_ID: SV-258035r926092_rule
+      STIG_ID: RHEL-09-291015
+      Vul_ID: V-258035
+{{ end }}

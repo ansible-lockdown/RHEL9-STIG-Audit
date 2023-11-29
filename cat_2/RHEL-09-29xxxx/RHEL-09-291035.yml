@@ -1,0 +1,26 @@
+---
+
+{{ if .Vars.rhel_09_291035 }}
+command:
+  bluetooth_blacklist:
+    title: RHEL-09-291035 | RHEL 9 Bluetooth must be disabled.
+    exec: grep -r bluetooth /etc/modprobe.conf /etc/modprobe.d/*
+    exit-status: 0
+    stdout:
+    - '/^install bluetooth \/bin\/false/'
+    - '/^blacklist bluetooth/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000381
+      - CCI-001443
+      Group_Title:
+      - SRG-OS-000095-GPOS-00049
+      - SRG-OS-000300-GPOS-00118
+      NIST800-53R4:
+      - CM-7
+      - AC-18
+      Rule_ID: SV-258039r926104_rule
+      STIG_ID: RHEL-09-291035
+      Vul_ID: V-258039
+{{ end }}
