@@ -1,0 +1,22 @@
+---
+
+{{ if .Vars.rhel_09_411045 }}
+command:
+  temp_accts:
+    title: RHEL-09-411045 | All RHEL 9 interactive users must have a primary group that exists.
+    exec: pwck -qr
+    exit-status: 0
+    stdout:
+    - '!/.*/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-00764
+      Group_Title:
+      - SRG-OS-000104-GPOS-00051
+      NIST800-53R4:
+      - IA-2
+      Rule_ID: SV-258048r926131_rule
+      STIG_ID: RHEL-09-411045
+      Vul_ID: V-258048
+{{ end }}

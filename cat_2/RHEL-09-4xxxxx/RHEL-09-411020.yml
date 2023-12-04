@@ -1,0 +1,23 @@
+---
+
+{{ if .Vars.rhel_09_411020 }}
+file:
+  create_home_login:
+    title: RHEL-09-411020 | All RHEL 9 local interactive user accounts must be assigned a home directory upon creation.
+    path: /etc/login.defs
+    exists: true
+    contents:
+    - '/^CREATE_HOME yes/'
+    - '!/^CREATE_HOME no/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000366
+      Group_Title:
+      - SRG-OS-000480-GPOS-00227
+      NIST800-53R4:
+      - CM-6
+      Rule_ID: SV-258043r926116_rule
+      STIG_ID: RHEL-09-411020
+      Vul_ID: V-258043
+{{ end }}

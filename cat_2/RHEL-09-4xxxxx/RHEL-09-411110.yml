@@ -1,0 +1,25 @@
+---
+
+{{ if .Vars.rhel_09_411110 }}
+command:
+   nodupes_gid:
+    title: RHEL-09-411110 | RHEL 9 groups must have unique Group ID (GID).
+    exec: "cut -d : -f 3 /etc/group | uniq -d"
+    exit-status:
+      or:
+      - 0
+      - 1
+    contents:
+    - '!/^.*/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000764
+      Group_Title:
+      - SRG-OS-000104-GPOS-00051
+      NIST800-53R4:
+      - IA-2
+      Rule_ID: SV-258061r926170_rule
+      STIG_ID: RHEL-09-411110
+      Vul_ID: V-258061
+{{ end }}

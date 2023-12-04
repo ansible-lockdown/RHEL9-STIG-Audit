@@ -1,0 +1,25 @@
+---
+
+{{ if .Vars.rhel_09_411055 }}
+command:
+  user_initiate_PATH:
+    title: RHEL-09-411055 | Executable search paths within the initialization files of all local interactive RHEL 9 users must only contain paths that resolve to the system default or the users home directory.
+    exec: grep -ri "^\s*PATH" {{ .Vars.rhel9stig_home_filesystem }}/*/.[^.]*
+    exit-status:
+      or:
+      - 0
+      - 1
+    contents:
+    - '/^.*:PATH=\$PATH:\$HOME\/.local\/bin:\$HOME\/bin\s*/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000366
+      Group_Title:
+      - SRG-OS-000480-GPOS-00227
+      NIST800-53R4:
+      - CM-6
+      Rule_ID: SV-258050r926137_rule
+      STIG_ID: RHEL-09-411055
+      Vul_ID: V-258050
+{{ end }}

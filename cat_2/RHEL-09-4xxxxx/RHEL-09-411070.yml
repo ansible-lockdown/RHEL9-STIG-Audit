@@ -1,0 +1,22 @@
+---
+
+{{ if .Vars.rhel_09_411070 }}
+command:
+  temp_accts:
+    title: RHEL-09-411070 | All RHEL 9 local interactive user home directories must be group-owned by the home directory owner's primary group.
+    exec: echo "MANUAL - Validate users primary groups are set as expected"
+    exit-status: 0
+    stdout:
+    - '!/.*/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-00366
+      Group_Title:
+      - SRG-OS-000480-GPOS-00227
+      NIST800-53R4:
+      - CM-6
+      Rule_ID: SV-258052r926143_rule
+      STIG_ID: RHEL-09-411065
+      Vul_ID: V-258052
+{{ end }}

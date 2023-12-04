@@ -1,0 +1,25 @@
+---
+
+{{ if .Vars.rhel_09_411095 }}
+exec:
+  unauth_accounts:
+    title: RHEL-09-411095 | RHEL 9 must not have unauthorized accounts.
+    exec: echo "MANUAL - Check for Unauthorized accounts"
+    exit-status:
+      or:
+      - 0
+      - 1
+    contents:
+    - '!/^MANUAL/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000366
+      Group_Title:
+      - SRG-OS-000480-GPOS-00227
+      NIST800-53R4:
+      - CM-6
+      Rule_ID: SV-258058r926161_rule
+      STIG_ID: RHEL-09-411095
+      Vul_ID: V-258058
+{{ end }}

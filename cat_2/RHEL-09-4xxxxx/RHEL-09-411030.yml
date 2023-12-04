@@ -1,0 +1,32 @@
+---
+
+{{ if .Vars.rhel_09_411030 }}
+command:
+  duplicate_UIDs:
+    title: RHEL-09-411030 | RHEL 9 duplicate User IDs (UIDs) must not exist for interactive users.
+    timeout: {{ .Vars.timeout_ms }}
+    exec: "cat /etc/passwd | awk -F: '{ print $3}' | sort -n | uniq -d"
+    exit-status:
+      or:
+      - 0
+      - 1
+    stdout:
+    - '!/.*/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000135
+      - CCI-000764
+      - CCI-000804
+      Group_Title:
+      - SRG-OS-000104-GPOS-00051
+      - SRG-OS-000121-GPOS-00062
+      - SRG-OS-000042-GPOS-00020
+      NIST800-53R4:
+      - AU-3
+      - IA-2
+      - IA-8
+      Rule_ID: SV-258045r926122_rule
+      STIG_ID: RHEL-09-411030
+      Vul_ID: V-258045
+{{ end }}

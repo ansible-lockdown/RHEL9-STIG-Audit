@@ -1,0 +1,47 @@
+---
+
+{{ if .Vars.rhel_09_411090 }}
+file:
+  faillock_unlock:
+    title: RHEL-09-411090 | RHEL 9 must maintain an account lock until the locked account is released by an administrator.
+    path: /etc/security/faillock.conf
+    exists: true
+    contents:
+    - '/^unlock_time\s*=\s*0$/'
+    - '!/^unlock_time\s*=\s*[^0]\d$/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000044
+      - CCI-002238
+      Group_Title:
+      - SRG-OS-000329-GPOS-00128
+      - SRG-OS-000021-GPOS-00005
+      NIST800-53R4:
+      - AC-7
+      Rule_ID: SV-258057r926158_rule
+      STIG_ID: RHEL-09-411085
+      Vul_ID: V-258057
+command:
+  faillock_unlock_authselect:
+    title: RHEL-09-411090 | RHEL 9 must maintain an account lock until the locked account is released by an administrator.
+    exit-status:
+      or:
+      - 0
+      - 1
+    contents:
+    - '/^- with-faillock$/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000044
+      - CCI-002238
+      Group_Title:
+      - SRG-OS-000329-GPOS-00128
+      - SRG-OS-000021-GPOS-00005
+      NIST800-53R4:
+      - AC-7
+      Rule_ID: SV-258057r926158_rule
+      STIG_ID: RHEL-09-411090
+      Vul_ID: V-258057
+{{ end }}

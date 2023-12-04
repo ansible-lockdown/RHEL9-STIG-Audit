@@ -1,0 +1,26 @@
+---
+
+{{ if .Vars.rhel_09_411025 }}
+command:
+  home_umask_077:
+    title: RHEL-09-411025 | RHEL 9 must set the umask value to 077 for all local interactive user accounts.
+    timeout: {{ .Vars.timeout_ms }}
+    exec: "grep -ri umask {{ .Vars.rhel9stig_home_filesystem }} /*/.[^.]*"
+    exit-status:
+      or:
+      - 0
+      - 1
+    stdout:
+    - '!/(?i)umask (?!077)\d\d\d/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000366
+      Group_Title:
+      - SRG-OS-000480-GPOS-00227
+      NIST800-53R4:
+      - CM-6
+      Rule_ID: SV-258044r926119_rule
+      STIG_ID: RHEL-09-411025
+      Vul_ID: V-258044
+{{ end }}

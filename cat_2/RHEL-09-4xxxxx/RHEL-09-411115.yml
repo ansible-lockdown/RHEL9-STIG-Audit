@@ -1,0 +1,26 @@
+---
+
+{{ if .Vars.rhel_09_411115 }}
+command:
+   initial_file_no_worldwrite:
+    title: RHEL-09-411115 | Local RHEL 9 initialization files must not execute world-writable programs.
+    timeout: {{ .Vars.timeout_ms }}
+    exec: "find {{ .Vars.rhel9stig_home_filesystem }} -perm -002 -type f -name ".[^.]*" -exec ls -ld {} \; "
+    exit-status:
+      or:
+      - 0
+      - 1
+    contents:
+    - '!/^.*/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000366
+      Group_Title:
+      - SRG-OS-000480-GPOS-00227
+      NIST800-53R4:
+      - CM-6
+      Rule_ID: SV-258062r926173_rule
+      STIG_ID: RHEL-09-411115
+      Vul_ID: V-258062
+{{ end }}

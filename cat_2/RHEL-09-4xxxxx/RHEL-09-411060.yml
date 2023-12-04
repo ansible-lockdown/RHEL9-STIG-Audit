@@ -1,0 +1,26 @@
+---
+
+{{ if .Vars.rhel_09_411060 }}
+exec:
+  user_defined homedir_etc_passwd:
+    title: RHEL-09-411060 | All RHEL 9 local interactive users must have a home directory assigned in the /etc/passwd file.
+    timeout: {{ .Vars.timeout_ms }}
+    exec: "awk -F: '($3>=1000)&&($7 !~ /nologin/){print $6}' /etc/passwd"
+    exit-status:
+      or:
+      - 0
+      - 1
+    contents:
+    - '/^\{{ .Vars.rhel9stig_home_filesystem }}/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000366
+      Group_Title:
+      - SRG-OS-000480-GPOS-00227
+      NIST800-53R4:
+      - CM-6
+      Rule_ID: SV-258051r926140_rule
+      STIG_ID: RHEL-09-411060
+      Vul_ID: V-258051
+{{ end }}

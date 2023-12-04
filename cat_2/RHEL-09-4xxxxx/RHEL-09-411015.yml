@@ -1,0 +1,26 @@
+---
+
+{{ if .Vars.rhel_09_411015 }}
+command:
+  60days_max_passwd_lifetime:
+    title: RHEL-09-411015 | RHEL 9 user account passwords must have a 60-day maximum password lifetime restriction.
+    timeout: {{ .Vars.timeout_ms }}
+    exec: "INT_UID=`awk -F: '$3 >= {{ .Vars.MIN_UID }} { print $1 }' /etc/passwd | grep -v nobody`; for name in $INT_UID; do grep $name /etc/shadow | awk -F: '$5 > 60 || $5 <= 0 {print $1}'; done"
+    exit-status:
+      or:
+      - 0
+      - 1
+    stdout:
+    - '!/.*/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000199
+      Group_Title:
+      - SRG-OS-000076-GPOS-00044
+      NIST800-53R4:
+      - IA-5
+      Rule_ID: SV-258042r926113_rule
+      STIG_ID: RHEL-09-411015
+      Vul_ID: V-258042
+{{ end }}

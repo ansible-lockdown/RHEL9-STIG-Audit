@@ -1,0 +1,25 @@
+---
+
+{{ if .Vars.rhel_09_411080 }}
+file:
+  faillock_even_root_deny:
+    title: RHEL-09-411080 | RHEL 9 must automatically lock the root account until the root account is released by an administrator when three unsuccessful logon attempts occur during a 15-minute time period.
+    path: /etc/security/faillock.conf
+    exists: true
+    contents:
+    - '/^even_deny_root$/'
+    - '!/^#\s*even_deny_root$/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000044
+      - CCI-002238
+      Group_Title:
+      - SRG-OS-000329-GPOS-00128
+      - SRG-OS-000021-GPOS-00005
+      NIST800-53R4:
+      - AC-7
+      Rule_ID: SV-258055r926152_rule
+      STIG_ID: RHEL-09-411080
+      Vul_ID: V-258055
+{{ end }}

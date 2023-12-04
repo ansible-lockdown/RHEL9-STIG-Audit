@@ -4,10 +4,10 @@
 command:
   firewalld_approved:
     title: RHEL-09-251025 | RHEL 9 must control remote access methods.
-    exec: echo "Manual Investigation required - Firewalld RHEL-09-251025"
+    exec: echo "MANUAL - Investigation required - Firewalld RHEL-09-251025"
     exit-status: 0
     stdout:
-    - '!/Manual/'
+    - '!/MANUAL/'
     meta:
       Cat: 2
       CCI: CCI-000366
