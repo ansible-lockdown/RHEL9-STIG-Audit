@@ -3,6 +3,7 @@
 file:
   fail_delay_login.defs:
     title: RHEL-09-412050 | RHEL 9 must enforce a delay of at least four seconds between logon prompts following a failed logon attempt.
+    exists: true
     path: /etc/login.defs
     contents:
     - '/^FAIL_DELAY ([4-5]|[1-5][0-9]|60)/'

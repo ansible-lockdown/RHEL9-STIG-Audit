@@ -1,0 +1,23 @@
+---
+{{ if .Vars.rhel_09_611035 }}
+file:
+  password-auth_faillock:
+    title: RHEL-09-611035 | RHEL 9 must configure the use of the pam_faillock.so module in the /etc/pam.d/password-auth file.
+    exists: true
+    path: /etc/pam.d/password-auth
+    contents:
+    - '/^auth\s+required\s+pam_faillock.so\s+preauth/'
+    - '/^auth\s+required\s+pam_faillock.so\s+authfail/'
+    - '/^account\s+required\s+pam_faillock.so/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000044
+      Group_Title:
+      - SRG-OS-000021-GPOS-00005
+      NIST800-53R4:
+      - AC-7
+      Rule_ID: SV-258096r926275_rule
+      STIG_ID: RHEL-09-611035
+      Vul_ID: V-258096
+{{ end }}

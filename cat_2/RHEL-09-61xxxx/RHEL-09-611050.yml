@@ -1,0 +1,24 @@
+---
+{{ if .Vars.rhel_09_611050 }}
+file:
+  password-auth_rounds:
+    title: RHEL-09-611050 | RHEL 9 password-auth must be configured to use a sufficient number of hashing rounds.
+    exists: true
+    path: /etc/pam.d/password-auth
+    contents:
+    - '/^password\s+sufficient\s+pam_unix.so.*rounds=([5-9][0-9]{3,}).*$/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000196
+      - CCI-000803
+      Group_Title:
+      - SRG-OS-000073-GPOS-00041
+      - SRG-OS-000120-GPOS-00061
+      NIST800-53R4:
+      - IA-5
+      - IA-7
+      Rule_ID: SV-258099r926284_rule
+      STIG_ID: RHEL-09-611050
+      Vul_ID: V-258099
+{{ end }}

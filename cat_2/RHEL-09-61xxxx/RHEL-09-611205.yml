@@ -1,0 +1,22 @@
+---
+{{ if .Vars.rhel_09_611205 }}
+command:
+  keytab:
+    title: RHEL-09-611205 | RHEL 9 must prevent system daemons from using Kerberos for authentication.
+    timeout: {{ .Vars.timeout_ms }}
+    exec: find /etc/ -name *.keytab
+    exit-status: 0
+    stdout:
+    - '!/^.*/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000803
+      Group_Title:
+      - SRG-OS-000120-GPOS-00061
+      NIST800-53R4:
+      - IA-7
+      Rule_ID: SV-258130r926377_rule
+      STIG_ID: RHEL-09-611205
+      Vul_ID: V-258130
+{{ end }}

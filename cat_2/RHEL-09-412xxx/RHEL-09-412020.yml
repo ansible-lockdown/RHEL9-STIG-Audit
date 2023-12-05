@@ -3,6 +3,7 @@
 file:
   tmux_lock_command:
     title: RHEL-09-412020 | RHEL 9 must enable a user session lock until that user re-establishes access using established identification and authentication procedures for command line sessions.
+    exists: true
     path: /etc/tmux.conf
     contents:
     - '/^set -g lock-command vlock/'

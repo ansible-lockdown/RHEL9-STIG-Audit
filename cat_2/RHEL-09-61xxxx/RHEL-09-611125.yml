@@ -1,0 +1,22 @@
+---
+{{ if .Vars.rhel_09_611125 }}
+file:
+  pwquality_maxrepeat:
+    title: RHEL-09-611125 | RHEL 9 must require the maximum number of repeating characters be limited to three when passwords are changed.
+    exists: true
+    path: /etc/security/pwquality.conf
+    contents:
+    - '/^maxrepeat\s*=\s*[1-4]$/'
+    - '!/^maxrepeat\s*=\s*(0|[5-9])\d*/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000195
+      Group_Title:
+      - SRG-OS-000072-GPOS-00040
+      NIST800-53R4:
+      - IA-5
+      Rule_ID: SV-258114r926329_rule
+      STIG_ID: RHEL-09-611125
+      Vul_ID: V-258114
+{{ end }}

@@ -1,0 +1,23 @@
+---
+{{ if .Vars.rhel_09_611185 }}
+  {{ if .Vars.rhel9stig_smartcard_reader }}
+package:
+  opensc_installed:
+    title: RHEL-09-611185 | RHEL 9 must have the opensc package installed.
+    name: opensc
+    installed: true
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-001948
+      - CCI-001953
+      Group_Title:
+      - SRG-OS-000375-GPOS-00160
+      - SRG-OS-000376-GPOS-00161
+      NIST800-53R4:
+      - IA-2
+      Rule_ID: SV-258126r926365_rule
+      STIG_ID: RHEL-09-611185
+      Vul_ID: V-258126
+  {{ end }}
+{{ end }}

@@ -1,0 +1,26 @@
+---
+{{ if .Vars.rhel_09_611085 }}
+command:
+  sudoers_nopasswd:
+    title: RHEL-09-611085 | RHEL 9 must require users to provide a password for privilege escalation.
+    exec: "awk -F: '$4 < 1 {print $1 ' ' $4}' /etc/shadow"
+    exit-status:
+      or:
+      - 0
+      - 1
+    stdout:
+    - '!/^.*/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000198
+      Group_Title:
+      - SRG-OS-000373-GPOS-00156
+      - SRG-OS-000373-GPOS-00157
+      - SRG-OS-000373-GPOS-00158
+      NIST800-53R4:
+      - IA-11
+      Rule_ID: SV-258106r926305_rule
+      STIG_ID: RHEL-09-611085
+      Vul_ID: V-258106
+{{ end }}

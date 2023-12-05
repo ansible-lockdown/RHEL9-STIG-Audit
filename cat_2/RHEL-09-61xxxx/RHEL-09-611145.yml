@@ -1,0 +1,23 @@
+---
+{{ if .Vars.rhel_09_611145 }}
+file:
+  pam_sudo:
+    title: RHEL-09-611145 | RHEL 9 must not be configured to bypass password requirements for privilege escalation.
+    exists: true
+    path: /etc/pam.d/sudo
+    contents:
+    - '!/.*pam_succeed_if/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000196
+      Group_Title:
+      - SRG-OS-000373-GPOS-00156
+      - SRG-OS-000373-GPOS-00157
+      - SRG-OS-000373-GPOS-00158
+      NIST800-53R4:
+      - IA-11
+      Rule_ID: SV-258118r926341_rule
+      STIG_ID: RHEL-09-611145
+      Vul_ID: V-258118
+{{ end }}

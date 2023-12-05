@@ -1,0 +1,22 @@
+---
+{{ if .Vars.rhel_09_611105 }}
+file:
+  pwquality_dictcheck:
+    title: RHEL-09-611105 | RHEL 9 must prevent the use of dictionary words for passwords.
+    exists: true
+    path: /etc/security/pwquality.conf
+    contents:
+    - '/^dictcheck\s*=\s*1/'
+    - '!/^dictcheck\s*=\s*0/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000366
+      Group_Title:
+      - SRG-OS-000480-GPOS-00225
+      NIST800-53R4:
+      - CM-6
+      Rule_ID: SV-258110r926317_rule
+      STIG_ID: RHEL-09-611105
+      Vul_ID: V-258110
+{{ end }}

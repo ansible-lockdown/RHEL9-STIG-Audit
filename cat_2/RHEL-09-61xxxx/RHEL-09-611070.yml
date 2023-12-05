@@ -1,0 +1,22 @@
+---
+{{ if .Vars.rhel_09_611070 }}
+file:
+  pwquality_dcredit:
+    title: RHEL-09-611070 | RHEL 9 must enforce password complexity by requiring that at least one numeric character be used.
+    exists: true
+    path: /etc/security/pwquality.conf
+    contents:
+    - '/^dcredit\s*=\s*-1/'
+    - '!/^dcredit\s*=\s*\d/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000194
+      Group_Title:
+      - SRG-OS-000071-GPOS-00039
+      NIST800-53R4:
+      - IA-5
+      Rule_ID: SV-258103r926296_rule
+      STIG_ID: RHEL-09-611070
+      Vul_ID: V-258103
+{{ end }}

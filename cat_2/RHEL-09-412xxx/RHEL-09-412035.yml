@@ -3,6 +3,7 @@
 file:
   tmux_declare_timeout:
     title: RHEL-09-412035 | RHEL 9 must automatically exit interactive command shell user sessions after 15 minutes of inactivity.
+    exists: true
     path: /etc/profile.d/tmout.sh
     contents:
     - '/declare -xr TMOUT=([1-9]|9[0-9]|[1-8][0-9]{1,2}|900)/'

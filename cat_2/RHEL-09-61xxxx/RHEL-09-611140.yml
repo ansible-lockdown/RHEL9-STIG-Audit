@@ -1,0 +1,21 @@
+---
+{{ if .Vars.rhel_09_611140 }}
+file:
+  login_defs_encrypt:
+    title: RHEL-09-611140 | RHEL 9 must be configured to use the shadow file to store only encrypted representations of passwords.
+    exists: true
+    path: /etc/login.defs
+    contents:
+    - '/^ENCRYPT_METHOD SHA512/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000196
+      Group_Title:
+      - SRG-OS-000073-GPOS-00041
+      NIST800-53R4:
+      - IA-5
+      Rule_ID: SV-258117r926338_rule
+      STIG_ID: RHEL-09-611140
+      Vul_ID: V-258117
+{{ end }}

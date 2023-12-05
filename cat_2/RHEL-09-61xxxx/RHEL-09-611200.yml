@@ -1,0 +1,21 @@
+---
+{{ if .Vars.rhel_09_611200 }}
+file:
+  authenticate_rescue_mode:
+    title: RHEL-09-611200 | RHEL 9 must require authentication to access single-user mode.
+    exists: true
+    path: /usr/lib/systemd/system/rescue.service
+    contents:
+    - '/^ExecStart=-/usr/lib/systemd/systemd-sulogin-shell rescue/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000213
+      Group_Title:
+      - SRG-OS-000080-GPOS-00048
+      NIST800-53R4:
+      - AC-3
+      Rule_ID: SV-258129r926374_rule
+      STIG_ID: RHEL-09-611200
+      Vul_ID: V-258129
+{{ end }}

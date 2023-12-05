@@ -6,8 +6,8 @@ file:
     exists: true
     path: /etc/tmux.conf
     contents:
-    - '/^lock-after-time\s+([1-9]|9[0-9]|[1-8][0-9]{1,2}|900)$/'
-    - '/^lock-after-time\s+(0|90[1-9]|9[1-9][0-9]|\d{4,})$/'
+    - '/^set -g lock-after-time\s+([3-9][0-9]|[1-8][0-9]{1,2}|900)$/'
+    - '!/^set -glock-after-time\s+(0|90[1-9]|9[1-9][0-9]|\d{4,})$/'
     meta:
       Cat: 2
       CCI:

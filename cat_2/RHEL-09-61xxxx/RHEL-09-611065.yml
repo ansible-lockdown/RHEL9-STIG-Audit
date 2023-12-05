@@ -1,0 +1,22 @@
+---
+{{ if .Vars.rhel_09_611065 }}
+file:
+  pwquality_lcredit:
+    title: RHEL-09-611065 | RHEL 9 must enforce password complexity by requiring that at least one lowercase character be used.
+    exists: true
+    path: /etc/security/pwquality.conf
+    contents:
+    - '/^lcredit\s*=\s*-1/'
+    - '!/^lcredit\s*=\s*\d/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000193
+      Group_Title:
+      - SRG-OS-000070-GPOS-00038
+      NIST800-53R4:
+      - IA-5
+      Rule_ID: SV-258102r926293_rule
+      STIG_ID: RHEL-09-611065
+      Vul_ID: V-258102
+{{ end }}

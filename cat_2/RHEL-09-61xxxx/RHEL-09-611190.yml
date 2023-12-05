@@ -1,0 +1,19 @@
+---
+{{ if .Vars.rhel_09_611190 }}
+command:
+  private_keys_password:
+    title: RHEL-09-611190 | RHEL 9, for PKI-based authentication, must enforce authorized access to the corresponding private key
+    exec: echo "Manual - Please validate all private keys have a password set"
+    exit-status: 0
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000186
+      Group_Title:
+      - SRG-OS-000067-GPOS-00035
+      NIST800-53R4:
+      - IA-2
+      Rule_ID: SV-258127r926368_rule
+      STIG_ID: RHEL-09-611190
+      Vul_ID: V-258127
+{{ end }}

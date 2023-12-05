@@ -1,0 +1,22 @@
+---
+{{ if .Vars.rhel_09_611180 }}
+  {{ if .Vars.rhel9stig_smartcard_reader }}
+service:
+  pcscd_running:
+    title: RHEL-09-611180 | The pcscd service on RHEL 9 must be active.
+    name: pcscd
+    running: true
+    enabled: true
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-001948
+      Group_Title:
+      - SRG-OS-000375-GPOS-00160
+      NIST800-53R4:
+      - IA-2
+      Rule_ID: SV-258125r926362_rule
+      STIG_ID: RHEL-09-611180
+      Vul_ID: V-258125
+  {{ end }}
+{{ end }}

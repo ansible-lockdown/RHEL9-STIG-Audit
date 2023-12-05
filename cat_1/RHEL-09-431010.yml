@@ -3,6 +3,7 @@
 file:
   selinux_enforce:
     title: RHEL-09-431010 | RHEL 9 must use a Linux Security Module configured to enforce limits on system services.
+    exists: true
     path: /etc/selinux/config
     contents:
     - '/^SELINUX=enforcing/'

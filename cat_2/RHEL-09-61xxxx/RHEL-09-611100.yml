@@ -1,0 +1,22 @@
+---
+{{ if .Vars.rhel_09_611100 }}
+file:
+  pwquality_ocredit:
+    title: RHEL-09-611100 | RHEL 9 must enforce password complexity by requiring that at least one special character be used.
+    exists: true
+    path: /etc/security/pwquality.conf
+    contents:
+    - '/^ocredit\s*=\s*-1/'
+    - '!/^ocredit\s*=\s*\d/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-001619
+      Group_Title:
+      - SRG-OS-000266-GPOS-00101
+      NIST800-53R4:
+      - IA-5
+      Rule_ID: SV-258109r926314_rule
+      STIG_ID: RHEL-09-611100
+      Vul_ID: V-258109
+{{ end }}

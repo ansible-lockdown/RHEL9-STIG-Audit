@@ -1,0 +1,34 @@
+---
+{{ if .Vars.rhel_09_611060 }}
+file:
+  password_enforce_for_root:
+    title: RHEL-09-611060 | RHEL 9 must enforce password complexity rules for the root account.
+    exists: true
+    path: /etc/security/pwquality.conf
+    contents:
+    - '/^enforce_for_root/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000192
+      - CCI-000193
+      - CCI-000194
+      - CCI-000195
+      - CCI-000205
+      - CCI-000366
+      - CCI-001619
+      Group_Title:
+      - SRG-OS-000072-GPOS-00040
+      - SRG-OS-000071-GPOS-00039
+      - SRG-OS-000070-GPOS-00038
+      - SRG-OS-000266-GPOS-00101
+      - SRG-OS-000078-GPOS-00046
+      - SRG-OS-000480-GPOS-00225
+      - SRG-OS-000069-GPOS-00037
+      NIST800-53R4:
+      - IA-5
+      - CM-6
+      Rule_ID: SV-258101r926290_rule
+      STIG_ID: RHEL-09-611060
+      Vul_ID: V-258101
+{{ end }}

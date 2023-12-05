@@ -348,7 +348,6 @@ rhel_09_412015: true
 rhel_09_412020: true
 rhel_09_412025: true
 rhel_09_412035: true
-rhel_09_412040: true
 rhel_09_412045: true
 rhel_09_412050: true
 rhel_09_412055: true
@@ -543,3 +542,5 @@ rhel9stig_unnecessary_accounts:
   - ftp
   - games
 rhel9stig_remove_unnecessary_user_files: false
+
+rhel9stig_smartcard_reader: false

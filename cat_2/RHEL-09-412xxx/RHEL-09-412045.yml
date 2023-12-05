@@ -3,6 +3,7 @@
 file:
   faillock_audit:
     title: RHEL-09-412045 | RHEL 9 must limit the number of concurrent sessions to ten for all accounts and/or account types.
+    exists: true
     path: /etc/security/faillock.conf
     contents:
     - '/^audit/'

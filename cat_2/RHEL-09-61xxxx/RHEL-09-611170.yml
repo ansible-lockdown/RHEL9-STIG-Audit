@@ -1,0 +1,25 @@
+---
+{{ if .Vars.rhel_09_611170 }}
+  {{ if .Vars.rhel9stig_smartcard_reader }}
+file:
+  card_reader_sssd_multifactor:
+    title: RHEL-09-611170 | RHEL 9 must implement certificate status checking for multifactor authentication.
+    exists: true
+    path: /etc/sssd/sssd.conf
+    contents:
+    - '/^certificate_verification = ocsp_dgst=sha512/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-001948
+      - CCI-001954
+      Group_Title:
+      - SRG-OS-000375-GPOS-00160
+      - SRG-OS-000105-GPOS-00052
+      NIST800-53R4:
+      - IA-2
+      Rule_ID: SV-258123r926356_rule
+      STIG_ID: RHEL-09-611170
+      Vul_ID: V-258123
+  {{ end }}
+{{ end }}

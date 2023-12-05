@@ -1,0 +1,22 @@
+---
+{{ if .Vars.rhel_09_611110 }}
+file:
+  pwquality_ucredit:
+    title: RHEL-09-611110 | RHEL 9 must enforce password complexity by requiring that at least one uppercase character be used.
+    exists: true
+    path: /etc/security/pwquality.conf
+    contents:
+    - '/^ucredit\s*=\s*-1/'
+    - '!/^ucredit\s*=\s*0/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000192
+      Group_Title:
+      - SRG-OS-000069-GPOS-00037
+      NIST800-53R4:
+      - IA-5
+      Rule_ID: SV-258111r926320_rule
+      STIG_ID: RHEL-09-611110
+      Vul_ID: V-258111
+{{ end }}

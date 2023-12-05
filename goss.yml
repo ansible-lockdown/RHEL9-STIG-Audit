@@ -14,6 +14,7 @@ gossfile:
   cat_2/RHEL-09-411xxx/*.yml: {}
   cat_2/RHEL-09-412xxx/*.yml: {}
   cat_2/RHEL-09-43xxxx/*.yml: {}
+  cat_2/RHEL-09-61xxxx/*.yml: {}
   {{ end }}
 
   # {{ if .Vars.rhel9stig_cat3 }}

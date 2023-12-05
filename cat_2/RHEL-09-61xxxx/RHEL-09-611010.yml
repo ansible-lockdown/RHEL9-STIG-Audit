@@ -1,0 +1,40 @@
+---
+{{ if .Vars.rhel_09_611010 }}
+file:
+  system-auth_retries:
+    title: RHEL-09-611010 | RHEL 9 must ensure the password complexity module in the system-auth file is configured for three retries or less.
+    exists: true
+    path: /etc/pam.d/system-auth
+    contents:
+    - '/^password\s+required\s+pam_pwquality.so.*retry=[1-3].*$/'
+    - '!/^password\s+required\s+pam_pwquality.so.*retry=(0|[4-9]).*$/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000192
+      Group_Title:
+      - SRG-OS-000069-GPOS-00037
+      NIST800-53R4:
+      - IA-5
+      Rule_ID: SV-258091r926260_rule
+      STIG_ID: RHEL-09-611010
+      Vul_ID: V-258091
+  password-auth_retries:
+    title: RHEL-09-611010 | RHEL 9 must ensure the password complexity module in the system-auth file is configured for three retries or less.
+    exists: true
+    path: /etc/pam.d/password-auth
+    contents:
+    - '/^password\s+required\s+pam_pwquality.so.*retry=[1-3].*$/'
+    - '!/^password\s+required\s+pam_pwquality.so.*retry=(0|[4-9]).*$/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000192
+      Group_Title:
+      - SRG-OS-000069-GPOS-00037
+      NIST800-53R4:
+      - IA-5
+      Rule_ID: SV-258091r926260_rule
+      STIG_ID: RHEL-09-611010
+      Vul_ID: V-258091
+{{ end }}
