@@ -1,0 +1,23 @@
+---
+{{ if .Vars.rhel_09_412070 }}
+file:
+  umask_profile:
+    title: RHEL-09-412070 | RHEL 9 must define default permissions for all authenticated users in such a way that the user can only read and modify their own files.
+    exists: true
+    path: /etc/profile
+    contents:
+    - '/umask 077/'
+    - '!/\s*umask\s*[0-7][0-6][0-6]/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000366
+      Group_Title:
+      - SRG-OS-000480-GPOS-00227
+      - SRG-OS-000480-GPOS-00228
+      NIST800-53R4:
+      - CM-6
+      Rule_ID: SV-258075r926212_rule
+      STIG_ID: RHEL-09-412070
+      Vul_ID: V-258075
+{{ end }}

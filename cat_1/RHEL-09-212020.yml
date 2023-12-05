@@ -3,13 +3,13 @@
 {{ if .Vars.rhel_09_212020 }}
 file:
   grub_superuser:
-    title: RHEL-09-212020 | The x86 Ctrl-Alt-Delete key sequence must be disabled on RHEL 9.
+    title: RHEL 9 must require a unique superusers name upon booting into single-user and maintenance modes.
     exists: true
     path: /etc/grub2.cfg
     filetype: symlink
     contents:
-    - '/^set superusers="{{ .Vars.rhel9stig_grub_superuser }}"/'
-    - '/export superusers/'
+    - '/^\s*set superusers="{{ .Vars.rhel9stig_grub_superuser }}"/'
+    - '/\s*export superusers/'
     meta:
       Cat: 1
       CCI: CCI-000213

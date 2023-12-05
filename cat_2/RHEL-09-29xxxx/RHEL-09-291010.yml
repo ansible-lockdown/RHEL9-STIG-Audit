@@ -5,10 +5,13 @@ command:
   usb-storage_blacklist:
     title: RHEL-09-291010 | RHEL 9 must be configured to disable USB mass storage.
     exec: grep -r usb-storage /etc/modprobe.conf /etc/modprobe.d/*
-    exit-status: 0
+    exit-status:
+      or:
+      - 0
+      - 2
     stdout:
-    - '/^install usb-storage \/bin\/false/'
-    - '/^blacklist usb-storage/'
+    - '/^.*:install usb-storage \/bin\/false/'
+    - '/^.*:blacklist usb-storage/'
     meta:
       Cat: 2
       CCI:

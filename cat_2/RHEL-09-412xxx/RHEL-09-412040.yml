@@ -1,0 +1,23 @@
+---
+{{ if .Vars.rhel_09_412040 }}
+file:
+  maxlogins_limits:
+    title: RHEL-09-412040 | RHEL 9 must limit the number of concurrent sessions to ten for all accounts and/or account types.
+    path: /etc/security/limits.conf
+    contents:
+    - '/\* hard maxlogins ([1-9]|10)/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000057
+      - CCI-002235
+      Group_Title:
+      - SRG-OS-000163-GPOS-00072
+      - SRG-OS-000029-GPOS-00010
+      NIST800-53R4:
+      - SC-10
+      - AC-11
+      Rule_ID: SV-258069r926194_rule
+      STIG_ID: RHEL-09-412040
+      Vul_ID: V-258069
+{{ end }}

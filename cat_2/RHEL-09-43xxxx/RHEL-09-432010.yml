@@ -1,0 +1,19 @@
+---
+{{ if .Vars.rhel_09_432010 }}
+package:
+  sudo_installed:
+    title: RHEL-09-432010 | RHEL 9 must have the sudo package installed.
+    name: sudo
+    installed: true
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-002235
+      Group_Title:
+      - SRG-OS-000324-GPOS-00125
+      NIST800-53R4:
+      - AC-6
+      Rule_ID: SV-258083r926236_rule
+      STIG_ID: RHEL-09-432010
+      Vul_ID: V-258083
+{{ end }}

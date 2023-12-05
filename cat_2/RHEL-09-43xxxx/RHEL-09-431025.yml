@@ -1,0 +1,22 @@
+---
+{{ if .Vars.rhel_09_431025 }}
+package:
+  policycoreutils_installed:
+    title: RHEL-09-431025 | RHEL 9 must have policycoreutils package installed.
+    name: policycoreutils
+    installed: true
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000366
+      - CCI-001084
+      Group_Title:
+      - SRG-OS-000480-GPOS-00227
+      - SRG-OS-000134-GPOS-00068
+      NIST800-53R4:
+      - CM-6
+      - AC-11
+      Rule_ID: SV-258081r926230_rule
+      STIG_ID: RHEL-09-431025
+      Vul_ID: V-258081
+{{ end }}

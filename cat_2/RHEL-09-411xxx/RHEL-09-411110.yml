@@ -9,7 +9,7 @@ command:
       or:
       - 0
       - 1
-    contents:
+    stdout:
     - '!/^.*/'
     meta:
       Cat: 2

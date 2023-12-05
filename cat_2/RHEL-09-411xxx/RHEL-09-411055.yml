@@ -4,12 +4,12 @@
 command:
   user_initiate_PATH:
     title: RHEL-09-411055 | Executable search paths within the initialization files of all local interactive RHEL 9 users must only contain paths that resolve to the system default or the users home directory.
-    exec: grep -ri "^\s*PATH" {{ .Vars.rhel9stig_home_filesystem }}/*/.[^.]*
+    exec: 'grep -ri "^\s*PATH" {{ .Vars.rhel9stig_home_filesystem }}/*/.[^.]*'
     exit-status:
       or:
       - 0
       - 1
-    contents:
+    stdout:
     - '/^.*:PATH=\$PATH:\$HOME\/.local\/bin:\$HOME\/bin\s*/'
     meta:
       Cat: 2

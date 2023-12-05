@@ -2,10 +2,10 @@
 
 {{ if .Vars.rhel_09_411035 }}
 command:
-  home_umask_077:
+  system_acct_no_shell:
     title: RHEL-09-411035 | RHEL 9 system accounts must not have an interactive login shell.
     timeout: {{ .Vars.timeout_ms }}
-    exec: "awk -F: '($3<1000){print $1 ":" $7}' /etc/passwd | grep -vE "nologin|sync|shutdown|halt|false|root""
+    exec: "awk -F: '($3<1000){print $1 \":\" $7}' /etc/passwd | grep -vE \"nologin|sync|shutdown|halt|false|root\""
     exit-status:
       or:
       - 0

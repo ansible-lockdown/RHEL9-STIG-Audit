@@ -8,7 +8,7 @@ file:
     exists: true
     contents:
     - '/^unlock_time\s*=\s*0$/'
-    - '!/^unlock_time\s*=\s*[^0]\d$/'
+    - '!/^unlock_time\s*=\s*[1-9]/'
     meta:
       Cat: 2
       CCI:
@@ -25,11 +25,12 @@ file:
 command:
   faillock_unlock_authselect:
     title: RHEL-09-411090 | RHEL 9 must maintain an account lock until the locked account is released by an administrator.
+    exec: authselect current
     exit-status:
       or:
       - 0
       - 1
-    contents:
+    stdout:
     - '/^- with-faillock$/'
     meta:
       Cat: 2

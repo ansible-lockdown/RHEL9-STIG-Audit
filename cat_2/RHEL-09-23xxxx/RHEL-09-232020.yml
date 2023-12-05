@@ -4,6 +4,7 @@
 command:
   lib_file_perms:
     title: RHEL-09-232020 | RHEL 9 library files must have mode 755 or less permissive.
+    timeout: {{ .Vars.timeout_ms }}
     exec: find -L /lib /lib64 /usr/lib /usr/lib64 -perm /022 -type f -exec ls -l {} \; | awk '{ print "Permissions Incorrect on " $NF}'
     exit-status:
       or:

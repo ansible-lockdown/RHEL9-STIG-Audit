@@ -1,0 +1,20 @@
+---
+{{ if .Vars.rhel_09_412045 }}
+file:
+  faillock_audit:
+    title: RHEL-09-412045 | RHEL 9 must limit the number of concurrent sessions to ten for all accounts and/or account types.
+    path: /etc/security/faillock.conf
+    contents:
+    - '/^audit/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000044
+      Group_Title:
+      - SRG-OS-000021-GPOS-00005
+      NIST800-53R4:
+      - AC-7
+      Rule_ID: SV-258070r926197_rule
+      STIG_ID: RHEL-09-412045
+      Vul_ID: V-258070
+{{ end }}

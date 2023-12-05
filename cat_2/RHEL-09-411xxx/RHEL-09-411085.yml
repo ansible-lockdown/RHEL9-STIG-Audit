@@ -30,7 +30,7 @@ command:
       or:
       - 0
       - 1
-    contents:
+    stdout:
     - '/^- with-faillock$/'
     meta:
       Cat: 2

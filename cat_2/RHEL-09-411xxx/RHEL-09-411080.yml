@@ -8,7 +8,6 @@ file:
     exists: true
     contents:
     - '/^even_deny_root$/'
-    - '!/^#\s*even_deny_root$/'
     meta:
       Cat: 2
       CCI:

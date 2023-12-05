@@ -2,7 +2,7 @@
 
 {{ if .Vars.rhel_09_411045 }}
 command:
-  temp_accts:
+  primary_group_exists:
     title: RHEL-09-411045 | All RHEL 9 interactive users must have a primary group that exists.
     exec: pwck -qr
     exit-status: 0

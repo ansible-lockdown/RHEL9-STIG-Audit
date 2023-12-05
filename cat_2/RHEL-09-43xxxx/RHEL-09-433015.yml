@@ -1,0 +1,22 @@
+---
+{{ if .Vars.rhel_09_433015 }}
+service:
+  fapolicy_active:
+    title: RHEL-09-433015 | RHEL 9 fapolicy module must be enabled.
+    name: fapolicyd
+    running: true
+    enabled: true
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-001764
+      - CCI-001774
+      Group_Title:
+      - SRG-OS-000370-GPOS-00155
+      - SRG-OS-000368-GPOS-00154
+      NIST800-53R4:
+      - AC-6
+      Rule_ID: SV-258090r926257_rule
+      STIG_ID: RHEL-09-433015
+      Vul_ID: V-258090
+{{ end }}

@@ -1,10 +1,10 @@
 ---
 
-{{ if .Vars.rhel_09_411065 }}
+{{ if .Vars.rhel_09_411070 }}
 command:
-  temp_accts:
-    title: RHEL-09-411065 | All RHEL 9 local interactive user home directories defined in the /etc/passwd file must exist.
-    exec: pwck -r
+  primary_group_set:
+    title: RHEL-09-411070 | All RHEL 9 local interactive user home directories must be group-owned by the home directory owner's primary group.
+    exec: echo "MANUAL - Validate users primary groups are set as expected"
     exit-status: 0
     stdout:
     - '!/.*/'

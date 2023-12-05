@@ -1,0 +1,25 @@
+---
+{{ if .Vars.rhel_09_432030 }}
+command:
+  sudo_password_restrict_elevate:
+    title: RHEL-09-432030 | RHEL 9 must restrict privilege elevation to authorized personnel.
+    exec: sh -c 'grep -iw ALL /etc/sudoers /etc/sudoers.d/*'
+    exit-status:
+      or:
+      - 0
+      - 1
+    stdout:
+    - '!/^.*:\w+\s+ALL\s+ALL=\(ALL\) ALL/'
+    - '!/^.*:\w+\s+ALL\s+ALL=\(ALL:ALL\) ALL/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000366
+      Group_Title:
+      - SRG-OS-000480-GPOS-00227
+      NIST800-53R4:
+      - CM-6
+      Rule_ID: SV-258087r926248_rule
+      STIG_ID: RHEL-09-432030
+      Vul_ID: V-258087
+{{ end }}

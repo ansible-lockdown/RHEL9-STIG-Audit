@@ -2,15 +2,15 @@
 
 {{ if .Vars.rhel_09_411115 }}
 command:
-   initial_file_no_worldwrite:
+  initial_file_no_worldwrite:
     title: RHEL-09-411115 | Local RHEL 9 initialization files must not execute world-writable programs.
     timeout: {{ .Vars.timeout_ms }}
-    exec: "find {{ .Vars.rhel9stig_home_filesystem }} -perm -002 -type f -name ".[^.]*" -exec ls -ld {} \; "
+    exec: 'find {{ .Vars.rhel9stig_home_filesystem }} -perm -002 -type f -name ".[^.]*" -exec ls -ld {} \;'
     exit-status:
       or:
       - 0
       - 1
-    contents:
+    stdout:
     - '!/^.*/'
     meta:
       Cat: 2

@@ -1,0 +1,22 @@
+---
+{{ if .Vars.rhel_09_412055 }}
+file:
+  bashrc_umask_077:
+    title: RHEL-09-412055 | RHEL 9 must define default permissions for the bash shell.
+    path: /etc/bashrc
+    exists: true
+    contents:
+    - '/\s*umask 077/'
+    - '!/\s*umask\s*[0-7][0-6][0-6]/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000366
+      Group_Title:
+      - SRG-OS-000480-GPOS-00226
+      NIST800-53R4:
+      - CM-6
+      Rule_ID: SV-258072r926203_rule
+      STIG_ID: RHEL-09-412055
+      Vul_ID: V-258072
+{{ end }}

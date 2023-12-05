@@ -5,13 +5,13 @@ command:
   home_umask_077:
     title: RHEL-09-411025 | RHEL 9 must set the umask value to 077 for all local interactive user accounts.
     timeout: {{ .Vars.timeout_ms }}
-    exec: "grep -ri umask {{ .Vars.rhel9stig_home_filesystem }} /*/.[^.]*"
+    exec: grep -riw "umask" /home /*/.[^.]* | grep -vE "umask 077|grep"
     exit-status:
       or:
       - 0
       - 1
     stdout:
-    - '!/(?i)umask (?!077)\d\d\d/'
+    - '!/(?i)umask[^(?!077)]\d\d\d/'
     meta:
       Cat: 2
       CCI:

@@ -4,6 +4,7 @@
 command:
   home_dirs_perms:
     title: RHEL-09-232050 | All RHEL 9 local interactive user home directories must have mode 0750 or less permissive.
+    timeout: {{ .Vars.timeout_ms }}
     exec: "stat -c \"%a %n\" $(awk -F: '($3>=1000)&&($7 !~ /nologin/){print $6}' /etc/passwd) | awk '$1>750'"
     exit-status: 0
     stdout:

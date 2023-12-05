@@ -1,0 +1,24 @@
+---
+{{ if .Vars.rhel_09_432025 }}
+command:
+  sudo_password_reauth_escalate:
+    title: RHEL-09-432025 | RHEL 9 must require users to reauthenticate for privilege escalation.
+    exec: grep -i '!authenticate' /etc/sudoers /etc/sudoers.d/*
+    exit-status:
+      or:
+      - 0
+      - 1
+    stdout:
+    - '!/^.*:Defaults !authenticate/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-002038
+      Group_Title:
+      - SRG-OS-000373-GPOS-00156
+      NIST800-53R4:
+      - IA-11
+      Rule_ID: SV-258086r926245_rule
+      STIG_ID: RHEL-09-432025
+      Vul_ID: V-258086
+{{ end }}

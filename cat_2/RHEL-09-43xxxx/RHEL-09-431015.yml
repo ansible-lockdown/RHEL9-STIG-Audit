@@ -1,0 +1,41 @@
+---
+{{ if .Vars.rhel_09_431015 }}
+file:
+  selinux_sepolicy:
+    title: RHEL-09-431015 | RHEL 9 must enable the SELinux targeted policy.
+    exists: true
+    path: /etc/selinux/config
+    contents:
+    - '/^SELINUXTYPE=targeted/'
+    - '!/^SELINUXTYPE=(minimum|mls)/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-002696
+      Group_Title:
+      - SRG-OS-000445-GPOS-00199
+      NIST800-53R4:
+      - SI-6
+      Rule_ID: SV-258079r926224_rule
+      STIG_ID: RHEL-09-431015
+      Vul_ID: V-258079
+command:
+  selinux_getpolicy:
+    title: RHEL-09-431015 | RHEL 9 must enable the SELinux targeted policy.
+    exec: sestatus | grep "policy name"
+    exit-status: 0
+    stdout:
+    - '/^Loaded policy name:\s+targeted/'
+    - '!/^Loaded policy name:\s+(minimum|mls)/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-002696
+      Group_Title:
+      - SRG-OS-000445-GPOS-00199
+      NIST800-53R4:
+      - SI-6
+      Rule_ID: SV-258079r926224_rule
+      STIG_ID: RHEL-09-431015
+      Vul_ID: V-258079
+{{ end }}

@@ -1,0 +1,21 @@
+---
+{{ if .Vars.rhel_09_412080 }}
+file:
+  term_idle_session:
+    title: RHEL-09-412080 | RHEL 9 must terminate idle user sessions.
+    exists: true
+    path: /etc/systemd/logind.conf
+    contents:
+    - '/^StopIdleSessionSec=900/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-001133
+      Group_Title:
+      - SRG-OS-000163-GPOS-00072
+      NIST800-53R4:
+      - SC-10
+      Rule_ID: SV-258077r926218_rule
+      STIG_ID: RHEL-09-412080
+      Vul_ID: V-258077
+{{ end }}

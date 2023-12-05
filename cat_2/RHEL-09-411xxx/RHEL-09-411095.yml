@@ -9,7 +9,7 @@ exec:
       or:
       - 0
       - 1
-    contents:
+    stdout:
     - '!/^MANUAL/'
     meta:
       Cat: 2

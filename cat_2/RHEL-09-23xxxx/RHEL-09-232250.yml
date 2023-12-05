@@ -4,6 +4,7 @@
 command:
   all_files_group_owned:
     title: RHEL-09-232250 | All RHEL 9 local files and directories must have a valid group owner.
+    timeout: {{ .Vars.timeout_ms }}
     exec: df --local -P | awk {'if (NR!=1) print $6'} |  xargs -I '{}' find "{}" -xdev -nogroup
     exit-status: 0
     stdout:
