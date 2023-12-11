@@ -138,7 +138,6 @@ File: /etc/login.defs: exists: matches expectation: [true]
 File: /etc/login.defs: mode: matches expectation: ["0644"]
 File: /etc/login.defs: contains: patterns not found: [/^UMASK 077]
 
-
 Failures/Skipped:
 
 Title: CAT_2 | RHEL-09-020240 | Must define default permissions for all authenticated users in such a way that the user can only read and modify their own files.
@@ -158,7 +157,7 @@ $ sudo ./run_audit.sh -f documentation
 ## Pre-Checks Start
 
 OK - Audit binary /usr/local/bin/goss is available
-OK - Goss is installed and version is ok (0.4.4 >= 0.3.40)
+OK - Goss is installed and version is ok (0.4.4 >= 0.4.0)
 OK - /opt/RHEL9-STIG-Audit/goss.yml is available
 
 ## Pre-checks Successful
@@ -167,9 +166,10 @@ OK - /opt/RHEL9-STIG-Audit/goss.yml is available
 Audit Started
 #############
 
-Total Duration: 4.257s
-Count: 326, Failed: 16, Skipped: 2
+Total Duration: 40.673s
+Count: 1000, Failed: 51, Skipped: 6
 Completed file can be found at /opt/audit_rocky9-bios-STIG-RHEL9_1700237280.documentation
+
 ###############
 Audit Completed
 ###############
@@ -191,6 +191,12 @@ RHEL-09-211025 | RHEL 9 must implement the Endpoint Security for Linux Threat Pr
  RHEL-09-671010 | RHEL 9 must enable FIPS mode.
 
 ```
+
+## Known Issues
+
+STIG Control
+
+- RHEL-09-211035 rngd service - this is replaced if running FIPS see https://bugzilla.redhat.com/show_bug.cgi?id=2208049
 
 ## further information
 
