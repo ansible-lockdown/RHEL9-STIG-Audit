@@ -114,8 +114,8 @@ File: /etc/chrony.conf: contains: patterns not found: [/^server.*maxpoll 10/]
 Title: CAT_2 | RHEL-09-010310 | Must disable account identifiers (individuals, groups, roles, and devices) if the password expires.
 File: /etc/default/useradd: contains: patterns not found: [/^INACTIVE=0/]
 
-Total Duration: 31.127s
-Count: 308, Failed: 162, Skipped: 21
+Total Duration: 40.673s
+Count: 1000, Failed: 51, Skipped: 6
 ```
 
 - running a particular section of tests
