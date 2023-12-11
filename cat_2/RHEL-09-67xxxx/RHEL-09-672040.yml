@@ -6,9 +6,9 @@ file:
     title: RHEL-09-672040 | RHEL 9 must implement DOD-approved TLS encryption in the OpenSSL package.
     exists: true
     path: /etc/crypto-policies/back-ends/opensslcnf.config
-   contents:
-   - '/^TLS.MinProtocol = TLSv1.2/'
-   - '/^DTLS.MinProtocol = DTLSv1.2/'
+    contents:
+    - '/^TLS.MinProtocol = TLSv1.2/'
+    - '/^DTLS.MinProtocol = DTLSv1.2/'
     meta:
       Cat: 2
       CCI:

@@ -7,7 +7,7 @@ file:
     exists: true
     contents:
     - '/^cmdport 0/'
-    - '/^cmdport [^0]/'
+    - '!/^cmdport [^0]/'
     meta:
       Cat: 3
       CCI:

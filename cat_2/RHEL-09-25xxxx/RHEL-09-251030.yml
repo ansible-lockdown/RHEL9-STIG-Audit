@@ -3,7 +3,7 @@
 {{ if .Vars.rhel_09_251030 }}
 file:
   firewalld_backend:
-    title: RHEL-09-251030 | RHEL 9 must control remote access methods.
+    title: RHEL-09-251030 | RHEL 9 must protect against or limit the effects of denial-of-service (DoS) attacks by ensuring rate-limiting measures on impacted network interfaces are implemented.
     path: /etc/firewalld/firewalld.conf
     contents:
     - '/FirewallBackend\s*=\s*nftables/'

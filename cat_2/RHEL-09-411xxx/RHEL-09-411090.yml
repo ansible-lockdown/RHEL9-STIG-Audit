@@ -3,7 +3,7 @@
 {{ if .Vars.rhel_09_411090 }}
 file:
   faillock_unlock_manual:
-    title: RHEL-09-411090 | RHEL 9 must maintain an account lock until the locked account is released by an administrator.
+    title: RHEL-09-411090 | RHEL 9 must maintain an account lock until the locked account is released by an administrator. | Manual
     path: /etc/security/faillock.conf
     exists: true
     contents:

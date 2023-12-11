@@ -3,7 +3,7 @@
 {{ if .Vars.rhel_09_251025 }}
 command:
   firewalld_approved_manual:
-    title: RHEL-09-251025 | RHEL 9 must control remote access methods.
+    title: RHEL-09-251025 | RHEL 9 must control remote access methods. | Manual
     exec: echo "MANUAL - Investigation required - Firewalld RHEL-09-251025"
     exit-status: 0
     stdout:

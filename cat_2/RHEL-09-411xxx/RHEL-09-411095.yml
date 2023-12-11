@@ -3,7 +3,7 @@
 {{ if .Vars.rhel_09_411095 }}
 exec:
   unauth_accounts:
-    title: RHEL-09-411095 | RHEL 9 must not have unauthorized accounts.
+    title: RHEL-09-411095 | RHEL 9 must not have unauthorized accounts. | Manual
     exec: echo "MANUAL - Check for Unauthorized accounts"
     exit-status:
       or:

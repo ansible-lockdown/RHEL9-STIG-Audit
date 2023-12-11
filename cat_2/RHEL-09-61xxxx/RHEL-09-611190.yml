@@ -2,7 +2,7 @@
 {{ if .Vars.rhel_09_611190 }}
 command:
   private_keys_password:
-    title: RHEL-09-611190 | RHEL 9, for PKI-based authentication, must enforce authorized access to the corresponding private key
+    title: RHEL-09-611190 | RHEL 9, for PKI-based authentication, must enforce authorized access to the corresponding private key | Manual
     exec: echo "MANUAL - Please validate all private keys have a password set"
     exit-status: 0
     stdout:

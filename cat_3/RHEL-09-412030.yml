@@ -4,6 +4,7 @@ file:
   tmux_not_in_shells:
     title: RHEL-09-412030 | RHEL 9 must prevent users from disabling session control mechanisms.
     path: /etc/shells
+    exists: true
     contents:
     - '!/tmux/'
     meta:

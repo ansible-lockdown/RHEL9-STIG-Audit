@@ -510,6 +510,17 @@ rhel_09_654265: true
 rhel_09_654270: true
 rhel_09_654275: true
 
+rhel_09_671015: true
+rhel_09_671020: true
+rhel_09_671025: true
+rhel_09_672010: true
+rhel_09_672020: true
+rhel_09_672025: true
+rhel_09_672035: true
+rhel_09_672040: true
+rhel_09_672045: true
+rhel_09_672050: true
+
 # Cat 3 controls
 rhel_09_211035: true
 rhel_09_212050: true

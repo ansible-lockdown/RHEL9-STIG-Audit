@@ -7,7 +7,7 @@ file:
     exists: true
     contents:
     - '/^port 0/'
-    - '/^port [^0]/'
+    - '!/^port [^0]/'
     meta:
       Cat: 3
       CCI:

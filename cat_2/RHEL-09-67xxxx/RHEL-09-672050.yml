@@ -7,7 +7,7 @@ file:
     exists: true
     path: /etc/named.conf
     contents:
-    - '/^include "/etc/crypto-policies/back-ends/bind.config";\'/'
+    - '/^include "\/etc\/crypto-policies\/back-ends\/bind.config";./'
     meta:
       Cat: 2
       CCI:

@@ -1,12 +1,15 @@
 ---
 
 {{ if .Vars.rhel_09_291030 }}
-file:
+command:
   usbguard_rules:
     title: RHEL-09-291030 | RHEL 9 must block unauthorized peripherals before establishing a connection.
-    path: /etc/usbguard/rules.conf
-    exists: true
-    contents:
+    exec: usbguard list-rules
+    exit-status:
+      or:
+      - 0
+      - 1
+    stdout:
     - '/^(allow|deny) id .*/'
     meta:
       Cat: 2

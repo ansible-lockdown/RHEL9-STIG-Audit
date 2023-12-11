@@ -5,8 +5,7 @@ command:
   fip_policy:
     title: RHEL-09-672045 | RHEL 9 must implement a system-wide encryption policy.
     exec: update-crypto-policies --show
-    exit-status:
-      - 0
+    exit-status: 0
     stdout:
     - '/^FIPS/'
     meta:

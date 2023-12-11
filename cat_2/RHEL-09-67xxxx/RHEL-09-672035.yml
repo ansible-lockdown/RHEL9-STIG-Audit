@@ -6,8 +6,8 @@ file:
     title: RHEL-09-672035 | RHEL 9 must implement DOD-approved encryption in the OpenSSL package.
     exists: true
     path: /etc/pki/tls/openssl.cnf
-   contents:
-   - '/^\.include = \/etc\/crypto-policies\/back-ends\/opensslcnf.config/'
+    contents:
+    - '/^\.include = \/etc\/crypto-policies\/back-ends\/opensslcnf.config/'
     meta:
       Cat: 2
       CCI:
