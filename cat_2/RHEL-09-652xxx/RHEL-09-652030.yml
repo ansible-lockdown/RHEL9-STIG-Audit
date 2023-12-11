@@ -1,0 +1,27 @@
+---
+
+{{ if .Vars.rhel_09_652030 }}
+ {{ if not .Vars.rhel9stig_rsyslog_server }}
+command:
+  rsyslog_monitor_remote:
+    title: RHEL-09-652030 | All RHEL 9 remote access methods must be monitored.
+    exec: grep -rE '(auth.\*|authpriv.\*|daemon.\*)' /etc/rsyslog.conf
+    exit-status:
+      or:
+      - 0
+      - 1
+    stdout:
+    - '/^auth.*;authpriv.*;daemon.* /var/log/secure/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000067
+      Group_Title:
+      - SRG-OS-000032-GPOS-00013
+      NIST800-53R4:
+      - AC-17
+      Rule_ID: SV-258144r926419_rule
+      STIG_ID: RHEL-09-652030
+      Vul_ID: V-258144
+  {{ end }}
+{{ end }}

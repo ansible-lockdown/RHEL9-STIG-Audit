@@ -1,0 +1,26 @@
+---
+
+{{ if .Vars.rhel_09_671015 }}
+command:
+  shadow_hash_algo:
+    title: RHEL-09-671015 | RHEL 9 must employ FIPS 140-3 approved cryptographic hashing algorithms for all stored passwords.
+    exec: 'cat /etc/shadow | grep -v "*" | grep -v "!" | grep -v ":$6$" | cut -f1 -d:'
+    exit-status: 0
+    path: /etc/shadow
+    contents:
+    - '!/^.*/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000196
+      - CCI-000803
+      Group_Title:
+      - SRG-OS-000073-GPOS-00041
+      - SRG-OS-000120-GPOS-00061
+      NIST800-53R4:
+      - IA-5
+      - IA-7
+      Rule_ID: SV-258231r926680_rule
+      STIG_ID: RHEL-09-671015
+      Vul_ID: V-258231
+{{ end }}

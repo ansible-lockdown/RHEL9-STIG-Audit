@@ -1,0 +1,22 @@
+---
+{{ if .Vars.rhel_09_214035 }}
+file:
+  dnf_clean_reqs:
+    title: RHEL-09-214035 | RHEL 9 must remove all software components after updated versions have been installed.
+    path: /etc/dnf/dnf.conf
+    exists: true
+    contents:
+    - '/^clean_requirements_on_remove\s*=\s*1/'
+    - '!/^clean_requirements_on_remove\s*=\s*[^1]/'
+    meta:
+      Cat: 3
+      CCI:
+      - CCI-002617
+      Group_Title:
+      - SRG-OS-000437-GPOS-00194
+      NIST800-53R4:
+      - SI-2
+      Rule_ID: SV-257824r925459_rule
+      STIG_ID: RHEL-09-214035
+      Vul_ID: V-257824
+{{ end }}

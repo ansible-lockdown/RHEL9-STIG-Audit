@@ -1,0 +1,22 @@
+---
+
+{{ if .Vars.rhel_09_653045 }}
+file:
+  audit_admin_space_left:
+    title: RHEL-09-653045 | RHEL 9 must take action when allocated audit record storage volume reaches 95 percent of the audit record storage capacity.
+    exists: true
+    path: /etc/audit/auditd.conf
+    contents:
+    - '/^admin_space_left = {{ .Vars.rhel9stig_audit_conf.admin_space_left }}/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-001855
+      Group_Title:
+      - SRG-OS-000343-GPOS-00134
+      NIST800-53R4:
+      - AU-5
+      Rule_ID: SV-258158r926461_rule
+      STIG_ID: RHEL-09-653045
+      Vul_ID: V-258158
+{{ end }}

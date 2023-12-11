@@ -7,7 +7,7 @@ file:
     contents:
     - '!/tmux/'
     meta:
-      Cat: 2
+      Cat: 3
       CCI:
       - CCI-000056
       - CCI-002235

@@ -1,0 +1,24 @@
+---
+
+{{ if .Vars.rhel_09_653100 }}
+file:
+  audit_log_format:
+    title: RHEL-09-653100 | RHEL 9 must produce audit records containing information to establish the identity of any individual or process associated with the event.
+    exists: true
+    path: /etc/audit/auditd.conf
+    contents:
+    - '/^log_format = {{ .Vars.rhel9stig_audit_conf.log_format }}/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000366
+      - CCI-001487
+      Group_Title:
+      - SRG-OS-000255-GPOS-00096
+      NIST800-53R4:
+      - AU-3
+      - CM-6
+      Rule_ID: SV-258169r926494_rule
+      STIG_ID: RHEL-09-653100
+      Vul_ID: V-258169
+{{ end }}

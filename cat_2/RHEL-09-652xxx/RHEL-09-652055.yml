@@ -1,0 +1,31 @@
+---
+
+{{ if .Vars.rhel_09_652055 }}
+ {{ if not .Vars.rhel9stig_rsyslog_server }}
+command:
+  rsyslog_remote_server_config:
+    title: RHEL-09-652055 | RHEL 9 must be configured to forward audit records via TCP to a different system or media from the system being audited via rsyslog.
+    exec: grep '@@'' /etc/rsyslog.conf /etc/rsyslog.d/*.conf
+    exit-status:
+      or:
+      - 0
+      - 1
+    stdout:
+    - '/^.*:*.* @@\[{{ .Vars.rhel9stig_remotelog_server.server }}\]:\[{{ .Vars.rhel9stig_remotelog_server.port}}\]/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-001851
+      - CCI-000366
+      Group_Title:
+      - SRG-OS-000479-GPOS-00224
+      - SRG-OS-000480-GPOS-00227
+      - SRG-OS-000342-GPOS-00133
+      NIST800-53R4:
+      - CM-6
+      - AU-4
+      Rule_ID: SV-258149r926434_rule
+      STIG_ID: RHEL-09-652055
+      Vul_ID: V-258149
+  {{ end }}
+{{ end }}

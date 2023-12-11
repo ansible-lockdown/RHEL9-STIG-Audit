@@ -1,0 +1,22 @@
+---
+
+{{ if .Vars.rhel_09_672035 }}
+file:
+  openssl_conf_include:
+    title: RHEL-09-672035 | RHEL 9 must implement DOD-approved encryption in the OpenSSL package.
+    exists: true
+    path: /etc/pki/tls/openssl.cnf
+   contents:
+   - '/^\.include = \/etc\/crypto-policies\/back-ends\/opensslcnf.config/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-001453
+      Group_Title:
+      - SRG-OS-000250-GPOS-00093
+      NIST800-53R4:
+      - AC-17
+      Rule_ID: SV-258239r926704_rule
+      STIG_ID: RHEL-09-672035
+      Vul_ID: V-258239
+{{ end }}

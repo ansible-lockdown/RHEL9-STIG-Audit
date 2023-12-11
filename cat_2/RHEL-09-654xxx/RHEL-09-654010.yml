@@ -1,0 +1,53 @@
+---
+
+{{ if .Vars.rhel_09_654010 }}
+file:
+  audit_conf_execve:
+    title: RHEL-09-654010 | RHEL 9 must audit uses of the "execve" system call.
+    exists: true
+    path: /etc/audit/rules.d/audit.rules
+    contents:
+    - '/^-a always,exit -F arch=b32 -S execve -C uid!=euid -F euid=0 -k execpriv/'
+    - '/^-a always,exit -F arch=b64 -S execve -C uid!=euid -F euid=0 -k execpriv/'
+    - '/^-a always,exit -F arch=b32 -S execve -C gid!=egid -F egid=0 -k execpriv/'
+    - '/^-a always,exit -F arch=b64 -S execve -C gid!=egid -F egid=0 -k execpriv/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-002233
+      - CCI-002234
+      Group_Title:
+      - SRG-OS-000326-GPOS-00126
+      - SRG-OS-000327-GPOS-00127
+      NIST800-53R4:
+      - AC-6
+      Rule_ID: SV-258176r926515_rule
+      STIG_ID: RHEL-09-654010
+      Vul_ID: V-258176
+command:
+  audit_running_execve:
+    title: RHEL-09-654010 | RHEL 9 must audit uses of the "execve" system call.
+    exec: auditctl -l | grep execve
+    exit-status:
+      or:
+      - 0
+      - 1
+    stdout:
+    - '/^-a always,exit -F arch=b32 -S execve -C uid!=euid -F euid=0 -F key=execpriv/'
+    - '/^-a always,exit -F arch=b64 -S execve -C uid!=euid -F euid=0 -F key=execpriv/'
+    - '/^-a always,exit -F arch=b32 -S execve -C gid!=egid -F egid=0 -F key=execpriv/'
+    - '/^-a always,exit -F arch=b64 -S execve -C gid!=egid -F egid=0 -F key=execpriv/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-002233
+      - CCI-002234
+      Group_Title:
+      - SRG-OS-000326-GPOS-00126
+      - SRG-OS-000327-GPOS-00127
+      NIST800-53R4:
+      - AC-6
+      Rule_ID: SV-258176r926515_rule
+      STIG_ID: RHEL-09-654010
+      Vul_ID: V-258176
+{{ end }}

@@ -231,7 +231,6 @@ rhel_09_251045: true
 rhel_09_252010: true
 rhel_09_252015: true
 rhel_09_252020: true
-rhel_09_252025: true
 rhel_09_252030: true
 rhel_09_252035: true
 rhel_09_252040: true
@@ -408,8 +407,126 @@ rhel_09_611190: true
 rhel_09_611195: true
 rhel_09_611200: true
 rhel_09_611205: true
+### CAT2 63xxxx
+rhel_09_631010: true
+rhel_09_631015: true
+rhel_09_631020: true
+### CAT2 65xxxx
+rhel_09_651010: true
+rhel_09_651015: true
+rhel_09_651020: true
+rhel_09_651025: true
+rhel_09_652010: true
+rhel_09_652015: true
+rhel_09_652020: true
+rhel_09_652025: true
+rhel_09_652030: true
+rhel_09_653130: true  # NOTE Required before 652035 can run
+rhel_09_652035: true
+rhel_09_652040: true
+rhel_09_652045: true
+rhel_09_652050: true
+rhel_09_652055: true
+rhel_09_652060: true
+
+### CAT2 653xxxx
+rhel_09_653010: true
+rhel_09_653015: true
+rhel_09_653020: true
+rhel_09_653025: true
+rhel_09_653030: true
+rhel_09_653035: true
+rhel_09_653040: true
+rhel_09_653045: true
+rhel_09_653050: true
+rhel_09_653055: true
+rhel_09_653060: true
+rhel_09_653065: true
+rhel_09_653070: true
+rhel_09_653075: true
+rhel_09_653080: true
+rhel_09_653085: true
+rhel_09_653090: true
+rhel_09_653095: true
+rhel_09_653100: true
+rhel_09_653105: true
+rhel_09_653110: true
+rhel_09_653115: true
+rhel_09_653125: true
+
+### CAT2 654xxxx
+rhel_09_654010: true
+rhel_09_654015: true
+rhel_09_654020: true
+rhel_09_654025: true
+rhel_09_654030: true
+rhel_09_654035: true
+rhel_09_654040: true
+rhel_09_654045: true
+rhel_09_654050: true
+rhel_09_654055: true
+rhel_09_654060: true
+rhel_09_654065: true
+rhel_09_654070: true
+rhel_09_654075: true
+rhel_09_654080: true
+rhel_09_654085: true
+rhel_09_654090: true
+rhel_09_654095: true
+rhel_09_654100: true
+rhel_09_654105: true
+rhel_09_654110: true
+rhel_09_654115: true
+rhel_09_654120: true
+rhel_09_654125: true
+rhel_09_654130: true
+rhel_09_654135: true
+rhel_09_654140: true
+rhel_09_654145: true
+rhel_09_654150: true
+rhel_09_654155: true
+rhel_09_654160: true
+rhel_09_654165: true
+rhel_09_654170: true
+rhel_09_654175: true
+rhel_09_654180: true
+rhel_09_654185: true
+rhel_09_654190: true
+rhel_09_654195: true
+rhel_09_654200: true
+rhel_09_654205: true
+rhel_09_654210: true
+rhel_09_654215: true
+rhel_09_654220: true
+rhel_09_654225: true
+rhel_09_654230: true
+rhel_09_654235: true
+rhel_09_654240: true
+rhel_09_654245: true
+rhel_09_654250: true
+rhel_09_654255: true
+rhel_09_654260: true
+rhel_09_654265: true
+rhel_09_654270: true
+rhel_09_654275: true
 
 # Cat 3 controls
+rhel_09_211035: true
+rhel_09_212050: true
+rhel_09_212055: true
+rhel_09_214035: true
+rhel_09_231020: true
+rhel_09_231025: true
+rhel_09_231030: true
+rhel_09_231195: true
+rhel_09_252025: true
+rhel_09_291025: true
+rhel_09_412030: true
+rhel_09_412040: true
+rhel_09_412075: true
+rhel_09_651030: true
+rhel_09_651035: true
+rhel_09_653120: true
 
 ####
 
@@ -544,3 +661,43 @@ rhel9stig_unnecessary_accounts:
 rhel9stig_remove_unnecessary_user_files: false
 
 rhel9stig_smartcard_reader: false
+
+### Aide
+rhel9stig_use_aide: true
+rhel9stig_aide_cron_file: /etc/cron.daily/aide  # NOTE the path may change if not running daily
+rhel9stig_aide_cron:
+  day: '*'
+  hour: '4'
+  minute: '30'
+  job: '/usr/sbin/aide --check | /bin/mail -s "$HOSTNAME - Daily aide integrity check run" root@sysname.mil'
+  name: 'Aide Job runs Daily at 0430'
+
+### Rsyslog
+# Set the following to true if the server accepts incoming syslog data using rsyslog
+rhel9stig_rsyslog_server: false
+
+# Adjust to match remote syslog server configuration
+rhel9stig_remotelog_server:
+  server: 10.10.10.10
+  port: 9999
+  protocol: '@@'
+
+### AUDITD
+rhel9stig_audit_log_filesystem: /var/log/audit
+rhel9stig_audit_conf:
+  action_mail_acct: root
+  admin_space_left: 5
+  admin_space_left_action: single
+  disk_error_action: HALT  # Can be one of "SYSLOG", "SINGLE", or "HALT"
+  disk_full_action: HALT  # Can be one of "SYSLOG", "SINGLE", or "HALT"
+  freq: '100'
+  local_events: 'yes'
+  log_format: ENRICHED
+  logfile: "{{ rhel9stig_audit_log_filesystem }}/audit.log"
+  log_group: root
+  max_log_file_action: ROTATE
+  name_format: hostname
+  overflow_action: syslog
+  space_left: 25
+  space_left_action: email
+  write_logs: 'yes'

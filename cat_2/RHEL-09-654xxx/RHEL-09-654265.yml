@@ -1,0 +1,24 @@
+---
+
+{{ if .Vars.rhel_09_654260 }}
+file:
+  audit_conf_crit_proc:
+    title: RHEL-09-654260 | RHEL 9 must take appropriate action when a critical audit processing failure occurs.
+    exists: true
+    path: /etc/audit/rules.d/audit.rules
+    contents:
+    - '/^-f 2/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000139
+      - CCI-000140
+      Group_Title:
+      - SRG-OS-000046-GPOS-00022
+      - SRG-OS-000047-GPOS-00023
+      NIST800-53R4:
+      - AU-5
+      Rule_ID: SV-258227r926668_rule
+      STIG_ID: RHEL-09-654265
+      Vul_ID: V-258227
+{{ end }}

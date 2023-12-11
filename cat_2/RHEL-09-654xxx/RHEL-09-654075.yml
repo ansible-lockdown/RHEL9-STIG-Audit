@@ -1,0 +1,71 @@
+---
+
+{{ if .Vars.rhel_09_654075 }}
+file:
+  audit_conf_delete_module:
+    title: RHEL-09-654075 | RHEL 9 must audit all uses of the delete_module system call.
+    exists: true
+    path: /etc/audit/rules.d/audit.rules
+    contents:
+    - '/^-a always,exit -F arch=b32 -S delete_module -F auid>=1000 -F auid!=unset -k module_chng/'
+    - '/^-a always,exit -F arch=b64 -S delete_module -F auid>=1000 -F auid!=unset -k module_chng/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000130
+      - CCI-000135
+      - CCI-000169
+      - CCI-000172
+      - CCI-002884
+      Group_Title:
+      - SRG-OS-000037-GPOS-00015
+      - SRG-OS-000042-GPOS-00020
+      - SRG-OS-000062-GPOS-00031
+      - SRG-OS-000392-GPOS-00172
+      - SRG-OS-000462-GPOS-00206
+      - SRG-OS-000471-GPOS-00215
+      - SRG-OS-000471-GPOS-00216
+      - SRG-OS-000477-GPOS-00222
+      NIST800-53R4:
+      - AU-3
+      - AU-12
+      - MA-4
+      Rule_ID: SV-258189r926554_rule
+      STIG_ID: RHEL-09-654075
+      Vul_ID: V-258189
+command:
+  audit_running_delete_module:
+    title: RHEL-09-654075 | RHEL 9 must audit all uses of the delete_module system call.
+    exec: auditctl -l | grep delete_module
+    exit-status:
+      or:
+      - 0
+      - 1
+    stdout:
+    - '-a always,exit -F arch=b32 -S delete_module -F auid>=1000 -F auid!=-1 -F key=module_chng'
+    - '-a always,exit -F arch=b64 -S delete_module -F auid>=1000 -F auid!=-1 -F key=module_chng'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000130
+      - CCI-000135
+      - CCI-000169
+      - CCI-000172
+      - CCI-002884
+      Group_Title:
+      - SRG-OS-000037-GPOS-00015
+      - SRG-OS-000042-GPOS-00020
+      - SRG-OS-000062-GPOS-00031
+      - SRG-OS-000392-GPOS-00172
+      - SRG-OS-000462-GPOS-00206
+      - SRG-OS-000471-GPOS-00215
+      - SRG-OS-000471-GPOS-00216
+      - SRG-OS-000477-GPOS-00222
+      NIST800-53R4:
+      - AU-3
+      - AU-12
+      - MA-4
+      Rule_ID: SV-258189r926554_rule
+      STIG_ID: RHEL-09-654075
+      Vul_ID: V-258189
+{{ end }}

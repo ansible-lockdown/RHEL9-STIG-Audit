@@ -1,0 +1,23 @@
+---
+
+{{ if .Vars.rhel_09_652015 }}
+package:
+  rsyslog-gnutils_installed:
+    title: RHEL-09-652015 | RHEL 9 must have the packages required for encrypting offloaded audit logs installed.
+    name: rsyslog-gnutls
+    installed: true
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000366
+      - CCI-000803
+      Group_Title:
+      - SRG-OS-000120-GPOS-00061
+      - SRG-OS-000480-GPOS-00227
+      NIST800-53R4:
+      - CM-6
+      - IA-7
+      Rule_ID: SV-258141r926410_rule
+      STIG_ID: RHEL-09-652015
+      Vul_ID: V-258141
+{{ end }}

@@ -3,8 +3,10 @@
 command:
   private_keys_password:
     title: RHEL-09-611190 | RHEL 9, for PKI-based authentication, must enforce authorized access to the corresponding private key
-    exec: echo "Manual - Please validate all private keys have a password set"
+    exec: echo "MANUAL - Please validate all private keys have a password set"
     exit-status: 0
+    stdout:
+    - '!/.*/'
     meta:
       Cat: 2
       CCI:

@@ -1,0 +1,28 @@
+---
+
+{{ if .Vars.rhel_09_653085 }}
+file:
+  audit_log_owner:
+    title: RHEL-09-653085 | RHEL 9 audit log directory must be owned by root to prevent unauthorized read access.
+    exists: true
+    owner: root
+    path: /etc/audit/auditd.conf
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000162
+      - CCI-000163
+      - CCI-000164
+      - CCI-001314
+      Group_Title:
+      - SRG-OS-000057-GPOS-00027
+      - SRG-OS-000058-GPOS-00028
+      - SRG-OS-000059-GPOS-00029
+      - SRG-OS-000206-GPOS-00084
+      NIST800-53R4:
+      - AU-9
+      - SI-11
+      Rule_ID: SV-258166r926485_rule
+      STIG_ID: RHEL-09-653085
+      Vul_ID: V-258166
+{{ end }}

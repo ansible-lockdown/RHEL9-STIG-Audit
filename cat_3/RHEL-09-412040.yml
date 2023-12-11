@@ -8,7 +8,7 @@ file:
     contents:
     - '/\* hard maxlogins ([1-9]|10)/'
     meta:
-      Cat: 2
+      Cat: 3
       CCI:
       - CCI-000057
       - CCI-002235

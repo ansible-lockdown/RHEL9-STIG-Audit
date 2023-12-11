@@ -1,0 +1,19 @@
+---
+{{ if .Vars.rhel_09_231020 }}
+mount:
+  var_exists:
+    title: RHEL-09-231020 | RHEL 9 must use a separate file system for /var.
+    mountpoint: /var
+    exists: true
+    meta:
+      Cat: 3
+      CCI:
+      - CCI-000366
+      Group_Title:
+      - SRG-OS-000480-GPOS-00227
+      NIST800-53R4:
+      - CM-6
+      Rule_ID: SV-257845r925522_rule
+      STIG_ID: RHEL-09-231020
+      Vul_ID: V-257845
+{{ end }}

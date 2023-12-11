@@ -1,0 +1,21 @@
+---
+{{ if .Vars.rhel_09_651030 }}
+file:
+  aide_all_acl:
+    title: RHEL-09-651030 | RHEL 9 must be configured so that the file integrity tool verifies Access Control Lists (ACLs).
+    path: /etc/aide.conf
+    exists: true
+    contents:
+    - '/(?i)^all\s*=\s*p\+i\+n\+u\+g\+s\+m\+S\+sha512\+acl\+xattrs\+selinux/'
+    meta:
+      Cat: 3
+      CCI:
+      - CCI-000366
+      Group_Title:
+      - SRG-OS-000480-GPOS-00227
+      NIST800-53R4:
+      - CM-6
+      Rule_ID: SV-258138r926401_rule
+      STIG_ID: RHEL-09-651030
+      Vul_ID: V-258138
+{{ end }}

@@ -2,7 +2,7 @@
 
 {{ if .Vars.rhel_09_251035 }}
 command:
-  firewalld_prohibit:
+  firewalld_prohibit_manual:
     title: RHEL-09-251035 | RHEL 9 must be configured to prohibit or restrict the use of functions, ports, protocols, and/or services, as defined in the Ports, Protocols, and Services Management (PPSM) Category Assignments List (CAL) and vulnerability assessments.
     exec: echo "MANUAL - Investigation required - Firewalld RHEL-09-251035"
     exit-status: 0

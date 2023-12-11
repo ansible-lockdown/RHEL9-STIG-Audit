@@ -1,0 +1,51 @@
+---
+
+{{ if .Vars.rhel_09_654250 }}
+file:
+  audit_conf_var_log_faillock:
+    title: RHEL-09-654250 | RHEL 9 must generate audit records for all account creations, modifications, disabling, and termination events that affect /var/log/faillock.
+    exists: true
+    path: /etc/audit/rules.d/audit.rules
+    contents:
+    - '/^-w /var/log/faillock -p wa -k logins/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000172
+      - CCI-002884
+      Group_Title:
+      - SRG-OS-000392-GPOS-00172
+      - SRG-OS-000470-GPOS-00214
+      - SRG-OS-000473-GPOS-00218
+      NIST800-53R4:
+      - AU-12
+      - MA-4
+      Rule_ID: SV-258224r926659_rule
+      STIG_ID: RHEL-09-654250
+      Vul_ID: V-258224
+command:
+  audit_running_var_log_faillock:
+    title: RHEL-09-654250 | RHEL 9 must generate audit records for all account creations, modifications, disabling, and termination events that affect /var/log/faillock.
+    exec: auditctl -l | grep -w "faillock"
+    exit-status:
+      or:
+      - 0
+      - 1
+    stdout:
+    - '-w /var/log/faillock -p wa -k logins'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000172
+      - CCI-002884
+      Group_Title:
+      - SRG-OS-000392-GPOS-00172
+      - SRG-OS-000470-GPOS-00214
+      - SRG-OS-000473-GPOS-00218
+      NIST800-53R4:
+      - AU-12
+      - MA-4
+      Rule_ID: SV-258224r926659_rule
+      STIG_ID: RHEL-09-654250
+      Vul_ID: V-258224
+{{ end }}

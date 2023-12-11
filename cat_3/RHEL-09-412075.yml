@@ -8,7 +8,7 @@ file:
     contents:
     - '/session\s+required\s+pam_lastlog.so\s+showfailed/'
     meta:
-      Cat: 2
+      Cat: 3
       CCI:
       - CCI-000366
       Group_Title:

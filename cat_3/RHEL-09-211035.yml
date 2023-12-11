@@ -1,0 +1,20 @@
+---
+{{ if .Vars.rhel_09_211035 }}
+service:
+  rngd_running:
+    title: RHEL-09-211035 | RHEL 9 must enable the hardware random number generator entropy gatherer service.
+    name: rngd
+    enabled: true
+    running: true
+    meta:
+      Cat: 3
+      CCI:
+      - CCI-000366
+      Group_Title:
+      - SRG-OS-000480-GPOS-00227
+      NIST800-53R4:
+      - CM-6
+      Rule_ID: SV-257782r925333_rule
+      STIG_ID: RHEL-09-211035
+      Vul_ID: V-257782
+{{ end }}

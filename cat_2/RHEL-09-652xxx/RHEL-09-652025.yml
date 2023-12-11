@@ -1,0 +1,28 @@
+---
+
+{{ if .Vars.rhel_09_652025 }}
+ {{ if not .Vars.rhel9stig_rsyslog_server }}
+command:
+  rsyslog_not_accept_incoming:
+    title: RHEL-09-652025 | RHEL 9 must be configured so that the rsyslog daemon does not accept log messages from other servers unless the server is being used for log aggregation.
+    exec: grep -iE (modload|serverun) /etc/rsyslog.conf /etc/rsyslog.d/*
+    exit-status:
+      or:
+      - 0
+      - 1
+      - 2
+    stdout:
+    - '!/.*/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000366
+      Group_Title:
+      - SRG-OS-000480-GPOS-00227
+      NIST800-53R4:
+      - CM-6
+      Rule_ID: SV-258143r926416_rule
+      STIG_ID: RHEL-09-652025
+      Vul_ID: V-258143
+  {{ end }}
+{{ end }}

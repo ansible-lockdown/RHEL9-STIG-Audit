@@ -1,0 +1,23 @@
+---
+
+{{ if .Vars.rhel_09_653065 }}
+file:
+  audit_overflow_action:
+    title: RHEL-09-653065 | RHEL 9 must take appropriate action when the internal event queue is full.
+    exists: true
+    path: /etc/audit/auditd.conf
+    contents:
+    - '/^overflow_action = {{ .Vars.rhel9stig_audit_conf.overflow_action }}/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-001851
+      Group_Title:
+      - SRG-OS-000342-GPOS-00133
+      - SRG-OS-000479-GPOS-00224
+      NIST800-53R4:
+      - AU-4
+      Rule_ID: SV-258162r926473_rule
+      STIG_ID: RHEL-09-653065
+      Vul_ID: V-258162
+{{ end }}

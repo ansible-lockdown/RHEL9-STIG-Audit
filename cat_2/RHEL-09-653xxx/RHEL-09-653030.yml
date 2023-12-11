@@ -1,0 +1,27 @@
+---
+
+{{ if .Vars.rhel_09_653030 }}
+command:
+  audit_disk_space_adequate_manual:
+    title: RHEL-09-653030 | RHEL 9 must allocate audit record storage capacity to store at least one week's worth of audit records.
+    exec: echo -e "MANUAL - Ensure the disk space is sufficient for 1 week of audit logs\n`df -h {{ .Vars.rhel9stig_audit_log_filesystem }}`"
+    exit-status:
+      or:
+      - 0
+      - 1
+    stdout:
+    - '!/^.*/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-001849
+      - CCI-001851
+      Group_Title:
+      - SRG-OS-000341-GPOS-00132
+      - SRG-OS-000342-GPOS-00133
+      NIST800-53R4:
+      - AU-4
+      Rule_ID: SV-258155r926452_rule
+      STIG_ID: RHEL-09-653030
+      Vul_ID: V-258155
+{{ end }}

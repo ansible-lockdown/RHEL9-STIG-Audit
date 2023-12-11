@@ -1,0 +1,22 @@
+---
+
+{{ if .Vars.rhel_09_651020 }}
+file:
+  aide_hashing:
+    title: RHEL-09-651020 | RHEL 9 must use a file integrity tool that is configured to use FIPS 140-3-approved cryptographic hashes for validating file contents and directories.
+    path: /etc/aide.conf
+    exists: true
+    contents:
+    - '/^(All|FIPSR)\s*=\s*p\+i\+n\+u\+g\+s\+m\+S\+sha512\+acl\+xattrs\+selinux/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000366
+      Group_Title:
+      - SRG-OS-000480-GPOS-00227
+      NIST800-53R4:
+      - CM-6
+      Rule_ID: SV-258136r926395_rule
+      STIG_ID: RHEL-09-651020
+      Vul_ID: V-258136
+{{ end }}

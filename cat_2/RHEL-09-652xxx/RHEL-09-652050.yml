@@ -1,0 +1,28 @@
+---
+
+{{ if .Vars.rhel_09_652050 }}
+ {{ if not .Vars.rhel9stig_rsyslog_server }}
+command:
+  rsyslog_netstream_driver:
+    title: RHEL-09-652050 | RHEL 9 must encrypt via the gtls driver the transfer of audit records offloaded onto a different system or media from the system being audited via rsyslog.
+    exec: grep -iE "^\$DefaultNetstreamDriver" /etc/rsyslog.conf /etc/rsyslog.d/*.conf
+    exit-status:
+      or:
+      - 0
+      - 1
+    stdout:
+    - '/^.*:$DefaultNetstreamDriver gtls/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-001851
+      Group_Title:
+      - SRG-OS-000342-GPOS-00133
+      - SRG-OS-000479-GPOS-00224
+      NIST800-53R4:
+      - AU-4
+      Rule_ID: SV-258148r926431_rule
+      STIG_ID: RHEL-09-652050
+      Vul_ID: V-258148
+  {{ end }}
+{{ end }}

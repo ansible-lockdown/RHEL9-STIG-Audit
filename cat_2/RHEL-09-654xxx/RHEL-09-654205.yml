@@ -1,0 +1,66 @@
+---
+
+{{ if .Vars.rhel_09_654205 }}
+file:
+  audit_conf_umount_success:
+    title: RHEL-09-654205 | Successful/unsuccessful uses of the umount system call in RHEL 9 must generate an audit record.
+    exists: true
+    path: /etc/audit/rules.d/audit.rules
+    contents:
+    - '/-a always,exit -F arch=b32 -S umount -F auid>=1000 -F auid!=unset -k perm_mod/'
+    - '/-a always,exit -F arch=b64 -S umount -F auid>=1000 -F auid!=unset -k perm_mod/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000130
+      - CCI-000169
+      - CCI-000172
+      - CCI-002884
+      Group_Title:
+      - SRG-OS-000037-GPOS-00015
+      - SRG-OS-000062-GPOS-00031
+      - SRG-OS-000392-GPOS-00172
+      - SRG-OS-000462-GPOS-00206
+      - SRG-OS-000471-GPOS-00215
+      NIST800-53R4:
+      - AU-3
+      - AU-12
+      - MA-4
+      Rule_ID: SV-258215r926632_rule
+      STIG_ID: RHEL-09-654205
+      Vul_ID: V-258215
+command:
+  audit_running_umount_success:
+    title: RHEL-09-654205 | Successful/unsuccessful uses of the umount system call in RHEL 9 must generate an audit record.
+    exec: auditctl -l | grep -w "umount"
+    exit-status:
+      or:
+      - 0
+      - 1
+    stdout:
+    {{ if .Vars.rhel_09_654030 }}
+    - -a always,exit -F path=/usr/bin/umount -F perm=x -F auid>=1000 -F auid!=unset -k privileged-mount
+    {{ end }}
+    - '-a always,exit -F arch=b32 -S umount -F auid>=1000 -F auid!=-1 -F key=perm_mod'
+    - '-a always,exit -F arch=b64 -S umount -F auid>=1000 -F auid!=-1 -F key=perm_mod'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000130
+      - CCI-000169
+      - CCI-000172
+      - CCI-002884
+      Group_Title:
+      - SRG-OS-000037-GPOS-00015
+      - SRG-OS-000062-GPOS-00031
+      - SRG-OS-000392-GPOS-00172
+      - SRG-OS-000462-GPOS-00206
+      - SRG-OS-000471-GPOS-00215
+      NIST800-53R4:
+      - AU-3
+      - AU-12
+      - MA-4
+      Rule_ID: SV-258215r926632_rule
+      STIG_ID: RHEL-09-654205
+      Vul_ID: V-258215
+{{ end }}

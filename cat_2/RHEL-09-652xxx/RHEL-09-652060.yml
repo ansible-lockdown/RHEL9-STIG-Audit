@@ -1,0 +1,22 @@
+---
+
+{{ if .Vars.rhel_09_652060 }}
+file:
+  rsyslog_cron_logging:
+    title: RHEL-09-652060 | RHEL 9 must use cron logging.
+    path: /etc/rsyslog.conf
+    exists: true
+    contents:
+    - '/^cron\.\*\s+/var/log/cron/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000366
+      Group_Title:
+      - SRG-OS-000480-GPOS-00227
+      NIST800-53R4:
+      - CM-6
+      Rule_ID: SV-258150r926437_rule
+      STIG_ID: RHEL-09-652060
+      Vul_ID: V-258150
+{{ end }}

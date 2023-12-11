@@ -1,0 +1,22 @@
+---
+
+{{ if .Vars.rhel_09_672025 }}
+file:
+  krb5_crypto:
+    title: RHEL-09-672025 | RHEL 9 must use mechanisms meeting the requirements of applicable federal laws, executive orders, directives, policies, regulations, standards, and guidance for authentication to a cryptographic module.
+    exists: true
+    path: /etc/crypto-policies/back-ends/krb5.config
+    filetype: symlink
+    linked-to: /usr/share/crypto-policies/FIPS/krb5.txt
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000803
+      Group_Title:
+      - SRG-OS-000120-GPOS-00061
+      NIST800-53R4:
+      - IA-7
+      Rule_ID: SV-258237r926698_rule
+      STIG_ID: RHEL-09-672025
+      Vul_ID: V-258237
+{{ end }}

@@ -1,0 +1,22 @@
+---
+
+{{ if .Vars.rhel_09_653125 }}
+file:
+  root_aliases:
+    title: RHEL-09-653125 | RHEL 9 must have mail aliases to notify the information system security officer (ISSO) and system administrator (SA) (at a minimum) in the event of an audit processing failure.
+    exists: true
+    path: /etc/aliases
+    contents:
+    - '/^root:\s*ISSO/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000139
+      Group_Title:
+      - SRG-OS-000046-GPOS-00022
+      NIST800-53R4:
+      - AU-5
+      Rule_ID: SV-258174r926509_rule
+      STIG_ID: RHEL-09-653125
+      Vul_ID: V-258174
+{{ end }}

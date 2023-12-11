@@ -1,0 +1,67 @@
+---
+
+{{ if .Vars.rhel_09_654150 }}
+file:
+  audit_conf_sudo:
+    title: RHEL-09-654150 | RHEL 9 must audit all uses of the sudo command.
+    exists: true
+    path: /etc/audit/rules.d/audit.rules
+    contents:
+    - '/^-a always,exit -F path=/usr/bin/sudo -F perm=x -F auid>=1000 -F auid!=unset -k priv_cmd/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000130
+      - CCI-000135
+      - CCI-000169
+      - CCI-000172
+      - CCI-002884
+      Group_Title:
+      - SRG-OS-000037-GPOS-00015
+      - SRG-OS-000042-GPOS-00020
+      - SRG-OS-000062-GPOS-00031
+      - SRG-OS-000392-GPOS-00172
+      - SRG-OS-000462-GPOS-00206
+      - SRG-OS-000466-GPOS-00210
+      - SRG-OS-000471-GPOS-00215
+      NIST800-53R4:
+      - AU-3
+      - AU-12
+      - MA-4
+      Rule_ID: SV-258204r926599_rule
+      STIG_ID: RHEL-09-654150
+      Vul_ID: V-258204
+command:
+  audit_running_sudo:
+    title: RHEL-09-654150 | RHEL 9 must audit all uses of the sudo command.
+    exec: auditctl -l | grep -w "sudo"
+    exit-status:
+      or:
+      - 0
+      - 1
+    stdout:
+    - '-a always,exit -S all -F path=/usr/bin/sudo -F perm=x -F auid>=1000 -F auid!=-1 -F key=priv_cmd'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000130
+      - CCI-000135
+      - CCI-000169
+      - CCI-000172
+      - CCI-002884
+      Group_Title:
+      - SRG-OS-000037-GPOS-00015
+      - SRG-OS-000042-GPOS-00020
+      - SRG-OS-000062-GPOS-00031
+      - SRG-OS-000392-GPOS-00172
+      - SRG-OS-000462-GPOS-00206
+      - SRG-OS-000466-GPOS-00210
+      - SRG-OS-000471-GPOS-00215
+      NIST800-53R4:
+      - AU-3
+      - AU-12
+      - MA-4
+      Rule_ID: SV-258204r926599_rule
+      STIG_ID: RHEL-09-654150
+      Vul_ID: V-258204
+{{ end }}

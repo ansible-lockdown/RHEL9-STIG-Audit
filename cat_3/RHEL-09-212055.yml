@@ -1,0 +1,37 @@
+---
+{{ if .Vars.rhel_09_212055 }}
+file:
+  grub_audit:
+    title: RHEL-09-212055 | RHEL 9 must enable auditing of processes that start prior to the audit daemon.
+    path: /etc/default/grub
+    exists: true
+    contents:
+    - '/^GRUB_CMDLINE_LINUX=".*audit=1/'
+    - '!/^GRUB_CMDLINE_LINUX=".*audit=0/'
+    meta:
+      Cat: 3
+      CCI:
+      - CCI-000130
+      - CCI-000135
+      - CCI-000169
+      - CCI-000172
+      - CCI-001464
+      - CCI-002884
+      Group_Title:
+      - SRG-OS-000037-GPOS-00015
+      - SRG-OS-000042-GPOS-00020
+      - SRG-OS-000062-GPOS-00031
+      - SRG-OS-000392-GPOS-00172
+      - SRG-OS-000462-GPOS-00206
+      - SRG-OS-000471-GPOS-00215
+      - SRG-OS-000473-GPOS-00218
+      - SRG-OS-000254-GPOS-00095
+      NIST800-53R4:
+      - AU-3
+      - AU-12
+      - AU-14
+      - MA-4
+      Rule_ID: SV-257796r925375_rule
+      STIG_ID: RHEL-09-211055
+      Vul_ID: V-257796
+{{ end }}

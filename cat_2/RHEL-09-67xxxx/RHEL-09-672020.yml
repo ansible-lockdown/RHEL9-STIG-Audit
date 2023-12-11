@@ -1,0 +1,30 @@
+---
+
+{{ if .Vars.rhel_09_672020 }}
+command:
+  crypto-policies_symlinked:
+    title: RHEL-09-672020 | RHEL 9 crypto policy must not be overridden.
+    exec: find /etc/crypto-policies/back-ends/* ! -lname '/usr/share/crypto-policies/FIPS/*' -exec ls -ld {} \;
+    exit-status:
+      or:
+      - 0
+      - 1
+    stdout:
+    - '!/^.*/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-002450
+      - CCI-002890
+      - CCI-003123
+      Group_Title:
+      - SRG-OS-000396-GPOS-00176
+      - SRG-OS-000393-GPOS-00173
+      - SRG-OS-000394-GPOS-00174
+      NIST800-53R4:
+      - SC-13
+      - MA-4
+      Rule_ID: SV-258236r926695_rule
+      STIG_ID: RHEL-09-672020
+      Vul_ID: V-258235
+{{ end }}

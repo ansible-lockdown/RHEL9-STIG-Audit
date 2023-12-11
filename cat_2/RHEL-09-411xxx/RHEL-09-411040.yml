@@ -2,7 +2,7 @@
 
 {{ if .Vars.rhel_09_411040 }}
 command:
-  temp_accts:
+  temp_accts_manual:
     title: RHEL-09-411040 | RHEL 9 must automatically expire temporary accounts within 72 hours.
     exec: echo "MANUAL - check for temporary accounts ensure 72hr expiry"
     exit-status: 0

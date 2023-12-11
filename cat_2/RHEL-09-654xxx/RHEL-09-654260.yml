@@ -1,0 +1,51 @@
+---
+
+{{ if .Vars.rhel_09_654260 }}
+file:
+  audit_conf_var_log_tallylog:
+    title: RHEL-09-654260 | RHEL 9 must generate audit records for all account creations, modifications, disabling, and termination events that affect /var/log/tallylog.
+    exists: true
+    path: /etc/audit/rules.d/audit.rules
+    contents:
+    - '/^-w /var/log/tallylog -p wa -k logins/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000172
+      - CCI-002884
+      Group_Title:
+      - SRG-OS-000392-GPOS-00172
+      - SRG-OS-000470-GPOS-00214
+      - SRG-OS-000473-GPOS-00218
+      NIST800-53R4:
+      - AU-12
+      - MA-4
+      Rule_ID: SV-258226r926665_rule
+      STIG_ID: RHEL-09-654260
+      Vul_ID: V-258226
+command:
+  audit_running_var_log_tallylog:
+    title: RHEL-09-654260 | RHEL 9 must generate audit records for all account creations, modifications, disabling, and termination events that affect /var/log/tallylog.
+    exec: auditctl -l | grep -w "tallylog"
+    exit-status:
+      or:
+      - 0
+      - 1
+    stdout:
+    - '-w /var/log/tallylog -p wa -k logins'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000172
+      - CCI-002884
+      Group_Title:
+      - SRG-OS-000392-GPOS-00172
+      - SRG-OS-000470-GPOS-00214
+      - SRG-OS-000473-GPOS-00218
+      NIST800-53R4:
+      - AU-12
+      - MA-4
+      Rule_ID: SV-258226r926665_rule
+      STIG_ID: RHEL-09-654260
+      Vul_ID: V-258226
+{{ end }}

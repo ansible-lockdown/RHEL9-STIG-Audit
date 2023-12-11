@@ -1,0 +1,24 @@
+---
+
+{{ if .Vars.rhel_09_653070 }}
+file:
+  audit_action_mail_acct:
+    title: RHEL-09-653070 | RHEL 9 System Administrator (SA) and/or information system security officer (ISSO) (at a minimum) must be alerted of an audit processing failure event.
+    exists: true
+    path: /etc/audit/auditd.conf
+    contents:
+    - '/^action_mail_acct = {{ .Vars.rhel9stig_audit_conf.action_mail_acct }}/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000139
+      - CCI-001855
+      Group_Title:
+      - SRG-OS-000046-GPOS-00022
+      - SRG-OS-000343-GPOS-00134
+      NIST800-53R4:
+      - AU-5
+      Rule_ID: SV-258163r926476_rule
+      STIG_ID: RHEL-09-653070
+      Vul_ID: V-258163
+{{ end }}

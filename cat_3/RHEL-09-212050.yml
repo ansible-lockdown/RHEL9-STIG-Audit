@@ -1,0 +1,25 @@
+---
+{{ if .Vars.rhel_09_212050 }}
+file:
+  grub_pti:
+    title: RHEL-09-212050 | RHEL 9 must enable mitigations against processor-based vulnerabilities.
+    path: /etc/default/grub
+    exists: true
+    contents:
+    - '/^GRUB_CMDLINE_LINUX=".*pti=on/'
+    - '!/^GRUB_CMDLINE_LINUX=".*pti=off/'
+    meta:
+      Cat: 3
+      CCI:
+      - CCI-000381
+      - CCI-002824
+      Group_Title:
+      - SRG-OS-000433-GPOS-00193
+      - SRG-OS-000095-GPOS-00049
+      NIST800-53R4:
+      - CM-7
+      - SI-16
+      Rule_ID: SV-257795r925372_rule
+      STIG_ID: RHEL-09-211050
+      Vul_ID: V-257795
+{{ end }}

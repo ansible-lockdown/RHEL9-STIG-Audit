@@ -1,0 +1,22 @@
+---
+
+{{ if .Vars.rhel_09_653095 }}
+file:
+  audit_frequency:
+    title: RHEL-09-653095 | RHEL 9 must periodically flush audit records to disk to prevent the loss of audit records.
+    exists: true
+    path: /etc/audit/auditd.conf
+    contents:
+    - '/^freq = {{ .Vars.rhel9stig_audit_conf.freq }}/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000154
+      Group_Title:
+      - SRG-OS-000051-GPOS-00024
+      NIST800-53R4:
+      - AU-6
+      Rule_ID: SV-258168r926491_rule
+      STIG_ID: RHEL-09-653095
+      Vul_ID: V-258168
+{{ end }}

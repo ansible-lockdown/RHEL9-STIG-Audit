@@ -1,0 +1,43 @@
+---
+
+{{ if .Vars.rhel_09_654190 }}
+file:
+  audit_conf_poweroff:
+    title: RHEL-09-654190 | Successful/unsuccessful uses of the init command in RHEL 9 must generate an audit record.
+    exists: true
+    path: /etc/audit/rules.d/audit.rules
+    contents:
+    - '/^-a always,exit -F path=/usr/sbin/poweroff -F perm=x -F auid>=1000 -F auid!=unset -k privileged-poweroff/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000172
+      Group_Title:
+      - SRG-OS-000477-GPOS-00222
+      NIST800-53R4:
+      - AU-12
+      Rule_ID: SV-258212r926623_rule
+      STIG_ID: RHEL-09-654190
+      Vul_ID: V-258212
+command:
+  audit_running_poweroff:
+    title: RHEL-09-654190 | Successful/unsuccessful uses of the init command in RHEL 9 must generate an audit record.
+    exec: auditctl -l | grep -w "poweroff"
+    exit-status:
+      or:
+      - 0
+      - 1
+    stdout:
+    - '-a always,exit -S all -F path=/usr/sbin/poweroff -F perm=x -F auid>=1000 -F auid!=-1 -F key=privileged-poweroff'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000172
+      Group_Title:
+      - SRG-OS-000477-GPOS-00222
+      NIST800-53R4:
+      - AU-12
+      Rule_ID: SV-258212r926623_rule
+      STIG_ID: RHEL-09-654190
+      Vul_ID: V-258212
+{{ end }}

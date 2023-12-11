@@ -1,0 +1,22 @@
+---
+
+{{ if .Vars.rhel_09_671020 }}
+file:
+  ipsec_libreswan:
+    title: RHEL-09-671020 | RHEL 9 IP tunnels must use FIPS 140-2/140-3 approved cryptographic algorithms.
+    exists: true
+    path: /etc/ipsec.conf
+    contents:
+    - '/^include /etc/crypto-policies/back-ends/libreswan.config/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000068
+      Group_Title:
+      - SRG-OS-000033-GPOS-00014
+      NIST800-53R4:
+      - AC-17
+      Rule_ID: SV-258232r926683_rule
+      STIG_ID: RHEL-09-671020
+      Vul_ID: V-258232
+{{ end }}

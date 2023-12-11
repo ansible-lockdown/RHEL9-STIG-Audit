@@ -1,0 +1,24 @@
+---
+{{ if .Vars.rhel_09_252025 }}
+file:
+  chrony_port:
+    title: RHEL-09-252025 | RHEL 9 must disable the chrony daemon from acting as a server.
+    path: /etc/chrony.conf
+    exists: true
+    contents:
+    - '/^port 0/'
+    - '/^port [^0]/'
+    meta:
+      Cat: 3
+      CCI:
+      - CCI-000381
+      - CCI-000382
+      Group_Title:
+      - SRG-OS-000096-GPOS-00050
+      - SRG-OS-000095-GPOS-00049
+      NIST800-53R4:
+      - CM-7
+      Rule_ID: SV-257946r925825_rule
+      STIG_ID: RHEL-09-252025
+      Vul_ID: V-257946
+{{ end }}

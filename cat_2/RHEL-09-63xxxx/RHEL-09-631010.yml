@@ -1,0 +1,24 @@
+---
+{{ if .Vars.rhel_09_631010 }}
+command:
+  dod_root_CA:
+    title: RHEL-09-631010 | RHEL 9, for PKI-based authentication, must validate certificates by constructing a certification path (which includes status information) to an accepted trust anchor.
+    exec: openssl x509 -text -in /etc/sssd/pki/sssd_auth_ca_db.pem
+    exit-status: 0
+    stdout:
+    - '/^\s*Issuer: C = US, O = U.S. Government, OU = DoD, OU = PKI, CN = DoD Root CA 3/'
+    - '/^\*Subject: C = US, O = U.S. Government, OU = DoD, OU = PKI, CN = DoD Root CA 3/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000185
+      - CCI-001991
+      Group_Title:
+      - SRG-OS-000066-GPOS-00034
+      - SRG-OS-000384-GPOS-00167
+      NIST800-53R4:
+      - IA-5
+      Rule_ID: SV-258131r926380_rule
+      STIG_ID: RHEL-09-631010
+      Vul_ID: V-258131
+{{ end }}

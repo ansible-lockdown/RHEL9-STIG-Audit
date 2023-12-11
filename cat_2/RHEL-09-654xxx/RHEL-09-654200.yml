@@ -1,0 +1,43 @@
+---
+
+{{ if .Vars.rhel_09_654200 }}
+file:
+  audit_conf_shutdown:
+    title: RHEL-09-654200 | Successful/unsuccessful uses of the shutdown command in RHEL 9 must generate an audit record.
+    exists: true
+    path: /etc/audit/rules.d/audit.rules
+    contents:
+    - '/^-a always,exit -F path=/usr/sbin/shutdown -F perm=x -F auid>=1000 -F auid!=unset -k privileged-shutdown/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000172
+      Group_Title:
+      - SRG-OS-000477-GPOS-00222
+      NIST800-53R4:
+      - AU-12
+      Rule_ID: SV-258214r926629_rule
+      STIG_ID: RHEL-09-654200
+      Vul_ID: V-258214
+command:
+  audit_running_shutdown:
+    title: RHEL-09-654200 | Successful/unsuccessful uses of the shutdown command in RHEL 9 must generate an audit record.
+    exec: auditctl -l | grep -w "shutdown"
+    exit-status:
+      or:
+      - 0
+      - 1
+    stdout:
+    - '-a always,exit -S all -F path=/usr/sbin/shutdown -F perm=x -F auid>=1000 -F auid!=-1 -F key=privileged-shutdown'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000172
+      Group_Title:
+      - SRG-OS-000477-GPOS-00222
+      NIST800-53R4:
+      - AU-12
+      Rule_ID: SV-258214r926629_rule
+      STIG_ID: RHEL-09-654200
+      Vul_ID: V-258214
+{{ end }}

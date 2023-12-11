@@ -1,0 +1,22 @@
+---
+
+{{ if .Vars.rhel_09_653025 }}
+file:
+  audit_disk_full_action:
+    title: RHEL-09-653025 | RHEL 9 audit system must take appropriate action when the audit storage volume is full.
+    exists: true
+    path: /etc/audit/auditd.conf
+    contents:
+    - '/^disk_full_action = {{ .Vars.rhel9stig_audit_conf.disk_full_action }}/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000140
+      Group_Title:
+      - SRG-OS-000047-GPOS-00023
+      NIST800-53R4:
+      - AU-5
+      Rule_ID: SV-258154r926449_rule
+      STIG_ID: RHEL-09-653025
+      Vul_ID: V-258154
+{{ end }}

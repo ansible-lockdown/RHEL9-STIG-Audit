@@ -1,0 +1,21 @@
+---
+{{ if .Vars.rhel_09_231030 }}
+mount:
+  var_log_audit_exists:
+    title: RHEL-09-231030 | RHEL 9 must use a separate file system for /var/log/audit.
+    mountpoint: /var/log/audit
+    exists: true
+    meta:
+      Cat: 3
+      CCI:
+      - CCI-000366
+      - CCI-001849
+      Group_Title:
+      - SRG-OS-000341-GPOS-00132
+      - SRG-OS-000480-GPOS-00227
+      NIST800-53R4:
+      - CM-6
+      Rule_ID: SV-257847r925528_rule
+      STIG_ID: RHEL-09-231030
+      Vul_ID: V-257847
+{{ end }}

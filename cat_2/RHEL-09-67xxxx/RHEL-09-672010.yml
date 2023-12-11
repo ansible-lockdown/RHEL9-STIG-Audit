@@ -1,0 +1,23 @@
+---
+
+{{ if .Vars.rhel_09_672010 }}
+package:
+  crypto-policies_installed:
+    title: RHEL-09-672010 | RHEL 9 must have the crypto-policies package installed.
+    name: crypto-policies
+    installed: true
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000196
+      Group_Title:
+      - SRG-OS-000396-GPOS-00176
+      - SRG-OS-000393-GPOS-00173
+      - SRG-OS-000394-GPOS-00174
+      NIST800-53R4:
+      - SC-13
+      - MA-4
+      Rule_ID: SV-258234r926689_rule
+      STIG_ID: RHEL-09-672010
+      Vul_ID: V-258234
+{{ end }}

@@ -1,0 +1,43 @@
+---
+
+{{ if .Vars.rhel_09_654185 }}
+file:
+  audit_conf_init:
+    title: RHEL-09-654185 | Successful/unsuccessful uses of the init command in RHEL 9 must generate an audit record.
+    exists: true
+    path: /etc/audit/rules.d/audit.rules
+    contents:
+    - '/^-a always,exit -F path=/usr/sbin/init -F perm=x -F auid>=1000 -F auid!=unset -k privileged-init/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000172
+      Group_Title:
+      - SRG-OS-000477-GPOS-00222
+      NIST800-53R4:
+      - AU-12
+      Rule_ID: SV-258211r926620_rule
+      STIG_ID: RHEL-09-654185
+      Vul_ID: V-258211
+command:
+  audit_running_init:
+    title: RHEL-09-654185 | Successful/unsuccessful uses of the init command in RHEL 9 must generate an audit record.
+    exec: auditctl -l | grep -w "init"
+    exit-status:
+      or:
+      - 0
+      - 1
+    stdout:
+    - '-a always,exit -S all -F path=/usr/sbin/init -F perm=x -F auid>=1000 -F auid!=-1 -F key=privileged-init'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000172
+      Group_Title:
+      - SRG-OS-000477-GPOS-00222
+      NIST800-53R4:
+      - AU-12
+      Rule_ID: SV-258211r926620_rule
+      STIG_ID: RHEL-09-654185
+      Vul_ID: V-258211
+{{ end }}
