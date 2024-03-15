@@ -16,7 +16,7 @@ gossfile:
   cat_2/RHEL-09-43xxxx/*.yml: {}
   cat_2/RHEL-09-61xxxx/*.yml: {}
   cat_2/RHEL-09-63xxxx/*.yml: {}
-  cat_2/RHEL-09-652xxx/*.yml: {}
+  cat_2/RHEL-09-65xxxx/*.yml: {}
   cat_2/RHEL-09-653xxx/*.yml: {}
   cat_2/RHEL-09-654xxx/*.yml: {}
   cat_2/RHEL-09-67xxxx/*.yml: {}
