@@ -4,7 +4,7 @@
 
 ## Overview
 
-based on STIG v1r1
+based on STIG v1r2
 
 Ability to audit a system using a lightweight binary to check the current state.
 
