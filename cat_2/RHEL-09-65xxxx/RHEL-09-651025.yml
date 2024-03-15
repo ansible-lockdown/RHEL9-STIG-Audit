@@ -1,6 +1,6 @@
 ---
 
-{{ if .Vars.RHEL_09_651025 }}
+{{ if .Vars.rhel_09_651025 }}
 command:
   aide_conf_crypto:
     title: RHEL-09-651025 | RHEL 9 must use cryptographic mechanisms to protect the integrity of audit tools.
