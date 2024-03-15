@@ -19,7 +19,7 @@ file:
       NIST800-53R4:
       - SC-10
       - Ac-12
-      Rule_ID: SV-257995r925972_rule
+      Rule_ID: SV-257995r942963_rule
       STIG_ID: RHEL-09-255095
       Vul_ID: V-257995
 {{ end }}
