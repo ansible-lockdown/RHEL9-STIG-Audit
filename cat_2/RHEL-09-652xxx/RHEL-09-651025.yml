@@ -1,0 +1,28 @@
+---
+
+{{ if .Vars.RHEL_09_651025 }}
+command:
+  aide_conf_crypto:
+    title: RHEL-09-651025 | RHEL 9 must use cryptographic mechanisms to protect the integrity of audit tools.
+    exec: grep -E '(\/usr\/sbin\/(audit|au|rsys))' /etc/aide.conf
+    exit-status: 0
+    stdout:
+    - '/usr/sbin/auditctl p+i+n+u+g+s+b+acl+xattrs+sha512'
+    - '/usr/sbin/auditd p+i+n+u+g+s+b+acl+xattrs+sha512'
+    - '/usr/sbin/ausearch p+i+n+u+g+s+b+acl+xattrs+sha512'
+    - '/usr/sbin/aureport p+i+n+u+g+s+b+acl+xattrs+sha512'
+    - '/usr/sbin/autrace p+i+n+u+g+s+b+acl+xattrs+sha512'
+    - '/usr/sbin/rsyslogd p+i+n+u+g+s+b+acl+xattrs+sha512'
+    - '/usr/sbin/augenrules p+i+n+u+g+s+b+acl+xattrs+sha512'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-001493
+      - CCI-001494
+      - CCI-001495
+      - CCI-001496
+      Group_Title: SRG-OS-000256-GPOS-00097
+      Rule_ID: SV-258137r943021_rule
+      STIG_ID: RHEL-09-651025
+      Vul_ID: V-258137
+{{ end }}
