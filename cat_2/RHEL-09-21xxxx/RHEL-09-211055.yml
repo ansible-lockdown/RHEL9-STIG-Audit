@@ -18,7 +18,7 @@ service:
       NIST800-53R4:
       - CM-6
       - AC-6
-      Rule_ID: SV-257786r925345_rule
+      Rule_ID: SV-257786r943026_rule
       STIG_ID: RHEL-09-0211055
       Vul_ID: V-257786
 file:
@@ -39,7 +39,7 @@ file:
       NIST800-53R4:
       - CM-6
       - AC-6
-      Rule_ID: SV-257786r925345_rule
+      Rule_ID: SV-257786r943026_rule
       STIG_ID: RHEL-09-0211055
       Vul_ID: V-257786
 {{ end }}

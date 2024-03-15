@@ -11,7 +11,7 @@ package:
       CCI: CCI-001233
       Group_Title: SRG-OS-000191-GPOS-00080
       NIST800-53R4: SI-2
-      Rule_ID: SV-257780r925327_rule
+      Rule_ID: SV-257780r939261_rule
       STIG_ID: RHEL-09-0211025
       Vul_ID: V-257780
 service:
@@ -25,7 +25,7 @@ service:
       CCI: CCI-001233
       Group_Title: SRG-OS-000191-GPOS-00080
       NIST800-53R4: SI-2
-      Rule_ID: SV-257780r925327_rule
+      Rule_ID: SV-257780r939261_rule
       STIG_ID: RHEL-09-0211025
       Vul_ID: V-257780
 {{ end }}
