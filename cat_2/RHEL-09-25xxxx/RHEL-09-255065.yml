@@ -4,7 +4,7 @@
 file:
   ssh_config_ciphers:
     title: RHEL-09-255065 | RHEL 9 must implement DOD-approved encryption ciphers to protect the confidentiality of SSH server connections.
-    path: /etc/crypto-policies/back-ends/opensshserver.config
+    path: /etc/crypto-policies/back-ends/openssh.config
     exists: true
     contents:
     {{ range .Vars.rhel9stig_sshd_config.ciphers }}

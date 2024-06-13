@@ -16,7 +16,7 @@ file:
       - SRG-OS-000250-GPOS-00093
       NIST800-53R4:
       - AC-17
-      Rule_ID: SV-257987r925948_rule
+      Rule_ID: SV-257987r952185_rule
       STIG_ID: RHEL-09-255055
       Vul_ID: V-257987
   sshd_config_crypto_policies_server:
@@ -33,7 +33,7 @@ file:
       - SRG-OS-000250-GPOS-00093
       NIST800-53R4:
       - AC-17
-      Rule_ID: SV-257987r925948_rule
+      Rule_ID: SV-257987r952185_rule
       STIG_ID: RHEL-09-255055
       Vul_ID: V-257987
 {{ end }}
