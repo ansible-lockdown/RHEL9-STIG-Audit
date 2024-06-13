@@ -616,17 +616,13 @@ rhel9stig_sshd_config:
   kerbauth: 'no'
   lastlog: 'yes'
   loglevel: VERBOSE
-  macs_clients:
-  - hmac-sha2-256-etm@openssh.com
-  - hmac-sha2-256
-  - hmac-sha2-512-etm@openssh.com
-  - hmac-sha2-512
-  macs_server:
+  macs:
   - hmac-sha2-256-etm@openssh.com
   - hmac-sha1-etm@openssh.com
   - umac-128-etm@openssh.com
   - hmac-sha2-512-etm@openssh.com
-  - hmac-sha2-256,hmac-sha1
+  - hmac-sha2-256
+  - hmac-sha1
   - umac-128@openssh.com
   - hmac-sha2-512
   pubkeyauth: 'yes'
