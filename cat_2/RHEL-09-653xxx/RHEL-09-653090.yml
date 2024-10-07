@@ -28,13 +28,13 @@ file:
 command:
   audit_all_logs_perms:
     title: RHEL-09-653090 | RHEL 9 audit logs file must have mode 0600 or less permissive to prevent unauthorized access to the audit log. | all logs
-    exec: stat -c '%a' /var/log/audit/*.log.*
+    exec: for log in `find /var/log/audit/ -name "*.log" -exec ls {} \;`; do stat -c "%a" $log; done
     exit-status:
       or:
       - 0
       - 1
     stdout:
-    - '/4[0,4]0/'
+    - '/[4,6]00/'
     meta:
       Cat: 2
       CCI:

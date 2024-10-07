@@ -7,7 +7,7 @@ file:
     exists: true
     path: /etc/audit/rules.d/audit.rules
     contents:
-    - '/^-w /etc/opasswd -p wa -k identity/'
+    - '/^-w /etc/security/opasswd -p wa -k identity/'
     meta:
       Cat: 2
       CCI:
@@ -48,13 +48,13 @@ file:
 command:
   audit_running_etc_opasswd:
     title: RHEL-09-654235 | RHEL 9 must generate audit records for all account creations, modifications, disabling, and termination events that affect /etc/opasswd.
-    exec: auditctl -l | grep -w "etc/opasswd"
+    exec: auditctl -l | grep -w "/etc/security/opasswd"
     exit-status:
       or:
       - 0
       - 1
     stdout:
-    - '-w /etc/opasswd -p wa -k identity'
+    - '-w /etc/security/opasswd -p wa -k identity'
     meta:
       Cat: 2
       CCI:

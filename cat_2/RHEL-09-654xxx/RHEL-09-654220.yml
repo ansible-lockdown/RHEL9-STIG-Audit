@@ -54,7 +54,7 @@ command:
       - 0
       - 1
     stdout:
-    - '-w /etc/sudoers.d/ -p wa -k identity'
+    - '-w /etc/sudoers.d -p wa -k identity'
     meta:
       Cat: 2
       CCI:
