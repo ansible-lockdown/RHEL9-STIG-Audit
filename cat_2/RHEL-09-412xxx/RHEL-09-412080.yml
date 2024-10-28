@@ -15,7 +15,7 @@ file:
       - SRG-OS-000163-GPOS-00072
       NIST800-53R4:
       - SC-10
-      Rule_ID: SV-258077r926218_rule
+      Rule_ID: SV-258077r970703_rule
       STIG_ID: RHEL-09-412080
       Vul_ID: V-258077
 {{ end }}

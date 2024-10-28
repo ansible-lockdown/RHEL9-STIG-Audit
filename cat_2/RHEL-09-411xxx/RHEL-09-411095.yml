@@ -19,7 +19,7 @@ exec:
       - SRG-OS-000480-GPOS-00227
       NIST800-53R4:
       - CM-6
-      Rule_ID: SV-258058r926161_rule
+      Rule_ID: SV-258058r991589_rule
       STIG_ID: RHEL-09-411095
       Vul_ID: V-258058
 {{ end }}

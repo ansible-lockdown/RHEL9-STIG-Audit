@@ -22,7 +22,7 @@ service:
       - CM-6
       - CM-7
       - AC-17
-      Rule_ID: SV-257936r925795_rule
+      Rule_ID: SV-257936r958480_rule
       STIG_ID: RHEL-09-251015
       Vul_ID: V-257936
 {{ end }}

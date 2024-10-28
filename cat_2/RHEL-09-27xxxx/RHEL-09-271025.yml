@@ -21,7 +21,7 @@ file:
       NIST800-53R4:
       - CM-6
       - IA-3
-      Rule_ID: SV-258015r926032_rule
+      Rule_ID: SV-258015r958498_rule
       STIG_ID: RHEL-09-271025
       Vul_ID: V-258015
 {{ end }}

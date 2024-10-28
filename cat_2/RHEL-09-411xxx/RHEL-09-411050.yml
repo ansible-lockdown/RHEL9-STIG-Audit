@@ -17,7 +17,7 @@ file:
       - SRG-OS-000118-GPOS-00060
       NIST800-53R4:
       - IA-4
-      Rule_ID: SV-258049r926134_rule
+      Rule_ID: SV-258049r997078_rule
       STIG_ID: RHEL-09-411050
       Vul_ID: V-258049
 {{ end }}

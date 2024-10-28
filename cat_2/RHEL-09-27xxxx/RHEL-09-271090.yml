@@ -29,7 +29,7 @@ command:
       -  SRG-OS-000480-GPOS-00227
       NIST800-53R4:
       - CM-6
-      Rule_ID: SV-258028r926071_rule
+      Rule_ID: SV-258029r991589_rule
       STIG_ID: RHEL-09-271090
       Vul_ID: V-258028
 {{ end }}

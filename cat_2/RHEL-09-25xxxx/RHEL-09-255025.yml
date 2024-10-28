@@ -22,7 +22,7 @@ file:
       - SRG-OS-000228-GPOS-00088
       NIST800-53R4:
       - AC-8
-      Rule_ID: SV-257981r943028_rule
+      Rule_ID: SV-257981r958390_rule
       STIG_ID: RHEL-09-255025
       Vul_ID: V-257981
 {{ end }}

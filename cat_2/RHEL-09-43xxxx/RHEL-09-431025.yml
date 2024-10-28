@@ -16,7 +16,7 @@ package:
       NIST800-53R4:
       - CM-6
       - AC-11
-      Rule_ID: SV-258081r926230_rule
+      Rule_ID: SV-258081r991589_rule
       STIG_ID: RHEL-09-431025
       Vul_ID: V-258081
 {{ end }}

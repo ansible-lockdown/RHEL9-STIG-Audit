@@ -16,7 +16,7 @@ service:
       - SRG-OS-000368-GPOS-00154
       NIST800-53R4:
       - AC-6
-      Rule_ID: SV-258090r926257_rule
+      Rule_ID: SV-258090r958808_rule
       STIG_ID: RHEL-09-433015
       Vul_ID: V-258090
 {{ end }}

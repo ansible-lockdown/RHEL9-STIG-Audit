@@ -20,7 +20,7 @@ package:
       - SRG-OS-000426-GPOS-00190
       NIST800-53R4:
       - SC-8
-      Rule_ID: SV-257978r925921_rule
+      Rule_ID: SV-257978r958908_rule
       STIG_ID: RHEL-09-255010
       Vul_ID: V-257978
 {{ end }}

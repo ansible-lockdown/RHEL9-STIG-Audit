@@ -20,7 +20,7 @@ file:
       - SRG-OS-000359-GPOS-00146
       NIST800-53R4:
       - AU-8
-      Rule_ID: SV-257944r925822_rule
+      Rule_ID: SV-257945r997067_rule
       STIG_ID: RHEL-09-252020
-      Vul_ID: V-257944
+      Vul_ID: V-257945
 {{ end }}

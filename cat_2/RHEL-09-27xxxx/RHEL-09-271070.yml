@@ -18,7 +18,7 @@ file:
       - SRG-OS-000031-GPOS-00012
       NIST800-53R4:
       - AC-11
-      Rule_ID: SV-258024r926059_rule
+      Rule_ID: SV-258024r958402_rule
       STIG_ID: RHEL-09-271070
       Vul_ID: V-258024
 {{ end }}
