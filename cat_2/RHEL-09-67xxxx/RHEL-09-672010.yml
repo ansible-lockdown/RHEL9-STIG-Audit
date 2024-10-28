@@ -17,7 +17,7 @@ package:
       NIST800-53R4:
       - SC-13
       - MA-4
-      Rule_ID: SV-258234r926689_rule
+      Rule_ID: SV-258234r987791_rule
       STIG_ID: RHEL-09-672010
       Vul_ID: V-258234
 {{ end }}

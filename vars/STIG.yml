@@ -367,8 +367,6 @@ rhel_09_433015: true
 
 ### CAT2 61xxxx
 rhel_09_611010: true
-rhel_09_611015: true
-rhel_09_611020: true
 rhel_09_611030: true
 rhel_09_611035: true
 rhel_09_611040: true

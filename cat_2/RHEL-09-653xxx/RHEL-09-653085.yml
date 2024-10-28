@@ -22,7 +22,7 @@ file:
       NIST800-53R4:
       - AU-9
       - SI-11
-      Rule_ID: SV-258166r926485_rule
+      Rule_ID: SV-258166r958434_rule
       STIG_ID: RHEL-09-653085
       Vul_ID: V-258166
 {{ end }}

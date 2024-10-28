@@ -24,7 +24,7 @@ command:
       NIST800-53R4:
       - SC-13
       - MA-4
-      Rule_ID: SV-258236r926695_rule
+      Rule_ID: SV-258236r987791_rule
       STIG_ID: RHEL-09-672020
       Vul_ID: V-258235
 {{ end }}

@@ -20,7 +20,7 @@ package:
       - AU-6
       - CM-6
       - AU-4
-      Rule_ID: SV-258140r926407_rule
+      Rule_ID: SV-258140r959008_rule
       STIG_ID: RHEL-09-652010
       Vul_ID: V-258140
 {{ end }}

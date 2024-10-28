@@ -27,7 +27,7 @@ file:
       - AU-3
       - AU-12
       - MA-4
-      Rule_ID: SV-258202r926593_rule
+      Rule_ID: SV-258202r958412_rule
       STIG_ID: RHEL-09-654140
       Vul_ID: V-258202
 command:
@@ -59,7 +59,7 @@ command:
       - AU-3
       - AU-12
       - MA-4
-      Rule_ID: SV-258202r926593_rule
+      Rule_ID: SV-258202r958412_rule
       STIG_ID: RHEL-09-654140
       Vul_ID: V-258202
 {{ end }}

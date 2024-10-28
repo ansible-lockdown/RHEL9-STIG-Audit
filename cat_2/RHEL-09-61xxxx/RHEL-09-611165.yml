@@ -19,7 +19,7 @@ file:
       - SRG-OS-000105-GPOS-00052
       NIST800-53R4:
       - IA-2
-      Rule_ID: SV-258122r926353_rule
+      Rule_ID: SV-258122r997106_rule
       STIG_ID: RHEL-09-611165
       Vul_ID: V-258122
   {{ end }}

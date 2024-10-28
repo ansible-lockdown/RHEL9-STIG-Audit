@@ -17,7 +17,7 @@ package:
       NIST800-53R4:
       - IA-5
       - SI-6
-      Rule_ID: SV-258134r926389_rule
+      Rule_ID: SV-258134r958794_rule
       STIG_ID: RHEL-09-651010
       Vul_ID: V-258134
 file:
@@ -36,7 +36,7 @@ file:
       NIST800-53R4:
       - IA-5
       - SI-6
-      Rule_ID: SV-258134r926389_rule
+      Rule_ID: SV-258134r958794_rule
       STIG_ID: RHEL-09-651010
       Vul_ID: V-258134
 {{ end }}

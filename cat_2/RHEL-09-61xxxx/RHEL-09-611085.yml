@@ -20,7 +20,7 @@ command:
       - SRG-OS-000373-GPOS-00158
       NIST800-53R4:
       - IA-11
-      Rule_ID: SV-258106r926305_rule
+      Rule_ID: SV-258106r997092_rule
       STIG_ID: RHEL-09-611085
       Vul_ID: V-258106
 {{ end }}

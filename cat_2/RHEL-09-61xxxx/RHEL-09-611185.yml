@@ -16,7 +16,7 @@ package:
       - SRG-OS-000376-GPOS-00161
       NIST800-53R4:
       - IA-2
-      Rule_ID: SV-258126r926365_rule
+      Rule_ID: SV-258126r997110_rule
       STIG_ID: RHEL-09-611185
       Vul_ID: V-258126
   {{ end }}

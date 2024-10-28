@@ -19,7 +19,7 @@ command:
       - SRG-OS-000063-GPOS-00032
       NIST800-53R4:
       - AU-12
-      Rule_ID: SV-258171r943057_rule
+      Rule_ID: SV-258171r958444_rule
       STIG_ID: RHEL-09-653110
       Vul_ID: V-258171
 {{ end }}

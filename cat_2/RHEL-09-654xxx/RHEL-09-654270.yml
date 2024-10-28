@@ -24,7 +24,7 @@ file:
       NIST800-53R4:
       - AU-9
       - AU-12
-      Rule_ID: SV-258228r926671_rule
+      Rule_ID: SV-258228r991572_rule
       STIG_ID: RHEL-09-654270
       Vul_ID: V-258228
 {{ end }}

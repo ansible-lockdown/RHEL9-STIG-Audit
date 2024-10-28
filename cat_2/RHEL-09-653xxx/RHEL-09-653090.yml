@@ -22,7 +22,7 @@ file:
       NIST800-53R4:
       - AU-9
       - SI-11
-      Rule_ID: SV-258167r926488_rule
+      Rule_ID: SV-258167r958434_rule
       STIG_ID: RHEL-09-653090
       Vul_ID: V-258167
 command:
@@ -50,7 +50,7 @@ command:
       NIST800-53R4:
       - AU-9
       - SI-11
-      Rule_ID: SV-258167r926488_rule
+      Rule_ID: SV-258167r958434_rule
       STIG_ID: RHEL-09-653090
       Vul_ID: V-258167
 {{ end }}
