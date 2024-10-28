@@ -20,7 +20,7 @@ command:
       NIST800-53R4:
       - AC-17
       - SC-8
-      Rule_ID: SV-258235r926692_rule
+      Rule_ID: SV-258238r991554_rule
       STIG_ID: RHEL-09-672030
       Vul_ID: V-258235
 {{ end }}

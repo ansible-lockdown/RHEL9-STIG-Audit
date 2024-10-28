@@ -20,7 +20,7 @@ package:
       - IA-5
       - CM-6
       - CM-7
-      Rule_ID: SV-257826r925465_rule
+      Rule_ID: SV-257826r987796_rule
       STIG_ID: RHEL-09-215015
       Vul_ID: SV-257826
   {{ end }}

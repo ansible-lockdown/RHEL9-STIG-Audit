@@ -20,7 +20,7 @@ file:
       NIST800-53R4:
         - CM-6
         - AC-6
-      Rule_ID: SV-257784r925339_rule
+      Rule_ID: SV-257784r958726_rule
       STIG_ID: RHEL-09-211045
       Vul_ID: V-257784
 {{ end }}
