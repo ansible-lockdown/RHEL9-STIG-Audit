@@ -12,7 +12,7 @@ file:
       CCI: CCI-000366
       Group_Title: SRG-OS-000480-GPOS-00227
       NIST800-53R4: CM-6
-      Rule_ID: SV-257900r925687_rule
+      Rule_ID: SV-257900r991589_rule
       STIG_ID: RHEL-09-232100
       Vul_ID: V-257900
 {{ end }}

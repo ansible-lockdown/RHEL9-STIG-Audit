@@ -16,7 +16,7 @@ command:
       - SRG-OS-000138-GPOS-00069
       NIST800-53R4:
       - SC-4
-      Rule_ID: SV-257929r925774_rule
+      Rule_ID: SV-257929r958524_rule
       STIG_ID: RHEL-09-232245
       Vul_ID: V-257929
 {{ end }}

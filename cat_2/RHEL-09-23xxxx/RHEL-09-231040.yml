@@ -20,7 +20,7 @@ service:
       NIST800-53R4:
       - CM-6
       - IA-5
-      Rule_ID: SV-257849r925534_rule
+      Rule_ID: SV-257849r958498_rule
       STIG_ID: RHEL-09-231040
       Vul_ID: V-257849
 file:
@@ -43,7 +43,7 @@ file:
       NIST800-53R4:
       - CM-6
       - IA-5
-      Rule_ID: SV-257849r925534_rule
+      Rule_ID: SV-257849r958498_rule
       STIG_ID: RHEL-09-231040
       Vul_ID: V-257849
 {{ end }}
