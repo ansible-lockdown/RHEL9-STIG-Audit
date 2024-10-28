@@ -15,7 +15,7 @@ mount:
       - SRG-OS-000480-GPOS-00227
       NIST800-53R4:
       - CM-6
-      Rule_ID: SV-257847r925528_rule
+      Rule_ID: SV-257847r958752_rule
       STIG_ID: RHEL-09-231030
       Vul_ID: V-257847
 {{ end }}

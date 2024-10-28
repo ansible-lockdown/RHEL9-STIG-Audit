@@ -18,7 +18,7 @@ file:
       NIST800-53R4:
       - AC-6
       - AC-11
-      Rule_ID: SV-258067r926188_rule
+      Rule_ID: SV-258067r958726_rule
       STIG_ID: RHEL-09-412030
       Vul_ID: V-258067
 {{ end }}

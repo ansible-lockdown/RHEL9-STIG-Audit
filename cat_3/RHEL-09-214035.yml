@@ -16,7 +16,7 @@ file:
       - SRG-OS-000437-GPOS-00194
       NIST800-53R4:
       - SI-2
-      Rule_ID: SV-257824r925459_rule
+      Rule_ID: SV-257824r958936_rule
       STIG_ID: RHEL-09-214035
       Vul_ID: V-257824
 {{ end }}
