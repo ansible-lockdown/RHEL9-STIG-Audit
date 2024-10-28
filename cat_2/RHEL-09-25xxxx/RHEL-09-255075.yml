@@ -7,10 +7,7 @@ file:
     path: /etc/crypto-policies/back-ends/opensshserver.config
     exists: true
     contents:
-    {{ range .Vars.rhel9stig_sshd_config.macs_clients }}
-    - '/^MACs .*{{ . }}/'
-    {{ end }}
-    {{ range .Vars.rhel9stig_sshd_config.macs_server }}
+    {{ range .Vars.rhel9stig_sshd_config.macs }}
     - '/^MACs .*{{ . }}/'
     {{ end }}
     meta:

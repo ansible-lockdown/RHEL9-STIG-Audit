@@ -20,7 +20,7 @@ command:
       NIST800-53R4:
       - CM-6
       - SC-3
-      Rule_ID: SV-257792r925363_rule
+      Rule_ID: SV-257792r991589_rule
       STIG_ID: RHEL-09-212035
       Vul_ID: V-257792
 file:
@@ -39,7 +39,7 @@ file:
       NIST800-53R4:
       - CM-6
       - SC-3
-      Rule_ID: SV-257792r925363_rule
+      Rule_ID: SV-257792r991589_rule
       STIG_ID: RHEL-09-212035
       Vul_ID: V-257792
 {{ end }}

@@ -17,7 +17,7 @@ kernel-param:
       NIST800-53R4:
       - SC-2
       - SC-4
-      Rule_ID: SV-257799r942969_rule
+      Rule_ID: SV-257799r997051_rule
       STIG_ID: RHEL-09-213020
       Vul_ID: V-257799
 command:
@@ -42,7 +42,7 @@ command:
       NIST800-53R4:
       - SC-2
       - SC-4
-      Rule_ID: SV-257799r942969_rule
+      Rule_ID: SV-257799r997051_rule
       STIG_ID: RHEL-09-213020
       Vul_ID: V-257799
 {{ end }}

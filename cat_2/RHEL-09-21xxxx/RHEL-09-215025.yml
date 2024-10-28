@@ -12,7 +12,7 @@ package:
       CCI: CCI-000381
       Group_Title: SRG-OS-000095-GPOS-00049
       NIST800-53R4: CM-7
-      Rule_ID: SV-257828r925471_rule
+      Rule_ID: SV-257828r958478_rule
       STIG_ID: RHEL-09-215025
       Vul_ID: V-257828
   {{ end }}

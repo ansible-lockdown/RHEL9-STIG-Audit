@@ -18,7 +18,7 @@ package:
       NIST800-53R4:
       - CM-6
       - CM-7
-      Rule_ID: SV-257832r925483_rule
+      Rule_ID: SV-257832r958478_rule
       STIG_ID: RHEL-09-215045
       Vul_ID: V-257832
   {{ end }}
