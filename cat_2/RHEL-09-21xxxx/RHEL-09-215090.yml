@@ -1,0 +1,17 @@
+---
+
+{{ if .Vars.rhel_09_215090 }}
+package:
+  rng-tools:
+    title: RHEL-09-215090 | RHEL 9 must have the rng-tools package installed.
+    name: rng-tools
+    installed: true
+    meta:
+      Cat: 2
+      CCI: CCI-000366
+      Group_Title: SRG-OS-000480-GPOS-00227
+      NIST800-53R4: CM-6
+      Rule_ID: SV-257841r991589_rule
+      STIG_ID: RHEL-09-215090
+      Vul_ID: V-257841
+{{ end }}
