@@ -2,7 +2,7 @@
 
 {{ if .Vars.rhel_09_214030 }}
 command:
-  nxdx_protect_active:
+  pkg_crypto_hash:
     title: RHEL-09-214030 | RHEL 9 must be configured so that the cryptographic hashes of system files match vendor values.
     exec: PKG_CRYPTO=`rpm -Va --noconfig | awk '$1 ~ /..5/ && $2 != "c"'`; if [ -n "$PKG_CRYPTO" ]; then echo "FAIL - PKG Hashes dont match vendor values"; else echo EMPTY; fi
     exit-status:
