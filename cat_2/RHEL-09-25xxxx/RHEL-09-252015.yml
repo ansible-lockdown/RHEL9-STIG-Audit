@@ -10,11 +10,10 @@ service:
     meta:
       Cat: 2
       CCI:
-      - CCI-01891
+      - CCI-000000
       Group_Title:
       - SRG-OS-000355-GPOS-00143
-      NIST800-53R4:
-      - AU-8
+      NIST800-53R4: NA
       Rule_ID: SV-257944r997066_rule
       STIG_ID: RHEL-09-252015
       Vul_ID: V-257944

@@ -13,7 +13,6 @@ file:
       Cat: 2
       CCI:
       - CCI-000765
-      - CCI-001948
       Group_Title:
       - SRG-OS-000375-GPOS-00160
       - SRG-OS-000105-GPOS-00052

@@ -10,12 +10,10 @@ file:
     - '!/^ocredit\s*=\s*\d/'
     meta:
       Cat: 2
-      CCI:
-      - CCI-001619
+      CCI: CCI-000000
       Group_Title:
       - SRG-OS-000266-GPOS-00101
-      NIST800-53R4:
-      - IA-5
+      NIST800-53R4: NA
       Rule_ID: SV-258109r997095_rule
       STIG_ID: RHEL-09-611100
       Vul_ID: V-258109

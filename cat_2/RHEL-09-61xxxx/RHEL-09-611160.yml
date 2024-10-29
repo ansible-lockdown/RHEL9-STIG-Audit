@@ -12,12 +12,9 @@ file:
       Cat: 2
       CCI:
       - CCI-000764
+      - CCI-000765
       - CCI-000766
-      - CCI-000767
-      - CCI-000768
-      - CCI-000770
       - CCI-001941
-      - CCI-001942
       Group_Title:
       - SRG-OS-000073-GPOS-00041
       - SRG-OS-000120-GPOS-00061

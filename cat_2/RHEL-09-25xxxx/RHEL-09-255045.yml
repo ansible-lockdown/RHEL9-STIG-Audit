@@ -12,13 +12,11 @@ file:
       Cat: 2
       CCI:
       - CCI-000366
-      - CCI-000770
       Group_Title:
       - SRG-OS-000109-GPOS-00056
       - SRG-OS-000480-GPOS-00227
       NIST800-53R4:
       - CM-6
-      - IA-2
       Rule_ID: SV-257985r997069_rule
       STIG_ID: RHEL-09-255045
       Vul_ID: V-257985

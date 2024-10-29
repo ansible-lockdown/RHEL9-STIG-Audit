@@ -12,8 +12,6 @@ file:
       Cat: 2
       CCI:
       - CCI-01890
-      - CCI-01891
-      - CCI-02046
       Group_Title:
       - SRG-OS-000355-GPOS-00143
       - SRG-OS-000356-GPOS-00144

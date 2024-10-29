@@ -10,13 +10,11 @@ file:
     meta:
       Cat: 2
       CCI:
-      - CCI-002038
-      - CCI-2165
+      - CCI-002165
       Group_Title:
       - SRG-OS-000373-GPOS-00156
       - SRG-OS-000312-GPOS-00123
       NIST800-53R4:
-      - IA-11
       - AC-3
       Rule_ID: SV-258088r997082_rule
       STIG_ID: RHEL-09-432035

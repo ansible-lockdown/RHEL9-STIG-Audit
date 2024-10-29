@@ -13,11 +13,10 @@ command:
     meta:
       Cat: 2
       CCI:
-      - CCI-002038
+      - CCI-000000
       Group_Title:
       - SRG-OS-000373-GPOS-00156
-      NIST800-53R4:
-      - IA-11
+      NIST800-53R4: NA
       Rule_ID: SV-258086r997081_rule
       STIG_ID: RHEL-09-432025
       Vul_ID: V-258086

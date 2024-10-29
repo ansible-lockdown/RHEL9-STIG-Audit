@@ -11,7 +11,6 @@ file:
     meta:
       Cat: 2
       CCI:
-      - CCI-000879
       - CCI-001133
       - CCI-002361
       - CCI-002891

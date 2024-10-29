@@ -22,7 +22,6 @@ service:
       - CCI-000172
       - CCI-001464
       - CCI-001487
-      - CCI-001814
       - CCI-001875
       - CCI-001876
       - CCI-001877
@@ -66,7 +65,6 @@ service:
       - AU-8
       - AU-12
       - AU-14
-      - CM-5
       - MA-4
       Rule_ID: SV-258152r997058_rule
       STIG_ID: RHEL-09-653015
