@@ -9,13 +9,15 @@ file:
     - '/^password\s+required\s+pam_pwquality.so/'
     meta:
       Cat: 2
-      CCI: CCI-000000
+      CCI:
+      - CCI-000192
+      - CCI-000193
       Group_Title:
       - SRG-OS-000069-GPOS-00037
       - SRG-OS-000070-GPOS-00038
       - SRG-OS-000480-GPOS-00227
       NIST800-53R4: NA
-      Rule_ID: SV-258097r997084_rule
+      Rule_ID: SV-258097r1015098_rule
       STIG_ID: RHEL-09-611040
       Vul_ID: V-258097
 {{ end }}

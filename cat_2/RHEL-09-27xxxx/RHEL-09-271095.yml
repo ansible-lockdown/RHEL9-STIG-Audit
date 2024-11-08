@@ -8,7 +8,7 @@ file:
     exists: true
     contents:
     - '/^\[org\/gnome\/settings-daemon\/peripherals\/smartcard\]/'
-    - '/^disable-restart-buttons=\'true\'/'
+    - '/^disable-restart-buttons=true/'
     meta:
       Cat: 2
       CCI:
@@ -16,8 +16,8 @@ file:
       Group_Title:
       - SRG-OS-000480-GPOS-00227
       NIST800-53R4:
-      - AC-11
-      Rule_ID: SV-258029r991589_rule
+      - CM-6
+      Rule_ID: SV-258029r1014857_rule
       STIG_ID: RHEL-09-271085
       Vul_ID: V-258029
 {{ end }}

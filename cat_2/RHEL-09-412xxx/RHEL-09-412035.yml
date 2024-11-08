@@ -6,19 +6,19 @@ file:
     exists: true
     path: /etc/profile.d/tmout.sh
     contents:
-    - '/declare -xr TMOUT=([1-9]|9[0-9]|[1-8][0-9]{1,2}|900)/'
+    - '/declare -xr TMOUT=([1-9]|9[0-9]|[1-5][0-9]{1,2}|600)/'
     meta:
       Cat: 2
       CCI:
       - CCI-000057
-      - CCI-002235
+      - CCI-001133
       Group_Title:
       - SRG-OS-000163-GPOS-00072
       - SRG-OS-000029-GPOS-00010
       NIST800-53R4:
       - SC-10
       - AC-11
-      Rule_ID: SV-258068r970703_rule
+      Rule_ID: SV-258068r1014872_rule
       STIG_ID: RHEL-09-412035
       Vul_ID: V-258068
 {{ end }}

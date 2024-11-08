@@ -9,10 +9,10 @@ package:
     installed: true
     meta:
       Cat: 2
-      CCI: CCI-000000
+      CCI: CCI-001749
       Group_Title: SRG-OS-000366-GPOS-00153
-      NIST800-53R4: NA
-      Rule_ID: SV-257825r997056_rule
+      NIST800-53R4: CM-5
+      Rule_ID: SV-257825r1015079_rule
       STIG_ID: RHEL-09-215010
       Vul_ID: V-257825
   {{ end }}

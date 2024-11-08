@@ -21,7 +21,7 @@ command:
       NIST800-53R4:
       - SC-13
       - MA-4
-      Rule_ID: SV-258241r987791_rule
+      Rule_ID: SV-258241r1017572_rule
       STIG_ID: RHEL-09-672045
       Vul_ID: V-258241
 {{ end }}

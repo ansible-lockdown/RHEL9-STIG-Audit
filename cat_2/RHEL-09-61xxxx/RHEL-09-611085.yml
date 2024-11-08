@@ -12,13 +12,13 @@ command:
     - '!/^.*/'
     meta:
       Cat: 2
-      CCI: CCI-000000
+      CCI: CCI-002038
       Group_Title:
       - SRG-OS-000373-GPOS-00156
       - SRG-OS-000373-GPOS-00157
       - SRG-OS-000373-GPOS-00158
-      NIST800-53R4: NA
-      Rule_ID: SV-258106r997092_rule
+      NIST800-53R4: IA-11
+      Rule_ID: SV-258106r1015106_rule
       STIG_ID: RHEL-09-611085
       Vul_ID: V-258106
 {{ end }}

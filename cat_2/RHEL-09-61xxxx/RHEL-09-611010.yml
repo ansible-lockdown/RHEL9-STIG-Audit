@@ -11,11 +11,11 @@ file:
     meta:
       Cat: 2
       CCI:
-      - CCI-000000
+      - CCI-000192
       Group_Title:
       - SRG-OS-000069-GPOS-00037
       NIST800-53R4: NA
-      Rule_ID: SV-258091r997083_rule
+      Rule_ID: SV-258091r1015097_rule
       STIG_ID: RHEL-09-611010
       Vul_ID: V-258091
   password-auth_retries:
@@ -28,11 +28,11 @@ file:
     meta:
       Cat: 2
       CCI:
-      - CCI-000000
+      - CCI-000192
       Group_Title:
       - SRG-OS-000069-GPOS-00037
       NIST800-53R4: NA
-      Rule_ID: SV-258091r997083_rule
+      Rule_ID: SV-258091r1015097_rule
       STIG_ID: RHEL-09-611010
       Vul_ID: V-258091
 {{ end }}

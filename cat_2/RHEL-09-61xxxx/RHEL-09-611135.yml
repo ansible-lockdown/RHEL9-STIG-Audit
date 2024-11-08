@@ -9,11 +9,11 @@ file:
     - '/^crypt_style\s*=\s*sha512/'
     meta:
       Cat: 2
-      CCI: CCI-000000
+      CCI: CCI-000196
       Group_Title:
       - SRG-OS-000073-GPOS-00041
-      NIST800-53R4: NA
-      Rule_ID: SV-258116r997101_rule
+      NIST800-53R4: IA-5
+      Rule_ID: SV-258116r1015115_rule
       STIG_ID: RHEL-09-611135
       Vul_ID: V-258116
 {{ end }}

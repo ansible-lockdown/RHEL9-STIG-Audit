@@ -15,7 +15,7 @@ service:
       - SRG-OS-000378-GPOS-00163
       NIST800-53R4:
       - IA-3
-      Rule_ID: SV-258036r997118_rule
+      Rule_ID: SV-258036r1014861_rule
       STIG_ID: RHEL-09-291020
       Vul_ID: V-258036
 {{ end }}

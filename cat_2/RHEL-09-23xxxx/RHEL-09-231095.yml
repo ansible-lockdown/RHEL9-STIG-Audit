@@ -1,11 +1,10 @@
 ---
 
 {{ if .Vars.rhel_09_231095 }}
-  {{ if .Vars.rhel9stig_legacy_boot }}
 command:
   boot_nodev:
     title: RHEL-09-231095 | RHEL 9 must mount /boot with the nodev option.
-    exec: mount | grep '\s/boot\s' | grep nodev
+    exec: mount | grep '/boot' | grep nodev
     exit-status:
       or:
       - 0
@@ -17,8 +16,7 @@ command:
       CCI: CCI-001764
       Group_Title: RG-OS-000368-GPOS-00154
       NIST800-53R4: CM-6
-      Rule_ID: SV-257860r958804_rule
+      Rule_ID: SV-257860r1014832_rule
       STIG_ID: RHEL-09-231095
       Vul_ID: V-257860
-  {{ end }}
 {{ end }}

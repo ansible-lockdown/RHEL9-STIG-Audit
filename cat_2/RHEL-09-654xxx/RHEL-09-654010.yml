@@ -21,7 +21,7 @@ file:
       - SRG-OS-000327-GPOS-00127
       NIST800-53R4:
       - AC-6
-      Rule_ID: SV-258176r958730_rule
+      Rule_ID: SV-258176r1014909_rule
       STIG_ID: RHEL-09-654010
       Vul_ID: V-258176
 command:
@@ -47,7 +47,7 @@ command:
       - SRG-OS-000327-GPOS-00127
       NIST800-53R4:
       - AC-6
-      Rule_ID: SV-258176r958730_rule
+      Rule_ID: SV-258176r1014909_rule
       STIG_ID: RHEL-09-654010
       Vul_ID: V-258176
 {{ end }}

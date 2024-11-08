@@ -1,7 +1,6 @@
 ---
 
 {{ if .Vars.rhel_09_231100 }}
-  {{ if .Vars.rhel9stig_legacy_boot }}
 command:
   boot_nosuid:
     title: RHEL-09-231100 | RHEL 9 must prevent files with the setuid and setgid bit set from being executed on the /boot directory.
@@ -21,8 +20,7 @@ command:
       - SRG-OS-000368-GPOS-00154
       - SRG-OS-000480-GPOS-00227
       NIST800-53R4: CM-6
-      Rule_ID: SV-257861r958804_rule
+      Rule_ID: SV-257861r1014834_rule
       STIG_ID: RHEL-09-231100
       Vul_ID: V-257861
-  {{ end }}
 {{ end }}
