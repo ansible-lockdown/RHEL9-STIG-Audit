@@ -7,18 +7,19 @@ file:
     exists: true
     path: /etc/sssd/sssd.conf
     contents:
-    - '/^(?i)pam_cert_auth = True/'
-    - '!/^(?i)pam_cert_auth = false/'
+    - '/^(?i)pam_cert_auth\s*=\s*True/'
+    - '!/^(?i)pam_cert_auth\s*=\s*false/'
     meta:
       Cat: 2
       CCI:
       - CCI-000765
+      - CCI-001948
       Group_Title:
       - SRG-OS-000375-GPOS-00160
       - SRG-OS-000105-GPOS-00052
       NIST800-53R4:
       - IA-2
-      Rule_ID: SV-258122r997106_rule
+      Rule_ID: SV-258122r1015120_rule
       STIG_ID: RHEL-09-611165
       Vul_ID: V-258122
   {{ end }}

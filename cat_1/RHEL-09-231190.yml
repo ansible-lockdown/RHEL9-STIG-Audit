@@ -18,7 +18,7 @@ package:
       NIST800-53R4:
       - SC-28
       - CM-6
-      Rule_ID: SV-257879r958872_rule
+      Rule_ID: SV-257879r1014836_rule
       STIG_ID: RHEL-09-231190
       Vul_ID: V-257879
 command:
@@ -42,7 +42,7 @@ command:
       NIST800-53R4:
       - SC-28
       - CM-6
-      Rule_ID: SV-257879r958872_rule
+      Rule_ID: SV-257879r1014836_rule
       STIG_ID: RHEL-09-231190
       Vul_ID: V-257879
 {{ end }}

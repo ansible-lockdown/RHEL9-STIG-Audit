@@ -7,7 +7,7 @@ file:
     path: {{ .Vars.rhel9stig_sshd_config_file }}
     exists: true
     contents:
-    - '/^PubkeyAuthentication {{ .Vars.rhel9stig_sshd_config.pubkeyauth }}/'
+    - '/^(?i)PubkeyAuthentication yes/'
     meta:
       Cat: 2
       CCI:
@@ -20,7 +20,7 @@ file:
       - SRG-OS-000108-GPOS-00055
       NIST800-53R4:
       - IA-2
-      Rule_ID: SV-257983r997068_rule
+      Rule_ID: SV-257983r1015084_rule
       STIG_ID: RHEL-09-255035
       Vul_ID: V-257983
 {{ end }}
