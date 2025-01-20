@@ -47,7 +47,7 @@ file:
       Vul_ID: V-258223
 command:
   audit_running_etc_shadow:
-    title: RHEL-09-654240 | RHEL 9 must generate audit records for all account creations, modifications, disabling, and termination events that affect /etc/shadow.
+    title: RHEL-09-654245 | RHEL 9 must generate audit records for all account creations, modifications, disabling, and termination events that affect /etc/shadow.
     exec: auditctl -l | grep -w "etc/shadow"
     exit-status:
       or:

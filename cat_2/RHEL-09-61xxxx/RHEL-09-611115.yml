@@ -1,8 +1,8 @@
 ---
-{{ if .Vars.rhel_09_611110 }}
+{{ if .Vars.rhel_09_611115 }}
 file:
   pwquality_difok:
-    title: RHEL-09-611110 | RHEL 9 must require the change of at least eight characters when passwords are changed.
+    title: RHEL-09-611115 | RHEL 9 must require the change of at least eight characters when passwords are changed.
     exists: true
     path: /etc/security/pwquality.conf
     contents:

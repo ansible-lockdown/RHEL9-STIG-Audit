@@ -12,7 +12,7 @@ package:
       Group_Title: SRG-OS-000191-GPOS-00080
       NIST800-53R4: SI-2
       Rule_ID: SV-257780r939261_rule
-      STIG_ID: RHEL-09-0211025
+      STIG_ID: RHEL-09-211025
       Vul_ID: V-257780
 service:
   endpoint_sec_service:
@@ -26,6 +26,6 @@ service:
       Group_Title: SRG-OS-000191-GPOS-00080
       NIST800-53R4: SI-2
       Rule_ID: SV-257780r939261_rule
-      STIG_ID: RHEL-09-0211025
+      STIG_ID: RHEL-09-211025
       Vul_ID: V-257780
 {{ end }}

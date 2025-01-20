@@ -19,7 +19,7 @@ service:
       - CM-6
       - AC-6
       Rule_ID: SV-257786r943026_rule
-      STIG_ID: RHEL-09-0211055
+      STIG_ID: RHEL-09-211055
       Vul_ID: V-257786
 file:
   debug_shell_masked:
@@ -40,6 +40,6 @@ file:
       - CM-6
       - AC-6
       Rule_ID: SV-257786r943026_rule
-      STIG_ID: RHEL-09-0211055
+      STIG_ID: RHEL-09-211055
       Vul_ID: V-257786
 {{ end }}
