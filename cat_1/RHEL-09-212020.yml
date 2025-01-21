@@ -3,7 +3,7 @@
 {{ if .Vars.rhel_09_212020 }}
 file:
   grub_superuser:
-    title: RHEL 9 must require a unique superusers name upon booting into single-user and maintenance modes.
+    title: RHEL-09-212020 | RHEL 9 must require a unique superusers name upon booting into single-user and maintenance modes.
     exists: true
     path: /etc/grub2.cfg
     filetype: symlink

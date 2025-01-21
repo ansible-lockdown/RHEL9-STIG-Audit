@@ -32,6 +32,6 @@ file:
       - AU-14
       - MA-4
       Rule_ID: SV-257796r925375_rule
-      STIG_ID: RHEL-09-211055
+      STIG_ID: RHEL-09-212055
       Vul_ID: V-257796
 {{ end }}

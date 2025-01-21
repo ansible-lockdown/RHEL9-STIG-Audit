@@ -13,7 +13,7 @@ service:
       Group_Title: SRG-OS-000480-GPOS-00227
       NIST800-53R4: CM-6
       Rule_ID: V-257815r925432_rule
-      STIG_ID: RHEL-09-0213100
+      STIG_ID: RHEL-09-213100
       Vul_ID: V-257815
 file:
   coredump_socket_masked:
@@ -28,6 +28,6 @@ file:
       Group_Title: SRG-OS-000480-GPOS-00227
       NIST800-53R4: CM-6
       Rule_ID: V-257815r925432_rule
-      STIG_ID: RHEL-09-0213100
+      STIG_ID: RHEL-09-213100
       Vul_ID: V-257815
 {{ end }}
