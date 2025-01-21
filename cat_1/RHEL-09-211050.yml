@@ -23,8 +23,8 @@ file:
       STIG_ID: RHEL-09-211050
       Vul_ID: V-257785
 service:
-  title: RHEL-09-211050 | The x86 Ctrl-Alt-Delete key sequence must be disabled on RHEL 9.
   ctrl-alt-del.target:
+    title: RHEL-09-211050 | The x86 Ctrl-Alt-Delete key sequence must be disabled on RHEL 9.
     name: ctrl-alt-del.target
     enabled: false
     running: false
