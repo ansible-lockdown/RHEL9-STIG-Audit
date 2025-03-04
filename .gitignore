@@ -45,4 +45,4 @@ benchparse/
 .github/
 
 # ansible-lint
-.ansible
+.ansible/
