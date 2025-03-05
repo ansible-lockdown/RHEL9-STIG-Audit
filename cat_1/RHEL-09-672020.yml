@@ -1,0 +1,28 @@
+---
+
+{{ if .Vars.rhel_09_672020 }}
+command:
+  crypto_policy_fips:
+    title: RHEL-09-672020 | RHEL 9 cryptographic policy must not be overridden.
+    exec: update-crypto-policies --check && echo PASS
+    timeout: {{ .Vars.timeout_ms }}
+    exit-status: 0
+    stdout:
+    - '/PASS/'
+    meta:
+      Cat: 1
+      CCI:
+      - CCI-002450
+      - CCI-002890
+      - CCI-03123
+      Group_Title:
+      - SRG-OS-000396-GPOS-00176
+      - SRG-OS-000393-GPOS-00173
+      - SRG-OS-000394-GPOS-00174
+      NIST800-53R4:
+      - MA-4
+      - SC-13
+      Rule_ID: SV-258236r1051253_rule
+      STIG_ID: RHEL-09-672020
+      Vul_ID: V-258236
+{{ end }}
