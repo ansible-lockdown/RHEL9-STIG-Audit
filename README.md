@@ -150,7 +150,7 @@ Count: 3, Failed: 1, Skipped: 0
 
 ## Helpful
 
-If you want to run locally and se easy putput of failures, the following command helps
+If you want to run locally and se easy output of failures, the following command helps
 
 ```sh
 $ sudo ./run_audit.sh -f documentation
