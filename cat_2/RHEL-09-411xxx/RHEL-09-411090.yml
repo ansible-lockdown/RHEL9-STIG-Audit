@@ -20,7 +20,7 @@ file:
       NIST800-53R4:
       - AC-7
       Rule_ID: SV-258057r958736_rule
-      STIG_ID: RHEL-09-411085
+      STIG_ID: RHEL-09-411090
       Vul_ID: V-258057
 command:
   faillock_unlock_authselect:
