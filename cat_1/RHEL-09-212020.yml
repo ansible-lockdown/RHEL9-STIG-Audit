@@ -3,7 +3,7 @@
 {{ if .Vars.rhel_09_212020 }}
 file:
   grub_superuser_config:
-    title: RHEL 9 must require a unique superusers name upon booting into single-user and maintenance modes.
+    title: RHEL-09-212020 | RHEL 9 must require a unique superusers name upon booting into single-user and maintenance modes.
     exists: true
     path: /etc/grub.d/01_users
     contents:
@@ -24,7 +24,7 @@ file:
     contents:
     - '/^\s*set superusers="{{ .Vars.rhel9stig_grub_superuser }}"/'
     - '/\s*export superusers/'
-    - /\s*password_pbkdf2 "{{ .Vars.rhel9stig_grub_superuser }}"/'
+    - '/\s*password_pbkdf2 {{ .Vars.rhel9stig_grub_superuser }} \${GRUB2_PASSWORD}/'
     meta:
       Cat: 1
       CCI: CCI-000213
