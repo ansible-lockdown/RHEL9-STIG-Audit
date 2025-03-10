@@ -17,8 +17,7 @@ package:
       - SRG-OS-000404-GPOS-00183
       NIST800-53R4:
       - SC-28
-      - CM-6
-      Rule_ID: SV-257879r1014836_rule
+      Rule_ID: SV-257879r1045454_rule
       STIG_ID: RHEL-09-231190
       Vul_ID: V-257879
 command:
@@ -41,8 +40,7 @@ command:
       - SRG-OS-000404-GPOS-00183
       NIST800-53R4:
       - SC-28
-      - CM-6
-      Rule_ID: SV-257879r1014836_rule
+      Rule_ID: SV-257879r1045454_rule
       STIG_ID: RHEL-09-231190
       Vul_ID: V-257879
 {{ end }}

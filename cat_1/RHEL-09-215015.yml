@@ -5,12 +5,12 @@
 package:
   vsftpd:
     title: RHEL-09-215015 | RHEL 9 must not have a File Transfer Protocol (FTP) server package installed.
+    name: vsftpd
     installed: false
     meta:
       Cat: 1
       CCI:
       - CCI-000197
-      - CCI-000366
       - CCI-000381
       Group_Title:
       - SRG-OS-000074-GPOS-00042
@@ -18,9 +18,8 @@ package:
       - SRG-OS-000480-GPOS-00227
       NIST800-53R4:
       - IA-5
-      - CM-6
       - CM-7
-      Rule_ID: SV-257826r987796_rule
+      Rule_ID: SV-257826r1044890_rule
       STIG_ID: RHEL-09-215015
       Vul_ID: SV-257826
   {{ end }}

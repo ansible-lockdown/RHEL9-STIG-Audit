@@ -2,11 +2,10 @@
 
 {{ if .Vars.rhel_09_212020 }}
 file:
-  grub_superuser:
+  grub_superuser_config:
     title: RHEL 9 must require a unique superusers name upon booting into single-user and maintenance modes.
     exists: true
     path: /etc/grub.d/01_users
-    filetype: symlink
     contents:
     - '/^\s*set superusers="{{ .Vars.rhel9stig_grub_superuser }}"/'
     - '/\s*export superusers/'
@@ -15,7 +14,23 @@ file:
       CCI: CCI-000213
       Group_Title: SRG-OS-000080-GPOS-00048
       NIST800-53R4: AC-3
-      Rule_ID: SV-257789r1014822_rule
+      Rule_ID: SV-257789r1044841_rule
+      STIG_ID: RHEL-09-212020
+      Vul_ID: V-257789
+  grub_superuser_loaded:
+    title: RHEL 9 must require a unique superusers name upon booting into single-user and maintenance modes.
+    exists: true
+    path: /etc/grub2.cfg
+    contents:
+    - '/^\s*set superusers="{{ .Vars.rhel9stig_grub_superuser }}"/'
+    - '/\s*export superusers/'
+    - /\s*password_pbkdf2 "{{ .Vars.rhel9stig_grub_superuser }}"/'
+    meta:
+      Cat: 1
+      CCI: CCI-000213
+      Group_Title: SRG-OS-000080-GPOS-00048
+      NIST800-53R4: AC-3
+      Rule_ID: SV-257789r1044841_rule
       STIG_ID: RHEL-09-212020
       Vul_ID: V-257789
 {{ end }}

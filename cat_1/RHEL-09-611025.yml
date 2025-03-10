@@ -13,7 +13,7 @@ file:
       CCI: CCI-000366
       Group_Title: SRG-OS-000480-GPOS-00227
       NIST800-53R4: CM-6
-      Rule_ID: SV-258094r1014878_rule
+      Rule_ID: SV-258094r1045187_rule
       STIG_ID: RHEL-09-611025
       Vul_ID: V-258094
   nullok_password-auth:
@@ -27,7 +27,7 @@ file:
       CCI: CCI-000366
       Group_Title: SRG-OS-000480-GPOS-00227
       NIST800-53R4: CM-6
-      Rule_ID: SV-258094r1014878_rule
+      Rule_ID: SV-258094r1045187_rule
       STIG_ID: RHEL-09-611025
       Vul_ID: V-258094
 {{ end }}
