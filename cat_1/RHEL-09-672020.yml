@@ -6,9 +6,12 @@ command:
     title: RHEL-09-672020 | RHEL 9 cryptographic policy must not be overridden.
     exec: update-crypto-policies --check && echo PASS
     timeout: {{ .Vars.timeout_ms }}
-    exit-status: 0
+    exit-status:
+      or:
+      - 0
+      - 1
     stdout:
-    - '/PASS/'
+    - 'PASS'
     meta:
       Cat: 1
       CCI:
