@@ -1,5 +1,5 @@
 ## metadata for Audit benchmark
-benchmark_version: '1.2.0'
+benchmark_version: 'v2r2'
 benchmark: RHEL9-STIG
 
 # set to redhat/rocky/alma
