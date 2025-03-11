@@ -77,6 +77,7 @@ rhel_09_671010: true
 rhel_09_672020: true
 
 # Cat 2 rules
+rhel_09_171011: true
 rhel_09_211015: true
 rhel_09_211020: true
 rhel_09_211030: true
@@ -182,6 +183,8 @@ rhel_09_232085: true
 rhel_09_232090: true
 rhel_09_232095: true
 rhel_09_232100: true
+rhel_09_232103: true
+rhel_09_232104: true
 rhel_09_232105: true
 rhel_09_232110: true
 rhel_09_232115: true
@@ -264,6 +267,7 @@ rhel_09_255035: true
 rhel_09_255045: true
 rhel_09_255055: true
 rhel_09_255060: true
+rhel_09_255064: true
 rhel_09_255065: true
 rhel_09_255075: true
 rhel_09_255080: true

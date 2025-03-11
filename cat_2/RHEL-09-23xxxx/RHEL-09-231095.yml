@@ -15,8 +15,8 @@ command:
       Cat: 2
       CCI: CCI-001764
       Group_Title: RG-OS-000368-GPOS-00154
-      NIST800-53R4: CM-6
-      Rule_ID: SV-257860r1014832_rule
+      NIST800-53R4: CM-7
+      Rule_ID: SV-257860r1044940_rule
       STIG_ID: RHEL-09-231095
       Vul_ID: V-257860
 {{ end }}

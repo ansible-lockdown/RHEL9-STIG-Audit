@@ -1,12 +1,15 @@
 ---
 
 {{ if .Vars.rhel_09_255110 }}
-file:
+command:
   ssh_config_owner:
     title: RHEL-09-255110 | RHEL 9 SSH server configuration file must be owned by root.
-    path: {{ .Vars.rhel9stig_sshd_config_file }}
-    exists: true
-    owner: root
+    exec: find /etc/ssh/sshd_config /etc/ssh/sshd_config.d -exec stat -c "%U %n" {} \;
+    exit-status:
+      or:
+      - 0
+      - 2
+    stdout: '/.*:root/'
     meta:
       Cat: 2
       CCI:
@@ -15,7 +18,7 @@ file:
       - SRG-OS-000480-GPOS-00227
       NIST800-53R4:
       - CM-6
-      Rule_ID: SV-257998r991589_rule
+      Rule_ID: SV-257998r1045059_rule
       STIG_ID: RHEL-09-255110
       Vul_ID: V-257998
 {{ end }}

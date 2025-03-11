@@ -14,10 +14,10 @@ command:
       - '!/.*/'
     meta:
       Cat: 2
-      CCI: CCI-000366
-      Group_Title: SRG-OS-000480-GPOS-00227
-      NIST800-53R4: CM-6
-      Rule_ID: SV-257918r991560_rule
+      CCI: CCI-001499
+      Group_Title: SRG-OS-000259-GPOS-00100
+      NIST800-53R4: CM-5
+      Rule_ID: SV-257918r1044977_rule
       STIG_ID: RHEL-09-232190
       Vul_ID: V-257918
 {{ end }}

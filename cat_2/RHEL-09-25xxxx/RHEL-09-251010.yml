@@ -9,7 +9,6 @@ package:
     meta:
       Cat: 2
       CCI:
-      - CCI-000366
       - CCI-000382
       - CCI-002314
       - CCI-002322
@@ -20,10 +19,9 @@ package:
       - SRG-OS-000480-GPOS-00227
       - SRG-OS-000480-GPOS-00232
       NIST800-53R4:
-      - CM-6
       - CM-7
       - AC-17
-      Rule_ID: SV-257935r958480_rule
+      Rule_ID: SV-257935r1044994_rule
       STIG_ID: RHEL-09-251010
       Vul_ID: V-257935
 {{ end }}

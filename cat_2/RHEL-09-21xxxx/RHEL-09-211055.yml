@@ -10,15 +10,13 @@ service:
     meta:
       Cat: 2
       CCI:
-      - CCI-000366
-      - CCI-001665
+      - CCI-002235
       Group_Title:
       - SRG-OS-000324-GPOS-00125
       - SRG-OS-000480-GPOS-00227
       NIST800-53R4:
-      - CM-6
       - AC-6
-      Rule_ID: SV-257786r958726_rule
+      Rule_ID: SV-257786r1044834_rule
       STIG_ID: RHEL-09-0211055
       Vul_ID: V-257786
 file:
@@ -31,15 +29,13 @@ file:
     meta:
       Cat: 2
       CCI:
-      - CCI-000366
-      - CCI-001665
+      - CCI-002235
       Group_Title:
       - SRG-OS-000324-GPOS-00125
       - SRG-OS-000480-GPOS-00227
       NIST800-53R4:
-      - CM-6
       - AC-6
-      Rule_ID: SV-257786r958726_rule
+      Rule_ID: SV-257786r1044834_rule
       STIG_ID: RHEL-09-0211055
       Vul_ID: V-257786
 {{ end }}

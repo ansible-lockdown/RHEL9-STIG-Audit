@@ -10,7 +10,6 @@ service:
     meta:
       Cat: 2
       CCI:
-      - CCI-000366
       - CCI-000382
       - CCI-002314
       Group_Title:
@@ -19,10 +18,9 @@ service:
       - SRG-OS-000480-GPOS-00227
       - SRG-OS-000480-GPOS-00232
       NIST800-53R4:
-      - CM-6
       - CM-7
       - AC-17
-      Rule_ID: SV-257936r958480_rule
+      Rule_ID: SV-257936r1044995_rule
       STIG_ID: RHEL-09-251015
       Vul_ID: V-257936
 {{ end }}

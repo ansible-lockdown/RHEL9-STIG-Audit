@@ -13,7 +13,7 @@ file:
       CCI: CCI-000213
       Group_Title: SRG-OS-000080-GPOS-00048
       NIST800-53R4: AC-3
-      Rule_ID: SV-257787r958472_rule
+      Rule_ID: SV-257787r1044836_rule
       STIG_ID: RHEL-09-212010
       Vul_ID: V-257787
   grub_users_password:
@@ -28,7 +28,7 @@ file:
       CCI: CCI-000213
       Group_Title: SRG-OS-000080-GPOS-00048
       NIST800-53R4: AC-3
-      Rule_ID: SV-257787r958472_rule
+      Rule_ID: SV-257787r1044836_rule
       STIG_ID: RHEL-09-212010
       Vul_ID: V-257787
 {{ end }}

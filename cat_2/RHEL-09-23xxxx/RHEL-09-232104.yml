@@ -1,0 +1,20 @@
+---
+
+{{ if .Vars.rhel_09_232104 }}
+file:
+  etc_audit_group_perm:
+    title: RHEL 9 "/etc/audit/" must be group-owned by root.
+    path: /etc/audit/
+    exit-status: 0
+    group: root
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000162
+      Group_Title: SRG-OS-000080-GPOS-00048
+      NIST800-53R4:
+      - AU-9
+      Rule_ID: SV-270176r1044967_rule
+      STIG_ID: RHEL-09-232104
+      Vul_ID: V-270176
+{{ end }}

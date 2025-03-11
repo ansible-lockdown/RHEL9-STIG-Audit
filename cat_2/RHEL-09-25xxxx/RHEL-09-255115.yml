@@ -1,13 +1,15 @@
 ---
 
 {{ if .Vars.rhel_09_255115 }}
-file:
+command:
   ssh_config_perms:
     title: RHEL-09-255115 | RHEL 9 SSH server configuration file must have mode 0600 or less permissive.
-    path: {{ .Vars.rhel9stig_sshd_config_file }}
-    exists: true
-    mode:
+    exec: find /etc/ssh/sshd_config /etc/ssh/sshd_config.d -exec stat -c "%a %n" {} \;
+    exit-status:
       or:
+      - 0
+      - 2
+    stdout:
       - '0400'
       - '0600'
     meta:
@@ -18,7 +20,7 @@ file:
       - SRG-OS-000480-GPOS-00227
       NIST800-53R4:
       - CM-6
-      Rule_ID: SV-257999r991589_rule
+      Rule_ID: SV-257999r1045061_rule
       STIG_ID: RHEL-09-255115
       Vul_ID: V-257999
 {{ end }}

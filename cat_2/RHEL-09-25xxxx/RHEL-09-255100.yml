@@ -8,6 +8,7 @@ file:
     exists: true
     contents:
     - '/^ClientAliveInterval {{ .Vars.rhel9stig_sshd_config.clientaliveinterval }}/'
+    - '/^ClientAliveInterval ([1-9]|[1-9][0-9]|[1-5][0-9][0-9]|600)/'
     meta:
       Cat: 2
       CCI:
@@ -23,7 +24,7 @@ file:
       - MA-4
       - SC-10
       - AC-12
-      Rule_ID: SV-257996r997070_rule
+      Rule_ID: SV-257996r1045055_rule
       STIG_ID: RHEL-09-255100
       Vul_ID: V-257996
 {{ end }}

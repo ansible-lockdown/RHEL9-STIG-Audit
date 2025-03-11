@@ -14,10 +14,10 @@ command:
     - '!/.*disabled/'
     meta:
       Cat: 2
-      CCI: CCI-000381
-      Group_Title: SRG-OS-000095-GPOS-00049
-      NIST800-53R4: CM-7
+      CCI: CCI-002824
+      Group_Title: SRG-OS-000433-GPOS-00192
+      NIST800-53R4: SI-16
       Rule_ID: SV-257817r958928_rule
-      STIG_ID: RHEL-09-213060
-      Vul_ID: V-257807
+      STIG_ID: RHEL-09-213110
+      Vul_ID: V-257817
 {{ end }}

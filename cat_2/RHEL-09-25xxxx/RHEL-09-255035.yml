@@ -13,6 +13,8 @@ file:
       CCI:
       - CCI-000765
       - CCI-000766
+      - CCI-000767
+      - CCI-000768
       Group_Title:
       - SRG-OS-000105-GPOS-00052
       - SRG-OS-000106-GPOS-00053
@@ -20,7 +22,7 @@ file:
       - SRG-OS-000108-GPOS-00055
       NIST800-53R4:
       - IA-2
-      Rule_ID: SV-257983r1015084_rule
+      Rule_ID: SV-257983r1045024_rule
       STIG_ID: RHEL-09-255035
       Vul_ID: V-257983
 {{ end }}

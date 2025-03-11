@@ -9,7 +9,6 @@ kernel-param:
     meta:
       Cat: 2
       CCI:
-      - CCI-000366
       - CCI-001095
       - CCI-002385
       Group_Title:
@@ -17,9 +16,8 @@ kernel-param:
       - SRG-OS-000420-GPOS-00186
       - SRG-OS-000142-GPOS-00071
       NIST800-53R4:
-      - CM-6
       - SC-5
-      Rule_ID: SV-257957r991589_rule
+      Rule_ID: SV-257957r1045009_rule
       STIG_ID: RHEL-09-253010
       Vul_ID: V-257957
 command:
