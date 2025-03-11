@@ -1,7 +1,7 @@
 ---
 {{ if .Vars.rhel9stig_gui }}
   {{ if .Vars.rhel_09_171011 }}
-  command:
+command:
   dnf_check_updates:
     title: RHEL-09-171011 | RHEL 9 must display the Standard Mandatory DOD Notice and Consent Banner before granting local or remote access to the system via a graphical user logon.
     exec: gsettings get org.gnome.login-screen banner-message-text
