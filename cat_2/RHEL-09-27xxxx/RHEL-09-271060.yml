@@ -1,24 +1,29 @@
 ---
 
 {{ if .Vars.rhel_09_271060 }}
-file:
+command:
   gui_session_lock:
     title: RHEL-09-271060 | RHEL 9 must prevent a user from overriding the screensaver lock-enabled setting for the graphical user interface.
-    path: /etc/dconf/db/{{ .Vars.rhel9stig_dconf_db }}/locks/session
-    exists: true
-    contents:
-    - '/^\/org\/gnome\/desktop\/screensaver\/lock-enabled/'
+    exec: gsettings writable org.gnome.desktop.screensaver lock-enabled
+    exit-status:
+      or:
+      - 0
+      - 1
+    stdout:
+    - '/^false/'
+    - '!/^true/'
     meta:
       Cat: 2
       CCI:
       - CCI-000056
       - CCI-000057
+      - CCI-000058
       Group_Title:
       - SRG-OS-000028-GPOS-00009
       - SRG-OS-000030-GPOS-00011
       NIST800-53R4:
       - AC-11
-      Rule_ID: SV-258022r997074_rule
+      Rule_ID: SV-258022r1045097_rule
       STIG_ID: RHEL-09-271060
       Vul_ID: V-258022
 {{ end }}

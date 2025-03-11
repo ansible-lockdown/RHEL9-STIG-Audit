@@ -9,7 +9,8 @@ command:
       or:
       - 0
       - 2
-    stdout: '/.*:root/'
+    stdout:
+      - '/^root/'
     meta:
       Cat: 2
       CCI:

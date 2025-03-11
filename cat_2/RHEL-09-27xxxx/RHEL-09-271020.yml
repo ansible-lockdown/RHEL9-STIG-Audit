@@ -1,18 +1,20 @@
 ---
 
 {{ if .Vars.rhel_09_271020 }}
-file:
+command:
   gui_disable_automount:
     title: RHEL-09-271020 | RHEL 9 must disable the graphical user interface automount function unless required.
-    path: /etc/dconf/db/{{ .Vars.rhel9stig_dconf_db }}/00-security-settings
-    exists: true
-    contents:
-    - '/^\[org\/gnome\/desktop\/media-handling\]/'
-    - '/^automount-open=false/'
+    exec: gsettings get org.gnome.desktop.media-handling automount-open
+    exit-status:
+      or:
+      - 0
+      - 1
+    stdout:
+    - '/^false/'
+    - '!/^true/'
     meta:
       Cat: 2
       CCI:
-      - CCI-000366
       - CCI-000778
       - CCI-001985
       Group_Title:
@@ -20,7 +22,6 @@ file:
       - SRG-OS-000378-GPOS-00163
       - SRG-OS-000480-GPOS-00227
       NIST800-53R4:
-      - CM-6
       - IA-3
       Rule_ID: SV-258014r958498_rule
       STIG_ID: RHEL-09-271020

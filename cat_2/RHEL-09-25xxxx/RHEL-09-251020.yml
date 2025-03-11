@@ -4,12 +4,12 @@
 command:
   firewalld_zone_service:
     title: RHEL-09-251020 | A RHEL 9 firewall must employ a deny-all, allow-by-exception policy for allowing connections to other systems.
-    exec: firewall-cmd --get-default-zone
+    exec: firewall-cmd --state && zone_list=`firewall-cmd --get-active-zones | head -1` && for zone in $zone_list; do firewall-cmd --permanent --info-zone=$zone | grep "target:"; done
     exit-status: 0
+    timeout: {{ .Vars.timeout_ms }}
     stdout:
-    {{ range .Vars.rhel9stig_white_list_services }}
-    - {{ . }}
-    {{ end }}
+    - 'target: DROP'
+    - '!/target: [^D][^R][^O][^P]/'
     meta:
       Cat: 2
       CCI: CCI-000366

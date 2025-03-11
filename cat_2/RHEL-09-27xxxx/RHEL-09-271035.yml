@@ -1,17 +1,20 @@
 ---
 
 {{ if .Vars.rhel_09_271035 }}
-file:
+command:
   gui_disable_autorun_lock:
     title: RHEL-09-271035 | RHEL 9 must prevent a user from overriding the disabling of the graphical user interface autorun function.
-    path: /etc/dconf/db/{{ .Vars.rhel9stig_dconf_db }}/locks/00-security-settings-lock
-    exists: true
-    contents:
-    - '/^\/org\/gnome\/desktop\/media-handling\/autorun-never/'
+    exec: gsettings writable org.gnome.desktop.media-handling autorun-never
+    exit-status:
+      or:
+      - 0
+      - 1
+    stdout:
+    - '/^false/'
+    - '!/^true/'
     meta:
       Cat: 2
       CCI:
-      - CCI-000366
       - CCI-000778
       - CCI-001985
       Group_Title:
@@ -19,9 +22,8 @@ file:
       - SRG-OS-000378-GPOS-00163
       - SRG-OS-000480-GPOS-00227
       NIST800-53R4:
-      - CM-6
       - IA-3
-      Rule_ID: SV-258017r958498_rule
+      Rule_ID: SV-258017r1045088_rule
       STIG_ID: RHEL-09-271035
       Vul_ID: V-258017
 {{ end }}

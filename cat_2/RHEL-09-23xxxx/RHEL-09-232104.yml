@@ -5,7 +5,7 @@ file:
   etc_audit_group_perm:
     title: RHEL 9 "/etc/audit/" must be group-owned by root.
     path: /etc/audit/
-    exit-status: 0
+    exists: true
     group: root
     meta:
       Cat: 2

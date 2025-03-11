@@ -12,11 +12,11 @@ gpg_key:
     fingerprint: '6A6A A7C9 7C88 90AE C6AE  BFE2 F76F 66C3 D409 2792'
 
 ##rocky example rocky
-# rhel9stig_os_distribution: rocky
-# rpm_gpg_key: /etc/pki/rpm-gpg/RPM-GPG-KEY-rockyofficial
+#rhel9stig_os_distribution: rocky
+#rpm_gpg_key: /etc/pki/rpm-gpg/RPM-GPG-KEY-Rocky-9
 #gpg_key:
-#  - name: 'Release Engineering'
-#    fingerprint: '7051 C470 A929 F454 CEBE  37B7 15AF 5DAC 6D74 5A60'
+#  - name: 'Rocky Enterprise Software Foundation - Release key 2022'
+#    fingerprint: '21CB 256A E16F C54C 6E65  2949 702D 426D 350D 275D'
 
 ## Alma
 # rhel9stig_os_distribution: almalinux
@@ -269,6 +269,7 @@ rhel_09_255055: true
 rhel_09_255060: true
 rhel_09_255064: true
 rhel_09_255065: true
+rhel_09_255070: true
 rhel_09_255075: true
 rhel_09_255080: true
 rhel_09_255085: true

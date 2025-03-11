@@ -11,7 +11,6 @@ file:
     meta:
       Cat: 2
       CCI:
-      - CCI-000366
       - CCI-000778
       - CCI-001985
       Group_Title:
@@ -19,9 +18,8 @@ file:
       - SRG-OS-000378-GPOS-00163
       - SRG-OS-000480-GPOS-00227
       NIST800-53R4:
-      - CM-6
       - IA-3
-      Rule_ID: SV-258015r958498_rule
+      Rule_ID: SV-258015r1045086_rule
       STIG_ID: RHEL-09-271025
       Vul_ID: V-258015
 {{ end }}

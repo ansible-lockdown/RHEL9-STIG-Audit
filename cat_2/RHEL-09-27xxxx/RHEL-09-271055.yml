@@ -1,25 +1,29 @@
 ---
 
 {{ if .Vars.rhel_09_271055 }}
-file:
+command:
   gui_session:
     title: RHEL-09-271055 |  RHEL 9 must enable a user session lock until that user re-establishes access using established identification and authentication procedures for graphical user sessions.
-    path: /etc/dconf/db/{{ .Vars.rhel9stig_dconf_db }}/00-screensaver
-    exists: true
-    contents:
-    - '/^\[org\/gnome\/desktop\/screensaver\]/'
-    - '/^lock-enabled=true/'
+    exec: gsettings get org.gnome.desktop.screensaver lock-enabled
+    exit-status:
+      or:
+      - 0
+      - 1
+    stdout:
+    - '/^true/'
+    - '!/^false/'
     meta:
       Cat: 2
       CCI:
       - CCI-000056
       - CCI-000057
+      - CCI-000058
       Group_Title:
       - SRG-OS-000028-GPOS-00009
       - SRG-OS-000030-GPOS-00011
       NIST800-53R4:
       - AC-11
-      Rule_ID: SV-258021r997073_rule
+      Rule_ID: SV-258021r1015088_rule
       STIG_ID: RHEL-09-271055
       Vul_ID: V-258021
 {{ end }}

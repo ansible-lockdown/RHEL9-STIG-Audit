@@ -3,7 +3,7 @@
 {{ if .Vars.rhel_09_214010 }}
 command:
   gpg_crypto_keys:
-    title: RHEL-09-214010 | RHEL 9 must ensure cryptographic verification of vendor software packages. | {{ .Vars.rpm_gpg_key }}
+    title: RHEL-09-214010 | RHEL 9 must ensure cryptographic verification of vendor software packages.
     exit-status:
       or:
       - 0

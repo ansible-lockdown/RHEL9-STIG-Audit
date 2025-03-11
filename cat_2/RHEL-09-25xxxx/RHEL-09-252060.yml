@@ -5,8 +5,9 @@ file:
   postmaster_alias:
     title: RHEL-09-252060 | RHEL 9 must forward mail from postmaster to the root account using a postfix alias.
     path: /etc/aliases
+    exists: true
     contents:
-    - '^postmaster: root'
+    - '/^postmaster:\s*root/'
     meta:
       Cat: 2
       CCI:

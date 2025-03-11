@@ -5,7 +5,7 @@ file:
   etc_audit_user_perm:
     title: RHEL 9 "/etc/audit/" must be owned by root.
     path: /etc/audit/
-    exit-status: 0
+    exists: true
     owner: root
     meta:
       Cat: 2

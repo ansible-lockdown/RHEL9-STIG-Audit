@@ -1,13 +1,17 @@
 ---
 
 {{ if .Vars.rhel_09_2710100 }}
-file:
+comamnd:
   gui_screensaver_reboot_lock:
     title: RHEL-09-271100 | RHEL 9 must prevent a user from overriding the disable-restart-buttons setting for the graphical user interface.
-    path: /etc/dconf/db/{{ .Vars.rhel9stig_dconf_db }}/locks/session
-    exists: true
-    contents:
-    - '/^\/org\/gnome\/login-screen\/disable-restart-buttons/'
+    exec: gsettings writable org.gnome.login-screen disable-restart-buttons
+    exit-status:
+      or:
+      - 0
+      - 1
+    stdout:
+    - '/^false/'
+    - '!/^true/'
     meta:
       Cat: 2
       CCI:
@@ -16,7 +20,7 @@ file:
       - SRG-OS-000480-GPOS-00227
       NIST800-53R4:
       - CM-6
-      Rule_ID: SV-258030r991589_rule
+      Rule_ID: SV-258030r1045112_rule
       STIG_ID: RHEL-09-271100
       Vul_ID: V-258030
 {{ end }}

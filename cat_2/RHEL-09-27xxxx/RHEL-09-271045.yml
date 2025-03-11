@@ -1,25 +1,28 @@
 ---
 
 {{ if .Vars.rhel_09_271045 }}
-file:
+command:
   gui_smartcard:
     title: RHEL-09-271045 | RHEL 9 must be able to initiate directly a session lock for all connection types using smart card when the smart card is removed.
-    path: /etc/dconf/db/{{ .Vars.rhel9stig_dconf_db }}/00-security-settings
-    exists: true
-    contents:
-    - '/^\[org\/gnome\/settings-daemon\/peripherals\/smartcard\]/'
-    - '/^removal-action=\'lock-screen\'/'
+    exec: gsettings writable org.gnome.desktop.media-handling autorun-never
+    exit-status:
+      or:
+      - 0
+      - 1
+    stdout:
+    - '/^lock-screen/'
     meta:
       Cat: 2
       CCI:
       - CCI-000056
       - CCI-000057
+      - CCI-000058
       Group_Title:
       - SRG-OS-000028-GPOS-00009
       - SRG-OS-000030-GPOS-00011
       NIST800-53R4:
       - AC-11
-      Rule_ID: SV-258019r997071_rule
+      Rule_ID: SV-258019r1045092_rule
       STIG_ID: RHEL-09-271045
       Vul_ID: V-258019
 {{ end }}

@@ -4,14 +4,13 @@
 command:
   ssh_config_perms:
     title: RHEL-09-255115 | RHEL 9 SSH server configuration file must have mode 0600 or less permissive.
-    exec: find /etc/ssh/sshd_config /etc/ssh/sshd_config.d -exec stat -c "%a %n" {} \;
+    exec: find /etc/ssh/sshd_config /etc/ssh/sshd_config.d/* -exec stat -c "%a %n" {} \;
     exit-status:
       or:
       - 0
       - 2
     stdout:
-      - '0400'
-      - '0600'
+      - '/^(0|)(4|6)00/'
     meta:
       Cat: 2
       CCI:

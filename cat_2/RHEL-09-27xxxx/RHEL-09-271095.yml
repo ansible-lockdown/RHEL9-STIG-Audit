@@ -1,14 +1,17 @@
 ---
 
 {{ if .Vars.rhel_09_271095 }}
-file:
+command:
   gui_screensaver_no_reboot:
     title: RHEL-09-271095 | RHEL 9 must disable the ability of a user to restart the system from the login screen
-    path: /etc/dconf/db/{{ .Vars.rhel9stig_dconf_db }}/00-security-settings
-    exists: true
-    contents:
-    - '/^\[org\/gnome\/settings-daemon\/peripherals\/smartcard\]/'
-    - '/^disable-restart-buttons=true/'
+    exec: gsettings get org.gnome.login-screen disable-restart-buttons
+    exit-status:
+      or:
+      - 0
+      - 1
+    stdout:
+    - '/^true/'
+    - '!/^false/'
     meta:
       Cat: 2
       CCI:
@@ -17,7 +20,7 @@ file:
       - SRG-OS-000480-GPOS-00227
       NIST800-53R4:
       - CM-6
-      Rule_ID: SV-258029r1014857_rule
+      Rule_ID: SV-258029r1045109_rule
       STIG_ID: RHEL-09-271085
       Vul_ID: V-258029
 {{ end }}

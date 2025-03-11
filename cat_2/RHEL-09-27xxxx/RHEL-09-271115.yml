@@ -1,14 +1,17 @@
 ---
 
 {{ if .Vars.rhel_09_271115 }}
-file:
+command:
   gui_no_user_list:
     title: RHEL-09-271115 | RHEL 9 must disable the user list at logon for graphical user interfaces.
-    path: /etc/dconf/db/{{ .Vars.rhel9stig_dconf_db }}/00-security-settings
-    exists: true
-    contents:
-    - '/^\[org\/gnome\/login-screen]/'
-    - '/^disable-user-list=true/'
+    exec: gsettings get org.gnome.login-screen disable-user-list
+    exit-status:
+      or:
+      - 0
+      - 1
+    stdout:
+    - '/^true/'
+    - '!/^false/'
     meta:
       Cat: 2
       CCI:
@@ -17,7 +20,7 @@ file:
       - SRG-OS-000480-GPOS-00227
       NIST800-53R4:
       - CM-6
-      Rule_ID: SV-258033r991589_rule
+      Rule_ID: SV-258033r1045120_rule
       STIG_ID: RHEL-09-271115
       Vul_ID: V-258033
 {{ end }}

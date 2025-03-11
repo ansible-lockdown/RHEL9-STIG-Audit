@@ -1,13 +1,16 @@
 ---
 
 {{ if .Vars.rhel_09_255150 }}
-file:
+command:
   ssh_config_ignoreknownhosts:
     title: RHEL-09-255150 | RHEL 9 SSH daemon must not allow known hosts authentication.
-    path: {{ .Vars.rhel9stig_sshd_config_file }}
-    exists: true
-    contents:
-    - '/^IgnoreUserKnownHosts {{ .Vars.rhel9stig_sshd_config.ignoreknownhosts }}/'
+    exec: grep -i ignoreuserknownhosts /etc/ssh/sshd_config /etc/ssh/sshd_config.d/* | grep -Ev "#|yes"
+    exit-status:
+      or:
+      - 0
+      - 1
+    stdout:
+    - '!/^IgnoreUserKnownHosts\s*no/'
     meta:
       Cat: 2
       CCI:

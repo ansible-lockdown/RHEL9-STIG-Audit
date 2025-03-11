@@ -4,7 +4,7 @@
 command:
   postfix_prevent:
     title: RHEL-09-252050 | RHEL 9 must be configured to prevent unrestricted mail relaying.
-    exec: postconf -n smtpd_client_restrictions
+    exec: if ! [ -x "$(command -v postconf)" ]; then echo 'OK postgres is not installed.'; else postconf -n smtpd_client_restrictions ; fi
     exit-status:
       or:
       - 0
