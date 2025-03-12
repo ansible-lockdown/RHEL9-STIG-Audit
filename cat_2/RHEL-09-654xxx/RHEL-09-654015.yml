@@ -36,7 +36,7 @@ file:
       Vul_ID: V-258177
 command:
   audit_running_chmod:
-    title: RHEL-09-654010 | RHEL 9 must audit all uses of the chmod, fchmod, and fchmodat system calls.
+    title: RHEL-09-654015 | RHEL 9 must audit all uses of the chmod, fchmod, and fchmodat system calls.
     exec: auditctl -l | grep chmod
     exit-status:
       or:

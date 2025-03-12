@@ -16,7 +16,7 @@ kernel-param:
       Vul_ID: V-257942
 command:
   berkley_pkt_filter__conf:
-    title: RHEL-09-253010 | RHEL 9 must be configured to use TCP syncookies. | conf
+    title: RHEL-09-251045 | RHEL 9 must be configured to use TCP syncookies. | conf
     exec: grep net.core.bpf_jit_harden /etc/sysctl.d/*
     exit-status:
       or:

@@ -3,7 +3,7 @@
 {{ if .Vars.rhel_09_653055 }}
 file:
   audit_max_log_file_action:
-    title: RHEL-09-653050 | RHEL 9 audit system must take appropriate action when the audit files have reached maximum size.
+    title: RHEL-09-653055 | RHEL 9 audit system must take appropriate action when the audit files have reached maximum size.
     exists: true
     path: /etc/audit/auditd.conf
     contents:

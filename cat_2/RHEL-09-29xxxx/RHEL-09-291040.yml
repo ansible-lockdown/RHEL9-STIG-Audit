@@ -27,6 +27,6 @@ command:
       - SC-8
       - AC-18
       Rule_ID: SV-258040r991568_rule
-      STIG_ID: RHEL-09-29140
+      STIG_ID: RHEL-09-291040
       Vul_ID: V-258040
 {{ end }}

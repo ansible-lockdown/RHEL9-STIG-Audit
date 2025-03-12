@@ -3,7 +3,7 @@
 {{ if .Vars.rhel_09_654100 }}
 file:
   audit_conf_gpasswd:
-    title: RHEL-09-654095 | RHEL 9 must audit all uses of the gpasswd command.
+    title: RHEL-09-654100 | RHEL 9 must audit all uses of the gpasswd command.
     exists: true
     path: /etc/audit/rules.d/audit.rules
     contents:
@@ -32,7 +32,7 @@ file:
       Vul_ID: V-258194
 command:
   audit_running_gpasswd:
-    title: RHEL-09-654095 | RHEL 9 must audit all uses of the crontab command.
+    title: RHEL-09-654100 | RHEL 9 must audit all uses of the gpasswd command.
     exec: auditctl -l | grep gpasswd
     exit-status:
       or:

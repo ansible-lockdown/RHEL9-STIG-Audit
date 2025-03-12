@@ -3,7 +3,7 @@
 {{ if .Vars.rhel_09_232104 }}
 file:
   etc_audit_group_perm:
-    title: RHEL 9 "/etc/audit/" must be group-owned by root.
+    title: RHEL-09-232104 | RHEL 9 /etc/audit/ must be group-owned by root.
     path: /etc/audit/
     exists: true
     group: root

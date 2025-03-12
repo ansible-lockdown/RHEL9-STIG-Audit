@@ -1,9 +1,9 @@
 ---
 
-{{ if .Vars.rhel_09_654260 }}
+{{ if .Vars.rhel_09_654265 }}
 file:
   audit_conf_crit_proc:
-    title: RHEL-09-654260 | RHEL 9 must take appropriate action when a critical audit processing failure occurs.
+    title: RHEL-09-654265 | RHEL 9 must take appropriate action when a critical audit processing failure occurs.
     exists: true
     path: /etc/audit/rules.d/audit.rules
     contents:

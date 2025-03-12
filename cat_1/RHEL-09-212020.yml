@@ -18,7 +18,7 @@ file:
       STIG_ID: RHEL-09-212020
       Vul_ID: V-257789
   grub_superuser_loaded:
-    title: RHEL 9 must require a unique superusers name upon booting into single-user and maintenance modes.
+    title: RHEL-09-212020 | RHEL 9 must require a unique superusers name upon booting into single-user and maintenance modes.
     exists: true
     path: /etc/grub2.cfg
     contents:

@@ -58,6 +58,6 @@ command:
       - AU-12
       - MA-4
       Rule_ID: SV-258216r958412_rule
-      STIG_ID: RHEL-09-654205
+      STIG_ID: RHEL-09-654210
       Vul_ID: V-258215
 {{ end }}

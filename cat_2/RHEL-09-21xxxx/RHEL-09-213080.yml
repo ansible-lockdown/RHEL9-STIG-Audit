@@ -20,7 +20,7 @@ kernel-param:
       Vul_ID: V-257811
 command:
   yama_ptrace_conf:
-    title: RHEL-09-253010 | RHEL 9 must restrict usage of ptrace to descendant processes. | conf
+    title: RHEL-09-213080 | RHEL 9 must restrict usage of ptrace to descendant processes. | conf
     exec: grep kernel.yama.ptrace_scope /etc/sysctl.d/*
     exit-status:
       or:
