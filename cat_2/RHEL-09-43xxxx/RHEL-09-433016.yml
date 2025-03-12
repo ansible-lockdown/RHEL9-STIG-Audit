@@ -1,0 +1,45 @@
+---
+
+{{ if .Vars.rhel_09_433016 }}
+file:
+  fapolicy_permissive:
+    title: RHEL-09-433016 | The RHEL 9 fapolicy module must be configured to employ a deny-all, permit-by-exception policy to allow the execution of authorized software programs. | permissive
+    path: /etc/fapolicyd/fapolicyd.conf
+    exists: true
+    contents:
+    - 'permissive\s*=\s*0'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-001764
+      Group_Title:
+      - SRG-OS-000370-GPOS-00155
+      - SRG-OS-000368-GPOS-00154
+      - SRG-OS-000480-GPOS-00232
+      NIST800-53R4:
+      - CM-7
+      Rule_ID: SV-270180r1045182_rule
+      STIG_ID: RHEL-09-433016
+      Vul_ID: V-258090
+  fapolicy_compiled:
+    title: RHEL-09-433016 | The RHEL 9 fapolicy module must be configured to employ a deny-all, permit-by-exception policy to allow the execution of authorized software programs. | rules
+    path: /etc/fapolicyd/compiled.rules
+    exists: true
+    contents:
+    - 'deny perm=any all : all'
+    - 'deny_'
+    - 'allow'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-001764
+      Group_Title:
+      - SRG-OS-000370-GPOS-00155
+      - SRG-OS-000368-GPOS-00154
+      - SRG-OS-000480-GPOS-00232
+      NIST800-53R4:
+      - CM-7
+      Rule_ID: SV-270180r1045182_rule
+      STIG_ID: RHEL-09-433016
+      Vul_ID: V-258090
+{{ end }}

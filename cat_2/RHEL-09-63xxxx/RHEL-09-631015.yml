@@ -1,5 +1,6 @@
 ---
 {{ if .Vars.rhel_09_631015 }}
+  {{ if .Vars.rhel9stig_uses_sssd }}
 file:
   sssd_certmap:
     title: RHEL-09-631015 | RHEL 9 must map the authenticated identity to the user or group account for PKI-based authentication.
@@ -18,7 +19,8 @@ file:
       - SRG-OS-000068-GPOS-00036
       NIST800-53R4:
       - IA-5
-      Rule_ID: SV-258132r1014905_rule
+      Rule_ID: SV-258132r1045260_rule
       STIG_ID: RHEL-09-631015
       Vul_ID: V-258132
+  {{ end }}
 {{ end }}

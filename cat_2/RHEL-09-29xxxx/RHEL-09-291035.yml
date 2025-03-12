@@ -23,7 +23,7 @@ command:
       NIST800-53R4:
       - CM-7
       - AC-18
-      Rule_ID: SV-258039r958478_rule
+      Rule_ID: SV-258039r1045131_rule
       STIG_ID: RHEL-09-291035
       Vul_ID: V-258039
 {{ end }}

@@ -1,6 +1,6 @@
 ---
 {{ if .Vars.rhel_09_211035 }}
-  {{ if not .Vars.rhel_09_672045 }}  # Don't run if fips enabled
+  {{ if not .Vars.rhel_09_672020 }}  # Don't run if fips enabled
 service:
   rngd_running:
     title: RHEL-09-211035 | RHEL 9 must enable the hardware random number generator entropy gatherer service.

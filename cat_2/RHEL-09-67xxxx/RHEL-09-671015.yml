@@ -12,12 +12,14 @@ command:
       Cat: 2
       CCI:
       - CCI-000803
+      - CCI-000196
       Group_Title:
       - SRG-OS-000073-GPOS-00041
       - SRG-OS-000120-GPOS-00061
       NIST800-53R4:
+      - IA-5
       - IA-7
-      Rule_ID: SV-258231r997114_rule
+      Rule_ID: SV-258231r1015135_rule
       STIG_ID: RHEL-09-671015
       Vul_ID: V-258231
 {{ end }}

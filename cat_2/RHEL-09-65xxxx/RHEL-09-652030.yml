@@ -20,7 +20,7 @@ command:
       - SRG-OS-000032-GPOS-00013
       NIST800-53R4:
       - AC-17
-      Rule_ID: SV-258144r958406_rule
+      Rule_ID: SV-258144r1045286_rule
       STIG_ID: RHEL-09-652030
       Vul_ID: V-258144
   {{ end }}

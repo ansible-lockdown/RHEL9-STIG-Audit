@@ -13,7 +13,7 @@ service:
       Group_Title:
       - SRG-OS-000375-GPOS-00160
       NIST800-53R4: IA-2
-      Rule_ID: SV-258125r1015123_rule
+      Rule_ID: SV-258125r1045253_rule
       STIG_ID: RHEL-09-611180
       Vul_ID: V-258125
   {{ end }}

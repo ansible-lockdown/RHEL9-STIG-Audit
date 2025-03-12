@@ -14,8 +14,8 @@ file:
       - CCI-000192
       Group_Title:
       - SRG-OS-000069-GPOS-00037
-      NIST800-53R4: NA
-      Rule_ID: SV-258091r1015097_rule
+      NIST800-53R4: IA-5
+      Rule_ID: SV-258091r1045185_rule
       STIG_ID: RHEL-09-611010
       Vul_ID: V-258091
   password-auth_retries:
@@ -31,8 +31,8 @@ file:
       - CCI-000192
       Group_Title:
       - SRG-OS-000069-GPOS-00037
-      NIST800-53R4: NA
-      Rule_ID: SV-258091r1015097_rule
+      NIST800-53R4: IA-5
+      Rule_ID: SV-258091r1045185_rule
       STIG_ID: RHEL-09-611010
       Vul_ID: V-258091
 {{ end }}

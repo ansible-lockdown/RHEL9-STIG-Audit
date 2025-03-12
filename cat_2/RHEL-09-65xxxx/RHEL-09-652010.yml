@@ -10,7 +10,6 @@ package:
       Cat: 2
       CCI:
       - CCI-000154
-      - CCI-000366
       - CCI-001851
       Group_Title:
       - SRG-OS-000479-GPOS-00224
@@ -18,9 +17,8 @@ package:
       - SRG-OS-000480-GPOS-00227
       NIST800-53R4:
       - AU-6
-      - CM-6
       - AU-4
-      Rule_ID: SV-258140r959008_rule
+      Rule_ID: SV-258140r1045278_rule
       STIG_ID: RHEL-09-652010
       Vul_ID: V-258140
 {{ end }}

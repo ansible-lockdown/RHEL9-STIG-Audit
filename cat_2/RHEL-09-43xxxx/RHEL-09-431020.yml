@@ -15,16 +15,16 @@ file:
       - SRG-OS-000021-GPOS-00005
       NIST800-53R4:
       - AC-7
-      Rule_ID: SV-258080r958388_rule
+      Rule_ID: SV-258080r1045162_rule
       STIG_ID: RHEL-09-431020
       Vul_ID: V-258080
 command:
   faillockdir_secontext:
-    title: RHEL-09-431020 | RHEL 9 must configure SELinux context type to allow the use of a nondefault faillock tally directory.
+    title: RHEL-09-431020 | RHEL 9 must configure SELinux context type to allow the use of a nondefault faillock tally directory. | faillog_t context
     exec: ls -Zd /var/log/faillock
     exit-status: 0
     stdout:
-    - '/^unconfined_u:object_r:faillog_t:s0 /var/log/faillock/'
+    - '/faillog_t'
     meta:
       Cat: 2
       CCI:
@@ -33,7 +33,7 @@ command:
       - SRG-OS-000021-GPOS-00005
       NIST800-53R4:
       - AC-7
-      Rule_ID: SV-258080r958388_rule
+      Rule_ID: SV-258080r1045162_rule
       STIG_ID: RHEL-09-431020
       Vul_ID: V-258080
 {{ end }}

@@ -19,12 +19,12 @@ file:
       - SRG-OS-000021-GPOS-00005
       NIST800-53R4:
       - AC-7
-      Rule_ID: SV-258057r958736_rule
-      STIG_ID: RHEL-09-411085
+      Rule_ID: SV-258057r1045146_rule
+      STIG_ID: RHEL-09-411090
       Vul_ID: V-258057
 command:
   faillock_unlock_authselect:
-    title: RHEL-09-411090 | RHEL 9 must maintain an account lock until the locked account is released by an administrator.
+    title: RHEL-09-411090 | RHEL 9 must maintain an account lock until the locked account is released by an administrator. | authselect
     exec: authselect current
     exit-status:
       or:
@@ -42,7 +42,7 @@ command:
       - SRG-OS-000021-GPOS-00005
       NIST800-53R4:
       - AC-7
-      Rule_ID: SV-258057r958736_rule
+      Rule_ID: SV-258057r1045146_rule
       STIG_ID: RHEL-09-411090
       Vul_ID: V-258057
 {{ end }}

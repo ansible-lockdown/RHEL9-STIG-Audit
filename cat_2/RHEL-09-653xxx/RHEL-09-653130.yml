@@ -14,7 +14,7 @@ package:
       - SRG-OS-000342-GPOS-00133
       NIST800-53R4:
       - AU-4
-      Rule_ID: SV-258175r958754_rule
+      Rule_ID: SV-258175r1045310_rule
       STIG_ID: RHEL-09-653130
       Vul_ID: V-258175
 {{ end }}

@@ -1,5 +1,6 @@
 ---
 {{ if .Vars.rhel_09_631010 }}
+  {{ if .Vars.rhel9stig_uses_sssd }}
 command:
   dod_root_CA:
     title: RHEL-09-631010 | RHEL 9, for PKI-based authentication, must validate certificates by constructing a certification path (which includes status information) to an accepted trust anchor.
@@ -12,12 +13,14 @@ command:
       Cat: 2
       CCI:
       - CCI-000185
+      - CCI-001991
       Group_Title:
       - SRG-OS-000066-GPOS-00034
       - SRG-OS-000384-GPOS-00167
       NIST800-53R4:
       - IA-5
-      Rule_ID: SV-258131r997113_rule
+      Rule_ID: SV-258131r1015125_rule
       STIG_ID: RHEL-09-631010
       Vul_ID: V-258131
+  {{ end }}
 {{ end }}

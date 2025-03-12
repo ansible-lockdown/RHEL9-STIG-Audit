@@ -10,11 +10,11 @@ file:
     - '/^password.*pam_unix.so.*sha512/'
     meta:
       Cat: 2
-      CCI: CCI-000803
+      CCI: CCI-000196
       Group_Title:
       - SRG-OS-000073-GPOS-00041
-      NIST800-53R4: NA
-      Rule_ID: SV-258237r971535_rule
+      NIST800-53R4: IA-5
+      Rule_ID: SV-258233r1015136_rule
       STIG_ID: RHEL-09-671025
       Vul_ID: V-258233
 {{ end }}

@@ -14,7 +14,7 @@ file:
       Group_Title:
       - SRG-OS-000072-GPOS-00040
       NIST800-53R4: IA-5
-      Rule_ID: SV-258112r1015111_rule
+      Rule_ID: SV-258112r1045229_rule
       STIG_ID: RHEL-09-611115
       Vul_ID: V-258112
 {{ end }}

@@ -45,6 +45,9 @@ timeout_ms: 120000
 # If using the supplied graphical interface
 rhel9stig_gui: false
 
+# If using sssd on host
+rhel9stig_uses_sssd: false
+
 # system acts or requires router networking options
 rhel9stig_system_is_router: false
 
@@ -360,6 +363,7 @@ rhel_09_432030: true
 rhel_09_432035: true
 rhel_09_433010: true
 rhel_09_433015: true
+rhel_09_433016: true
 
 ### CAT2 61xxxx
 rhel_09_611010: true
@@ -411,8 +415,6 @@ rhel_09_652015: true
 rhel_09_652020: true
 rhel_09_652025: true
 rhel_09_652030: true
-rhel_09_653130: true  # NOTE Required before 652035 can run
-rhel_09_652035: true
 rhel_09_652040: true
 rhel_09_652045: true
 rhel_09_652050: true
@@ -443,6 +445,7 @@ rhel_09_653105: true
 rhel_09_653110: true
 rhel_09_653115: true
 rhel_09_653125: true
+rhel_09_653130: true
 
 ### CAT2 654xxxx
 rhel_09_654010: true
@@ -503,11 +506,7 @@ rhel_09_654275: true
 rhel_09_671015: true
 rhel_09_671020: true
 rhel_09_671025: true
-rhel_09_672010: true
 rhel_09_672025: true
-rhel_09_672035: true
-rhel_09_672040: true
-rhel_09_672045: true
 rhel_09_672050: true
 
 # Cat 3 controls

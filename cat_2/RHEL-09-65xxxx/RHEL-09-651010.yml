@@ -15,9 +15,9 @@ package:
       - SRG-OS-000363-GPOS-00150
       - SRG-OS-000445-GPOS-00199
       NIST800-53R4:
-      - IA-5
+      - CM-3
       - SI-6
-      Rule_ID: SV-258134r958794_rule
+      Rule_ID: SV-258134r1045265_rule
       STIG_ID: RHEL-09-651010
       Vul_ID: V-258134
 file:
@@ -34,9 +34,9 @@ file:
       - SRG-OS-000363-GPOS-00150
       - SRG-OS-000445-GPOS-00199
       NIST800-53R4:
-      - IA-5
+      - CM-3
       - SI-6
-      Rule_ID: SV-258134r958794_rule
+      Rule_ID: SV-258134r1045265_rule
       STIG_ID: RHEL-09-651010
       Vul_ID: V-258134
 {{ end }}
