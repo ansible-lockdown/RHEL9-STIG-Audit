@@ -1,0 +1,23 @@
+---
+
+{{ if .Vars.rhel_09_215101 }}
+package:
+  postfix_pkg:
+    title: RHEL-09-215101 | SV-272488r1082178_rule
+    name: postfix
+    installed: true
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000015
+      Group_Title:
+      - SRG-OS-000304-GPOS-00121
+      - SRG-OS-000343-GPOS-00134
+      - SRG-OS-000363-GPOS-00150
+      - SRG-OS-000447-GPOS-00201
+      NIST800-53R4:
+      - AC-2
+      Rule_ID: SV-272488r1082178_rule
+      STIG_ID: RHEL-09-215101
+      Vul_ID: V-272488
+{{ end }}
