@@ -3,14 +3,14 @@
 {{ if .Vars.rhel_09_212045 }}
 command:
   live_grub_slub:
-    title: RHEL-09-212045 | RHEL 9 must clear SLUB/SLAB objects to prevent use-after-free attacks.
-    exec: grubby --info=ALL | grep args | grep -v 'slub_debug=P'
+    title: RHEL-09-212045 | RHEL 9 must clear memory when it is freed to prevent use-after-free attacks.
+    exec: grubby --info=ALL | grep args | grep -v 'init_on_free=1'
     exit-status:
       or:
       - 0
       - 1
     stdout:
-    - '!/.*slub_debug/'
+    - '/.*init_on_free=1/'
     meta:
       Cat: 2
       CCI:
@@ -22,16 +22,16 @@ command:
       NIST800-53R4:
       - CM-6
       - SC-3
-      Rule_ID: SV-257794r958928_rule
+      Rule_ID: SV-257794r1069362_rule
       STIG_ID: RHEL-09-212045
       Vul_ID: V-257794
 file:
   default_grub_slub:
-    title: RHEL-09-212045 | RHEL 9 must clear SLUB/SLAB objects to prevent use-after-free attacks. | default grub
+    title: RHEL-09-212045 | RHEL 9 must clear memory when it is freed to prevent use-after-free attacks. | default grub
     path: /etc/default/grub
     exists: true
     contents:
-    - '!/^GRUB_CMDLINE_LINUX=".*slub_debug=(F|Z|U|T|A|O|-)/'
+    - '!/^GRUB_CMDLINE_LINUX=".*init_on_free=1/'
     meta:
       Cat: 2
       CCI:
@@ -43,7 +43,7 @@ file:
       NIST800-53R4:
       - CM-6
       - SC-3
-      Rule_ID: SV-257794r958928_rule
+      Rule_ID: SV-257794r1069362_rule
       STIG_ID: RHEL-09-212045
       Vul_ID: V-257794
 {{ end }}
