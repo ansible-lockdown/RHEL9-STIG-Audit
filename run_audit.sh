@@ -11,7 +11,7 @@
 # 03 May 2022 - update for audit variables improvement added by @pavloos - https://github.com/ansible-lockdown/RHEL8-CIS-Audit/pull/29
 # 10 Jun 2022 - added format output for different type - supports json,documentation or rspecish
 # 04 Oct 2022 - Changed default content location to /opt
-# 14 Sep 2023 - Tidyup of code,
+# 14 Sep 2023 - Tidy up of code,
 #               linting (thanks to @cf-sewe)
 #               Oracle included by default if RHEL family
 #               benchmark vars moved
@@ -19,13 +19,14 @@
 # April 2024    Updating of OS discovery to work for all supported OSs
 # August 2024   Improve failure capture
 # January 2025  Added Suse OS discovery
+# May 2025        Added formation typos to help and fixed some typos
 
 # Variables in upper case tend to be able to be adjusted
 # lower case variables are discovered or built from other variables
 
 # Goss benchmark variables (these should not need changing unless new release)
 BENCHMARK=STIG # Benchmark Name aligns to the audit
-BENCHMARK_VER=v2r3
+BENCHMARK_VER=v2r4
 BENCHMARK_OS=RHEL9
 
 # Goss host Variables
@@ -42,10 +43,10 @@ Help()
   echo
   echo "Syntax: $0 [-f|-g|-o|-v|-w|-h]"
   echo "options:"
-  echo "-f     optional - change the format output (default value = json)"
+  echo "-f     optional - change the format output (options json(default), documentation, rspecish)"
   echo "-g     optional - Add a group that the server should be grouped with (default value = ungrouped)"
   echo "-o     optional - file to output audit data"
-  echo "-v     optional - relative path to thevars file to load (default e.g. $AUDIT_CONTENT_LOCATION/RHEL7-$BENCHMARK/vars/$BENCHMARK.yml)"
+  echo "-v     optional - relative path to the vars file to load (default e.g. $AUDIT_CONTENT_LOCATION/RHEL7-$BENCHMARK/vars/$BENCHMARK.yml)"
   echo "-w     optional - Sets the system_type to workstation (Default - Server)"
   echo "-h     Print this Help."
   echo
@@ -107,14 +108,14 @@ else
   export format=$FORMAT
 fi
 
-# Set variable for autogroup
+# Set variable for auto group
 if [ -z "$GROUP" ]; then
   export host_auto_group="ungrouped"
 else
   export host_auto_group=$GROUP
 fi
 
-# set default variable for varfile_path
+# set default variable for var file_path
 if [ -z "$VARS_PATH" ]; then
   export varfile_path=$audit_content_dir/$audit_vars
 else
