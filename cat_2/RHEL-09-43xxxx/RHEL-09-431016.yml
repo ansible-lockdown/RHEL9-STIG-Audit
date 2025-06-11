@@ -1,4 +1,4 @@
-{{ if .Vars.RHEL_09_431016 }}
+{{ if .Vars.rhel_09_431016 }}
 command:
   elevated_secontext:
     title: RHEL-09-431016 | RHEL 8 must elevate the SELinux context when an administrator calls the sudo command.
