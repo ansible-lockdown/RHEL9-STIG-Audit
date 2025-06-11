@@ -1,4 +1,26 @@
-# rhel9-stig Audt changelog
+# rhel9-stig Audit changelog
+
+
+## V2r4
+
+- RuleID for all listed
+  - RHEL-09-212020 - ID
+  - RHEL-09-212045 - title and requirements
+  - RHEL-09-215060 - ID
+  - RHEL-09-215101 - New control to install postfix
+  - RHEL-09-232040 - ID and updated
+  - RHEL-09-232200 - check files only
+  - RHEL-09-232205 - ID
+  - RHEL-09-255045 - ID
+  - RHEL-09-255105 - All config files
+  - RHEL-09-255110 - All config files
+  - RHEL-09-255115 - title and requirement
+  - RHEL-09-411045 - ID
+  - RHEL-09-431016 - New control selinux
+  - RHEL-09-611205 - rule removed
+  - RHEL-09-232265 - rule removed
+  - RHEL-09-654025 - ID updated
+  - RHEL-09-671015 - ID updated
 
 ## V2r3
 
