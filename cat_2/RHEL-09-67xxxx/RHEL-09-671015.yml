@@ -19,7 +19,7 @@ command:
       NIST800-53R4:
       - IA-5
       - IA-7
-      Rule_ID: SV-258231r1015135_rule
+      Rule_ID: SV-258231r1069375_rule
       STIG_ID: RHEL-09-671015
       Vul_ID: V-258231
 {{ end }}
