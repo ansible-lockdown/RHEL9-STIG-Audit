@@ -1,5 +1,5 @@
 ## metadata for Audit benchmark
-benchmark_version: 'v2r4'
+benchmark_version: 'v2r5'
 benchmark: RHEL9-STIG
 
 # set to redhat/rocky/alma
@@ -269,8 +269,6 @@ rhel_09_255025: true
 rhel_09_255030: true
 rhel_09_255035: true
 rhel_09_255045: true
-rhel_09_255055: true
-rhel_09_255060: true
 rhel_09_255064: true
 rhel_09_255065: true
 rhel_09_255070: true
@@ -444,7 +442,6 @@ rhel_09_653095: true
 rhel_09_653100: true
 rhel_09_653105: true
 rhel_09_653110: true
-rhel_09_653115: true
 rhel_09_653125: true
 rhel_09_653130: true
 
@@ -507,7 +504,6 @@ rhel_09_654275: true
 rhel_09_671015: true
 rhel_09_671020: true
 rhel_09_671025: true
-rhel_09_672025: true
 rhel_09_672050: true
 
 # Cat 3 controls
