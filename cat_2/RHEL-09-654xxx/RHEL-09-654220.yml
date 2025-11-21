@@ -41,7 +41,7 @@ file:
       - AU-3
       - AU-12
       - MA-4
-      Rule_ID: SV-258218r1045439_rule
+      Rule_ID: SV-258218r1101981_rule
       STIG_ID: RHEL-09-654220
       Vul_ID: V-258218
 command:
@@ -53,7 +53,7 @@ command:
       - 0
       - 1
     stdout:
-    - '-w /etc/sudoers.d -p wa -k identity'
+    - '-w /etc/sudoers.d/ -p wa -k identity'
     meta:
       Cat: 2
       CCI:
@@ -88,7 +88,7 @@ command:
       - AU-3
       - AU-12
       - MA-4
-      Rule_ID: SV-258218r1045439_rule
+      Rule_ID: SV-258218r1101981_rule
       STIG_ID: RHEL-09-654220
       Vul_ID: V-258218
 {{ end }}

@@ -22,13 +22,13 @@ file:
       NIST800-53R4:
       - AU-9
       - SI-11
-      Rule_ID: SV-258167r1045306_rule
+      Rule_ID: SV-258167r1101918_rule
       STIG_ID: RHEL-09-653090
       Vul_ID: V-258167
 command:
   audit_all_logs_perms:
     title: RHEL-09-653090 | RHEL 9 audit logs file must have mode 0600 or less permissive to prevent unauthorized access to the audit log. | all logs
-    exec: for log in `find /var/log/audit/ -name "*.log" -exec ls {} \;`; do stat -c "%a" $log; done
+    exec: find /var/log/audit/ -type f -exec stat -c '%a %n' {} \;
     exit-status:
       or:
       - 0
@@ -50,7 +50,7 @@ command:
       NIST800-53R4:
       - AU-9
       - SI-11
-      Rule_ID: SV-258167r958434_rule
+      Rule_ID: SV-258167r1101918_rule
       STIG_ID: RHEL-09-653090
       Vul_ID: V-258167
 {{ end }}
