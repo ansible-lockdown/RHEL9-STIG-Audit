@@ -35,7 +35,7 @@ file:
       - AU-3
       - AU-12
       - MA-4
-      Rule_ID: SV-258179r1069366_rule
+      Rule_ID: SV-258179r1106371_rule
       STIG_ID: RHEL-09-654025
       Vul_ID: V-258179
 command:
@@ -47,10 +47,10 @@ command:
       - 0
       - 1
     stdout:
-    - '-a always,exit -F arch=b32 -S setxattr,lsetxattr,fsetxattr,removexattr,lremovexattr,fremovexattr -F auid>=1000 -F auid!=-1 -F key=perm_mod'
-    - '-a always,exit -F arch=b64 -S setxattr,lsetxattr,fsetxattr,removexattr,lremovexattr,fremovexattr -F auid>=1000 -F auid!=-1 -F key=perm_mod'
-    - '-a always,exit -F arch=b32 -S setxattr,lsetxattr,fsetxattr,removexattr,lremovexattr,fremovexattr -F auid=0 -F key=perm_mod'
-    - '-a always,exit -F arch=b64 -S setxattr,lsetxattr,fsetxattr,removexattr,lremovexattr,fremovexattr -F auid=0 -F key=perm_mod'
+    - '/^-a always,exit -F arch=b32 -S setxattr,fsetxattr,lsetxattr,removexattr,fremovexattr,lremovexattr -F auid>=1000 -F auid!=unset -k perm_mod/'
+    - '/^-a always,exit -F arch=b64 -S setxattr,fsetxattr,lsetxattr,removexattr,fremovexattr,lremovexattr -F auid>=1000 -F auid!=unset -k perm_mod/'
+    - '/^-a always,exit -F arch=b32 -S setxattr,fsetxattr,lsetxattr,removexattr,fremovexattr,lremovexattr -F auid=0 -k perm_mod/'
+    - '/^-a always,exit -F arch=b64 -S setxattr,fsetxattr,lsetxattr,removexattr,fremovexattr,lremovexattr -F auid=0 -k perm_mod/'
     meta:
       Cat: 2
       CCI:
@@ -75,7 +75,7 @@ command:
       - AU-3
       - AU-12
       - MA-4
-      Rule_ID: SV-258179r1069366_rule
+      Rule_ID: SV-258179r1106371_rule
       STIG_ID: RHEL-09-654025
       Vul_ID: V-258179
 {{ end }}
