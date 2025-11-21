@@ -15,7 +15,7 @@ package:
       - SRG-OS-000120-GPOS-00061
       NIST800-53R4:
       - IA-7
-      Rule_ID: SV-257954r1045008_rule
+      Rule_ID: SV-257954r1106315_rule
       STIG_ID: RHEL-09-252065
       Vul_ID: V-257954
 {{ end }}
