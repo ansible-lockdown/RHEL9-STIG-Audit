@@ -7,7 +7,7 @@ file:
     exists: true
     path: /etc/audit/rules.d/audit.rules
     contents:
-    - '/-a always,exit -F arch=b32 -S umount -F auid>=1000 -F auid!=unset -k perm_mod/'
+    - '/-a always,exit -F arch=b32 -S umount -F auid>=1000 -F auid!=unset -k privileged-umount'
     meta:
       Cat: 2
       CCI:
@@ -25,19 +25,19 @@ file:
       - AU-3
       - AU-12
       - MA-4
-      Rule_ID: SV-258215r1045430_rule
+      Rule_ID: SV-258215r1106381_rule
       STIG_ID: RHEL-09-654205
       Vul_ID: V-258215
 command:
   audit_running_umount_success:
     title: RHEL-09-654205 | Successful/unsuccessful uses of the umount system call in RHEL 9 must generate an audit record.
-    exec: auditctl -l | grep -w "umount"
+    exec: auditctl -l | grep b32 | grep 'umount\b'
     exit-status:
       or:
       - 0
       - 1
     stdout:
-    - '-a always,exit -F arch=b32 -S umount -F auid>=1000 -F auid!=-1 -F key=perm_mod'
+    - '-a always,exit -F arch=b32 -S umount -F auid>=1000 -F auid!=-1 -F key=privileged-umount'
     meta:
       Cat: 2
       CCI:
@@ -55,7 +55,7 @@ command:
       - AU-3
       - AU-12
       - MA-4
-      Rule_ID: SV-258215r1045430_rule
+      Rule_ID: SV-258215r1106381_rule
       STIG_ID: RHEL-09-654205
       Vul_ID: V-258215
 {{ end }}
