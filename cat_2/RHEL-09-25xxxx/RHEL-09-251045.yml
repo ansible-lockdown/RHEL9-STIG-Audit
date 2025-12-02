@@ -11,11 +11,11 @@ kernel-param:
       CCI: CCI-000366
       Group_Title: SRG-OS-000480-GPOS-00227
       NIST800-53R4: CM-6
-      Rule_ID: SV-257942r1044999_rule
+      Rule_ID: SV-257942r1106314_rule
       STIG_ID: RHEL-09-251045
       Vul_ID: V-257942
 command:
-  berkley_pkt_filter__conf:
+  berkley_pkt_filter_conf:
     title: RHEL-09-251045 | RHEL 9 must be configured to use TCP syncookies. | conf
     exec: grep net.core.bpf_jit_harden /etc/sysctl.d/*
     exit-status:
@@ -30,7 +30,7 @@ command:
       CCI: CCI-000366
       Group_Title: SRG-OS-000480-GPOS-00227
       NIST800-53R4: CM-6
-      Rule_ID: SV-257942r1044999_rule
+      Rule_ID: SV-257942r1106314_rule
       STIG_ID: RHEL-09-251045
       Vul_ID: V-257942
 {{ end }}

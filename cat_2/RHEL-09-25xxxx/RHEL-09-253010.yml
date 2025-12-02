@@ -17,7 +17,7 @@ kernel-param:
       - SRG-OS-000142-GPOS-00071
       NIST800-53R4:
       - SC-5
-      Rule_ID: SV-257957r1045009_rule
+      Rule_ID: SV-257957r1106317_rule
       STIG_ID: RHEL-09-253010
       Vul_ID: V-257957
 command:
@@ -44,7 +44,7 @@ command:
       NIST800-53R4:
       - CM-6
       - SC-5
-      Rule_ID: SV-257957r991589_rule
+      Rule_ID: SV-257957r1106317_rule
       STIG_ID: RHEL-09-253010
       Vul_ID: V-257957
 {{ end }}

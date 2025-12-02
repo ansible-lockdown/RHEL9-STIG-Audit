@@ -3,7 +3,7 @@
 {{ if .Vars.rhel_09_213040 }}
 kernel-param:
   kernel_core_pattern_live:
-    title: RHEL-09-213040 | RHEL 9 must disable the kernel.core_pattern.
+    title: RHEL-09-213040 | RHEL 9 must disable the kernel.core_pattern. | live
     name: kernel.core_pattern
     value: '|/bin/false'
     meta:
@@ -11,7 +11,7 @@ kernel-param:
       CCI: CCI-000366
       Group_Title: SRG-OS-000480-GPOS-00227
       NIST800-53R4: CM-6
-      Rule_ID: SV-257803r991589_rule
+      Rule_ID: SV-257803r1106429_rule
       STIG_ID: RHEL-09-213040
       Vul_ID: V-257803
 command:
@@ -30,7 +30,7 @@ command:
       CCI: CCI-000366
       Group_Title: SRG-OS-000480-GPOS-00227
       NIST800-53R4: CM-6
-      Rule_ID: SV-257803r991589_rule
+      Rule_ID: SV-257803r1106429_rule
       STIG_ID: RHEL-09-213040
       Vul_ID: V-257803
 {{ end }}
