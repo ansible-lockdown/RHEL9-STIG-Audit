@@ -5,7 +5,7 @@
 command:
   rsyslog_remote_server_config:
     title: RHEL-09-652055 | RHEL 9 must be configured to forward audit records via TCP to a different system or media from the system being audited via rsyslog.
-    exec: grep '@@'' /etc/rsyslog.conf /etc/rsyslog.d/*.conf
+    exec: grep '@@' /etc/rsyslog.conf /etc/rsyslog.d/*.conf
     exit-status:
       or:
       - 0
@@ -22,7 +22,7 @@ command:
       - SRG-OS-000342-GPOS-00133
       NIST800-53R4:
       - AU-4
-      Rule_ID: SV-258149r1045294_rule
+      Rule_ID: SV-258149r1106462_rule
       STIG_ID: RHEL-09-652055
       Vul_ID: V-258149
   {{ end }}

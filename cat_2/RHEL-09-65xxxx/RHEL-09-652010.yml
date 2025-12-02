@@ -18,7 +18,7 @@ package:
       NIST800-53R4:
       - AU-6
       - AU-4
-      Rule_ID: SV-258140r1045278_rule
+      Rule_ID: SV-258140r1106460_rule
       STIG_ID: RHEL-09-652010
       Vul_ID: V-258140
 {{ end }}
