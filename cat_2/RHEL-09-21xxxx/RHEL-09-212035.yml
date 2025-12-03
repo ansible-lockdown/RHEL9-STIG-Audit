@@ -3,7 +3,7 @@
 {{ if .Vars.rhel_09_212035 }}
 command:
   live_grub_vsyscall:
-    title: RHEL-09-212035 | RHEL 9 must disable virtual system calls.
+    title: RHEL-09-212035 | RHEL 9 must disable virtual system calls. | live
     exec: grubby --info=ALL | grep args | grep -v 'vsyscall=none'
     exit-status:
       or:

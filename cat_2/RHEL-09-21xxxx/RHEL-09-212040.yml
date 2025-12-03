@@ -3,7 +3,7 @@
 {{ if .Vars.rhel_09_212040 }}
 command:
   live_grub_page_poison:
-    title: RHEL-09-212040 | RHEL 9 must clear the page allocator to prevent use-after-free attacks.
+    title: RHEL-09-212040 | RHEL 9 must clear the page allocator to prevent use-after-free attacks. | live
     exec: grubby --info=ALL | grep args | grep -v 'page_poison=1'
     exit-status:
       or:

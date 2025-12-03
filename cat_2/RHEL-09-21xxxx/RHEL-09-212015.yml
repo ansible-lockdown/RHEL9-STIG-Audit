@@ -3,7 +3,7 @@
 {{ if .Vars.rhel_09_212015 }}
 command:
   live_grub_confirm_spawn:
-    title: RHEL-09-212015 | RHEL 9 must disable the ability of systemd to spawn an interactive boot process.
+    title: RHEL-09-212015 | RHEL 9 must disable the ability of systemd to spawn an interactive boot process. | live
     exec: grubby --info=ALL | grep args | grep 'systemd.confirm_spawn'
     exit-status:
       or:

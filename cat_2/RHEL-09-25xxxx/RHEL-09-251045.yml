@@ -3,7 +3,7 @@
 {{ if .Vars.rhel_09_251040 }}
 kernel-param:
   berkley_pkt_filter_live:
-    title: RHEL-09-251045 | RHEL 9 must enable hardening for the Berkeley Packet Filter just-in-time compiler.
+    title: RHEL-09-251045 | RHEL 9 must enable hardening for the Berkeley Packet Filter just-in-time compiler. | live
     name: net.core.bpf_jit_harden
     value: '2'
     meta:
