@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel_09_271015 }}
-comamnd:
+command:
   gui_session_locks:
     title: RHEL-09-271015 | RHEL 9 must prevent a user from overriding the banner-message-enable setting for the graphical user interface.
     exec: gsettings writable org.gnome.login-screen banner-message-enable
