@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel_09_652025 }}
- {{ if not .Vars.rhel9stig_rsyslog_server }}
+  {{ if not .Vars.rhel9stig_rsyslog_server }}
 command:
   rsyslog_not_accept_incoming:
     title: RHEL-09-652025 | RHEL 9 must be configured so that the rsyslog daemon does not accept log messages from other servers unless the server is being used for log aggregation.

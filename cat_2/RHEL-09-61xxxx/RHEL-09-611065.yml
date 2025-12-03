@@ -1,4 +1,5 @@
 ---
+
 {{ if .Vars.rhel_09_611065 }}
 file:
   pwquality_lcredit:

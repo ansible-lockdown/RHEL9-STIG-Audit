@@ -1,4 +1,5 @@
 ---
+
 {{ if .Vars.rhel_09_214035 }}
 file:
   dnf_clean_reqs:

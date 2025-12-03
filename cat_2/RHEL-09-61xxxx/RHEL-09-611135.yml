@@ -1,4 +1,5 @@
 ---
+
 {{ if .Vars.rhel_09_611135 }}
 file:
   libcrypt_sha512:
