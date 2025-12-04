@@ -46,9 +46,9 @@ Fot the latest information on audit and how it can be used please visit
 
 [Read the Docs - Audit]
 
-## Extra settings
 
-Ability to add your own requirements is available in several sections
+## Extra settings
+If you want to run locally and see easy output of failures, the following command helps ability to add your own requirements are available in several sections.
 
 ## Support
 
