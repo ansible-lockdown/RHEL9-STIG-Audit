@@ -1,5 +1,5 @@
 ## metadata for Audit benchmark
-benchmark_version: '1.1.0'
+benchmark_version: 'v2r5'
 benchmark: RHEL9-STIG
 
 # set to redhat/rocky/alma
@@ -12,11 +12,11 @@ gpg_key:
     fingerprint: '6A6A A7C9 7C88 90AE C6AE  BFE2 F76F 66C3 D409 2792'
 
 ##rocky example rocky
-# rhel9stig_os_distribution: rocky
-# rpm_gpg_key: /etc/pki/rpm-gpg/RPM-GPG-KEY-rockyofficial
+#rhel9stig_os_distribution: rocky
+#rpm_gpg_key: /etc/pki/rpm-gpg/RPM-GPG-KEY-Rocky-9
 #gpg_key:
-#  - name: 'Release Engineering'
-#    fingerprint: '7051 C470 A929 F454 CEBE  37B7 15AF 5DAC 6D74 5A60'
+#  - name: 'Rocky Enterprise Software Foundation - Release key 2022'
+#    fingerprint: '21CB 256A E16F C54C 6E65  2949 702D 426D 350D 275D'
 
 ## Alma
 # rhel9stig_os_distribution: almalinux
@@ -44,6 +44,9 @@ timeout_ms: 120000
 
 # If using the supplied graphical interface
 rhel9stig_gui: false
+
+# If using sssd on host
+rhel9stig_uses_sssd: false
 
 # system acts or requires router networking options
 rhel9stig_system_is_router: false
@@ -74,13 +77,12 @@ rhel_09_411100: true
 rhel_09_431010: true
 rhel_09_611025: true
 rhel_09_671010: true
-rhel_09_672015: true
-rhel_09_672030: true
+rhel_09_672020: true
 
 # Cat 2 rules
+rhel_09_171011: true
 rhel_09_211015: true
 rhel_09_211020: true
-rhel_09_211025: true
 rhel_09_211030: true
 rhel_09_211040: true
 rhel_09_211055: true
@@ -131,6 +133,9 @@ rhel_09_215080: true
 rhel_09_215085: true
 rhel_09_215090: true
 rhel_09_215095: true
+rhel_09_215100: true
+rhel_09_215101: true
+rhel_09_215105: true
 
 rhel_09_231010: true
 rhel_09_231015: true
@@ -139,7 +144,6 @@ rhel_09_231040: true
 rhel_09_231045: true
 rhel_09_231050: true
 rhel_09_231055: true
-rhel_09_231060: true
 rhel_09_231065: true
 rhel_09_231070: true
 rhel_09_231075: true
@@ -185,6 +189,8 @@ rhel_09_232085: true
 rhel_09_232090: true
 rhel_09_232095: true
 rhel_09_232100: true
+rhel_09_232103: true
+rhel_09_232104: true
 rhel_09_232105: true
 rhel_09_232110: true
 rhel_09_232115: true
@@ -217,13 +223,11 @@ rhel_09_232245: true
 rhel_09_232250: true
 rhel_09_232255: true
 rhel_09_232260: true
-rhel_09_232265: true
 rhel_09_232270: true
 
 rhel_09_251010: true
 rhel_09_251015: true
 rhel_09_251020: true
-rhel_09_251025: true
 rhel_09_251030: true
 rhel_09_251035: true
 rhel_09_251040: true
@@ -236,7 +240,6 @@ rhel_09_252035: true
 rhel_09_252040: true
 rhel_09_252045: true
 rhel_09_252050: true
-rhel_09_252055: true
 rhel_09_252060: true
 rhel_09_252065: true
 rhel_09_253010: true
@@ -267,8 +270,7 @@ rhel_09_255025: true
 rhel_09_255030: true
 rhel_09_255035: true
 rhel_09_255045: true
-rhel_09_255055: true
-rhel_09_255060: true
+rhel_09_255064: true
 rhel_09_255065: true
 rhel_09_255070: true
 rhel_09_255075: true
@@ -290,7 +292,6 @@ rhel_09_255150: true
 rhel_09_255155: true
 rhel_09_255160: true
 rhel_09_255165: true
-rhel_09_255170: true
 rhel_09_255175: true
 rhel_09_271010: true
 rhel_09_271015: true
@@ -342,10 +343,6 @@ rhel_09_411105: true
 rhel_09_411110: true
 rhel_09_411115: true
 
-rhel_09_412010: true
-rhel_09_412015: true
-rhel_09_412020: true
-rhel_09_412025: true
 rhel_09_412035: true
 rhel_09_412045: true
 rhel_09_412050: true
@@ -355,6 +352,7 @@ rhel_09_412065: true
 rhel_09_412070: true
 rhel_09_412080: true
 rhel_09_431015: true
+rhel_09_431016: true
 rhel_09_431020: true
 rhel_09_431025: true
 rhel_09_431030: true
@@ -366,11 +364,10 @@ rhel_09_432030: true
 rhel_09_432035: true
 rhel_09_433010: true
 rhel_09_433015: true
+rhel_09_433016: true
 
 ### CAT2 61xxxx
 rhel_09_611010: true
-rhel_09_611015: true
-rhel_09_611020: true
 rhel_09_611030: true
 rhel_09_611035: true
 rhel_09_611040: true
@@ -384,7 +381,6 @@ rhel_09_611075: true
 rhel_09_611080: true
 rhel_09_611085: true
 rhel_09_611090: true
-rhel_09_611095: true
 rhel_09_611100: true
 rhel_09_611105: true
 rhel_09_611110: true
@@ -395,7 +391,6 @@ rhel_09_611130: true
 rhel_09_611135: true
 rhel_09_611140: true
 rhel_09_611145: true
-rhel_09_611150: true
 rhel_09_611155: true
 rhel_09_611160: true
 rhel_09_611165: true
@@ -406,7 +401,6 @@ rhel_09_611185: true
 rhel_09_611190: true
 rhel_09_611195: true
 rhel_09_611200: true
-rhel_09_611205: true
 ### CAT2 63xxxx
 rhel_09_631010: true
 rhel_09_631015: true
@@ -421,8 +415,6 @@ rhel_09_652015: true
 rhel_09_652020: true
 rhel_09_652025: true
 rhel_09_652030: true
-rhel_09_653130: true  # NOTE Required before 652035 can run
-rhel_09_652035: true
 rhel_09_652040: true
 rhel_09_652045: true
 rhel_09_652050: true
@@ -451,8 +443,8 @@ rhel_09_653095: true
 rhel_09_653100: true
 rhel_09_653105: true
 rhel_09_653110: true
-rhel_09_653115: true
 rhel_09_653125: true
+rhel_09_653130: true
 
 ### CAT2 654xxxx
 rhel_09_654010: true
@@ -473,6 +465,7 @@ rhel_09_654080: true
 rhel_09_654085: true
 rhel_09_654090: true
 rhel_09_654095: true
+rhel_09_654096: true
 rhel_09_654100: true
 rhel_09_654105: true
 rhel_09_654110: true
@@ -509,16 +502,9 @@ rhel_09_654260: true
 rhel_09_654265: true
 rhel_09_654270: true
 rhel_09_654275: true
-
 rhel_09_671015: true
 rhel_09_671020: true
 rhel_09_671025: true
-rhel_09_672010: true
-rhel_09_672020: true
-rhel_09_672025: true
-rhel_09_672035: true
-rhel_09_672040: true
-rhel_09_672045: true
 rhel_09_672050: true
 
 # Cat 3 controls
@@ -532,7 +518,6 @@ rhel_09_231030: true
 rhel_09_231195: true
 rhel_09_252025: true
 rhel_09_291025: true
-rhel_09_412030: true
 rhel_09_412040: true
 rhel_09_412075: true
 rhel_09_651030: true
@@ -601,7 +586,7 @@ rhel9stig_sshd_config:
   banner_file: /etc/issue
   ciphers:
   - aes256-gcm@openssh.com
-  - chacha20-poly1305@openssh.com
+#  - chacha20-poly1305@openssh.com  # Removed due to terrapin cve
   - aes256-ctr
   - aes128-gcm@openssh.com
   - aes128-ctr
@@ -616,18 +601,10 @@ rhel9stig_sshd_config:
   kerbauth: 'no'
   lastlog: 'yes'
   loglevel: VERBOSE
-  macs_clients:
+  macs:
   - hmac-sha2-256-etm@openssh.com
   - hmac-sha2-256
   - hmac-sha2-512-etm@openssh.com
-  - hmac-sha2-512
-  macs_server:
-  - hmac-sha2-256-etm@openssh.com
-  - hmac-sha1-etm@openssh.com
-  - umac-128-etm@openssh.com
-  - hmac-sha2-512-etm@openssh.com
-  - hmac-sha2-256,hmac-sha1
-  - umac-128@openssh.com
   - hmac-sha2-512
   pubkeyauth: 'yes'
   permitroot: 'no'

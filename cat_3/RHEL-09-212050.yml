@@ -1,4 +1,5 @@
 ---
+
 {{ if .Vars.rhel_09_212050 }}
 file:
   grub_pti:
@@ -19,7 +20,7 @@ file:
       NIST800-53R4:
       - CM-7
       - SI-16
-      Rule_ID: SV-257795r925372_rule
-      STIG_ID: RHEL-09-211050
+      Rule_ID: SV-257795r1044845_rule
+      STIG_ID: RHEL-09-212050
       Vul_ID: V-257795
 {{ end }}

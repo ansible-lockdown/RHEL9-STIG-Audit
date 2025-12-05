@@ -1,0 +1,137 @@
+# rhel9-stig Audit changelog
+
+## 2.5.0 Based on STIG V2R5 07 August 2025
+
+- Removed Requirements
+  - RHEL-09-255055
+  - RHEL-09-255060
+  - RHEL-09-653115
+  - RHEL-09-672025
+
+- Added Requirements
+  - RHEL-09-654096 - New rule to audit
+
+- RuleID update for all listed
+  - RHEL-09-212020
+  - RHEL-09-213010
+  - RHEL-09-213015
+  - RHEL-09-213020
+  - RHEL-09-213025
+  - RHEL-09-213030
+  - RHEL-09-213035
+  - RHEL-09-213040
+  - RHEL-09-213070
+  - RHEL-09-213075
+  - RHEL-09-213080
+  - RHEL-09-213105
+  - RHEL-09-231140
+  - RHEL-09-232104
+  - RHEL-09-232245
+  - RHEL-09-411040
+  - RHEL-09-412035
+  - RHEL-09-251045
+  - RHEL-09-253010
+  - RHEL-09-253015
+  - RHEL-09-253020
+  - RHEL-09-253025
+  - RHEL-09-253030
+  - RHEL-09-253035
+  - RHEL-09-253040
+  - RHEL-09-253045
+  - RHEL-09-253050
+  - RHEL-09-253055
+  - RHEL-09-253060
+  - RHEL-09-253065
+  - RHEL-09-253075
+  - RHEL-09-254010
+  - RHEL-09-254015
+  - RHEL-09-254020
+  - RHEL-09-254025
+  - RHEL-09-254030
+  - RHEL-09-254035
+  - RHEL-09-254040
+  - RHEL-09-215015
+  - RHEL-09-215060
+  - RHEL-09-215105
+  - RHEL-09-231115
+  - RHEL-09-232020
+  - RHEL-09-232180
+  - RHEL-09-232185
+  - RHEL-09-232200
+  - RHEL-09-232205
+  - RHEL-09-251020
+  - RHEL-09-251035
+  - RHEL-09-252065
+  - RHEL-09-432025
+  - RHEL-09-432030
+  - RHEL-09-611085
+  - RHEL-09-611160
+  - RHEL-09-611195
+  - RHEL-09-611200
+  - RHEL-09-651010
+  - RHEL-09-651025
+  - RHEL-09-652010
+  - RHEL-09-652055
+  - RHEL-09-653035
+  - RHEL-09-653090
+  - RHEL-09-653120
+  - RHEL-09-654010
+  - RHEL-09-654015
+  - RHEL-09-654020
+  - RHEL-09-654025
+  - RHEL-09-654065
+  - RHEL-09-654070
+  - RHEL-09-654075
+  - RHEL-09-654080
+  - RHEL-09-654205
+  - RHEL-09-654210
+  - RHEL-09-654096
+  - RHEL-09-654220
+  - RHEL-09-672020
+
+## V2r4
+
+- RuleID for all listed
+  - RHEL-09-212020 - ID
+  - RHEL-09-212045 - title and requirements
+  - RHEL-09-215060 - ID
+  - RHEL-09-215101 - New control to install postfix
+  - RHEL-09-232040 - ID and updated
+  - RHEL-09-232200 - check files only
+  - RHEL-09-232205 - ID
+  - RHEL-09-255045 - ID
+  - RHEL-09-255105 - All config files
+  - RHEL-09-255110 - All config files
+  - RHEL-09-255115 - title and requirement
+  - RHEL-09-411045 - ID
+  - RHEL-09-431016 - New control selinux
+  - RHEL-09-611205 - rule removed
+  - RHEL-09-232265 - rule removed
+  - RHEL-09-654025 - ID updated
+  - RHEL-09-671015 - ID updated
+
+## V2r3
+
+- RuleID Updates
+- CCI Updates
+- package removals/additions now dont skip if package present or not but run through giving correct state
+- Upgraded several control to disruption_high
+- authselect updates for faillock related controls
+- var dictionaries renamed to allow easier overridding of variables
+- RHEL-09-672010 - Becomes RHEL-09-215100
+- RHEL-09-672020 - moved to CAT1 and approach changed to remediate inline with documentation
+- RHEL-09-672030 - removed
+- RHEL-09-171011 - Added
+- RHEL-09-232103 - Added
+- RHEL-09-232104 - Added
+- RHEL-09-251025 - Added firewalld reload as issues seen for new connections
+- RHEL-09-255064 - Added
+- RHEL-09-255070 - Added
+- RHEL-09-433016 - Added fapolicyd ading rules and testing - new var rhel9stig_allow_fapolicy_updates
+- RHEL-09-610205 - title update
+- RHEL-09-652035 - removed
+- RHEL-09-653110 - added audit.rules
+- RHEL-09-653130 - moved to 653xxx as 652035 no longer present
+- RHEL-09-672035 - removed
+- RHEL-09-672040 - removed
+- RHEL-09-672045 - moved to 215105

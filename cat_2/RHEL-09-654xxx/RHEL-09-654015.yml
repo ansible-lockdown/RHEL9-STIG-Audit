@@ -31,12 +31,12 @@ file:
       - AU-3
       - AU-12
       - MA-4
-      Rule_ID: SV-258177r926518_rule
+      Rule_ID: SV-258177r1106368_rule
       STIG_ID: RHEL-09-654015
       Vul_ID: V-258177
 command:
   audit_running_chmod:
-    title: RHEL-09-654010 | RHEL 9 must audit all uses of the chmod, fchmod, and fchmodat system calls.
+    title: RHEL-09-654015 | RHEL 9 must audit all uses of the chmod, fchmod, and fchmodat system calls.
     exec: auditctl -l | grep chmod
     exit-status:
       or:
@@ -67,7 +67,7 @@ command:
       - AU-3
       - AU-12
       - MA-4
-      Rule_ID: SV-258177r926518_rule
+      Rule_ID: SV-258177r1106368_rule
       STIG_ID: RHEL-09-654015
       Vul_ID: V-258177
 {{ end }}

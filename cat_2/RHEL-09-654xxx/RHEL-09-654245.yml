@@ -42,12 +42,12 @@ file:
       - AU-3
       - AU-12
       - MA-4
-      Rule_ID: SV-258223r926656_rule
+      Rule_ID: SV-258223r1015134_rule
       STIG_ID: RHEL-09-654245
       Vul_ID: V-258223
 command:
   audit_running_etc_shadow:
-    title: RHEL-09-654240 | RHEL 9 must generate audit records for all account creations, modifications, disabling, and termination events that affect /etc/shadow.
+    title: RHEL-09-654245 | RHEL 9 must generate audit records for all account creations, modifications, disabling, and termination events that affect /etc/shadow.
     exec: auditctl -l | grep -w "etc/shadow"
     exit-status:
       or:
@@ -66,7 +66,6 @@ command:
       - CCI-001404
       - CCI-001405
       - CCI-002130
-      - CCI-002132
       - CCI-002884
       Group_Title:
       - SRG-OS-000004-GPOS-00004
@@ -89,7 +88,7 @@ command:
       - AU-3
       - AU-12
       - MA-4
-      Rule_ID: SV-258223r926656_rule
+      Rule_ID: SV-258223r1015134_rule
       STIG_ID: RHEL-09-654245
       Vul_ID: V-258223
 {{ end }}

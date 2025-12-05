@@ -7,10 +7,7 @@ file:
     path: /etc/crypto-policies/back-ends/opensshserver.config
     exists: true
     contents:
-    {{ range .Vars.rhel9stig_sshd_config.macs_clients }}
-    - '/^MACs .*{{ . }}/'
-    {{ end }}
-    {{ range .Vars.rhel9stig_sshd_config.macs_server }}
+    {{ range .Vars.rhel9stig_sshd_config.macs }}
     - '/^MACs .*{{ . }}/'
     {{ end }}
     meta:
@@ -21,7 +18,7 @@ file:
       - SRG-OS-000250-GPOS-00093
       NIST800-53R4:
       - AC-17
-      Rule_ID: SV-257991r925960_rule
+      Rule_ID: SV-257991r1051246_rule
       STIG_ID: RHEL-09-255075
       Vul_ID: V-257991
 {{ end }}

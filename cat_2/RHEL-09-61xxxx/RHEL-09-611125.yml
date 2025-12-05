@@ -1,4 +1,5 @@
 ---
+
 {{ if .Vars.rhel_09_611125 }}
 file:
   pwquality_maxrepeat:
@@ -10,13 +11,11 @@ file:
     - '!/^maxrepeat\s*=\s*(0|[5-9])\d*/'
     meta:
       Cat: 2
-      CCI:
-      - CCI-000195
+      CCI: CCI-000195
       Group_Title:
       - SRG-OS-000072-GPOS-00040
-      NIST800-53R4:
-      - IA-5
-      Rule_ID: SV-258114r926329_rule
+      NIST800-53R4: IA-5
+      Rule_ID: SV-258114r1045235_rule
       STIG_ID: RHEL-09-611125
       Vul_ID: V-258114
 {{ end }}

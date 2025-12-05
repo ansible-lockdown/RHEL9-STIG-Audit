@@ -20,7 +20,7 @@ file:
       NIST800-53R4:
       - AU-12
       - MA-4
-      Rule_ID: SV-258226r926665_rule
+      Rule_ID: SV-258226r958846_rule
       STIG_ID: RHEL-09-654260
       Vul_ID: V-258226
 command:
@@ -45,7 +45,7 @@ command:
       NIST800-53R4:
       - AU-12
       - MA-4
-      Rule_ID: SV-258226r926665_rule
+      Rule_ID: SV-258226r958846_rule
       STIG_ID: RHEL-09-654260
       Vul_ID: V-258226
 {{ end }}

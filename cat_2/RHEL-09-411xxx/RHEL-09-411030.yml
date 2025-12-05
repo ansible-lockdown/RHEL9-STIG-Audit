@@ -26,7 +26,7 @@ command:
       - AU-3
       - IA-2
       - IA-8
-      Rule_ID: SV-258045r926122_rule
+      Rule_ID: SV-258045r958482_rule
       STIG_ID: RHEL-09-411030
       Vul_ID: V-258045
 {{ end }}

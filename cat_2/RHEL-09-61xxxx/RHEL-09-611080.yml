@@ -1,4 +1,5 @@
 ---
+
 {{ if .Vars.rhel_09_611080 }}
 command:
   users_24hr_minpasswd_restrict:
@@ -12,13 +13,11 @@ command:
     - '!/^.*/'
     meta:
       Cat: 2
-      CCI:
-      - CCI-000198
+      CCI: CCI-000198
       Group_Title:
       - SRG-OS-000075-GPOS-00043
-      NIST800-53R4:
-      - IA-5
-      Rule_ID: SV-258105r926302_rule
+      NIST800-53R4: IA-5
+      Rule_ID: SV-258105r1045212_rule
       STIG_ID: RHEL-09-611080
       Vul_ID: V-258105
 {{ end }}

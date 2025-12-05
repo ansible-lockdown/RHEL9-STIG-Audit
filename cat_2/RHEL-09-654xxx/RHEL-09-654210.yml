@@ -7,8 +7,8 @@ file:
     exists: true
     path: /etc/audit/rules.d/audit.rules
     contents:
-    - '/^-a always,exit -F arch=b32 -S umount2 -F auid>=1000 -F auid!=unset -k perm_mod/'
-    - '/^-a always,exit -F arch=b64 -S umount2 -F auid>=1000 -F auid!=unset -k perm_mod/'
+    - '/^-a always,exit -F arch=b32 -S umount2 -F auid>=1000 -F auid!=unset -k privileged-umount'
+    - '/^-a always,exit -F arch=b64 -S umount2 -F auid>=1000 -F auid!=unset -k privileged-umount'
     meta:
       Cat: 2
       CCI:
@@ -26,7 +26,7 @@ file:
       - AU-3
       - AU-12
       - MA-4
-      Rule_ID: SV-258216r926635_rule
+      Rule_ID: SV-258216r1102090_rule
       STIG_ID: RHEL-09-654210
       Vul_ID: V-258216
 command:
@@ -38,8 +38,8 @@ command:
       - 0
       - 1
     stdout:
-    - '-a always,exit -F arch=b32 -S umount2 -F auid>=1000 -F auid!=-1 -F key=perm_mod'
-    - '-a always,exit -F arch=b64 -S umount2 -F auid>=1000 -F auid!=-1 -F key=perm_mod'
+    - '-a always,exit -F arch=b32 -S umount2 -F auid>=1000 -F auid!=-1 -F key=privileged-umount'
+    - '-a always,exit -F arch=b64 -S umount2 -F auid>=1000 -F auid!=-1 -F key=privileged-umount'
     meta:
       Cat: 2
       CCI:
@@ -57,7 +57,7 @@ command:
       - AU-3
       - AU-12
       - MA-4
-      Rule_ID: SV-258215r926632_rule
-      STIG_ID: RHEL-09-654205
+      Rule_ID: SV-258216r1102090_rule
+      STIG_ID: RHEL-09-654210
       Vul_ID: V-258215
 {{ end }}
