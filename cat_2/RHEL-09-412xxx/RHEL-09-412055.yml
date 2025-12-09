@@ -1,4 +1,5 @@
 ---
+
 {{ if .Vars.rhel_09_412055 }}
 file:
   bashrc_umask_077:
@@ -13,10 +14,11 @@ file:
       CCI:
       - CCI-000366
       Group_Title:
-      - SRG-OS-000480-GPOS-00226
+      - SRG-OS-000480-GPOS-00228
+      - SRG-OS-000480-GPOS-00227
       NIST800-53R4:
       - CM-6
-      Rule_ID: SV-258072r926203_rule
+      Rule_ID: SV-258072r1045155_rule
       STIG_ID: RHEL-09-412055
       Vul_ID: V-258072
 {{ end }}

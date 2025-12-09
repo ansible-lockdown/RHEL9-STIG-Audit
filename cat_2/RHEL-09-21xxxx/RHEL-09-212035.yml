@@ -3,7 +3,7 @@
 {{ if .Vars.rhel_09_212035 }}
 command:
   live_grub_vsyscall:
-    title: RHEL-09-212035 | RHEL 9 must disable virtual system calls.
+    title: RHEL-09-212035 | RHEL 9 must disable virtual system calls. | live
     exec: grubby --info=ALL | grep args | grep -v 'vsyscall=none'
     exit-status:
       or:
@@ -14,13 +14,11 @@ command:
     meta:
       Cat: 2
       CCI:
-      - CCI-000366
       - CCI-001084
       Group_Title: SRG-OS-000480-GPOS-00227
       NIST800-53R4:
-      - CM-6
       - SC-3
-      Rule_ID: SV-257792r925363_rule
+      Rule_ID: SV-257792r1044842_rule
       STIG_ID: RHEL-09-212035
       Vul_ID: V-257792
 file:
@@ -33,13 +31,11 @@ file:
     meta:
       Cat: 2
       CCI:
-      - CCI-000366
       - CCI-001084
       Group_Title: SRG-OS-000480-GPOS-00227
       NIST800-53R4:
-      - CM-6
       - SC-3
-      Rule_ID: SV-257792r925363_rule
+      Rule_ID: SV-257792r1044842_rule
       STIG_ID: RHEL-09-212035
       Vul_ID: V-257792
 {{ end }}

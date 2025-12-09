@@ -3,7 +3,7 @@
 {{ if .Vars.rhel_09_653055 }}
 file:
   audit_max_log_file_action:
-    title: RHEL-09-653050 | RHEL 9 audit system must take appropriate action when the audit files have reached maximum size.
+    title: RHEL-09-653055 | RHEL 9 audit system must take appropriate action when the audit files have reached maximum size.
     exists: true
     path: /etc/audit/auditd.conf
     contents:
@@ -16,7 +16,7 @@ file:
       - SRG-OS-000047-GPOS-00023
       NIST800-53R4:
       - AU-5
-      Rule_ID: SV-258160r926467_rule
+      Rule_ID: SV-258160r1038966_rule
       STIG_ID: RHEL-09-653055
       Vul_ID: V-258160
 {{ end }}

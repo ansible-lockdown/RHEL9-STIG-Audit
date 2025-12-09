@@ -1,4 +1,5 @@
 ---
+
 {{ if .Vars.rhel_09_611065 }}
 file:
   pwquality_lcredit:
@@ -10,13 +11,11 @@ file:
     - '!/^lcredit\s*=\s*\d/'
     meta:
       Cat: 2
-      CCI:
-      - CCI-000193
+      CCI: CCI-000193
       Group_Title:
       - SRG-OS-000070-GPOS-00038
-      NIST800-53R4:
-      - IA-5
-      Rule_ID: SV-258102r926293_rule
+      NIST800-53R4: IA-5
+      Rule_ID: SV-258102r1045207_rule
       STIG_ID: RHEL-09-611065
       Vul_ID: V-258102
 {{ end }}

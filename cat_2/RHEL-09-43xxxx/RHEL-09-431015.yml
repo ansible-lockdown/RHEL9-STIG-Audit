@@ -1,4 +1,5 @@
 ---
+
 {{ if .Vars.rhel_09_431015 }}
 file:
   selinux_sepolicy:
@@ -7,7 +8,7 @@ file:
     path: /etc/selinux/config
     contents:
     - '/^SELINUXTYPE=targeted/'
-    - '!/^SELINUXTYPE=(minimum|mls)/'
+    - '!/^SELINUXTYPE=(minimum|mls|permissive)/'
     meta:
       Cat: 2
       CCI:
@@ -16,7 +17,7 @@ file:
       - SRG-OS-000445-GPOS-00199
       NIST800-53R4:
       - SI-6
-      Rule_ID: SV-258079r926224_rule
+      Rule_ID: SV-258079r1045159_rule
       STIG_ID: RHEL-09-431015
       Vul_ID: V-258079
 command:
@@ -35,7 +36,7 @@ command:
       - SRG-OS-000445-GPOS-00199
       NIST800-53R4:
       - SI-6
-      Rule_ID: SV-258079r926224_rule
+      Rule_ID: SV-258079r958944_rule
       STIG_ID: RHEL-09-431015
       Vul_ID: V-258079
 {{ end }}

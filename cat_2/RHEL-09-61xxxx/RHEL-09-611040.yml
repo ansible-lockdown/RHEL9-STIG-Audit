@@ -1,4 +1,5 @@
 ---
+
 {{ if .Vars.rhel_09_611040 }}
 file:
   password-auth_pwquality:
@@ -12,15 +13,12 @@ file:
       CCI:
       - CCI-000192
       - CCI-000193
-      - CCI-000366
       Group_Title:
       - SRG-OS-000069-GPOS-00037
       - SRG-OS-000070-GPOS-00038
       - SRG-OS-000480-GPOS-00227
-      NIST800-53R4:
-      - CM-6
-      - IA-5
-      Rule_ID: SV-258097r926278_rule
+      NIST800-53R4: IA-5
+      Rule_ID: SV-258097r1045193_rule
       STIG_ID: RHEL-09-611040
       Vul_ID: V-258097
 {{ end }}

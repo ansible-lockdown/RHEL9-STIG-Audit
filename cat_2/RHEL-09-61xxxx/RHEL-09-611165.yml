@@ -1,4 +1,5 @@
 ---
+
 {{ if .Vars.rhel_09_611165 }}
   {{ if .Vars.rhel9stig_smartcard_reader }}
 file:
@@ -7,8 +8,8 @@ file:
     exists: true
     path: /etc/sssd/sssd.conf
     contents:
-    - '/^(?i)pam_cert_auth = True/'
-    - '!/^(?i)pam_cert_auth = false/'
+    - '/^(?i)pam_cert_auth\s*=\s*True/'
+    - '!/^(?i)pam_cert_auth\s*=\s*false/'
     meta:
       Cat: 2
       CCI:
@@ -19,7 +20,7 @@ file:
       - SRG-OS-000105-GPOS-00052
       NIST800-53R4:
       - IA-2
-      Rule_ID: SV-258122r926353_rule
+      Rule_ID: SV-258122r1045246_rule
       STIG_ID: RHEL-09-611165
       Vul_ID: V-258122
   {{ end }}

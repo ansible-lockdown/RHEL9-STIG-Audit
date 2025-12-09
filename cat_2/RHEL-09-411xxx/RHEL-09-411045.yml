@@ -4,8 +4,11 @@
 command:
   primary_group_exists:
     title: RHEL-09-411045 | All RHEL 9 interactive users must have a primary group that exists.
-    exec: pwck -qr
-    exit-status: 0
+    exec: pwck -r | grep group
+    exit-status:
+     or:
+      - 0
+      - 1
     stdout:
     - '!/.*/'
     meta:
@@ -16,7 +19,7 @@ command:
       - SRG-OS-000104-GPOS-00051
       NIST800-53R4:
       - IA-2
-      Rule_ID: SV-258048r926131_rule
+      Rule_ID: SV-258048r1069380_rule
       STIG_ID: RHEL-09-411045
       Vul_ID: V-258048
 {{ end }}
