@@ -24,7 +24,7 @@ command:
       - 1
     stdout:
     - '/^.*conf:net.core.bpf_jit_harden\s*=\s*2/'
-    - '!/^.*conf:net.core.bpf_jit_harden\s*=\s*[^2]/'
+    - '!/^.*conf:net.core.bpf_jit_harden\s*=\s*[0-1]/'
     meta:
       Cat: 2
       CCI: CCI-000366
