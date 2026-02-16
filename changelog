@@ -2,10 +2,94 @@
 
 ## 2.7.0 Based on STIG V2R7 05 January 2026
 
+Cat I
+- 211010 - RuleID updated
+- 211045 - Rewritten to use drop in file replacement
+- 212020 - RuleID updated
+- 214025 - RuleID updated
+- 215060 - RuleID updated
+- 671010 - RuleID updated
+- 672020 - RuleID updated
+
+Cat II
+
+- 213010 - moved to drop in file
+- 213015 - moved to drop in file
+- 213020 - moved to drop in file
+- 213025 - moved to drop in file
+- 213030 - moved to drop in file
+- 213035 - moved to drop in file
+- 213070 - moved to drop in file
+- 213075 - moved to drop in file
+- 213080 - moved to drop in file
+- 213085 - wont run if 213040 is true
+- 213090 - wont run if 213040 is true
+- 213095 - wont run if 213040 is true
+- 213100 - wont run if 213040 is true
+- 213105 - moved to drop in file
+- 214030
+- 215035 - no longer rsh-server now disable epel - new variable option
+- 215045
+- 215101
+- 231105
+- 231110
+- 231115
+- 231120
+- 231200 - excluded vfat filesystem mount from search
+- 232040 - Added group and change mode to symbolic
+- 232240 - changed to capture any system user greater than UID 999
+- 252040 - Extended variable option for NetworkManager DNS options default none
+- 251035 - moved to drop in file
+- 253010 - moved to drop in file
+- 253015 - moved to drop in file
+- 253020 - moved to drop in file
+- 253025 - moved to drop in file
+- 253030 - moved to drop in file
+- 253040 - moved to drop in file
+- 253045 - moved to drop in file
+- 253050 - moved to drop in file
+- 253055 - moved to drop in file
+- 253060 - moved to drop in file
+- 253070 - moved to drop in file
+- 253075 - moved to drop in file
+- 254010 - moved to drop in file
+- 254105 - moved to drop in file
+- 254020 - moved to drop in file
+- 254025 - moved to drop in file
+- 254030 - moved to drop in file
+- 254035 - moved to drop in file
+- 254040 - moved to drop in file
+- 255100
+- 255115 - added owner and group
+- 255130
+- 271065 - updated value to 10mins from 15min
 - 411115 - Removed
 - 412075 - Removed
-- 654260 - Removed
-- 654096 - Renamed to 654097
+- 412080 - changed timeout to 10mins
+- 431016 ****NEEDS LOOKING AT*****
+- 432025
+- 611160
+- 611170
+- 611195 - rewrite - drop in file
+- 611200 - rewrite - drop in file
+- 611190 - rewritten to have check no longer manual
+- 652025 - Improved test
+- 652055 - rewritten and rainer script option added
+- 653040
+- 653090
+- 653110
+- 654101
+- 654015
+- 654020
+- 654025
+- 654065
+- 654070
+- 654075
+- 654080
+- 654096 - now 654097
+- 654205
+- 654210
+- 654260 - removed
 
 ## 2.5.0 Based on STIG V2R5 07 August 2025
 

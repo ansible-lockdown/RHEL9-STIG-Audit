@@ -17,7 +17,7 @@ package:
       - SRG-OS-000447-GPOS-00201
       NIST800-53R4:
       - AC-2
-      Rule_ID: SV-272488r1082178_rule
+      Rule_ID: SV-272488r1155665_rule
       STIG_ID: RHEL-09-215101
       Vul_ID: V-272488
 {{ end }}

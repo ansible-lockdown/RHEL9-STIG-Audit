@@ -8,7 +8,7 @@ file:
     exists: true
     path: /etc/opensc.conf
     contents:
-    - '/^card_drivers = .*cac;/'
+    - '/^card_drivers:cac/'
     meta:
       Cat: 2
       CCI:
@@ -30,7 +30,7 @@ file:
       - SRG-OS-000113-GPOS-00058
       NIST800-53R4:
       - IA-2
-      Rule_ID: SV-258121r1102086_rule
+      Rule_ID: SV-258121r1155682_rule
       STIG_ID: RHEL-09-611160
       Vul_ID: V-258121
   {{ end }}
