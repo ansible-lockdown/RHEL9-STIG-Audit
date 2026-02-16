@@ -1,5 +1,9 @@
 # rhel9-stig Audit changelog
 
+## 2.7.0 Based on STIG V2R7 05 January 2026
+
+
+
 ## 2.5.0 Based on STIG V2R5 07 August 2025
 
 - Removed Requirements
