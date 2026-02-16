@@ -5,7 +5,7 @@ command:
   sys_cmds_group:
     title: RHEL-09-232195 | RHEL 9 system commands must be group-owned by root or a system account.
     timeout: {{ .Vars.timeout_ms }}
-    exec: find -L /bin /sbin /usr/bin /usr/sbin /usr/local/bin /usr/local/sbin ! \( -group root -o -group tty \) -exec ls -l {} \;
+    exec: find -L /bin /sbin /usr/bin /usr/sbin /usr/local/bin /usr/local/sbin -uid +999 -exec ls -l {} \;
     exit-status:
       or:
       - 0
