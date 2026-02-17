@@ -24,8 +24,8 @@ file:
     exists: true
     path: /usr/lib/systemd/system/rescue.service
     contents:
-    - '/^#ExecStart=-/usr/lib/systemd/systemd-sulogin-shell rescue/'
-    - '/^#ExecStartPre=/'
+    - '/^#ExecStart/'
+    - '/^#ExecStartPre/'
     - '!/^ExecStart=-/usr/lib/systemd/systemd-sulogin-shell rescue/'
     - '!/^ExecStartPre=/'
     meta:

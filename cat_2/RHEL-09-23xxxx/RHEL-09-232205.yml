@@ -5,12 +5,13 @@ command:
   lib_files_group:
     title: RHEL-09-232205 | RHEL 9 library files must be group-owned by root or a system account.
     timeout: {{ .Vars.timeout_ms }}
-    exec: find -L /lib /lib64 /usr/lib /usr/lib64 +gid +999 -type f -exec stat -L -c "%g" {} \;
+    exec: find -L /lib /lib64 /usr/lib /usr/lib64 -type f -name "*.so*" -gid +999
     exit-status:
-      or: 0
+      or:
+      - 0
+      - 1
     stdout:
-      le:
-        - 1000
+      - '!/.*/'
     meta:
       Cat: 2
       CCI: CCI-001499

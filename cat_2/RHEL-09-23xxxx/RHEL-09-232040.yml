@@ -20,7 +20,9 @@ command:
     title: RHEL-09-232040 | RHEL 9 permissions of cron configuration files and directories must not be modified from the operating system defaults.
     exec: for file in /etc/crontab /etc/cron.allow /etc/cron.deny /etc/cron.d/0hourly; do stat -c "%a" $file 2> /dev/null | grep -v 644; done
     exit-status:
-      or: 1
+      or:
+      - 0
+      - 1
     stdout:
     - '!/.*/'
     meta:

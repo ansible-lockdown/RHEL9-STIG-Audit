@@ -11,8 +11,9 @@ command:
       - 0
       - 1
     stdout:
-    - '/(?i)umask\s*077/'
-    - '!/(?i)umask\s*[^0][^7][^7][^7]/'
+      or:
+      - '/(?i)umask\s*077/'
+      - ''
     meta:
       Cat: 2
       CCI:

@@ -7,7 +7,7 @@ file:
     exists: true
     path: /etc/systemd/logind.conf
     contents:
-    - '/^StopIdleSessionSec=900/'
+    - '/^StopIdleSessionSec=600/'
     meta:
       Cat: 2
       CCI:
