@@ -41,6 +41,29 @@ benchparse/
 *xccdf.xml
 *.retry
 
+# Secrets/keys
+*.vault
+*.key
+*.pem
+*.p12
+*.pfx
+*.keystore
+*.jks
+*.credentials
+*vault_pass*
+.vault_pass
+
+# QA/temp artifacts
+qa_report.md
+*qa_report*
+prompt.md
+plan.md
+history.md
+*history.md
+*plan.md
+test_inv
+*.pdf
+
 # GitHub Action/Workflow files
 .github/
 
