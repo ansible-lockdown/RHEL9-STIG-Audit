@@ -1,5 +1,12 @@
 # rhel9-stig Audit changelog
 
+
+## Based on STIG V2R7 - May updates
+Alignment
+missing rule added
+company naming
+
+
 ## 2.7.0 Based on STIG V2R7 05 January 2026
 
 Cat I
