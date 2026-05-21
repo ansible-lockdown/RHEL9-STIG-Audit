@@ -10,6 +10,7 @@ fixed 7-digit STIG_ID typos in RHEL-09-211030 and RHEL-09-211040 goss tests
 fixed STIG_ID metadata in RHEL-09-271095 goss (was incorrectly set to RHEL-09-271085)
 fixed 7-digit .Vars typos and comamnd typo in RHEL-09-271100 and RHEL-09-271110 goss tests
 fixed Rule_ID prefix (V- to SV-) and updated to V2R7 revision in RHEL-09-213100 goss
+run_audit.sh: drop fragile `grep -w` from VERSION_ID detection (lesson #19) and add BENCHMARK_OS fallback when detection produces empty result (lesson #42)
 
 
 ## 2.7.0 Based on STIG V2R7 05 January 2026
