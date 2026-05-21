@@ -1,6 +1,6 @@
 ---
 
-{{ if .Vars.rhel_09_2710110 }}
+{{ if .Vars.rhel_09_271110 }}
 command:
   gui_disable_ctrl-alt-del_lock:
     title: RHEL-09-271110 | RHEL 9 must prevent a user from overriding the Ctrl-Alt-Del sequence settings for the graphical user interface.
