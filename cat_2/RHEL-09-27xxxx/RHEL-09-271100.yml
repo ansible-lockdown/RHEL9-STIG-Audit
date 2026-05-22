@@ -1,7 +1,7 @@
 ---
 
-{{ if .Vars.rhel_09_2710100 }}
-comamnd:
+{{ if .Vars.rhel_09_271100 }}
+command:
   gui_screensaver_reboot_lock:
     title: RHEL-09-271100 | RHEL 9 must prevent a user from overriding the disable-restart-buttons setting for the graphical user interface.
     exec: gsettings writable org.gnome.login-screen disable-restart-buttons
