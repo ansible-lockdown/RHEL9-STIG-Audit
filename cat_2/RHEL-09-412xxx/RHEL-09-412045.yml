@@ -3,7 +3,7 @@
 {{ if .Vars.rhel_09_412045 }}
 file:
   faillock_audit:
-    title: RHEL-09-412045 | RHEL 9 must limit the number of concurrent sessions to ten for all accounts and/or account types.
+    title: RHEL-09-412045 | RHEL 9 must log username information when unsuccessful logon attempts occur.
     exists: true
     path: /etc/security/faillock.conf
     contents:

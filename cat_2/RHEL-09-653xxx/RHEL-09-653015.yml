@@ -3,7 +3,7 @@
 {{ if .Vars.rhel_09_653015 }}
 service:
   audit_enabled:
-    title: RHEL-09-653015 | RHEL 9 audit package must be installed.
+    title: RHEL-09-653015 | RHEL 9 audit service must be enabled.
     enabled: true
     name: auditd
     running: true

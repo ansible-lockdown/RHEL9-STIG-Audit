@@ -3,7 +3,7 @@
 {{ if .Vars.rhel_09_431016 }}
 command:
   elevated_secontext:
-    title: RHEL-09-431016 | RHEL 8 must elevate the SELinux context when an administrator calls the sudo command.
+    title: RHEL-09-431016 | RHEL 9 must elevate the SELinux context when an administrator calls the sudo command.
     exec:  grep -r sysadm_r /etc/sudoers /etc/sudoers.d
     exit-status: 0
     stdout:

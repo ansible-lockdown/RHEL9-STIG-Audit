@@ -3,7 +3,7 @@
 {{ if .Vars.rhel_09_611040 }}
 file:
   password-auth_pwquality:
-    title: RHEL-09-611040 | RHEL 9 must configure the use of the pam_faillock.so module in the /etc/pam.d/password-auth file.
+    title: RHEL-09-611040 | RHEL 9 must ensure the password complexity module is enabled in the password-auth file.
     exists: true
     path: /etc/pam.d/password-auth
     contents:
