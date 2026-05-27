@@ -1,5 +1,5 @@
 ## metadata for Audit benchmark
-benchmark_version: 'v2r5'
+benchmark_version: 'v2r7'
 benchmark: RHEL9-STIG
 
 # set to redhat/rocky/alma
@@ -309,6 +309,7 @@ rhel_09_271075: true
 rhel_09_271080: true
 rhel_09_271085: true
 rhel_09_271090: true
+rhel_09_271095: true
 rhel_09_271100: true
 rhel_09_271105: true
 rhel_09_271110: true
@@ -341,7 +342,6 @@ rhel_09_411090: true
 rhel_09_411095: true
 rhel_09_411105: true
 rhel_09_411110: true
-rhel_09_411115: true
 
 rhel_09_412035: true
 rhel_09_412045: true
@@ -465,7 +465,7 @@ rhel_09_654080: true
 rhel_09_654085: true
 rhel_09_654090: true
 rhel_09_654095: true
-rhel_09_654096: true
+rhel_09_654097: true
 rhel_09_654100: true
 rhel_09_654105: true
 rhel_09_654110: true
@@ -498,7 +498,6 @@ rhel_09_654240: true
 rhel_09_654245: true
 rhel_09_654250: true
 rhel_09_654255: true
-rhel_09_654260: true
 rhel_09_654265: true
 rhel_09_654270: true
 rhel_09_654275: true
@@ -519,7 +518,6 @@ rhel_09_231195: true
 rhel_09_252025: true
 rhel_09_291025: true
 rhel_09_412040: true
-rhel_09_412075: true
 rhel_09_651030: true
 rhel_09_651035: true
 rhel_09_653120: true

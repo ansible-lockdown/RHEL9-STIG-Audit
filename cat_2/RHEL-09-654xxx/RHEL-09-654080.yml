@@ -7,8 +7,8 @@ file:
     exists: true
     path: /etc/audit/rules.d/audit.rules
     contents:
-    - '/^-a always,exit -F arch=b32 -S init_module,finit_module -F auid>=1000 -F auid!=unset -k module_chng'
-    - '/^-a always,exit -F arch=b64 -S init_module,finit_module -F auid>=1000 -F auid!=unset -k module_chng'
+    - '/^-a always,exit -F arch=b32 -S init_module,finit_module -F auid>=1000 -F auid!=unset -k module_chng/'
+    - '/^-a always,exit -F arch=b64 -S init_module,finit_module -F auid>=1000 -F auid!=unset -k module_chng/'
     meta:
       Cat: 2
       CCI:
@@ -30,7 +30,7 @@ file:
       - AU-3
       - AU-12
       - MA-4
-      Rule_ID: SV-258190r1106379_rule
+      Rule_ID: SV-258190r1155609_rule
       STIG_ID: RHEL-09-654080
       Vul_ID: V-258190
 command:
@@ -65,7 +65,7 @@ command:
       - AU-3
       - AU-12
       - MA-4
-      Rule_ID: SV-258190r1106379_rule
+      Rule_ID: SV-258190r1155609_rule
       STIG_ID: RHEL-09-654080
       Vul_ID: V-258190
 {{ end }}

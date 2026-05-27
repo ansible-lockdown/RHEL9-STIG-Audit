@@ -3,9 +3,9 @@
 {{ if .Vars.rhel_09_215035 }}
   {{ if not .Vars.rhel9stig_rsh_server_required }}
 package:
-  rsh-server:
-    title: RHEL-09-215035 | RHEL 9 must not have the rsh-server package installed.
-    name: rsh-server
+  epel-release:
+    title: RHEL-09-215035 | RHEL 9 must not install packages from the Extra Packages for Enterprise Linux (EPEL) repository.
+    name: epel-release
     installed: false
     meta:
       Cat: 2

@@ -7,7 +7,7 @@ file:
     exists: true
     path: /etc/systemd/logind.conf
     contents:
-    - '/^StopIdleSessionSec=900/'
+    - '/^StopIdleSessionSec=600/'
     meta:
       Cat: 2
       CCI:
@@ -16,7 +16,7 @@ file:
       - SRG-OS-000163-GPOS-00072
       NIST800-53R4:
       - SC-10
-      Rule_ID: SV-258077r1014874_rule
+      Rule_ID: SV-258077r1155659_rule
       STIG_ID: RHEL-09-412080
       Vul_ID: V-258077
 {{ end }}

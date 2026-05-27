@@ -7,7 +7,7 @@ file:
     path: /etc/fapolicyd/fapolicyd.conf
     exists: true
     contents:
-    - 'permissive\s*=\s*0'
+    - '/permissive\s*=\s*0/'
     meta:
       Cat: 2
       CCI:

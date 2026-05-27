@@ -1,9 +1,9 @@
 ---
 
-{{ if .Vars.rhel_09_654096 }}
+{{ if .Vars.rhel_09_654097 }}
 file:
   audit_conf_crond:
-    title: RHEL-09-654096 | RHEL 9 must audit any script or executable called by cron as root or by any privileged user.
+    title: RHEL-09-654097 | RHEL 9 must audit any script or executable called by cron as root or by any privileged user.
     exists: true
     path: /etc/audit/rules.d/audit.rules
     contents:
@@ -18,12 +18,12 @@ file:
       NIST800-53R4:
       - AU-12
       Rule_ID: SV-274878r1120758_rule
-      STIG_ID: RHEL-09-654096
+      STIG_ID: RHEL-09-654097
       Vul_ID: SV-274878
 command:
   audit_running_crond:
-    title: RHEL-09-654096 | RHEL 9 must audit any script or executable called by cron as root or by any privileged user.
-    exec: auditctl -l | grep '/etc/cron.d|/var/spool/cron'
+    title: RHEL-09-654097 | RHEL 9 must audit any script or executable called by cron as root or by any privileged user.
+    exec: auditctl -l | grep -E '/etc/cron.d|/var/spool/cron'
     exit-status:
       or:
       - 0
@@ -39,7 +39,7 @@ command:
       - SRG-OS-000471-GPOS-00215
       NIST800-53R4:
       - AU-12
-      Rule_ID: SV-274878r1120758_rule
-      STIG_ID: RHEL-09-654096
-      Vul_ID: SV-274878
+      Rule_ID: SV-279936r1156361_rule
+      STIG_ID: RHEL-09-654097
+      Vul_ID: V-279936
 {{ end }}

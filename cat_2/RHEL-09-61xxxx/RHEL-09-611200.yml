@@ -5,7 +5,7 @@ file:
   authenticate_rescue_mode:
     title: RHEL-09-611200 | RHEL 9 must require authentication to access single-user mode.
     exists: true
-    path: /usr/lib/systemd/system/rescue.service
+    path: /etc/systemd/system/rescue.service.d/rescue.service.conf
     contents:
     - '/^ExecStart=-/usr/lib/systemd/systemd-sulogin-shell rescue/'
     meta:
@@ -16,7 +16,27 @@ file:
       - SRG-OS-000080-GPOS-00048
       NIST800-53R4:
       - AC-3
-      Rule_ID: SV-258129r1117265_rule
+      Rule_ID: SV-258129r1155628_rule
+      STIG_ID: RHEL-09-611200
+      Vul_ID: V-258129
+  rescue_default_hashed:
+    title: RHEL-09-611200 | RHEL 9 must require authentication to access single-user mode.
+    exists: true
+    path: /usr/lib/systemd/system/rescue.service
+    contents:
+    - '/^#ExecStart/'
+    - '/^#ExecStartPre/'
+    - '!/^ExecStart=-/usr/lib/systemd/systemd-sulogin-shell rescue/'
+    - '!/^ExecStartPre=/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000213
+      Group_Title:
+      - SRG-OS-000080-GPOS-00048
+      NIST800-53R4:
+      - AC-3
+      Rule_ID: SV-258129r1155628_rule
       STIG_ID: RHEL-09-611200
       Vul_ID: V-258129
 {{ end }}

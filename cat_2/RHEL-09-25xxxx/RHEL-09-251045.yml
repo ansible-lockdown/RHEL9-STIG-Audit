@@ -11,12 +11,12 @@ kernel-param:
       CCI: CCI-000366
       Group_Title: SRG-OS-000480-GPOS-00227
       NIST800-53R4: CM-6
-      Rule_ID: SV-257942r1106314_rule
+      Rule_ID: SV-257942r1155718_rule
       STIG_ID: RHEL-09-251045
       Vul_ID: V-257942
 command:
   berkley_pkt_filter_conf:
-    title: RHEL-09-251045 | RHEL 9 must be configured to use TCP syncookies. | conf
+    title: RHEL-09-251045 | RHEL 9 must enable hardening for the Berkeley Packet Filter just-in-time compiler. | conf
     exec: grep net.core.bpf_jit_harden /etc/sysctl.d/*
     exit-status:
       or:
@@ -24,13 +24,13 @@ command:
       - 1
     stdout:
     - '/^.*conf:net.core.bpf_jit_harden\s*=\s*2/'
-    - '!/^.*conf:net.core.bpf_jit_harden\s*=\s*[^2]/'
+    - '!/^.*conf:net.core.bpf_jit_harden\s*=\s*[0-1]/'
     meta:
       Cat: 2
       CCI: CCI-000366
       Group_Title: SRG-OS-000480-GPOS-00227
       NIST800-53R4: CM-6
-      Rule_ID: SV-257942r1106314_rule
+      Rule_ID: SV-257942r1155718_rule
       STIG_ID: RHEL-09-251045
       Vul_ID: V-257942
 {{ end }}

@@ -4,7 +4,7 @@
 command:
   live_grub_slub:
     title: RHEL-09-212045 | RHEL 9 must clear memory when it is freed to prevent use-after-free attacks. | live
-    exec: grubby --info=ALL | grep args | grep -v 'init_on_free=1'
+    exec: grubby --info=ALL | grep args | grep 'init_on_free=1'
     exit-status:
       or:
       - 0
@@ -31,7 +31,7 @@ file:
     path: /etc/default/grub
     exists: true
     contents:
-    - '!/^GRUB_CMDLINE_LINUX=".*init_on_free=1/'
+    - '/^GRUB_CMDLINE_LINUX=".*init_on_free=1/'
     meta:
       Cat: 2
       CCI:

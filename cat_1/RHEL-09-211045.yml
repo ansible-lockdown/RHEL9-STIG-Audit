@@ -5,7 +5,7 @@ file:
   ctrl_alt_del:
     title: RHEL-09-211045 | The systemd Ctrl-Alt-Delete burst key sequence in RHEL 9 must be disabled
     exists: true
-    path: /etc/systemd/system.conf
+    path: /etc/systemd/system.conf.d/55-CtrlAltDel-BurstAction
     contents:
     - '/^CtrlAltDelBurstAction=none/'
     - '!/^CtrlAltDelBurstAction=(reboot.*|poweroff.*)$/'
@@ -18,7 +18,7 @@ file:
       - SRG-OS-000480-GPOS-00227
       NIST800-53R4:
       - AC-6
-      Rule_ID: SV-257784r1044832_rule
+      Rule_ID: SV-257784r1155651_rule
       STIG_ID: RHEL-09-211045
       Vul_ID: V-257784
 {{ end }}

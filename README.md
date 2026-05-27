@@ -2,7 +2,7 @@
 
 ## Overview
 
-### Based on STIG Benchmark for RHEL9 Benchmark v2r5 - April 2025
+### Based on STIG Benchmark for RHEL9 Benchmark v2r7 - January 2026
 
 [DISA STIG]
 
@@ -28,7 +28,7 @@ The listed variable for every control/benchmark can be turned on/off or section
 
 ## Requirements
 
-goss >= 0.4.4
+goss >= 0.4.8
 root privileges
 
 ## Branches

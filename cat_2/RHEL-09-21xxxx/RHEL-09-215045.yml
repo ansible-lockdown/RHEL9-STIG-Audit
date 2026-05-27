@@ -16,7 +16,7 @@ package:
       - SRG-OS-000480-GPOS-00227
       NIST800-53R4:
       - CM-7
-      Rule_ID: SV-257832r1044900_rule
+      Rule_ID: SV-257832r1155653_rule
       STIG_ID: RHEL-09-215045
       Vul_ID: V-257832
   {{ end }}

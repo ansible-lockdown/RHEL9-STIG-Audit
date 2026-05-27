@@ -21,6 +21,6 @@ command:
       NIST800-53R4:
       - CM-6
       Rule_ID: SV-258029r1045109_rule
-      STIG_ID: RHEL-09-271085
+      STIG_ID: RHEL-09-271095
       Vul_ID: V-258029
 {{ end }}

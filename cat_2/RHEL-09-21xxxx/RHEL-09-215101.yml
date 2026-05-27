@@ -3,7 +3,7 @@
 {{ if .Vars.rhel_09_215101 }}
 package:
   postfix_pkg:
-    title: RHEL-09-215101 | SV-272488r1082178_rule
+    title: RHEL-09-215101 | RHEL 9 must have the Postfix package installed.
     name: postfix
     installed: true
     meta:
@@ -17,7 +17,7 @@ package:
       - SRG-OS-000447-GPOS-00201
       NIST800-53R4:
       - AC-2
-      Rule_ID: SV-272488r1082178_rule
+      Rule_ID: SV-272488r1155665_rule
       STIG_ID: RHEL-09-215101
       Vul_ID: V-272488
 {{ end }}

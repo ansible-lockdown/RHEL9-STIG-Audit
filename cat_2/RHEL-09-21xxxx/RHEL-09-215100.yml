@@ -4,7 +4,7 @@
 package:
   crypto_policies_pkg:
     title: RHEL-09-215100 | RHEL 9 must have the crypto-policies package installed.
-    name: crypto_policies
+    name: crypto-policies
     installed: true
     meta:
       Cat: 2
