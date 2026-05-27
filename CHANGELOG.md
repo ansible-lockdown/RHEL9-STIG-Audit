@@ -11,6 +11,9 @@ fixed STIG_ID metadata in RHEL-09-271095 goss (was incorrectly set to RHEL-09-27
 fixed 7-digit .Vars typos and comamnd typo in RHEL-09-271100 and RHEL-09-271110 goss tests
 fixed Rule_ID prefix (V- to SV-) and updated to V2R7 revision in RHEL-09-213100 goss
 run_audit.sh: drop fragile `grep -w` from VERSION_ID detection (lesson #19) and add BENCHMARK_OS fallback when detection produces empty result (lesson #42)
+Goss test titles aligned verbatim to V2R7 XCCDF for 12 controls where the audit title was cross-pasted, stale from a prior benchmark version, or contained a literal SV-ID: 213025 (kernel kexec->kernel pointer addresses), 215101 (SV-ID->Postfix package), 251045 conf (TCP syncookies->BPF JIT hardening), 271065 (15->10 minutes), 412035 (15->10 minutes), 412045 (concurrent sessions->log username on unsuccessful logon), 412070 (per-user umask->system default profile), 431016 (RHEL 8->RHEL 9), 432035 (privilege elevation->su command), 611040 (pam_faillock->password complexity in password-auth), 611045 (pam_faillock->password complexity in system-auth), 653015 (audit package->audit service enabled)
+RHEL-09-271065 goss test: three bug fixes - (1) path appended .d suffix (was /etc/dconf/db/local/ would never exist; rem writes to local.d/), (2) section-header regex was a malformed character class /^\/[org\/...\]/ that matched literal "/" + one-of-set; corrected to /^\[org\/gnome\/desktop\/session\]$/, (3) content regex extended to accept the uint32 prefix produced by the rem and tightened max from 900 to 600 per XCCDF "greater than 600 is a finding".
+RHEL-09-214025 goss title: added trailing period to align verbatim with V2R7 XCCDF.
 
 
 ## 2.7.0 Based on STIG V2R7 05 January 2026

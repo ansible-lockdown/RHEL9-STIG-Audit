@@ -3,7 +3,7 @@
 {{ if .Vars.rhel_09_215101 }}
 package:
   postfix_pkg:
-    title: RHEL-09-215101 | SV-272488r1082178_rule
+    title: RHEL-09-215101 | RHEL 9 must have the Postfix package installed.
     name: postfix
     installed: true
     meta:

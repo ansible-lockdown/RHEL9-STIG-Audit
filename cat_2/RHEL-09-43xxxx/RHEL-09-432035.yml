@@ -3,7 +3,7 @@
 {{ if .Vars.rhel_09_432035 }}
 file:
   pam_whell_su:
-    title: RHEL-09-432035 | RHEL 9 must restrict privilege elevation to authorized personnel.
+    title: RHEL-09-432035 | RHEL 9 must restrict the use of the "su" command.
     path: /etc/pam.d/su
     exists: true
     contents:

@@ -3,7 +3,7 @@
 {{ if .Vars.rhel_09_412070 }}
 file:
   umask_profile:
-    title: RHEL-09-412070 | RHEL 9 must define default permissions for all authenticated users in such a way that the user can only read and modify their own files.
+    title: RHEL-09-412070 | RHEL 9 must define default permissions for the system default profile.
     exists: true
     path: /etc/profile
     contents:
