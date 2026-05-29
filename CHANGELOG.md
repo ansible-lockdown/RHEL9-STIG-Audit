@@ -10,6 +10,7 @@ V2R8 benchmark bump (446 -> 446 rules; updates-only, no add/remove)
 vars/STIG.yml benchmark_version bumped v2r7 -> v2r8
 run_audit.sh BENCHMARK_VER bumped v2r7 -> v2r8 (with v prefix preserved per RHEL convention, opposite of Ubuntu)
 README banner updated V2R7 -> V2R8
+fixed RHEL-09-251045 goss toggle gate: was `rhel_09_251040`, corrected to `rhel_09_251045` (selective `--vars` runs of rule 251045 silently escaped under the wrong toggle)
 
 ## Based on STIG V2R7 - May updates
 Alignment
