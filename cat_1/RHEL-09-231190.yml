@@ -6,7 +6,7 @@ package:
     title: RHEL-09-231190 | RHEL 9 local disk partitions must implement cryptographic mechanisms to prevent unauthorized disclosure or modification of all information that requires at rest protection.
     installed: true
     meta:
-      Cat: 2
+      Cat: 1
       CCI:
       - CCI-001199
       - CCI-002475
@@ -29,7 +29,7 @@ command:
     - 'OK - System disks encrypted'
     - '!/Fail - unencrypted disks/'
     meta:
-      Cat: 2
+      Cat: 1
       CCI:
       - CCI-001199
       - CCI-002475
