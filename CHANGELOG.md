@@ -12,6 +12,7 @@ run_audit.sh BENCHMARK_VER bumped v2r7 -> v2r8 (with v prefix preserved per RHEL
 README banner updated V2R7 -> V2R8
 fixed RHEL-09-251045 goss toggle gate: was `rhel_09_251040`, corrected to `rhel_09_251045` (selective `--vars` runs of rule 251045 silently escaped under the wrong toggle)
 fixed RHEL-09-231190 goss `Cat:` metadata: 2 -> 1 (file is in cat_1/ and rule is HIGH severity; metadata drift pre-existed V2R8 cycle)
+fixed RHEL-09-653120 goss YAML document marker: added blank line after `---` to match 445/446 sibling convention
 
 ## Based on STIG V2R7 - May updates
 Alignment
