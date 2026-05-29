@@ -18,7 +18,7 @@ file:
       - SRG-OS-000480-GPOS-00232
       NIST800-53R4:
       - CM-7
-      Rule_ID: SV-270180r1045182_rule
+      Rule_ID: SV-270180r1184327_rule
       STIG_ID: RHEL-09-433016
       Vul_ID: V-258090
   fapolicy_compiled:
@@ -39,7 +39,7 @@ file:
       - SRG-OS-000480-GPOS-00232
       NIST800-53R4:
       - CM-7
-      Rule_ID: SV-270180r1045182_rule
+      Rule_ID: SV-270180r1184327_rule
       STIG_ID: RHEL-09-433016
       Vul_ID: V-258090
 {{ end }}

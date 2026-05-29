@@ -18,7 +18,7 @@ command:
       Group_Title: SRG-OS-000480-GPOS-00227
       NIST800-53R4:
       - SC-3
-      Rule_ID: SV-257792r1044842_rule
+      Rule_ID: SV-257792r1184289_rule
       STIG_ID: RHEL-09-212035
       Vul_ID: V-257792
 file:
@@ -35,7 +35,7 @@ file:
       Group_Title: SRG-OS-000480-GPOS-00227
       NIST800-53R4:
       - SC-3
-      Rule_ID: SV-257792r1044842_rule
+      Rule_ID: SV-257792r1184289_rule
       STIG_ID: RHEL-09-212035
       Vul_ID: V-257792
 {{ end }}

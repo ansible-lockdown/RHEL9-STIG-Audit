@@ -12,7 +12,7 @@ command:
     stdout:
     - '/^FIPS/'
     meta:
-      Cat: 2
+      Cat: 1
       CCI:
       - CCI-002450
       - CCI-002890
@@ -24,7 +24,7 @@ command:
       NIST800-53R4:
       - SC-13
       - MA-4
-      Rule_ID: SV-258241r1106302_rule
+      Rule_ID: SV-258241r1184293_rule
       STIG_ID: RHEL-09-215105
       Vul_ID: V-258241
 {{ end }}
