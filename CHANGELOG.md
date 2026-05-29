@@ -1,6 +1,16 @@
 # rhel9-stig Audit changelog
 
 
+## Based on STIG V2R8 - 2026 benchmark_v2r8 cycle
+
+V2R8 benchmark bump (446 -> 446 rules; updates-only, no add/remove)
+8 goss files moved cat_2/RHEL-09-NNxxxx/ subdirs -> cat_1/ flat for severity-bumped rules (215100, 215105, 255064, 255065, 255070, 255075, 671020, 672050) with Cat: 2 -> Cat: 1 in goss metadata
+46 Rule_ID metadata lines updated to V2R8 SV-* values (27 expected from V2R7 -> V2R8 XCCDF + 19 pre-existing audit-repo drifts surfaced)
+5 Vul_ID base corrections for rules with wrong V-* in audit metadata: RHEL-09-214015 (V-257826 -> V-257820), RHEL-09-231070 (V-257854 -> V-257855), RHEL-09-232210 (V-257923 -> V-257922), RHEL-09-271090 (V-258029 -> V-258028), RHEL-09-654097 (V-274878 -> V-279936)
+vars/STIG.yml benchmark_version bumped v2r7 -> v2r8
+run_audit.sh BENCHMARK_VER bumped v2r7 -> v2r8 (with v prefix preserved per RHEL convention, opposite of Ubuntu)
+README banner updated V2R7 -> V2R8
+
 ## Based on STIG V2R7 - May updates
 Alignment
 missing rule added
