@@ -23,6 +23,9 @@ relaxed the same over-strict aide regex on RHEL-09-651030 (verifies `acl`) and R
 corrected 8 malformed CCI metadata values missing leading zeros to their 6-digit XCCDF values: RHEL-09-252035, RHEL-09-252045, RHEL-09-252050, RHEL-09-411065, RHEL-09-411070 (CCI-000366), RHEL-09-411040 (CCI-000016), RHEL-09-411045 (CCI-000764), RHEL-09-672020 (CCI-003123)
 reconciled two touched rules to the V2R8 XCCDF: RHEL-09-252020 added CCI-004923 and CCI-004926, and RHEL-09-411070 Vul_ID corrected V-258052 to V-258053
 
+RHEL-09-611180: goss now checks the pcscd socket (`pcscd.socket`) instead of the pcscd service, per the V2R8 XCCDF check-content (`systemctl is-active pcscd.socket`); title updated. Mirrors the RHEL10-STIG-Audit RHEL-10-200611 fix.
+run_audit.sh: read only the first line of `goss -v` (awk NR==1) so a multi-line goss banner cannot corrupt the parsed version; fixed two message typos ("needs to run", "does not meet minimum")
+
 Full goss metadata reconciliation to the V2R8 XCCDF (80 rule files). Coverage 446/446, all Cat/severity already correct.
 reconciled 2 stale Rule_ID revisions: RHEL-09-431015 (r958944 -> r1045159) and RHEL-09-653090 (r1101918 -> r1155630)
 corrected 9 Vul_ID values: RHEL-09-212040, RHEL-09-214020, RHEL-09-232050, RHEL-09-252075, RHEL-09-433016, RHEL-09-654210, and fixed the SV- prefix on RHEL-09-215015, RHEL-09-215060, RHEL-09-654097 (were SV-, now V-)
