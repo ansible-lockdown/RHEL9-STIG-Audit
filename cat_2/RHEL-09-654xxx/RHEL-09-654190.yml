@@ -3,7 +3,7 @@
 {{ if .Vars.rhel_09_654190 }}
 file:
   audit_conf_poweroff:
-    title: RHEL-09-654190 | Successful/unsuccessful uses of the init command in RHEL 9 must generate an audit record.
+    title: RHEL-09-654190 | Successful/unsuccessful uses of the poweroff command in RHEL 9 must generate an audit record.
     exists: true
     path: /etc/audit/rules.d/audit.rules
     contents:
@@ -21,7 +21,7 @@ file:
       Vul_ID: V-258212
 command:
   audit_running_poweroff:
-    title: RHEL-09-654190 | Successful/unsuccessful uses of the init command in RHEL 9 must generate an audit record.
+    title: RHEL-09-654190 | Successful/unsuccessful uses of the poweroff command in RHEL 9 must generate an audit record.
     exec: auditctl -l | grep -w "poweroff"
     exit-status:
       or:
