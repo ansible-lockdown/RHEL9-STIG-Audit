@@ -24,6 +24,8 @@ corrected 8 malformed CCI metadata values missing leading zeros to their 6-digit
 reconciled two touched rules to the V2R8 XCCDF: RHEL-09-252020 added CCI-004923 and CCI-004926, and RHEL-09-411070 Vul_ID corrected V-258052 to V-258053
 
 RHEL-09-611180: goss now checks the pcscd socket (`pcscd.socket`) instead of the pcscd service, per the V2R8 XCCDF check-content (`systemctl is-active pcscd.socket`). Title left as the DISA-verbatim "pcscd service". Mirrors the RHEL10-STIG-Audit RHEL-10-200611 fix.
+RHEL-09-271065: fixed a double-`.d` in the goss path (`{{ rhel9stig_dconf_db }}.d/00-screensaver` rendered `local.d.d`); dropped the stray literal `.d` so it matches the remediated path `local.d/00-screensaver` (and sibling 271075)
+RHEL-09-232225: corrected goss title "owned" -> "group-owned" (the check uses `stat -c %G`); RHEL-09-654190: corrected goss title "init command" -> "poweroff command" (the check targets `/usr/sbin/poweroff`)
 run_audit.sh: read only the first line of `goss -v` (awk NR==1) so a multi-line goss banner cannot corrupt the parsed version; fixed two message typos ("needs to run", "does not meet minimum")
 
 Full goss metadata reconciliation to the V2R8 XCCDF (80 rule files). Coverage 446/446, all Cat/severity already correct.
