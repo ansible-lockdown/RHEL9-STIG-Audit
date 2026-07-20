@@ -4,7 +4,7 @@
   {{ if .Vars.rhel9stig_smartcard_reader }}
 service:
   pcscd_running:
-    title: RHEL-09-611180 | The pcscd socket on RHEL 9 must be active.
+    title: RHEL-09-611180 | The pcscd service on RHEL 9 must be active.
     name: pcscd.socket
     running: true
     enabled: true
