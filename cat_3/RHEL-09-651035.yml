@@ -2,12 +2,12 @@
 
 {{ if .Vars.rhel_09_651035 }}
 file:
-  aide_all_acls:
-    title: RHEL-09-651035 | RHEL 9 must be configured so that the file integrity tool verifies Access Control Lists (ACLs).
+  aide_all_xattrs:
+    title: RHEL-09-651035 | RHEL 9 must be configured so that the file integrity tool verifies extended attributes.
     path: /etc/aide.conf
     exists: true
     contents:
-    - '/(?i)^all\s*=\s*p\+i\+n\+u\+g\+s\+m\+S\+sha512\+acl\+xattrs\+selinux/'
+    - '/(?i)^\s*all\s*=.*\+xattrs/'
     meta:
       Cat: 3
       CCI:

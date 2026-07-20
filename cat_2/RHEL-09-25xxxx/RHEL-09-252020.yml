@@ -7,13 +7,15 @@ file:
     exists: true
     path: /etc/chrony.conf
     contents:
-    - '/^server.*\.mil.*maxpoll\s([1-9]|1[0-6])/'
+    - '/^server.*maxpoll\s(1[0-6]|[1-9])\b/'
     meta:
       Cat: 2
       CCI:
       - CCI-001890
       - CCI-001891
       - CCI-002046
+      - CCI-004923
+      - CCI-004926
       Group_Title:
       - SRG-OS-000355-GPOS-00143
       - SRG-OS-000356-GPOS-00144

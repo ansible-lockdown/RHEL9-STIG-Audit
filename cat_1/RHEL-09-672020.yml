@@ -17,7 +17,7 @@ command:
       CCI:
       - CCI-002450
       - CCI-002890
-      - CCI-03123
+      - CCI-003123
       Group_Title:
       - SRG-OS-000396-GPOS-00176
       - SRG-OS-000393-GPOS-00173
