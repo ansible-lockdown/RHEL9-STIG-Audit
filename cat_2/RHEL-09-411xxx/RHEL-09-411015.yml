@@ -16,6 +16,7 @@ command:
       Cat: 2
       CCI:
       - CCI-000199
+      - CCI-004066
       Group_Title:
       - SRG-OS-000076-GPOS-00044
       NIST800-53R4: IA-5

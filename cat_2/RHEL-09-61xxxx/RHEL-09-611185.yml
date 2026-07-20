@@ -10,8 +10,9 @@ package:
     meta:
       Cat: 2
       CCI:
-      - CCI-001953
       - CCI-001948
+      - CCI-001953
+      - CCI-004046
       Group_Title:
       - SRG-OS-000375-GPOS-00160
       - SRG-OS-000376-GPOS-00161

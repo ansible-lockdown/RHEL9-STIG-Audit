@@ -13,6 +13,7 @@ file:
       Cat: 2
       CCI:
       - CCI-000192
+      - CCI-004066
       Group_Title:
       - SRG-OS-000069-GPOS-00037
       NIST800-53R4: IA-5
@@ -30,6 +31,7 @@ file:
       Cat: 2
       CCI:
       - CCI-000192
+      - CCI-004066
       Group_Title:
       - SRG-OS-000069-GPOS-00037
       NIST800-53R4: IA-5

@@ -11,7 +11,9 @@ file:
     - '!/^dcredit\s*=\s*\d/'
     meta:
       Cat: 2
-      CCI: CCI-000194
+      CCI:
+      - CCI-000194
+      - CCI-004066
       Group_Title:
       - SRG-OS-000071-GPOS-00039
       NIST800-53R4: IA-5

@@ -10,6 +10,7 @@ package:
       Cat: 2
       CCI:
       - CCI-001958
+      - CCI-003959
       Group_Title:
       - SRG-OS-000378-GPOS-00163
       NIST800-53R4:

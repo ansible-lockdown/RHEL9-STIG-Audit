@@ -34,7 +34,6 @@ command:
     meta:
       Cat: 2
       CCI:
-      - CCI-000366
       - CCI-001095
       - CCI-002385
       Group_Title:

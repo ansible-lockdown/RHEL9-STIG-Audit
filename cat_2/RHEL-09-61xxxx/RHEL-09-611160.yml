@@ -20,6 +20,7 @@ file:
       - CCI-000770
       - CCI-001941
       - CCI-001942
+      - CCI-004045
       Group_Title:
       - SRG-OS-000104-GPOS-00051
       - SRG-OS-000106-GPOS-00053

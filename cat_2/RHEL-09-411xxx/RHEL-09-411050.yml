@@ -13,6 +13,8 @@ file:
       Cat: 2
       CCI:
       - CCI-000795
+      - CCI-003627
+      - CCI-003628
       Group_Title:
       - SRG-OS-000118-GPOS-00060
       NIST800-53R4: IA-4

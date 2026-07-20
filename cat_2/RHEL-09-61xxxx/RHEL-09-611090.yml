@@ -11,7 +11,9 @@ file:
     - '!/^minlen\s*=\s*([0-9]|1[0-4])$/'
     meta:
       Cat: 2
-      CCI: CCI-000205
+      CCI:
+      - CCI-000205
+      - CCI-004066
       Group_Title:
       - SRG-OS-000078-GPOS-00046
       NIST800-53R4: IA-5

@@ -11,13 +11,19 @@ file:
     meta:
       Cat: 2
       CCI:
+      - CCI-000015
       - CCI-000018
       - CCI-000130
+      - CCI-000135
       - CCI-000169
       - CCI-000172
       - CCI-001403
       - CCI-001404
       - CCI-001405
+      - CCI-001683
+      - CCI-001684
+      - CCI-001685
+      - CCI-001686
       - CCI-002130
       - CCI-002132
       - CCI-002884
@@ -58,14 +64,21 @@ command:
     meta:
       Cat: 2
       CCI:
+      - CCI-000015
       - CCI-000018
       - CCI-000130
+      - CCI-000135
       - CCI-000169
       - CCI-000172
       - CCI-001403
       - CCI-001404
       - CCI-001405
+      - CCI-001683
+      - CCI-001684
+      - CCI-001685
+      - CCI-001686
       - CCI-002130
+      - CCI-002132
       - CCI-002884
       Group_Title:
       - SRG-OS-000004-GPOS-00004

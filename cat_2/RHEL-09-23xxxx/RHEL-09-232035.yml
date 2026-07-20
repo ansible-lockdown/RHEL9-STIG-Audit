@@ -10,7 +10,7 @@ command:
     - '/.*_7(0|5)(0|5)$/'
     meta:
       Cat: 2
-      CCI: CCI-001439
+      CCI: CCI-001493
       Group_Title: SRG-OS-000256-GPOS-00097
       NIST800-53R4: AU-9
       Rule_ID: SV-257887r991557_rule

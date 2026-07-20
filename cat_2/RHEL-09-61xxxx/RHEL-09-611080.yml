@@ -13,7 +13,9 @@ command:
     - '!/^.*/'
     meta:
       Cat: 2
-      CCI: CCI-000198
+      CCI:
+      - CCI-000198
+      - CCI-004066
       Group_Title:
       - SRG-OS-000075-GPOS-00043
       NIST800-53R4: IA-5

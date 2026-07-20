@@ -19,7 +19,7 @@ file:
       - AU-12
       Rule_ID: SV-279936r1156361_rule
       STIG_ID: RHEL-09-654097
-      Vul_ID: SV-274878
+      Vul_ID: V-279936
 command:
   audit_running_crond:
     title: RHEL-09-654097 | RHEL 9 must audit any script or executable called by cron as root or by any privileged user.
