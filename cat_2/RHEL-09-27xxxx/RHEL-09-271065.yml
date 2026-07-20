@@ -4,7 +4,7 @@
 file:
   gui_screensaver_timeout:
     title: RHEL-09-271065 | RHEL 9 must automatically lock graphical user sessions after 10 minutes of inactivity.
-    path: /etc/dconf/db/{{ .Vars.rhel9stig_dconf_db }}.d/00-screensaver
+    path: /etc/dconf/db/{{ .Vars.rhel9stig_dconf_db }}/00-screensaver
     exists: true
     contents:
     - '/^\[org\/gnome\/desktop\/session\]$/'
