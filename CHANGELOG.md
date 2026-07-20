@@ -23,6 +23,11 @@ relaxed the same over-strict aide regex on RHEL-09-651030 (verifies `acl`) and R
 corrected 8 malformed CCI metadata values missing leading zeros to their 6-digit XCCDF values: RHEL-09-252035, RHEL-09-252045, RHEL-09-252050, RHEL-09-411065, RHEL-09-411070 (CCI-000366), RHEL-09-411040 (CCI-000016), RHEL-09-411045 (CCI-000764), RHEL-09-672020 (CCI-003123)
 reconciled two touched rules to the V2R8 XCCDF: RHEL-09-252020 added CCI-004923 and CCI-004926, and RHEL-09-411070 Vul_ID corrected V-258052 to V-258053
 
+Full goss metadata reconciliation to the V2R8 XCCDF (80 rule files). Coverage 446/446, all Cat/severity already correct.
+reconciled 2 stale Rule_ID revisions: RHEL-09-431015 (r958944 -> r1045159) and RHEL-09-653090 (r1101918 -> r1155630)
+corrected 9 Vul_ID values: RHEL-09-212040, RHEL-09-214020, RHEL-09-232050, RHEL-09-252075, RHEL-09-433016, RHEL-09-654210, and fixed the SV- prefix on RHEL-09-215015, RHEL-09-215060, RHEL-09-654097 (were SV-, now V-)
+reconciled 70 CCI sets to the XCCDF: added CCIs DISA introduced in later releases (for example CCI-003992, CCI-004066, CCI-004062, CCI-004046, CCI-004923/004926, CCI-004895, CCI-003938) to the rules that lacked them, and corrected wrong/typo CCIs (RHEL-09-651010/651015 CCI-001774 -> CCI-001744, RHEL-09-255010/255015 CCI-002322 -> CCI-002422, RHEL-09-271020/271025/271035 CCI-001985 -> CCI-001958, RHEL-09-232035 CCI-001439 -> CCI-001493, RHEL-09-251035 CCI-000366 -> CCI-000382, RHEL-09-412040 -> CCI-000054, RHEL-09-611145 CCI-002048 -> CCI-002038)
+
 ## Based on STIG V2R7 - May updates
 Alignment
 missing rule added

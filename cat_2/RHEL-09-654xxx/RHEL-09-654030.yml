@@ -12,7 +12,6 @@ file:
       Cat: 2
       CCI:
       - CCI-000130
-      - CCI-000135
       - CCI-000169
       - CCI-000172
       - CCI-002884
@@ -43,7 +42,6 @@ command:
       Cat: 2
       CCI:
       - CCI-000130
-      - CCI-000135
       - CCI-000169
       - CCI-000172
       - CCI-002884

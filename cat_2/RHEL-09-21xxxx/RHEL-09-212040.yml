@@ -39,5 +39,5 @@ file:
       - SC-3
       Rule_ID: SV-257793r1044843_rule
       STIG_ID: RHEL-09-212040
-      Vul_ID: V-257792
+      Vul_ID: V-257793
 {{ end }}

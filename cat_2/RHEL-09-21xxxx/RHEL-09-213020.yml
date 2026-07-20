@@ -10,6 +10,7 @@ kernel-param:
       Cat: 2
       CCI:
       - CCI-001749
+      - CCI-003992
       Group_Title:
       - SRG-OS-000480-GPOS-00227
       - SRG-OS-000366-GPOS-00153
@@ -33,6 +34,7 @@ command:
       Cat: 2
       CCI:
       - CCI-001749
+      - CCI-003992
       Group_Title:
       - SRG-OS-000480-GPOS-00227
       - SRG-OS-000366-GPOS-00153

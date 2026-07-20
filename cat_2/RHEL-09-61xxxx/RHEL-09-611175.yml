@@ -9,7 +9,9 @@ package:
     installed: true
     meta:
       Cat: 2
-      CCI: CCI-001948
+      CCI:
+      - CCI-001948
+      - CCI-004046
       Group_Title:
       - SRG-OS-000375-GPOS-00160
       NIST800-53R4: IA-2

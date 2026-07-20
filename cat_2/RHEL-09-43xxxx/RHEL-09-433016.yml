@@ -20,7 +20,7 @@ file:
       - CM-7
       Rule_ID: SV-270180r1184327_rule
       STIG_ID: RHEL-09-433016
-      Vul_ID: V-258090
+      Vul_ID: V-270180
   fapolicy_compiled:
     title: RHEL-09-433016 | The RHEL 9 fapolicy module must be configured to employ a deny-all, permit-by-exception policy to allow the execution of authorized software programs. | rules
     path: /etc/fapolicyd/compiled.rules
@@ -41,5 +41,5 @@ file:
       - CM-7
       Rule_ID: SV-270180r1184327_rule
       STIG_ID: RHEL-09-433016
-      Vul_ID: V-258090
+      Vul_ID: V-270180
 {{ end }}

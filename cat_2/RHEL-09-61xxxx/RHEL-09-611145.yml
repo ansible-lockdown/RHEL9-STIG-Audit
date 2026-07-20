@@ -10,7 +10,9 @@ file:
     - '!/.*pam_succeed_if/'
     meta:
       Cat: 2
-      CCI: CCI-002048
+      CCI:
+      - CCI-002038
+      - CCI-004895
       Group_Title:
       - SRG-OS-000373-GPOS-00156
       - SRG-OS-000373-GPOS-00157
