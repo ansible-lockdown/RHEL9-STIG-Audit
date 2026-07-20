@@ -7,7 +7,7 @@ file:
     exists: true
     path: /etc/chrony.conf
     contents:
-    - '/^server.*\.mil.*maxpoll\s([1-9]|1[0-6])/'
+    - '/^server.*maxpoll\s([1-9]|1[0-6])/'
     meta:
       Cat: 2
       CCI:

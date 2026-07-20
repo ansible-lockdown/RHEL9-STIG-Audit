@@ -7,7 +7,7 @@ file:
     path: /etc/aide.conf
     exists: true
     contents:
-    - '/(?i)^all\s*=\s*p\+i\+n\+u\+g\+s\+m\+S\+sha512\+acl\+xattrs\+selinux/'
+    - '/(?i)^\s*all\s*=.*\+acl/'
     meta:
       Cat: 3
       CCI:

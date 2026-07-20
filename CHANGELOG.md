@@ -14,6 +14,14 @@ fixed RHEL-09-251045 goss toggle gate: was `rhel_09_251040`, corrected to `rhel_
 fixed RHEL-09-231190 goss `Cat:` metadata: 2 -> 1 (file is in cat_1/ and rule is HIGH severity; metadata drift pre-existed V2R8 cycle)
 fixed RHEL-09-653120 goss YAML document marker: added blank line after `---` to match 445/446 sibling convention
 
+July 2026 community issue fixes. Thank you to the reporters.
+fixed RHEL-09-231105 goss /boot/efi nosuid check: corrected the inverted `grep -v nosuid` and the malformed test bracket so a /boot/efi mounted with nosuid passes instead of always returning Investigate (addresses #14)
+fixed RHEL-09-252040 goss NetworkManager DNS-mode regex to accept none, default, or systemd-resolved per the STIG (was none only), and corrected the malformed CCI-00366 to CCI-000366 (addresses #15)
+fixed RHEL-09-252020 goss chrony check: dropped the `.mil` restriction so any configured timeserver with maxpoll 1-16 passes, matching the STIG and the remediation role default servers (addresses #16)
+fixed RHEL-09-651035 goss: relaxed the over-strict aide ruleset regex to verify `xattrs` (the full-string match failed the remediation role aide.conf), corrected the title from "Access Control Lists (ACLs)" to "extended attributes", and renamed the check to aide_all_xattrs to match SV-258139 (addresses #13)
+relaxed the same over-strict aide regex on RHEL-09-651030 (verifies `acl`) and RHEL-09-651020 (verifies `sha512`), which carried the identical brittle pattern
+corrected 8 malformed CCI metadata values missing leading zeros to their 6-digit XCCDF values: RHEL-09-252035, RHEL-09-252045, RHEL-09-252050, RHEL-09-411065, RHEL-09-411070 (CCI-000366), RHEL-09-411040 (CCI-000016), RHEL-09-411045 (CCI-000764), RHEL-09-672020 (CCI-003123)
+
 ## Based on STIG V2R7 - May updates
 Alignment
 missing rule added
