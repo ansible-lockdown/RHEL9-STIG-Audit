@@ -18,5 +18,5 @@ command:
       - CM-6
       Rule_ID: SV-258053r1184318_rule
       STIG_ID: RHEL-09-411070
-      Vul_ID: V-258052
+      Vul_ID: V-258053
 {{ end }}

@@ -21,6 +21,7 @@ fixed RHEL-09-252020 goss chrony check: dropped the `.mil` restriction so any co
 fixed RHEL-09-651035 goss: relaxed the over-strict aide ruleset regex to verify `xattrs` (the full-string match failed the remediation role aide.conf), corrected the title from "Access Control Lists (ACLs)" to "extended attributes", and renamed the check to aide_all_xattrs to match SV-258139 (addresses #13; thank you @mbc3)
 relaxed the same over-strict aide regex on RHEL-09-651030 (verifies `acl`) and RHEL-09-651020 (verifies `sha512`), which carried the identical brittle pattern
 corrected 8 malformed CCI metadata values missing leading zeros to their 6-digit XCCDF values: RHEL-09-252035, RHEL-09-252045, RHEL-09-252050, RHEL-09-411065, RHEL-09-411070 (CCI-000366), RHEL-09-411040 (CCI-000016), RHEL-09-411045 (CCI-000764), RHEL-09-672020 (CCI-003123)
+reconciled two touched rules to the V2R8 XCCDF: RHEL-09-252020 added CCI-004923 and CCI-004926, and RHEL-09-411070 Vul_ID corrected V-258052 to V-258053
 
 ## Based on STIG V2R7 - May updates
 Alignment
