@@ -3,7 +3,7 @@
 {{ if .Vars.rhel_09_232225 }}
 command:
   audit_bins_root_group:
-    title: RHEL-09-232225 | RHEL 9 audit tools must be owned by root.
+    title: RHEL-09-232225 | RHEL 9 audit tools must be group-owned by root.
     exec: stat -c "%G" /sbin/auditctl /sbin/aureport /sbin/ausearch /sbin/autrace /sbin/auditd /sbin/rsyslogd /sbin/augenrules | uniq | tr -d '\n'
     exit-status: 0
     stdout:
