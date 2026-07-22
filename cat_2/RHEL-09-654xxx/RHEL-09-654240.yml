@@ -7,7 +7,8 @@ file:
     exists: true
     path: /etc/audit/rules.d/audit.rules
     contents:
-    - '/^-w /etc/passwd -p wa -k identity/'
+    - '/^-a always,exit -F arch=b32 -F path=/etc/passwd -F perm=wa -k identity/'
+    - '/^-a always,exit -F arch=b64 -F path=/etc/passwd -F perm=wa -k identity/'
     meta:
       Cat: 2
       CCI:
@@ -48,7 +49,7 @@ file:
       - AU-3
       - AU-12
       - MA-4
-      Rule_ID: SV-258222r1015133_rule
+      Rule_ID: SV-258222r1210924_rule
       STIG_ID: RHEL-09-654240
       Vul_ID: V-258222
 command:
@@ -60,7 +61,8 @@ command:
       - 0
       - 1
     stdout:
-    - '-w /etc/passwd -p wa -k identity'
+    - '-a always,exit -F arch=b32 -F path=/etc/passwd -F perm=wa -k identity'
+    - '-a always,exit -F arch=b64 -F path=/etc/passwd -F perm=wa -k identity'
     meta:
       Cat: 2
       CCI:
@@ -105,7 +107,7 @@ command:
       - AU-3
       - AU-12
       - MA-4
-      Rule_ID: SV-258222r1015133_rule
+      Rule_ID: SV-258222r1210924_rule
       STIG_ID: RHEL-09-654240
       Vul_ID: V-258222
 {{ end }}
