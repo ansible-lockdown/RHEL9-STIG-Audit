@@ -7,8 +7,10 @@ file:
     exists: true
     path: /etc/audit/rules.d/audit.rules
     contents:
-    - '-w /etc/cron.d -p wa -k cronjobs'
-    - '-w /var/spool/cron -p wa -k cronjobs'
+    - '-a always,exit -F arch=b64 -S execve -F subj_type=crond_t -F euid=0 -k cron_exec'
+    - '-a always,exit -F arch=b32 -S execve -F subj_type=crond_t -F euid=0 -k cron_exec'
+    - '-a always,exit -F arch=b64 -S execve -F subj_type=crond_t -F auid>=1000 -F auid!=unset -k cron_exec'
+    - '-a always,exit -F arch=b32 -S execve -F subj_type=crond_t -F auid>=1000 -F auid!=unset -k cron_exec'
     meta:
       Cat: 2
       CCI:
@@ -17,20 +19,22 @@ file:
       - SRG-OS-000471-GPOS-00215
       NIST800-53R4:
       - AU-12
-      Rule_ID: SV-279936r1156361_rule
+      Rule_ID: SV-279936r1210929_rule
       STIG_ID: RHEL-09-654097
       Vul_ID: V-279936
 command:
   audit_running_crond:
     title: RHEL-09-654097 | RHEL 9 must audit any script or executable called by cron as root or by any privileged user.
-    exec: auditctl -l | grep -E '/etc/cron.d|/var/spool/cron'
+    exec: auditctl -l | grep crond_t
     exit-status:
       or:
       - 0
       - 1
     stdout:
-    - '-w /etc/cron.d -p wa -k cronjobs'
-    - '-w /var/spool/cron -p wa -k cronjobs'
+    - '-a always,exit -F arch=b64 -S execve -F subj_type=crond_t -F euid=0 -k cron_exec'
+    - '-a always,exit -F arch=b32 -S execve -F subj_type=crond_t -F euid=0 -k cron_exec'
+    - '-a always,exit -F arch=b64 -S execve -F subj_type=crond_t -F auid>=1000 -F auid!=unset -k cron_exec'
+    - '-a always,exit -F arch=b32 -S execve -F subj_type=crond_t -F auid>=1000 -F auid!=unset -k cron_exec'
     meta:
       Cat: 2
       CCI:
@@ -39,7 +43,7 @@ command:
       - SRG-OS-000471-GPOS-00215
       NIST800-53R4:
       - AU-12
-      Rule_ID: SV-279936r1156361_rule
+      Rule_ID: SV-279936r1210929_rule
       STIG_ID: RHEL-09-654097
       Vul_ID: V-279936
 {{ end }}

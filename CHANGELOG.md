@@ -1,6 +1,18 @@
 # rhel9-stig Audit changelog
 
 
+## Based on STIG V2R9 - 2026 benchmark_v2r9 cycle
+
+V2R9 benchmark bump (446 -> 445 rules; 1 rule removed, 0 added). Coverage verified 445/445 against the V2R9 XCCDF.
+vars/STIG.yml benchmark_version bumped v2r8 -> v2r9; run_audit.sh BENCHMARK_VER v2r8 -> v2r9 (BENCHMARK_OS=RHEL9 unchanged); README banner updated v2r8/April -> v2r9/July 2026
+removed RHEL-09-255130 (V-258002, SSH daemon compression) per V2R9: deleted cat_2/RHEL-09-25xxxx/RHEL-09-255130.yml, the rhel_09_255130 toggle and the orphan sshd_config.compress value in vars/STIG.yml
+RHEL-09-211045: audit path updated to /etc/systemd/system.conf.d/55-CtrlAltDel-BurstAction.conf (V2R9 requires the drop-in to end in .conf)
+RHEL-09-255120: mode check tightened to 0600 or less permissive (stdout regex /(4|6)(0|4)0/ -> /[4,6]00/) and title reworded 0640 -> 0600
+RHEL-09-653110: audit-config mode check tightened to 0600 or less permissive (stdout regex /[4,6][0,4]0/ -> /[4,6]00/) and the exec widened to stat all three V2R9-checked paths (/etc/audit/rules.d/, /etc/audit/audit.rules, /etc/audit/auditd.conf), previously only /etc/audit/rules.d/*.rules
+RHEL-09-654097 and RHEL-09-654215 through 654255: rewrote both the file-contents and the auditctl -l stdout checks from watch (-w) to the V2R9 syscall form (-a always,exit -F arch=b32/b64 -F path=... -F perm=wa ... -k <key>); 654250/654255 add -F auid>=1000 -F auid!=unset; 654097 uses the four crond_t execve rules. The opasswd path stays /etc/security/opasswd (the V2R9 fixtext /etc/opasswd is a DISA typo; the V2R9 check-content uses /etc/security/opasswd)
+12 Rule_ID revisions bumped to their V2R9 values (RHEL-09-213010/213015/213025/213070/213075/213080, 215015, 232040, 411070, 611010, 611180, 671015); the 211045/255120/653110/654097/654215-654255 Rule_IDs were bumped alongside their check changes above
+title reconciliation to V2R9: RHEL-09-214020 corrected to "locally installed software packages" (was the 214015 external-repositories wording), RHEL-09-611180 "pcscd service" -> "pcscd socket", RHEL-09-671020 "FIPS 140-2/140-3" -> "FIPS 140-3", RHEL-09-653040 restored the dropped word "reaches"
+
 ## Based on STIG V2R8 - 2026 benchmark_v2r8 cycle
 
 V2R8 benchmark bump (446 -> 446 rules; updates-only, no add/remove)
