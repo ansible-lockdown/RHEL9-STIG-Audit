@@ -4,7 +4,7 @@
 command:
   audit_rules_perms:
     title: RHEL-09-653110 | RHEL 9 must allow only the information system security manager (ISSM) (or individuals or roles appointed by the ISSM) to select which auditable events are to be audited.
-    exec: stat -c '%a' /etc/audit/rules.d/*.rules
+    exec: find /etc/audit/rules.d/ /etc/audit/audit.rules /etc/audit/auditd.conf -type f -exec stat -c '%a' {} \;
     exit-status:
       or:
       - 0
