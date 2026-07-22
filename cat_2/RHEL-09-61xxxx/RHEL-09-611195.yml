@@ -19,17 +19,4 @@ file:
       Rule_ID: SV-258128r1155626_rule
       STIG_ID: RHEL-09-611195
       Vul_ID: V-258128
-  emegency_default_hashed:
-    title: RHEL-09-611195 | RHEL 9 must require authentication to access emergency mode.
-    exists: true
-    path: /usr/lib/systemd/system/emergency.service
-    contents:
-    - '/^#ExecStart/'
-    - '/^#ExecStartPre/'
-    - '!/^ExecStart=-/usr/lib/systemd/systemd-sulogin-shell emergency/'
-    - '!/^ExecStartPre=/'
-    meta:
-      Cat: 2
-      CCI:
-      - CCI-000213
 {{ end }}
