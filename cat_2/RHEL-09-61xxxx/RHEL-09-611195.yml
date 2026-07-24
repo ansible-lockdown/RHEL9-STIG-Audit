@@ -1,13 +1,13 @@
 ---
 
 {{ if .Vars.rhel_09_611195 }}
-file:
+command:
   authenticate_emergency_mode:
     title: RHEL-09-611195 | RHEL 9 must require authentication to access emergency mode.
-    exists: true
-    path: /etc/systemd/system/emergency.service.d/emergency.service.conf
-    contents:
-    - '/^ExecStart=-/usr/lib/systemd/systemd-sulogin-shell emergency/'
+    exec: cat /usr/lib/systemd/system/emergency.service /etc/systemd/system/emergency.service.d/*.conf 2>/dev/null | grep '^ExecStart=-/usr/lib/systemd/systemd-sulogin-shell emergency'
+    exit-status: 0
+    stdout:
+    - '/systemd-sulogin-shell emergency/'
     meta:
       Cat: 2
       CCI:

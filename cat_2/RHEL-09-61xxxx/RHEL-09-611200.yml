@@ -1,13 +1,13 @@
 ---
 
 {{ if .Vars.rhel_09_611200 }}
-file:
+command:
   authenticate_rescue_mode:
     title: RHEL-09-611200 | RHEL 9 must require authentication to access single-user mode.
-    exists: true
-    path: /etc/systemd/system/rescue.service.d/rescue.service.conf
-    contents:
-    - '/^ExecStart=-/usr/lib/systemd/systemd-sulogin-shell rescue/'
+    exec: cat /usr/lib/systemd/system/rescue.service /etc/systemd/system/rescue.service.d/*.conf 2>/dev/null | grep '^ExecStart=-/usr/lib/systemd/systemd-sulogin-shell rescue'
+    exit-status: 0
+    stdout:
+    - '/systemd-sulogin-shell rescue/'
     meta:
       Cat: 2
       CCI:
