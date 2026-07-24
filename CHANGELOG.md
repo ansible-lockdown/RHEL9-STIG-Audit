@@ -3,6 +3,7 @@
 
 ## Based on STIG V2R8 - 2026 benchmark_v2r8 cycle
 
+RHEL-09-611195/611200/611170/211045/231195 (addresses #30; thank you @mbc3): converted these checks from a file resource that hardcoded one drop-in filename to a command resource that greps every location DISA checks, so a host carrying the setting under a different filename (e.g. the systemd-standard override.conf) or in the vendor default no longer false-fails. 611195/611200 grep the vendor unit (/usr/lib/systemd/system/{emergency,rescue}.service) plus /etc/systemd/system/*.service.d/*.conf for the sulogin ExecStart; 611170 greps /etc/sssd/sssd.conf + conf.d/*; 211045 greps /etc/systemd/system.conf + system.conf.d/* (all files, matching DISA's recursive grep and catching the v2r8 drop-in name that has no .conf extension); 231195 greps /etc/modprobe.conf + modprobe.d/*. Each exec cats its targets (missing paths silenced) then greps, so a missing file cannot turn a match into a grep error; 211045/231195 keep their positive and negative content matchers as command stdout matchers
 V2R8 benchmark bump (446 -> 446 rules; updates-only, no add/remove)
 8 goss files moved cat_2/RHEL-09-NNxxxx/ subdirs -> cat_1/ flat for severity-bumped rules (215100, 215105, 255064, 255065, 255070, 255075, 671020, 672050) with Cat: 2 -> Cat: 1 in goss metadata
 46 Rule_ID metadata lines updated to V2R8 SV-* values (27 expected from V2R7 -> V2R8 XCCDF + 19 pre-existing audit-repo drifts surfaced)
