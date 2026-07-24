@@ -1,12 +1,12 @@
 ---
 
 {{ if .Vars.rhel_09_231195 }}
-file:
+command:
   cramfs_blacklist:
     title: RHEL-09-231195 | RHEL 9 must disable mounting of cramfs.
-    path: /etc/modprobe.d/cramfs.conf
-    exists: true
-    contents:
+    exec: cat /etc/modprobe.conf /etc/modprobe.d/* 2>/dev/null | grep cramfs
+    exit-status: 0
+    stdout:
     - '/^install cramfs /bin/false/'
     - '/^blacklist cramfs/'
     meta:
