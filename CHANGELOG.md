@@ -3,6 +3,7 @@
 
 ## Based on STIG V2R8 - 2026 benchmark_v2r8 cycle
 
+RHEL-09-252035 (addresses #31; thank you @mbc3): made the two-name-server check DNS-mode-aware. When rhel9stig_dns_processing_mode is 'systemd-resolved' the check now validates the DNS= key (at least two servers) in /etc/systemd/resolved.conf (+ resolved.conf.d/*.conf) via a command resource, since under systemd-resolved /etc/resolv.conf holds only the 127.0.0.53 stub; otherwise it keeps the existing /etc/resolv.conf nameserver check. Added a rhel9stig_dns_processing_mode default (none) to vars/STIG.yml; the paired remediation role exposes the live value through the goss bridge template
 V2R8 benchmark bump (446 -> 446 rules; updates-only, no add/remove)
 8 goss files moved cat_2/RHEL-09-NNxxxx/ subdirs -> cat_1/ flat for severity-bumped rules (215100, 215105, 255064, 255065, 255070, 255075, 671020, 672050) with Cat: 2 -> Cat: 1 in goss metadata
 46 Rule_ID metadata lines updated to V2R8 SV-* values (27 expected from V2R7 -> V2R8 XCCDF + 19 pre-existing audit-repo drifts surfaced)
