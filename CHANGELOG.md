@@ -3,6 +3,7 @@
 
 ## Based on STIG V2R9 - 2026 benchmark_v2r9 cycle
 
+RHEL-09-252035 (addresses #29 follow-up; thank you @mbc3): made the DNS check self-detecting and removed the hard dependency on the rhel9stig_dns_processing_mode goss var. The earlier systemd-resolved fix gated on `{{ if eq .Vars.rhel9stig_dns_processing_mode ... }}`, which goss evaluates with missingkey=error - so any host whose goss vars file lacked that key (e.g. a remediation role predating the bridge-template change) aborted the whole check ("map has no entry"). The check now counts non-stub nameservers in /etc/resolv.conf plus DNS= servers in /etc/systemd/resolved.conf(+.d) and passes when either provides at least two, with no .Vars dependency beyond the rule toggle - matching the self-detecting RHEL-10-800060 approach.
 V2R9 benchmark bump (446 -> 445 rules; 1 rule removed, 0 added). Coverage verified 445/445 against the V2R9 XCCDF.
 vars/STIG.yml benchmark_version bumped v2r8 -> v2r9; run_audit.sh BENCHMARK_VER v2r8 -> v2r9 (BENCHMARK_OS=RHEL9 unchanged); README banner updated v2r8/April -> v2r9/July 2026
 removed RHEL-09-255130 (V-258002, SSH daemon compression) per V2R9: deleted cat_2/RHEL-09-25xxxx/RHEL-09-255130.yml, the rhel_09_255130 toggle and the orphan sshd_config.compress value in vars/STIG.yml
