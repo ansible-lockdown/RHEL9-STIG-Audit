@@ -569,6 +569,10 @@ rhel9stig_white_list_services:
 - ssh
 
 # dns
+# Set to 'systemd-resolved' when NetworkManager delegates DNS to systemd-resolved;
+# the 252035 check then validates DNS= in /etc/systemd/resolved.conf instead of
+# /etc/resolv.conf (which holds only the 127.0.0.53 stub under systemd-resolved).
+rhel9stig_dns_processing_mode: none
 rhel9stig_dns_servers:
 - 8.8.8.8
 - 8.8.4.4
