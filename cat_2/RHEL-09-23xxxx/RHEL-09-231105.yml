@@ -5,7 +5,7 @@
 command:
   boot_efi_nosuid:
     title: RHEL-09-231105 | RHEL 9 must prevent files with the setuid and setgid bit set from being executed on the /boot/efi directory.
-    exec: if [ "$(mount | grep '\s/boot/efi\s')" ]; then if [ "$(mount -l | grep '\s/boot/efi\s' | grep -v nosuid)]"; then echo "OK - Nosuid"; else echo "Investigate"; fi; else echo "OK - Not efi"; fi
+    exec: if [ "$(mount | grep '\s/boot/efi\s')" ]; then if [ "$(mount -l | grep '\s/boot/efi\s' | grep nosuid)" ]; then echo "OK - Nosuid"; else echo "Investigate"; fi; else echo "OK - Not efi"; fi
     exit-status:
       or:
       - 0
@@ -20,7 +20,7 @@ command:
       - SRG-OS-000368-GPOS-00154
       - SRG-OS-000480-GPOS-00227
       NIST800-53R4: CM-7
-      Rule_ID: SV-257862r1155661_rule
+      Rule_ID: SV-257862r1184295_rule
       STIG_ID: RHEL-09-231105
       Vul_ID: V-257862
   {{ end }}

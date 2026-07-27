@@ -11,8 +11,9 @@ file:
     meta:
       Cat: 2
       CCI:
-      - CCI-002165
       - CCI-002038
+      - CCI-002165
+      - CCI-004895
       Group_Title:
       - SRG-OS-000373-GPOS-00156
       - SRG-OS-000312-GPOS-00123

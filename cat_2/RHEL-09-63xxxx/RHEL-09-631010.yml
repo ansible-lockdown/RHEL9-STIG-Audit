@@ -15,12 +15,13 @@ command:
       CCI:
       - CCI-000185
       - CCI-001991
+      - CCI-004068
       Group_Title:
       - SRG-OS-000066-GPOS-00034
       - SRG-OS-000384-GPOS-00167
       NIST800-53R4:
       - IA-5
-      Rule_ID: SV-258131r1015125_rule
+      Rule_ID: SV-258131r1134927_rule
       STIG_ID: RHEL-09-631010
       Vul_ID: V-258131
   {{ end }}

@@ -16,14 +16,14 @@ command:
       Cat: 2
       CCI:
       - CCI-000778
-      - CCI-001985
+      - CCI-001958
       Group_Title:
       - SRG-OS-000114-GPOS-00059
       - SRG-OS-000378-GPOS-00163
       - SRG-OS-000480-GPOS-00227
       NIST800-53R4:
       - IA-3
-      Rule_ID: SV-258014r958498_rule
+      Rule_ID: SV-258014r1045084_rule
       STIG_ID: RHEL-09-271020
       Vul_ID: V-258014
 {{ end }}

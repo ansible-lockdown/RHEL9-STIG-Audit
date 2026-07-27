@@ -17,6 +17,7 @@ file:
       - CCI-000195
       - CCI-000205
       - CCI-001619
+      - CCI-004066
       Group_Title:
       - SRG-OS-000072-GPOS-00040
       - SRG-OS-000071-GPOS-00039

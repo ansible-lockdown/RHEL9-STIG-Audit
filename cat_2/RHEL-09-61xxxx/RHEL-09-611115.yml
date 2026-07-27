@@ -11,7 +11,9 @@ file:
     - '!/^difok\s*=\s*[0-7]/'
     meta:
       Cat: 2
-      CCI: CCI-000195
+      CCI:
+      - CCI-000195
+      - CCI-004066
       Group_Title:
       - SRG-OS-000072-GPOS-00040
       NIST800-53R4: IA-5

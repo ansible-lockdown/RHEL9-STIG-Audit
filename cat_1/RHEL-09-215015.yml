@@ -21,6 +21,6 @@ package:
       - CM-7
       Rule_ID: SV-257826r1106299_rule
       STIG_ID: RHEL-09-215015
-      Vul_ID: SV-257826
+      Vul_ID: V-257826
   {{ end }}
 {{ end }}

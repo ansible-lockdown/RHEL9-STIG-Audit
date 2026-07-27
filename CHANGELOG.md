@@ -1,6 +1,44 @@
 # rhel9-stig Audit changelog
 
 
+## Based on STIG V2R8 - 2026 benchmark_v2r8 cycle
+
+RHEL-09-252035 (addresses #29 follow-up; thank you @mbc3): made the DNS check self-detecting and removed the hard dependency on the rhel9stig_dns_processing_mode goss var. The earlier systemd-resolved gate `{{ if eq .Vars.rhel9stig_dns_processing_mode ... }}` aborts under goss missingkey=error when a host's goss vars file lacks that key (e.g. a remediation role predating the bridge-template change). The check now counts non-stub nameservers in /etc/resolv.conf plus DNS= servers in /etc/systemd/resolved.conf(+.d) and passes when either provides at least two, with no .Vars dependency beyond the rule toggle (matching self-detecting RHEL-10-800060).
+RHEL-09-611195/611200/611170/211045/231195 (addresses #30; thank you @mbc3): converted these checks from a file resource that hardcoded one drop-in filename to a command resource that greps every location DISA checks, so a host carrying the setting under a different filename (e.g. the systemd-standard override.conf) or in the vendor default no longer false-fails. 611195/611200 grep the vendor unit (/usr/lib/systemd/system/{emergency,rescue}.service) plus /etc/systemd/system/*.service.d/*.conf for the sulogin ExecStart; 611170 greps /etc/sssd/sssd.conf + conf.d/*; 211045 greps /etc/systemd/system.conf + system.conf.d/* (all files, matching DISA's recursive grep and catching the v2r8 drop-in name that has no .conf extension); 231195 greps /etc/modprobe.conf + modprobe.d/*. Each exec cats its targets (missing paths silenced) then greps, so a missing file cannot turn a match into a grep error; 211045/231195 keep their positive and negative content matchers as command stdout matchers
+RHEL-09-252035 (addresses #31; thank you @mbc3): made the two-name-server check DNS-mode-aware. When rhel9stig_dns_processing_mode is 'systemd-resolved' the check now validates the DNS= key (at least two servers) in /etc/systemd/resolved.conf (+ resolved.conf.d/*.conf) via a command resource, since under systemd-resolved /etc/resolv.conf holds only the 127.0.0.53 stub; otherwise it keeps the existing /etc/resolv.conf nameserver check. Added a rhel9stig_dns_processing_mode default (none) to vars/STIG.yml; the paired remediation role exposes the live value through the goss bridge template
+V2R8 benchmark bump (446 -> 446 rules; updates-only, no add/remove)
+8 goss files moved cat_2/RHEL-09-NNxxxx/ subdirs -> cat_1/ flat for severity-bumped rules (215100, 215105, 255064, 255065, 255070, 255075, 671020, 672050) with Cat: 2 -> Cat: 1 in goss metadata
+46 Rule_ID metadata lines updated to V2R8 SV-* values (27 expected from V2R7 -> V2R8 XCCDF + 19 pre-existing audit-repo drifts surfaced)
+5 Vul_ID base corrections for rules with wrong V-* in audit metadata: RHEL-09-214015 (V-257826 -> V-257820), RHEL-09-231070 (V-257854 -> V-257855), RHEL-09-232210 (V-257923 -> V-257922), RHEL-09-271090 (V-258029 -> V-258028), RHEL-09-654097 (V-274878 -> V-279936)
+vars/STIG.yml benchmark_version bumped v2r7 -> v2r8
+run_audit.sh BENCHMARK_VER bumped v2r7 -> v2r8 (with v prefix preserved per RHEL convention, opposite of Ubuntu)
+README banner updated V2R7 -> V2R8
+fixed RHEL-09-251045 goss toggle gate: was `rhel_09_251040`, corrected to `rhel_09_251045` (selective `--vars` runs of rule 251045 silently escaped under the wrong toggle)
+fixed RHEL-09-231190 goss `Cat:` metadata: 2 -> 1 (file is in cat_1/ and rule is HIGH severity; metadata drift pre-existed V2R8 cycle)
+fixed RHEL-09-653120 goss YAML document marker: added blank line after `---` to match 445/446 sibling convention
+
+July 2026 community issue fixes.
+fixed RHEL-09-231105 goss /boot/efi nosuid check: corrected the inverted `grep -v nosuid` and the malformed test bracket so a /boot/efi mounted with nosuid passes instead of always returning Investigate (addresses #14; thank you @mbc3)
+fixed RHEL-09-252040 goss NetworkManager DNS-mode regex to accept none, default, or systemd-resolved per the STIG (was none only), and corrected the malformed CCI-00366 to CCI-000366 (addresses #15; thank you @mbc3)
+fixed RHEL-09-252020 goss chrony check: dropped the `.mil` restriction so any configured timeserver with maxpoll 1-16 passes, matching the STIG and the remediation role default servers; also tightened the maxpoll bound with a word boundary so values greater than 16 correctly fail (the prior `([1-9]|1[0-6])` matched the leading digit of 17+) (addresses #16; thank you @mbc3)
+fixed RHEL-09-651035 goss: relaxed the over-strict aide ruleset regex to verify `xattrs` (the full-string match failed the remediation role aide.conf), corrected the title from "Access Control Lists (ACLs)" to "extended attributes", and renamed the check to aide_all_xattrs to match SV-258139 (addresses #13; thank you @mbc3)
+relaxed the same over-strict aide regex on RHEL-09-651030 (verifies `acl`) and RHEL-09-651020 (verifies `sha512`), which carried the identical brittle pattern
+corrected 8 malformed CCI metadata values missing leading zeros to their 6-digit XCCDF values: RHEL-09-252035, RHEL-09-252045, RHEL-09-252050, RHEL-09-411065, RHEL-09-411070 (CCI-000366), RHEL-09-411040 (CCI-000016), RHEL-09-411045 (CCI-000764), RHEL-09-672020 (CCI-003123)
+reconciled two touched rules to the V2R8 XCCDF: RHEL-09-252020 added CCI-004923 and CCI-004926, and RHEL-09-411070 Vul_ID corrected V-258052 to V-258053
+relaxed the RHEL-09-611195 and RHEL-09-611200 goss checks: removed the requirement that the RPM-owned base units /usr/lib/systemd/system/{emergency,rescue}.service have their ExecStart/ExecStartPre lines commented out (that requirement conflicted with RHEL-09-214030's rpm -Va integrity check). The checks now verify only that the override drop-in under /etc/systemd/system/*.service.d/ carries the sulogin ExecStart, matching DISA's check (which accepts the setting in the drop-in) and the remediation role's new reset-style drop-in (supports ansible-lockdown/RHEL9-STIG#172; thank you @mbc3)
+corrected the README goss documentation link to the krameff fork (https://github.com/krameff/goss/blob/devel/docs/index.md), matching the goss source the audit repos migrated to and the RHEL10-CIS-Audit / RHEL10-STIG-Audit siblings (was the stale goss-org/goss link); bumped run_audit.sh AUDIT_BIN_MIN_VER from 0.4.4 to 0.4.8 to match the documented `goss >= 0.4.8` requirement and the sibling audit repos
+also pointed the README `[Goss]` link at the krameff fork (github.com/krameff/goss) instead of the upstream goss.rocks, and removed the stray parentheses around the `[goss documentation]` reference-link target (they broke the link)
+
+RHEL-09-611180: goss now checks the pcscd socket (`pcscd.socket`) instead of the pcscd service, per the V2R8 XCCDF check-content (`systemctl is-active pcscd.socket`). Title left as the DISA-verbatim "pcscd service". Mirrors the RHEL10-STIG-Audit RHEL-10-200611 fix.
+RHEL-09-271065: fixed a double-`.d` in the goss path (`{{ rhel9stig_dconf_db }}.d/00-screensaver` rendered `local.d.d`); dropped the stray literal `.d` so it matches the remediated path `local.d/00-screensaver` (and sibling 271075)
+RHEL-09-232225: corrected goss title "owned" -> "group-owned" (the check uses `stat -c %G`); RHEL-09-654190: corrected goss title "init command" -> "poweroff command" (the check targets `/usr/sbin/poweroff`)
+run_audit.sh: read only the first line of `goss -v` (awk NR==1) so a multi-line goss banner cannot corrupt the parsed version; fixed two message typos ("needs to run", "does not meet minimum")
+
+Full goss metadata reconciliation to the V2R8 XCCDF (80 rule files). Coverage 446/446, all Cat/severity already correct.
+reconciled 2 stale Rule_ID revisions: RHEL-09-431015 (r958944 -> r1045159) and RHEL-09-653090 (r1101918 -> r1155630)
+corrected 9 Vul_ID values: RHEL-09-212040, RHEL-09-214020, RHEL-09-232050, RHEL-09-252075, RHEL-09-433016, RHEL-09-654210, and fixed the SV- prefix on RHEL-09-215015, RHEL-09-215060, RHEL-09-654097 (were SV-, now V-)
+reconciled 70 CCI sets to the XCCDF: added CCIs DISA introduced in later releases (for example CCI-003992, CCI-004066, CCI-004062, CCI-004046, CCI-004923/004926, CCI-004895, CCI-003938) to the rules that lacked them, and corrected wrong/typo CCIs (RHEL-09-651010/651015 CCI-001774 -> CCI-001744, RHEL-09-255010/255015 CCI-002322 -> CCI-002422, RHEL-09-271020/271025/271035 CCI-001985 -> CCI-001958, RHEL-09-232035 CCI-001439 -> CCI-001493, RHEL-09-251035 CCI-000366 -> CCI-000382, RHEL-09-412040 -> CCI-000054, RHEL-09-611145 CCI-002048 -> CCI-002038)
+
 ## Based on STIG V2R7 - May updates
 Alignment
 missing rule added

@@ -24,7 +24,7 @@ file:
       - MA-4
       - SC-10
       - AC-12
-      Rule_ID: SV-257996r1045055_rule
+      Rule_ID: SV-257996r1134915_rule
       STIG_ID: RHEL-09-255100
       Vul_ID: V-257996
 {{ end }}

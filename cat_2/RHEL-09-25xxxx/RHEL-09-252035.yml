@@ -1,18 +1,17 @@
 ---
 
 {{ if .Vars.rhel_09_252035 }}
-file:
-  resolv_nameservers:
+command:
+  dns_name_servers:
     title: RHEL-09-252035 | RHEL 9 systems using Domain Name Servers (DNS) resolution must have at least two name servers configured.
-    path: /etc/resolv.conf
-    contents:
-    {{ range .Vars.rhel9stig_dns_servers }}
-    - {{ . }}
-    {{ end }}
+    exec: r=$(grep -Ei '^nameserver[[:space:]]+' /etc/resolv.conf 2>/dev/null | grep -vcE '127\.0\.0\.53'); s=$(cat /etc/systemd/resolved.conf /etc/systemd/resolved.conf.d/*.conf 2>/dev/null | grep -iE '^[[:space:]]*DNS=' | sed 's/^[^=]*=//' | tr ' ' '\n' | grep -cE '[0-9a-fA-F.:]'); [ "$s" -gt "$r" ] && echo "$s" || echo "$r"
+    exit-status: 0
+    stdout:
+    - '/^([2-9]|[1-9][0-9]+)$/'
     meta:
       Cat: 2
       CCI:
-      - CCI-00366
+      - CCI-000366
       Group_Title:
       - SRG-OS-000480-GPOS-00227
       NIST800-53R4:

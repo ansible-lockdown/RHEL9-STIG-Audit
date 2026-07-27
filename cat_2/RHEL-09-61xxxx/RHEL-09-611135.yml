@@ -10,7 +10,9 @@ file:
     - '/^crypt_style\s*=\s*sha512/'
     meta:
       Cat: 2
-      CCI: CCI-000196
+      CCI:
+      - CCI-000196
+      - CCI-004062
       Group_Title:
       - SRG-OS-000073-GPOS-00041
       NIST800-53R4: IA-5

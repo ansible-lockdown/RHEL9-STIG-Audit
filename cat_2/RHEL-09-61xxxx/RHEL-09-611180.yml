@@ -5,12 +5,14 @@
 service:
   pcscd_running:
     title: RHEL-09-611180 | The pcscd service on RHEL 9 must be active.
-    name: pcscd
+    name: pcscd.socket
     running: true
     enabled: true
     meta:
       Cat: 2
-      CCI: CCI-001948
+      CCI:
+      - CCI-001948
+      - CCI-004046
       Group_Title:
       - SRG-OS-000375-GPOS-00160
       NIST800-53R4: IA-2

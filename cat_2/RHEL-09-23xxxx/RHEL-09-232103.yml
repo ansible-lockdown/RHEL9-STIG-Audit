@@ -14,7 +14,7 @@ file:
       Group_Title: SRG-OS-000080-GPOS-00048
       NIST800-53R4:
       - AU-9
-      Rule_ID: SV-270175r1117265_rule
+      Rule_ID: SV-270175r1137691_rule
       STIG_ID: RHEL-09-232103
       Vul_ID: V-270175
 {{ end }}
