@@ -4,7 +4,7 @@
 command:
   ctrl_alt_del:
     title: RHEL-09-211045 | The systemd Ctrl-Alt-Delete burst key sequence in RHEL 9 must be disabled
-    exec: cat /etc/systemd/system.conf /etc/systemd/system.conf.d/*.conf 2>/dev/null | grep '^CtrlAltDelBurstAction='
+    exec: cat /etc/systemd/system.conf /etc/systemd/system.conf.d/* 2>/dev/null | grep '^CtrlAltDelBurstAction='
     exit-status: 0
     stdout:
     - '/^CtrlAltDelBurstAction=none/'

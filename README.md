@@ -71,9 +71,9 @@ README Links
 [Centre For Internet Security]: https://www.cisecurity.org
 [Read the Docs - Audit]: https://ansible-lockdown.readthedocs.io/en/latest/audit/getting-started-audit.html
 
-[goss documentation]: (https://github.com/krameff/goss/blob/devel/docs/index.md)
+[goss documentation]: https://github.com/krameff/goss/blob/devel/docs/index.md
 
-[Goss]: https://goss.rocks
+[Goss]: https://github.com/krameff/goss
 [DISA STIG]: https://public.cyber.mil/stigs
 
 [MindPoint Group]: https://mindpointgroup.com/cybersecurity-consulting/automate/baseline-modernization#GH_LockdownReadMe
