@@ -4,11 +4,11 @@
 command:
   ctrl_alt_del:
     title: RHEL-09-211045 | The systemd Ctrl-Alt-Delete burst key sequence in RHEL 9 must be disabled
-    exec: cat /etc/systemd/system.conf /etc/systemd/system.conf.d/* 2>/dev/null | grep '^CtrlAltDelBurstAction='
+    exec: grep -hs '^[[:space:]]*CtrlAltDelBurstAction[[:space:]]*=' /etc/systemd/system.conf /etc/systemd/system.conf.d/*.conf || true
     exit-status: 0
     stdout:
-    - '/^CtrlAltDelBurstAction=none/'
-    - '!/^CtrlAltDelBurstAction=(reboot.*|poweroff.*)$/'
+    - '/^[[:space:]]*CtrlAltDelBurstAction[[:space:]]*=[[:space:]]*none/'
+    - '!/^[[:space:]]*CtrlAltDelBurstAction[[:space:]]*=[[:space:]]*(reboot.*|poweroff.*)/'
     meta:
       Cat: 1
       CCI:
