@@ -3,7 +3,7 @@
 {{ if .Vars.rhel_09_653040 }}
 file:
   audit_space_left_action:
-    title: RHEL-09-653040 | RHEL 9 must notify the system administrator (SA) and information system security officer (ISSO) (at a minimum) when allocated audit record storage volume 75 percent utilization.
+    title: RHEL-09-653040 | RHEL 9 must notify the system administrator (SA) and information system security officer (ISSO) (at a minimum) when allocated audit record storage volume reaches 75 percent utilization.
     exists: true
     path: /etc/audit/auditd.conf
     contents:

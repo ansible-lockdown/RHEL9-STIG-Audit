@@ -1,5 +1,5 @@
 ## metadata for Audit benchmark
-benchmark_version: 'v2r8'
+benchmark_version: 'v2r9'
 benchmark: RHEL9-STIG
 
 # set to redhat/rocky/alma
@@ -284,7 +284,6 @@ rhel_09_255110: true
 rhel_09_255115: true
 rhel_09_255120: true
 rhel_09_255125: true
-rhel_09_255130: true
 rhel_09_255135: true
 rhel_09_255140: true
 rhel_09_255145: true
@@ -594,7 +593,6 @@ rhel9stig_sshd_config:
   - aes128-ctr
   clientalivecountmax: 1
   clientaliveinterval: 600  # max 600
-  compress: 'no'
   gssapiauth: 'no'
   hostauth: 'no'
   ignoreknownhosts: 'yes'

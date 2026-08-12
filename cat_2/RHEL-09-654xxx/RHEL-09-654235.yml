@@ -7,7 +7,8 @@ file:
     exists: true
     path: /etc/audit/rules.d/audit.rules
     contents:
-    - '/^-w /etc/security/opasswd -p wa -k identity/'
+    - '/^-a always,exit -F arch=b32 -F path=/etc/security/opasswd -F perm=wa -k identity/'
+    - '/^-a always,exit -F arch=b64 -F path=/etc/security/opasswd -F perm=wa -k identity/'
     meta:
       Cat: 2
       CCI:
@@ -44,7 +45,7 @@ file:
       - AU-3
       - AU-12
       - MA-4
-      Rule_ID: SV-258221r1015132_rule
+      Rule_ID: SV-258221r1210923_rule
       STIG_ID: RHEL-09-654235
       Vul_ID: V-258221
 command:
@@ -56,7 +57,8 @@ command:
       - 0
       - 1
     stdout:
-    - '-w /etc/security/opasswd -p wa -k identity'
+    - '-a always,exit -F arch=b32 -F path=/etc/security/opasswd -F perm=wa -k identity'
+    - '-a always,exit -F arch=b64 -F path=/etc/security/opasswd -F perm=wa -k identity'
     meta:
       Cat: 2
       CCI:
@@ -93,7 +95,7 @@ command:
       - AU-3
       - AU-12
       - MA-4
-      Rule_ID: SV-258221r1015132_rule
+      Rule_ID: SV-258221r1210923_rule
       STIG_ID: RHEL-09-654235
       Vul_ID: V-258221
 {{ end }}

@@ -4,7 +4,7 @@
   {{ if .Vars.rhel9stig_smartcard_reader }}
 service:
   pcscd_running:
-    title: RHEL-09-611180 | The pcscd service on RHEL 9 must be active.
+    title: RHEL-09-611180 | The pcscd socket on RHEL 9 must be active.
     name: pcscd.socket
     running: true
     enabled: true
@@ -16,7 +16,7 @@ service:
       Group_Title:
       - SRG-OS-000375-GPOS-00160
       NIST800-53R4: IA-2
-      Rule_ID: SV-258125r1045253_rule
+      Rule_ID: SV-258125r1208775_rule
       STIG_ID: RHEL-09-611180
       Vul_ID: V-258125
   {{ end }}

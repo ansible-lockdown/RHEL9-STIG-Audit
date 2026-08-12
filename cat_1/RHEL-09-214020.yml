@@ -3,7 +3,7 @@
 {{ if .Vars.rhel_09_214020 }}
 file:
   localgpg_check_conf:
-    title: RHEL-09-214020 | RHEL 9 must check the GPG signature of software packages originating from external software repositories before installation.
+    title: RHEL-09-214020 | RHEL 9 must check the GPG signature of locally installed software packages before installation.
     exists: true
     path: /etc/dnf/dnf.conf
     contents:

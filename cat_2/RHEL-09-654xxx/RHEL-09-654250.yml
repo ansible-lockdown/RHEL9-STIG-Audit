@@ -7,7 +7,8 @@ file:
     exists: true
     path: /etc/audit/rules.d/audit.rules
     contents:
-    - '/^-w /var/log/faillock -p wa -k logins/'
+    - '/^-a always,exit -F arch=b32 -F path=/var/log/faillock -F perm=wa -F auid>=1000 -F auid!=unset -k logins/'
+    - '/^-a always,exit -F arch=b64 -F path=/var/log/faillock -F perm=wa -F auid>=1000 -F auid!=unset -k logins/'
     meta:
       Cat: 2
       CCI:
@@ -20,7 +21,7 @@ file:
       NIST800-53R4:
       - AU-12
       - MA-4
-      Rule_ID: SV-258224r1014988_rule
+      Rule_ID: SV-258224r1210926_rule
       STIG_ID: RHEL-09-654250
       Vul_ID: V-258224
 command:
@@ -32,7 +33,8 @@ command:
       - 0
       - 1
     stdout:
-    - '-w /var/log/faillock -p wa -k logins'
+    - '-a always,exit -F arch=b32 -F path=/var/log/faillock -F perm=wa -F auid>=1000 -F auid!=unset -k logins'
+    - '-a always,exit -F arch=b64 -F path=/var/log/faillock -F perm=wa -F auid>=1000 -F auid!=unset -k logins'
     meta:
       Cat: 2
       CCI:
@@ -45,7 +47,7 @@ command:
       NIST800-53R4:
       - AU-12
       - MA-4
-      Rule_ID: SV-258224r1014988_rule
+      Rule_ID: SV-258224r1210926_rule
       STIG_ID: RHEL-09-654250
       Vul_ID: V-258224
 {{ end }}
