@@ -1,5 +1,24 @@
 # rhel9-stig Audit changelog
 
+## RHEL9 STIG v2.9.0 - 2026 October - Benchmark version string moved to the dotted form
+
+- the benchmark version string changes from `v2r9` to `v2.9.0`, and this content is published on a
+  new `benchmark_v2.9.0` branch. `benchmark_v2r9` is left in place and unchanged, so any remediation
+  role still pointing at the old string keeps resolving; nothing is cut over by this alone
+- updated in the three places that state it: `vars/STIG.yml`, `run_audit.sh` (`BENCHMARK_VER`) and
+  `README.md`. `goss.yml` and the `audit_json_vars` line in `run_audit.sh` consume the value rather
+  than defining it, so they follow automatically
+- **24 test titles did not match the benchmark.** A title is the line an assessor reads in the
+  report, and these had drifted from the V2R9 wording: `FIPS 140-3 approved` where the benchmark
+  writes `FIPS 140-3-approved`, `the CAC smart card driver` where it writes `the common access card
+  (CAC) smart card driver`, `A RHEL 9 firewall` for `The RHEL 9 firewall`, and dropped trailing
+  periods. Titles now carry the benchmark text with its quotation marks removed, matching the RHEL 8
+  and RHEL 10 audit convention, and the per-resource qualifier suffixes are preserved. No test logic
+  is touched
+- the dotted form matches the convention the Ubuntu audit content already uses, where a `vXrY`
+  remediation pairs with a `vX.Y.0` audit branch. The paired remediation role resolves this branch
+  through `audit_git_version: "benchmark_{{ benchmark_version }}"`, so the two must move together
+
 
 ## Based on STIG V2R9 - 2026 benchmark_v2r9 cycle
 

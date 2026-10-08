@@ -3,7 +3,7 @@
 {{ if .Vars.rhel_09_271095 }}
 command:
   gui_screensaver_no_reboot:
-    title: RHEL-09-271095 | RHEL 9 must disable the ability of a user to restart the system from the login screen
+    title: "RHEL-09-271095 | RHEL 9 must disable the ability of a user to restart the system from the login screen."
     exec: gsettings get org.gnome.login-screen disable-restart-buttons
     exit-status:
       or:

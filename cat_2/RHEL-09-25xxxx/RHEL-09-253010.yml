@@ -3,7 +3,7 @@
 {{ if .Vars.rhel_09_253010 }}
 kernel-param:
   tcp_syncookie:
-    title: RHEL-09-253010 | RHEL 9 must be configured to use TCP syncookies | live
+    title: "RHEL-09-253010 | RHEL 9 must be configured to use TCP syncookies. | live"
     name: net.ipv4.tcp_syncookies
     value: 1
     meta:

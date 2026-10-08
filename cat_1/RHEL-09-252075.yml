@@ -3,7 +3,7 @@
 {{ if .Vars.rhel_09_252075 }}
 command:
   shosts_check:
-    title: RHEL-09-252075 | There must be no shosts files on RHEL 9.
+    title: "RHEL-09-252075 | There must be no .shosts files on RHEL 9."
     exec: find / -name "*.shosts"
     timeout: {{ .Vars.timeout_ms }}
     exit-status:

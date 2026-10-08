@@ -3,7 +3,7 @@
 {{ if .Vars.rhel_09_654220 }}
 file:
   audit_conf_etc_sudoersd:
-    title: RHEL-09-654220 | RHEL 9 must generate audit records for all account creations, modifications, disabling, and termination events that affect /etc/sudoers.d/ directory.
+    title: "RHEL-09-654220 | RHEL 9 must generate audit records for all account creations, modifications, disabling, and termination events that affect /etc/sudoers.d/directory."
     exists: true
     path: /etc/audit/rules.d/audit.rules
     contents:
@@ -50,7 +50,7 @@ file:
       Vul_ID: V-258218
 command:
   audit_running_etc_sudoersd:
-    title: RHEL-09-654220 | RHEL 9 must generate audit records for all account creations, modifications, disabling, and termination events that affect /etc/sudoers.d/ directory.
+    title: "RHEL-09-654220 | RHEL 9 must generate audit records for all account creations, modifications, disabling, and termination events that affect /etc/sudoers.d/directory."
     exec: auditctl -l | grep -w "sudoers.d"
     exit-status:
       or:

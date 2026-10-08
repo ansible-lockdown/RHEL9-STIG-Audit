@@ -4,7 +4,7 @@
   {{ if not .Vars.rhel9stig_is_tftp_server }}
 package:
   tftp:
-    title: RHEL-09-215060 | RHEL 9 must not have a Trivial File Transfer Protocol (TFTP) server package installed.
+    title: "RHEL-09-215060 | The Trivial File Transfer Protocol (TFTP) server must not be installed unless it is required, and if required, the RHEL 9 TFTP daemon must be configured to operate in secure mode."
     name: tftp-server
     installed: false
     meta:

@@ -3,7 +3,7 @@
 {{ if .Vars.rhel_09_211010 }}
 file:
   rhel_version_supported:
-    title: RHEL-09-211010 | RHEL 9 must be a vendor-supported release. (Not checking for EUS)
+    title: "RHEL-09-211010 | RHEL 9 must be a vendor-supported release."
     exists: true
     path: /etc/redhat-release
     contents:

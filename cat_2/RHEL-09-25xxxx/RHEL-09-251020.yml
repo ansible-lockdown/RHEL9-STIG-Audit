@@ -3,7 +3,7 @@
 {{ if .Vars.rhel_09_251020 }}
 command:
   firewalld_zone_service:
-    title: RHEL-09-251020 | A RHEL 9 firewall must employ a deny-all, allow-by-exception policy for allowing connections to other systems.
+    title: "RHEL-09-251020 | The RHEL 9 firewall must employ a deny-all, allow-by-exception policy for allowing connections to other systems."
     exec: firewall-cmd --state && zone_list=`firewall-cmd --get-active-zones | head -1` && for zone in $zone_list; do firewall-cmd --permanent --info-zone=$zone | grep "target:"; done
     exit-status: 0
     timeout: {{ .Vars.timeout_ms }}

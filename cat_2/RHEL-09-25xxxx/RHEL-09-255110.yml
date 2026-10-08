@@ -3,7 +3,7 @@
 {{ if .Vars.rhel_09_255110 }}
 command:
   ssh_config_owner:
-    title: RHEL-09-255110 | RHEL 9 SSH server configuration file must be owned by root.
+    title: "RHEL-09-255110 | The RHEL 9 SSH server configuration file must be owned by root."
     exec: find /etc/ssh/sshd_config /etc/ssh/sshd_config.d -exec stat -c "%U %n" {} \;
     exit-status:
       or:

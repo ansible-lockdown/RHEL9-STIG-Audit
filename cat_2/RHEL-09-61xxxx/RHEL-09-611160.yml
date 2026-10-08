@@ -4,7 +4,7 @@
   {{ if .Vars.rhel9stig_smartcard_reader }}
 file:
   opensc_drivers:
-    title: RHEL-09-611160 | RHEL 9 must use the CAC smart card driver.
+    title: "RHEL-09-611160 | RHEL 9 must use the common access card (CAC) smart card driver."
     exists: true
     path: /etc/opensc.conf
     contents:

@@ -17,7 +17,7 @@ service:
       Vul_ID: V-257818
 file:
   kump_masked:
-    title: RHEL-09-213115 | The kdump service on RHEL 9 must be disabled. | Stopped and disabled | Masked
+    title: "RHEL-09-213115 | The kdump service on RHEL 9 must be disabled. | Masked"
     exists: true
     filetype: symlink
     linked-to: /dev/null

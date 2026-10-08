@@ -21,7 +21,7 @@ kernel-param:
       Vul_ID: V-257799
 command:
   kexec_load_conf:
-    title: RHEL-09-213020 | RHEL 9 RHEL 9 must prevent the loading of a new kernel for later execution. | conf
+    title: "RHEL-09-213020 | RHEL 9 must prevent the loading of a new kernel for later execution. | conf"
     exec: grep kernel.kexec_load_disabled /etc/sysctl.d/*
     exit-status:
       or:
