@@ -2,6 +2,24 @@
 
 ## RHEL9 STIG v2.9.0 - 2026 October - Benchmark version string moved to the dotted form
 
+- the parent company name is Quantum Sky, not Tyto Athene. Renamed in `LICENSE`, the only place this
+  repository carried it. Deliberately not renamed: existing entries in this file, which record what
+  was true when written
+- `CONTRIBUTING.rst` becomes `CONTRIBUTING.md`, carrying the current Ansible-Lockdown contributing
+  guide and matching the paired remediation role. The canonical header is `Contributing to
+  Ansible-Lockdown Projects`, and each of the five sections appears exactly once
+- **`run_audit.sh` built its content path from OS detection.** It derived `os_vendor` by probing
+  `/etc/os-release`, `uname` and `hostnamectl`, and `os_maj_ver` from `VERSION_ID`, then assembled
+  `audit_content_version` from the pair. This audit is single-OS by design - `BENCHMARK_OS` is set
+  in the header - so a stripped or unusual `/etc/os-release` could silently build a path to content
+  that does not exist. The path is now built straight from `BENCHMARK_OS`, which removes the failure
+  class rather than adding another fallback for it, and matches the RHEL 10 audit. 20 lines shorter,
+  `bash -n` clean, help output unchanged
+- README corrections: the branch-name example read `benchmark-v1.0.0` with a hyphen while the
+  paired role derives `benchmark_{{ benchmark_version }}` with an underscore, so anyone following it
+  built a branch name that does not exist; it now reads `benchmark_v2.9.0`. Also fixed "Fot the
+  latest information" and the inconsistent `RHEL9` spacing and date on the benchmark line
+
 - the benchmark version string changes from `v2r9` to `v2.9.0`, and this content is published on a
   new `benchmark_v2.9.0` branch. `benchmark_v2r9` is left in place and unchanged, so any remediation
   role still pointing at the old string keeps resolving; nothing is cut over by this alone
