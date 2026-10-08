@@ -2,6 +2,14 @@
 
 ## RHEL9 STIG v2.9.0 - 2026 October - Benchmark version string moved to the dotted form
 
+- **RHEL-09-255025 asserted a lowercase `banner` keyword.** The paired remediation wrote `banner`
+  while RHEL-09-211020 wrote `Banner` into the same `sshd_config`, and both controls matched
+  case-insensitively, so each rewrote the other's line on every run (ansible-lockdown/RHEL9-STIG#188).
+  The remediation now writes `Banner`, which is the capitalization the V2R9 fix text gives. This test
+  anchored on `^banner` and would have begun failing against the corrected role, so it now accepts
+  either capitalization: sshd treats the keyword case-insensitively, and the audit should verify
+  compliance rather than one spelling
+
 - the parent company name is Quantum Sky, not Tyto Athene. Renamed in `LICENSE`, the only place this
   repository carried it. Deliberately not renamed: existing entries in this file, which record what
   was true when written
