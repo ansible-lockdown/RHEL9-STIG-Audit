@@ -3,7 +3,7 @@
 {{ if .Vars.rhel_09_255025 }}
 file:
   ssh_config_banner:
-    title: RHEL-09-255025 | RHEL 9 must display the Standard Mandatory DOD Notice and Consent Banner before granting local or remote access to the system via a SSH logon.
+    title: RHEL-09-255025 | RHEL 9 must display the Standard Mandatory DoW Notice and Consent Banner before granting local or remote access to the system via a SSH logon.
     path: {{ .Vars.rhel9stig_sshd_config_file }}
     exists: true
     contents:
@@ -22,7 +22,7 @@ file:
       - SRG-OS-000228-GPOS-00088
       NIST800-53R4:
       - AC-8
-      Rule_ID: SV-257981r1101970_rule
+      Rule_ID: SV-257981r1268215_rule
       STIG_ID: RHEL-09-255025
       Vul_ID: V-257981
 {{ end }}

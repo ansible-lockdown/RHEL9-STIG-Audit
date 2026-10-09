@@ -70,7 +70,7 @@ package:
       - AU-14
       - MA-4
       - CM-5
-      Rule_ID: SV-258151r1045298_rule
+      Rule_ID: SV-258151r1268225_rule
       STIG_ID: RHEL-09-653010
       Vul_ID: V-258151
 {{ end }}

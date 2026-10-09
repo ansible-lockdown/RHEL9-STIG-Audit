@@ -70,7 +70,7 @@ service:
       - AU-14
       - MA-4
       - CM-5
-      Rule_ID: SV-258152r1015127_rule
+      Rule_ID: SV-258152r1268225_rule
       STIG_ID: RHEL-09-653015
       Vul_ID: V-258152
 {{ end }}

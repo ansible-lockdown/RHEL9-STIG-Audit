@@ -3,7 +3,7 @@
 {{ if .Vars.rhel_09_271055 }}
 command:
   gui_session:
-    title: RHEL-09-271055 |  RHEL 9 must enable a user session lock until that user re-establishes access using established identification and authentication procedures for graphical user sessions.
+    title: RHEL-09-271055 | RHEL 9 must enable a user session lock until that user re-establishes access using established identification and authentication procedures for graphical user sessions.
     exec: gsettings get org.gnome.desktop.screensaver lock-enabled
     exit-status:
       or:
