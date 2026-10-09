@@ -20,7 +20,7 @@ kernel-param:
       Vul_ID: V-257810
 command:
   priv_bpf_conf:
-    title: RHEL-09-213075 | RHEL 9 must disable access to network bpf system call from nonprivileged processes.| conf
+    title: RHEL-09-213075 | RHEL 9 must disable access to network bpf system call from nonprivileged processes.
     exec: grep kernel.unprivileged_bpf_disabled /etc/sysctl.d/*
     exit-status:
       or:

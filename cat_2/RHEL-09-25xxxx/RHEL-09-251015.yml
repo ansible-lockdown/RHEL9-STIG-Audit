@@ -20,7 +20,7 @@ service:
       NIST800-53R4:
       - CM-7
       - AC-17
-      Rule_ID: SV-257936r1044995_rule
+      Rule_ID: SV-257936r1262138_rule
       STIG_ID: RHEL-09-251015
       Vul_ID: V-257936
 {{ end }}

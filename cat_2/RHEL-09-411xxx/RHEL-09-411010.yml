@@ -3,7 +3,7 @@
 {{ if .Vars.rhel_09_411010 }}
 file:
   pass_max_days_login:
-    title: RHEL-09-411010 | RHEL 9 user account passwords for new users or password changes must have a 60-day maximum password lifetime restriction in /etc/login.defs.
+    title: RHEL-09-411010 | RHEL 9 user account passwords for new users or password changes must have a 180-day maximum password lifetime restriction in /etc/login.defs.
     path: /etc/login.defs
     exists: true
     contents:
@@ -16,7 +16,7 @@ file:
       Group_Title:
       - SRG-OS-000076-GPOS-00044
       NIST800-53R4: IA-5
-      Rule_ID: SV-258041r1038967_rule
+      Rule_ID: SV-258041r1268211_rule
       STIG_ID: RHEL-09-411010
       Vul_ID: V-258041
 {{ end }}

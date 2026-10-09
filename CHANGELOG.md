@@ -1,5 +1,31 @@
 # rhel9-stig Audit changelog
 
+## RHEL9 STIG v2.10.0 - 2026 October - V2R9 -> V2R10 benchmark alignment
+
+Aligned to DISA RHEL 9 STIG Version 2, Release 10 (30 September 2026). The control count is
+unchanged at 445, and no severity changed, so nothing moved between `cat_` directories.
+
+- **RHEL-09-171011 was renumbered to RHEL-09-271011, not replaced.** The rule keeps its `SV-` and
+  `V-` numbers, so the test file moves to `cat_2/RHEL-09-27xxxx/` beside the other GNOME controls
+  rather than being deleted and recreated. `cat_2/RHEL-09-17xxxx/` is now empty and removed, and
+  the glob that indexed it is dropped from `goss.yml`; left in place it would have pointed at a
+  directory that no longer exists
+- **RHEL-09-672055 is new and had no test.** The benchmark now requires `/etc/pki/tls/openssl.cnf`
+  to carry `.include = /etc/crypto-policies/back-ends/opensslcnf.config`, which is what makes the
+  systemwide crypto policy reach OpenSSL at all. Without it every other crypto-policy control can
+  pass while OpenSSL quietly ignores the policy
+- **RHEL-09-654176 is new and had no test.** Added the paired config and running checks for the
+  `privileged-useradd` audit rule
+- **RHEL-09-215030 and RHEL-09-215065 were withdrawn** as unnecessary requirements; their test
+  files and toggles are removed
+- **247 identifier values and 33 titles were behind the benchmark.** Every `Rule_ID` and `Vul_ID`
+  is now set from the V2R10 XCCDF rather than patched by delta, so a value that had drifted by
+  more than one release is corrected too. 1108 identifier occurrences were checked afterwards and
+  all match
+- benchmark version string moved to `v2.10.0` in the three places that define or state it:
+  `vars/STIG.yml`, `run_audit.sh` (`BENCHMARK_VER`) and `README.md`. The paired remediation role
+  resolves this branch through `audit_git_version`, so the two must move together
+
 ## RHEL9 STIG v2.9.0 - 2026 October - Benchmark version string moved to the dotted form
 
 - **RHEL-09-255025 asserted a lowercase `banner` keyword.** The paired remediation wrote `banner`

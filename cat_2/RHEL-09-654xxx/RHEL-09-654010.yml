@@ -3,7 +3,7 @@
 {{ if .Vars.rhel_09_654010 }}
 file:
   audit_conf_execve:
-    title: RHEL-09-654010 | RHEL 9 must audit uses of the "execve" system call.
+    title: RHEL-09-654010 | RHEL 9 must audit uses of the execve system call.
     exists: true
     path: /etc/audit/rules.d/audit.rules
     contents:
@@ -26,7 +26,7 @@ file:
       Vul_ID: V-258176
 command:
   audit_running_execve:
-    title: RHEL-09-654010 | RHEL 9 must audit uses of the "execve" system call.
+    title: RHEL-09-654010 | RHEL 9 must audit uses of the execve system call.
     exec: auditctl -l | grep execve
     exit-status:
       or:
