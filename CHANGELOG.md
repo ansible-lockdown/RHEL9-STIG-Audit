@@ -28,6 +28,13 @@ unchanged at 445, and no severity changed, so nothing moved between `cat_` direc
 
 ## RHEL9 STIG v2.9.0 - 2026 October - Benchmark version string moved to the dotted form
 
+- **`run_audit.sh` now runs [syver](https://github.com/krameff/syver), replacing goss.** Syver is the
+  signed continuation of the krameff goss fork and reads this content unchanged. `AUDIT_BIN` defaults
+  to `/usr/local/bin/syver` and `AUDIT_BIN_MIN_VER` moves from `0.4.8` to `0.13.0`, so a goss binary
+  now fails the version pre-check. The paired remediation role installs syver v0.13.0 and passes it
+  as `AUDIT_BIN`; it must carry that change before this one is used. The README requirements and
+  links describe syver
+
 - **RHEL-09-255025 asserted a lowercase `banner` keyword.** The paired remediation wrote `banner`
   while RHEL-09-211020 wrote `Banner` into the same `sshd_config`, and both controls matched
   case-insensitively, so each rewrote the other's line on every run (ansible-lockdown/RHEL9-STIG#188).
