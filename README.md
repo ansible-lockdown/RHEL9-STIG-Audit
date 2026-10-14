@@ -1,4 +1,4 @@
-# RHEL9 STIG Goss config
+# RHEL9 STIG Syver config
 
 ## Overview
 
@@ -28,7 +28,8 @@ The listed variable for every control/benchmark can be turned on/off or section
 
 ## Requirements
 
-goss >= 0.4.8
+[syver](https://github.com/krameff/syver) >= 0.13.0. The audit content uses the goss file format, which syver reads unchanged.
+Syver replaces goss as it is a signed fork that is regularly updated.
 root privileges
 
 ## Branches
@@ -60,8 +61,9 @@ If you want to run locally and see easy output of failures, the following comman
 
 ## Links and Further information
 
-- [Goss]
-  - [Goss documentation]
+- [Syver]
+  - [Syver documentation]
+  - [goss vs Syver]
 - [Centre For Internet Security]
 
 <!----
@@ -71,9 +73,10 @@ README Links
 [Centre For Internet Security]: https://www.cisecurity.org
 [Read the Docs - Audit]: https://ansible-lockdown.readthedocs.io/en/latest/audit/getting-started-audit.html
 
-[goss documentation]: https://github.com/krameff/goss/blob/devel/docs/index.md
+[Syver documentation]: https://github.com/krameff/syver/blob/main/docs/index.md
+[goss vs Syver]: https://github.com/krameff/syver/blob/main/docs/goss-vs-syver.md
 
-[Goss]: https://github.com/krameff/goss
+[Syver]: https://github.com/krameff/syver
 [DISA STIG]: https://public.cyber.mil/stigs
 
 [MindPoint Group]: https://mindpointgroup.com/cybersecurity-consulting/automate/baseline-modernization#GH_LockdownReadMe
