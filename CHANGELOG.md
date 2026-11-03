@@ -14,6 +14,12 @@ unchanged at 445, and no severity changed, so nothing moved between `cat_` direc
   to carry `.include = /etc/crypto-policies/back-ends/opensslcnf.config`, which is what makes the
   systemwide crypto policy reach OpenSSL at all. Without it every other crypto-policy control can
   pass while OpenSSL quietly ignores the policy
+- **RHEL-09-215105 and RHEL-09-672020 now test what the check text says.** 215105 matched
+  `update-crypto-policies --show` against `/^FIPS/`, so any subpolicy such as `FIPS:PQ` passed; it
+  now requires exactly `FIPS` and adds the check text's `hash` and `min_rsa_size` checks. 672020
+  ran only `update-crypto-policies --check`; it now also requires each back-end the check text
+  names to link into `/usr/share/crypto-policies/FIPS/`, with `nss.config` a regular file. A host
+  on a subpolicy now fails both, as the benchmark's own note says it should
 - **RHEL-09-654176 is new and had no test.** Added the paired config and running checks for the
   `privileged-useradd` audit rule
 - **RHEL-09-215030 and RHEL-09-215065 were withdrawn** as unnecessary requirements; their test

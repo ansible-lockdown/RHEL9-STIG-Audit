@@ -4,14 +4,46 @@
 command:
   crypto_policy_fips:
     title: RHEL-09-672020 | RHEL 9 cryptographic policy must not be overridden.
-    exec: update-crypto-policies --check && echo PASS
+    exec: update-crypto-policies --check
     timeout: {{ .Vars.timeout_ms }}
-    exit-status:
-      or:
-      - 0
-      - 1
+    exit-status: 0
     stdout:
-    - 'PASS'
+    - '/^The configured policy matches the generated policy$/'
+    meta:
+      Cat: 1
+      CCI:
+      - CCI-002450
+      - CCI-002890
+      - CCI-003123
+      Group_Title:
+      - SRG-OS-000396-GPOS-00176
+      - SRG-OS-000393-GPOS-00173
+      - SRG-OS-000394-GPOS-00174
+      NIST800-53R4:
+      - MA-4
+      - SC-13
+      Rule_ID: SV-258236r1101920_rule
+      STIG_ID: RHEL-09-672020
+      Vul_ID: V-258236
+  crypto_policy_fips_backends:
+    title: RHEL-09-672020 | RHEL 9 cryptographic policy must not be overridden. | back-ends link to the FIPS policy
+    exec: ls -l /etc/crypto-policies/back-ends/
+    timeout: {{ .Vars.timeout_ms }}
+    exit-status: 0
+    stdout:
+    - '/ bind[.]config -> /usr/share/crypto-policies/FIPS/bind[.]txt$/'
+    - '/ gnutls[.]config -> /usr/share/crypto-policies/FIPS/gnutls[.]txt$/'
+    - '/ java[.]config -> /usr/share/crypto-policies/FIPS/java[.]txt$/'
+    - '/ javasystem[.]config -> /usr/share/crypto-policies/FIPS/javasystem[.]txt$/'
+    - '/ krb5[.]config -> /usr/share/crypto-policies/FIPS/krb5[.]txt$/'
+    - '/ libreswan[.]config -> /usr/share/crypto-policies/FIPS/libreswan[.]txt$/'
+    - '/ libssh[.]config -> /usr/share/crypto-policies/FIPS/libssh[.]txt$/'
+    - '/ openssh[.]config -> /usr/share/crypto-policies/FIPS/openssh[.]txt$/'
+    - '/ opensshserver[.]config -> /usr/share/crypto-policies/FIPS/opensshserver[.]txt$/'
+    - '/ opensslcnf[.]config -> /usr/share/crypto-policies/FIPS/opensslcnf[.]txt$/'
+    - '/ openssl[.]config -> /usr/share/crypto-policies/FIPS/openssl[.]txt$/'
+    - '/ openssl_fips[.]config -> /usr/share/crypto-policies/FIPS/openssl_fips[.]txt$/'
+    - '/^-.* nss[.]config$/'
     meta:
       Cat: 1
       CCI:
