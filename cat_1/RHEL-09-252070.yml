@@ -4,7 +4,7 @@
 command:
   shosts_equiv_check:
     title: RHEL-09-252070 | There must be no shosts.equiv files on RHEL 9.
-    exec: find / -name "*.shosts.equiv"
+    exec: find / -name shosts.equiv
     timeout: {{ .Vars.timeout_ms }}
     exit-status:
         or:

@@ -22,6 +22,9 @@ unchanged at 445, and no severity changed, so nothing moved between `cat_` direc
   on a subpolicy now fails both, as the benchmark's own note says it should
 - **RHEL-09-654176 is new and had no test.** Added the paired config and running checks for the
   `privileged-useradd` audit rule
+- **RHEL-09-252070 now finds a `shosts.equiv` file.** It searched `-name "*.shosts.equiv"`, which
+  cannot match a file named `shosts.equiv`, so the test passed with the file present. It now runs
+  the check text's `find / -name shosts.equiv`
 - **RHEL-09-215030 and RHEL-09-215065 were withdrawn** as unnecessary requirements; their test
   files and toggles are removed
 - **247 identifier values and 33 titles were behind the benchmark.** Every `Rule_ID` and `Vul_ID`
