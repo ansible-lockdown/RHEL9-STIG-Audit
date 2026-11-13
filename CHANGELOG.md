@@ -34,6 +34,21 @@ unchanged at 445, and no severity changed, so nothing moved between `cat_` direc
 - benchmark version string moved to `v2.10.0` in the three places that define or state it:
   `vars/STIG.yml`, `run_audit.sh` (`BENCHMARK_VER`) and `README.md`. The paired remediation role
   resolves this branch through `audit_git_version`, so the two must move together
+- **Ten loaded audit rule tests could not pass.** RHEL-09-654097 and RHEL-09-654215 to
+  RHEL-09-654255 compared `auditctl -l` with the rules as written, but the kernel prints `-k` as
+  `-F key=` and `auid!=unset` as `auid!=-1`, and adds the syscall list that `perm=wa` expands to,
+  so a host with every rule loaded still failed. They now expect the printed form, as the other
+  loaded rule tests already do, and the syscall list is optional because it varies by
+  architecture and kernel
+- **RHEL-09-214025 failed a compliant repository and passed a disabled one.** It counted any line
+  matching `gpgcheck.*=0`, so `repo_gpgcheck=0` failed it while `gpgcheck = 0` and
+  `gpgcheck=False` passed. It now lists each `gpgcheck` key whose value is not `1`, `true` or
+  `yes`, which is what the check text's `grep -w gpgcheck` reads
+- **RHEL-09-672050 failed every host.** It required `/etc/named.conf` to exist, though the check
+  text makes the rule Not Applicable without bind, and its pattern wanted the include at the
+  start of the line with a character after the `;`, while the shipped `named.conf` indents it
+  inside `options` and ends the line there. It now passes when bind is not installed and
+  otherwise requires the include, indented or not
 
 ## RHEL9 STIG v2.9.0 - 2026 October - Benchmark version string moved to the dotted form
 
