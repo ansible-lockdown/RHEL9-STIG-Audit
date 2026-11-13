@@ -3,7 +3,7 @@
 {{ if .Vars.rhel_09_231030 }}
 mount:
   var_log_audit_exists:
-    title: RHEL-09-231030 | RHEL 9 must use a separate file system for /var/log/audit.
+    title: "RHEL-09-231030 | RHEL 9 must use a separate file system for the system audit data path."
     mountpoint: /var/log/audit
     exists: true
     meta:

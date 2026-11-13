@@ -3,7 +3,7 @@
 {{ if .Vars.rhel_09_212010 }}
 file:
   grub_superusers:
-    title: RHEL-09-212010 | RHEL 9 must require a boot loader superuser password. | Superuser in grub
+    title: RHEL-09-212010 | RHEL 9 must require authentication upon booting into single-user and maintenance modes. | Superuser in grub
     path: /etc/grub2.cfg
     exists: true
     contents:
@@ -13,11 +13,11 @@ file:
       CCI: CCI-000213
       Group_Title: SRG-OS-000080-GPOS-00048
       NIST800-53R4: AC-3
-      Rule_ID: SV-257787r1184288_rule
+      Rule_ID: SV-257787r1268226_rule
       STIG_ID: RHEL-09-212010
       Vul_ID: V-257787
   grub_users_password:
-    title: RHEL-09-212010 | RHEL 9 must require a boot loader superuser password. | Superuser password set
+    title: RHEL-09-212010 | RHEL 9 must require authentication upon booting into single-user and maintenance modes. | Superuser password set
     path: /boot/grub2/user.cfg
     exists: true
     contents:
@@ -28,7 +28,7 @@ file:
       CCI: CCI-000213
       Group_Title: SRG-OS-000080-GPOS-00048
       NIST800-53R4: AC-3
-      Rule_ID: SV-257787r1184288_rule
+      Rule_ID: SV-257787r1268226_rule
       STIG_ID: RHEL-09-212010
       Vul_ID: V-257787
 {{ end }}

@@ -3,7 +3,7 @@
 {{ if .Vars.rhel_09_654235 }}
 file:
   audit_conf_etc_opasswd:
-    title: RHEL-09-654235 | RHEL 9 must generate audit records for all account creations, modifications, disabling, and termination events that affect /etc/opasswd.
+    title: RHEL-09-654235 | RHEL 9 must generate audit records for all account creations, modifications, disabling, and termination events that affect /etc/security/opasswd.
     exists: true
     path: /etc/audit/rules.d/audit.rules
     contents:
@@ -45,12 +45,12 @@ file:
       - AU-3
       - AU-12
       - MA-4
-      Rule_ID: SV-258221r1210923_rule
+      Rule_ID: SV-258221r1262128_rule
       STIG_ID: RHEL-09-654235
       Vul_ID: V-258221
 command:
   audit_running_etc_opasswd:
-    title: RHEL-09-654235 | RHEL 9 must generate audit records for all account creations, modifications, disabling, and termination events that affect /etc/opasswd.
+    title: RHEL-09-654235 | RHEL 9 must generate audit records for all account creations, modifications, disabling, and termination events that affect /etc/security/opasswd.
     exec: auditctl -l | grep -w "/etc/security/opasswd"
     exit-status:
       or:
@@ -95,7 +95,7 @@ command:
       - AU-3
       - AU-12
       - MA-4
-      Rule_ID: SV-258221r1210923_rule
+      Rule_ID: SV-258221r1262128_rule
       STIG_ID: RHEL-09-654235
       Vul_ID: V-258221
 {{ end }}

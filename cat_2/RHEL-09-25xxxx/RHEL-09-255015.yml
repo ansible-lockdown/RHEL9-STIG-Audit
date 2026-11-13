@@ -3,7 +3,7 @@
 {{ if .Vars.rhel_09_255015 }}
 service:
   ssh-server:
-    title: RHEL-09-255015 | All RHEL 9 networked systems must have SSH installed.
+    title: "RHEL-09-255015 | All RHEL 9 networked systems must have and implement SSH to protect the confidentiality and integrity of transmitted and received information, as well as information during preparation for transmission."
     name: sshd
     enabled: true
     running: true

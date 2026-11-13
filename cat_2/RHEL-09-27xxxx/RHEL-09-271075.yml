@@ -3,7 +3,7 @@
 {{ if .Vars.rhel_09_271075 }}
 file:
   gui_screensaver_activate:
-    title: RHEL-09-271075 |  RHEL 9 must initiate a session lock for graphical user interfaces when the screensaver is activated.
+    title: RHEL-09-271075 | RHEL 9 must initiate a session lock for graphical user interfaces when the screensaver is activated.
     path: /etc/dconf/db/{{ .Vars.rhel9stig_dconf_db }}/00-screensaver
     exists: true
     contents:

@@ -1,8 +1,8 @@
-# RHEL9 STIG Goss config
+# RHEL9 STIG Syver config
 
 ## Overview
 
-### Based on STIG Benchmark for RHEL9 Benchmark v2r9 - July 2026
+### Based on STIG Benchmark for RHEL 9 Benchmark v2.10.0 - 30 September 2026
 
 [DISA STIG]
 
@@ -28,21 +28,22 @@ The listed variable for every control/benchmark can be turned on/off or section
 
 ## Requirements
 
-goss >= 0.4.8
+[syver](https://github.com/krameff/syver) >= 0.13.0. The audit content uses the goss file format, which syver reads unchanged.
+Syver replaces goss as it is a signed fork that is regularly updated.
 root privileges
 
 ## Branches
 
 If running as part of the ansible playbook, this will pull in the relevant branch for the version of benchmark you are remediating.
 
-- e.g. v1.0.0 will pull in branch benchmark-v1.0.0
+- e.g. `v2.9.0` pulls in branch `benchmark_v2.9.0`
 
 Devel is normally the latest benchmark version, so maybe different from the version of benchmark you wish to test.
 Details will show in the README as part of the remediation as to the benchmark for the version it is written for.
 
 ## Usage
 
-Fot the latest information on audit and how it can be used please visit
+For the latest information on audit and how it can be used please visit
 
 [Read the Docs - Audit]
 
@@ -60,8 +61,9 @@ If you want to run locally and see easy output of failures, the following comman
 
 ## Links and Further information
 
-- [Goss]
-  - [Goss documentation]
+- [Syver]
+  - [Syver documentation]
+  - [goss vs Syver]
 - [Centre For Internet Security]
 
 <!----
@@ -71,9 +73,10 @@ README Links
 [Centre For Internet Security]: https://www.cisecurity.org
 [Read the Docs - Audit]: https://ansible-lockdown.readthedocs.io/en/latest/audit/getting-started-audit.html
 
-[goss documentation]: https://github.com/krameff/goss/blob/devel/docs/index.md
+[Syver documentation]: https://github.com/krameff/syver/blob/main/docs/index.md
+[goss vs Syver]: https://github.com/krameff/syver/blob/main/docs/goss-vs-syver.md
 
-[Goss]: https://github.com/krameff/goss
+[Syver]: https://github.com/krameff/syver
 [DISA STIG]: https://public.cyber.mil/stigs
 
 [MindPoint Group]: https://mindpointgroup.com/cybersecurity-consulting/automate/baseline-modernization#GH_LockdownReadMe

@@ -1,5 +1,93 @@
 # rhel9-stig Audit changelog
 
+## RHEL9 STIG v2.10.0 - 2026 October - V2R9 -> V2R10 benchmark alignment
+
+Aligned to DISA RHEL 9 STIG Version 2, Release 10 (30 September 2026). The control count is
+unchanged at 445, and no severity changed, so nothing moved between `cat_` directories.
+
+- **RHEL-09-171011 was renumbered to RHEL-09-271011, not replaced.** The rule keeps its `SV-` and
+  `V-` numbers, so the test file moves to `cat_2/RHEL-09-27xxxx/` beside the other GNOME controls
+  rather than being deleted and recreated. `cat_2/RHEL-09-17xxxx/` is now empty and removed, and
+  the glob that indexed it is dropped from `goss.yml`; left in place it would have pointed at a
+  directory that no longer exists
+- **RHEL-09-672055 is new and had no test.** The benchmark now requires `/etc/pki/tls/openssl.cnf`
+  to carry `.include = /etc/crypto-policies/back-ends/opensslcnf.config`, which is what makes the
+  systemwide crypto policy reach OpenSSL at all. Without it every other crypto-policy control can
+  pass while OpenSSL quietly ignores the policy
+- **RHEL-09-215105 and RHEL-09-672020 now test what the check text says.** 215105 matched
+  `update-crypto-policies --show` against `/^FIPS/`, so any subpolicy such as `FIPS:PQ` passed; it
+  now requires exactly `FIPS` and adds the check text's `hash` and `min_rsa_size` checks. 672020
+  ran only `update-crypto-policies --check`; it now also requires each back-end the check text
+  names to link into `/usr/share/crypto-policies/FIPS/`, with `nss.config` a regular file. A host
+  on a subpolicy now fails both, as the benchmark's own note says it should
+- **RHEL-09-654176 is new and had no test.** Added the paired config and running checks for the
+  `privileged-useradd` audit rule
+- **RHEL-09-252070 now finds a `shosts.equiv` file.** It searched `-name "*.shosts.equiv"`, which
+  cannot match a file named `shosts.equiv`, so the test passed with the file present. It now runs
+  the check text's `find / -name shosts.equiv`
+- **RHEL-09-215030 and RHEL-09-215065 were withdrawn** as unnecessary requirements; their test
+  files and toggles are removed
+- **247 identifier values and 33 titles were behind the benchmark.** Every `Rule_ID` and `Vul_ID`
+  is now set from the V2R10 XCCDF rather than patched by delta, so a value that had drifted by
+  more than one release is corrected too. 1108 identifier occurrences were checked afterwards and
+  all match
+- benchmark version string moved to `v2.10.0` in the three places that define or state it:
+  `vars/STIG.yml`, `run_audit.sh` (`BENCHMARK_VER`) and `README.md`. The paired remediation role
+  resolves this branch through `audit_git_version`, so the two must move together
+
+## RHEL9 STIG v2.9.0 - 2026 October - Benchmark version string moved to the dotted form
+
+- **`run_audit.sh` now runs [syver](https://github.com/krameff/syver), replacing goss.** Syver is the
+  signed continuation of the krameff goss fork and reads this content unchanged. `AUDIT_BIN` defaults
+  to `/usr/local/bin/syver` and `AUDIT_BIN_MIN_VER` moves from `0.4.8` to `0.13.0`, so a goss binary
+  now fails the version pre-check. The paired remediation role installs syver v0.13.0 and passes it
+  as `AUDIT_BIN`; it must carry that change before this one is used. The README requirements and
+  links describe syver
+
+- **RHEL-09-255025 asserted a lowercase `banner` keyword.** The paired remediation wrote `banner`
+  while RHEL-09-211020 wrote `Banner` into the same `sshd_config`, and both controls matched
+  case-insensitively, so each rewrote the other's line on every run (ansible-lockdown/RHEL9-STIG#188).
+  The remediation now writes `Banner`, which is the capitalization the V2R9 fix text gives. This test
+  anchored on `^banner` and would have begun failing against the corrected role, so it now accepts
+  either capitalization: sshd treats the keyword case-insensitively, and the audit should verify
+  compliance rather than one spelling
+
+- the parent company name is Quantum Sky, not Tyto Athene. Renamed in `LICENSE`, the only place this
+  repository carried it. Deliberately not renamed: existing entries in this file, which record what
+  was true when written
+- `CONTRIBUTING.rst` becomes `CONTRIBUTING.md`, carrying the current Ansible-Lockdown contributing
+  guide and matching the paired remediation role. The canonical header is `Contributing to
+  Ansible-Lockdown Projects`, and each of the five sections appears exactly once
+- **`run_audit.sh` built its content path from OS detection.** It derived `os_vendor` by probing
+  `/etc/os-release`, `uname` and `hostnamectl`, and `os_maj_ver` from `VERSION_ID`, then assembled
+  `audit_content_version` from the pair. This audit is single-OS by design - `BENCHMARK_OS` is set
+  in the header - so a stripped or unusual `/etc/os-release` could silently build a path to content
+  that does not exist. The path is now built straight from `BENCHMARK_OS`, which removes the failure
+  class rather than adding another fallback for it, and matches the rest of the STIG RHEL Fleet. 20
+  lines shorter,
+  `bash -n` clean, help output unchanged
+- README corrections: the branch-name example read `benchmark-v1.0.0` with a hyphen while the
+  paired role derives `benchmark_{{ benchmark_version }}` with an underscore, so anyone following it
+  built a branch name that does not exist; it now reads `benchmark_v2.9.0`. Also fixed "Fot the
+  latest information" and the inconsistent `RHEL9` spacing and date on the benchmark line
+
+- the benchmark version string changes from `v2r9` to `v2.9.0`, and this content is published on a
+  new `benchmark_v2.9.0` branch. `benchmark_v2r9` is left in place and unchanged, so any remediation
+  role still pointing at the old string keeps resolving; nothing is cut over by this alone
+- updated in the three places that state it: `vars/STIG.yml`, `run_audit.sh` (`BENCHMARK_VER`) and
+  `README.md`. `goss.yml` and the `audit_json_vars` line in `run_audit.sh` consume the value rather
+  than defining it, so they follow automatically
+- **24 test titles did not match the benchmark.** A title is the line an assessor reads in the
+  report, and these had drifted from the V2R9 wording: `FIPS 140-3 approved` where the benchmark
+  writes `FIPS 140-3-approved`, `the CAC smart card driver` where it writes `the common access card
+  (CAC) smart card driver`, `A RHEL 9 firewall` for `The RHEL 9 firewall`, and dropped trailing
+  periods. Titles now carry the benchmark text with its quotation marks removed, matching the RHEL 8
+  and the STIG RHEL Fleet convention, and the per-resource qualifier suffixes are preserved. No test logic
+  is touched
+- the dotted form matches the convention the Ubuntu audit content already uses, where a `vXrY`
+  remediation pairs with a `vX.Y.0` audit branch. The paired remediation role resolves this branch
+  through `audit_git_version: "benchmark_{{ benchmark_version }}"`, so the two must move together
+
 
 ## Based on STIG V2R9 - 2026 benchmark_v2r9 cycle
 

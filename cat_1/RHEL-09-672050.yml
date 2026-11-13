@@ -3,7 +3,7 @@
 {{ if .Vars.rhel_09_672050 }}
 file:
   crypto-policies_bind:
-    title: RHEL-09-672050 | RHEL 9 must implement DOD-approved encryption in the bind package.
+    title: RHEL-09-672050 | RHEL 9 must implement DoW-approved encryption in the bind package.
     exists: true
     path: /etc/named.conf
     contents:
@@ -18,7 +18,7 @@ file:
       - SRG-OS-000426-GPOS-00190
       NIST800-53R4:
       - SC-8
-      Rule_ID: SV-258242r1184336_rule
+      Rule_ID: SV-258242r1262158_rule
       STIG_ID: RHEL-09-672050
       Vul_ID: V-258242
 {{ end }}

@@ -3,7 +3,7 @@
 {{ if .Vars.rhel_09_213055 }}
 command:
   firewire_blacklist:
-    title: RHEL-09-213055 | RHEL 9 must be configured to disable the FireWire kernel module
+    title: "RHEL-09-213055 | RHEL 9 must be configured to disable the FireWire kernel module."
     exec: grep -r firewire-core /etc/modprobe.conf /etc/modprobe.d/*
     exit-status:
       or:

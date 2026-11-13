@@ -20,7 +20,7 @@ kernel-param:
       Vul_ID: V-257809
 command:
   aslr_conf:
-    title: RHEL-09-213070 | RHEL 9 must implement address space layout randomization (ASLR) to protect its memory from unauthorized code execution.| conf
+    title: RHEL-09-213070 | RHEL 9 must implement address space layout randomization (ASLR) to protect its memory from unauthorized code execution.
     exec: grep kernel.randomize_va_space /etc/sysctl.d/*
     exit-status:
       or:

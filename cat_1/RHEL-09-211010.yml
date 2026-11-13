@@ -3,7 +3,7 @@
 {{ if .Vars.rhel_09_211010 }}
 file:
   rhel_version_supported:
-    title: RHEL-09-211010 | RHEL 9 must be a vendor-supported release. (Not checking for EUS)
+    title: "RHEL-09-211010 | RHEL 9 must be a vendor-supported release."
     exists: true
     path: /etc/redhat-release
     contents:
@@ -13,7 +13,7 @@ file:
       CCI: CCI-000366
       Group_Title: SRG-OS-000480-GPOS-00227
       NIST800-53R4: CM-6
-      Rule_ID: SV-257777r1155676_rule
+      Rule_ID: SV-257777r1268251_rule
       STIG_ID: RHEL-09-211010
       Vul_ID: V-257777
 {{ end }}

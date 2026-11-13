@@ -3,7 +3,7 @@
 {{ if .Vars.rhel_09_231040 }}
 service:
   autofs_notrunning:
-    title: RHEL-09-231040 | RHEL 9 file system automount function must be disabled unless required.
+    title: RHEL-09-231040 | The RHEL 9 file system automounter must be disabled.
     name: autofs.service
     enabled: false
     running: false
@@ -18,12 +18,12 @@ service:
       - SRG-OS-000480-GPOS-00227
       NIST800-53R4:
       - IA-3
-      Rule_ID: SV-257849r1044928_rule
+      Rule_ID: SV-257849r1262109_rule
       STIG_ID: RHEL-09-231040
       Vul_ID: V-257849
 file:
   autofs_masked:
-    title: RHEL-09-231040 | RHEL 9 file system automount function must be disabled unless required.
+    title: RHEL-09-231040 | The RHEL 9 file system automounter must be disabled.
     exists: true
     filetype: symlink
     linked-to: /dev/null
@@ -39,7 +39,7 @@ file:
       - SRG-OS-000480-GPOS-00227
       NIST800-53R4:
       - IA-3
-      Rule_ID: SV-257849r1044928_rule
+      Rule_ID: SV-257849r1262109_rule
       STIG_ID: RHEL-09-231040
       Vul_ID: V-257849
 {{ end }}
