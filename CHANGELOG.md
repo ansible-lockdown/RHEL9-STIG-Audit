@@ -57,6 +57,19 @@ unchanged at 445, and no severity changed, so nothing moved between `cat_` direc
   checked a `contents` attribute a command test does not have; it now fails when an interactive
   user has no home directory in `/etc/passwd`, which is what the check text asks. RHEL-09-411095
   is a manual control and now reports `MANUAL` as the other manual tests do
+- **Sixteen sshd tests passed while a drop-in overrode the setting.** RHEL-09-255025 to
+  RHEL-09-255175 read only `/etc/ssh/sshd_config`, but sshd takes the first value it reads and
+  includes `/etc/ssh/sshd_config.d/*.conf` ahead of it, so `X11Forwarding yes` in the shipped
+  `50-redhat.conf` was in force while RHEL-09-255155 passed. Each test now also fails when a drop-in
+  sets the directive to a value its `sshd_config` check would not accept, as the check text's
+  search of every file sshd reads does. Leading blanks, an `=` separator and keyword case are
+  matched as sshd parses them, and a drop-in holding the compliant value still passes. RekeyLimit
+  accepts any data amount and time, and ClientAliveInterval any value from 1 to 600, as the check
+  text allows
+- **RHEL-09-255150 could not fail.** Its `grep` read several files, so each line began with the
+  file name and the `^IgnoreUserKnownHosts` pattern never matched, and nothing required the
+  setting at all, though sshd defaults to `no`. It now checks `sshd_config` for
+  `IgnoreUserKnownHosts yes` and the drop-ins the same way as the sixteen tests above
 
 ## RHEL9 STIG v2.9.0 - 2026 October - Benchmark version string moved to the dotted form
 

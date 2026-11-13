@@ -22,4 +22,28 @@ file:
       Rule_ID: SV-257995r1045053_rule
       STIG_ID: RHEL-09-255095
       Vul_ID: V-257995
+command:
+  ssh_dropin_clientalivecountmax:
+    title: RHEL-09-255095 | RHEL 9 must be configured so that all network connections associated with SSH traffic terminate after becoming unresponsive.
+    exec: grep -hiE '^[[:blank:]]*ClientAliveCountMax([[:blank:]]|=)' /etc/ssh/sshd_config.d/*.conf 2>/dev/null | grep -viE '^[[:blank:]]*ClientAliveCountMax([[:blank:]]+|[[:blank:]]*=[[:blank:]]*){{ .Vars.rhel9stig_sshd_config.clientalivecountmax }}[[:blank:]]*$'
+    exit-status:
+      or:
+      - 0
+      - 1
+    stdout:
+    - '!/(?i)ClientAliveCountMax/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-001133
+      - CCI-002361
+      Group_Title:
+      - SRG-OS-000163-GPOS-00072
+      - SRG-OS-000279-GPOS-00109
+      NIST800-53R4:
+      - SC-10
+      - Ac-12
+      Rule_ID: SV-257995r1045053_rule
+      STIG_ID: RHEL-09-255095
+      Vul_ID: V-257995
 {{ end }}
