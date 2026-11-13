@@ -49,6 +49,14 @@ unchanged at 445, and no severity changed, so nothing moved between `cat_` direc
   start of the line with a character after the `;`, while the shipped `named.conf` indents it
   inside `options` and ends the line there. It now passes when bind is not installed and
   otherwise requires the include, indented or not
+- **Three tests never ran.** RHEL-09-213095 opened with `command::` and RHEL-09-411060 and
+  RHEL-09-411095 with `exec:`, so the audit binary skipped each file with a warning and the
+  controls had no test. All three now open with `command:`. RHEL-09-213095 also misspelled its
+  `exec` key and expected a file name prefix and single spaces; it now requires `* hard core 0`
+  however the columns are spaced and fails any `hard` or `-` core limit above 0. RHEL-09-411060
+  checked a `contents` attribute a command test does not have; it now fails when an interactive
+  user has no home directory in `/etc/passwd`, which is what the check text asks. RHEL-09-411095
+  is a manual control and now reports `MANUAL` as the other manual tests do
 
 ## RHEL9 STIG v2.9.0 - 2026 October - Benchmark version string moved to the dotted form
 
