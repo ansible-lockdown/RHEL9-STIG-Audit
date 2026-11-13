@@ -7,7 +7,7 @@ file:
     path: {{ .Vars.rhel9stig_sshd_config_file }}
     exists: true
     contents:
-    - '/^X11forwarding {{ .Vars.rhel9stig_sshd_config.x11forward }}/'
+    - '/(?i)^X11forwarding {{ .Vars.rhel9stig_sshd_config.x11forward }}/'
     meta:
       Cat: 2
       CCI:
