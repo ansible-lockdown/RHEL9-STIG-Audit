@@ -18,8 +18,10 @@ unchanged at 445, and no severity changed, so nothing moved between `cat_` direc
   `update-crypto-policies --show` against `/^FIPS/`, so any subpolicy such as `FIPS:PQ` passed; it
   now requires exactly `FIPS` and adds the check text's `hash` and `min_rsa_size` checks. 672020
   ran only `update-crypto-policies --check`; it now also requires each back-end the check text
-  names to link into `/usr/share/crypto-policies/FIPS/`, with `nss.config` a regular file. A host
-  on a subpolicy now fails both, as the benchmark's own note says it should
+  names to link into `/usr/share/crypto-policies/FIPS/`. `nss.config` may be a regular file, as in
+  the check text example, or a link to the FIPS `nss.txt`, which is what `update-crypto-policies
+  --set FIPS` writes on Rocky Linux 9.8 with crypto-policies-20260224. A host on a subpolicy now
+  fails both, as the benchmark's own note says it should
 - **RHEL-09-654176 is new and had no test.** Added the paired config and running checks for the
   `privileged-useradd` audit rule
 - **RHEL-09-252070 now finds a `shosts.equiv` file.** It searched `-name "*.shosts.equiv"`, which
@@ -70,6 +72,9 @@ unchanged at 445, and no severity changed, so nothing moved between `cat_` direc
   file name and the `^IgnoreUserKnownHosts` pattern never matched, and nothing required the
   setting at all, though sshd defaults to `no`. It now checks `sshd_config` for
   `IgnoreUserKnownHosts yes` and the drop-ins the same way as the sixteen tests above
+- **RHEL-09-255155 failed `X11Forwarding no`.** Its `sshd_config` check matched `^X11forwarding`
+  with a lowercase `f`, so the spelling Red Hat ships was reported as a finding although the check
+  text's `grep -i` accepts it. The match is now case-insensitive, as RHEL-09-255025 already is
 
 ## RHEL9 STIG v2.9.0 - 2026 October - Benchmark version string moved to the dotted form
 
@@ -79,6 +84,57 @@ unchanged at 445, and no severity changed, so nothing moved between `cat_` direc
   now fails the version pre-check. The paired remediation role installs syver v0.13.0 and passes it
   as `AUDIT_BIN`; it must carry that change before this one is used. The README requirements and
   links describe syver
+
+- **RHEL-09-215105 and RHEL-09-672020 now test what the check text says.** 215105 matched
+  `update-crypto-policies --show` against `/^FIPS/`, so a policy such as `FIPSX` passed; it now
+  requires `FIPS` or `FIPS:<subpolicy>`, which the V2R9 check text accepts, and adds its `hash` and
+  `min_rsa_size` checks, so a subpolicy that drops a required hash still fails. 672020 ran only
+  `update-crypto-policies --check`; it now also requires each back-end the check text names to link
+  into `/usr/share/crypto-policies/FIPS/`. `nss.config` may be a regular file, as in the check text
+  example, or a link to the FIPS `nss.txt`, which is what `update-crypto-policies --set FIPS` writes
+  on Rocky Linux 9.8 with crypto-policies-20260224
+- **RHEL-09-252070 now finds a `shosts.equiv` file.** It searched `-name "*.shosts.equiv"`, which
+  cannot match a file named `shosts.equiv`, so the test passed with the file present. It now runs
+  the check text's `find / -name shosts.equiv`
+- **Ten loaded audit rule tests could not pass.** RHEL-09-654097 and RHEL-09-654215 to
+  RHEL-09-654255 compared `auditctl -l` with the rules as written, but the kernel prints `-k` as
+  `-F key=` and `auid!=unset` as `auid!=-1`, and adds the syscall list that `perm=wa` expands to,
+  so a host with every rule loaded still failed. They now expect the printed form, as the other
+  loaded rule tests already do, and the syscall list is optional because it varies by
+  architecture and kernel
+- **RHEL-09-214025 failed a compliant repository and passed a disabled one.** It counted any line
+  matching `gpgcheck.*=0`, so `repo_gpgcheck=0` failed it while `gpgcheck = 0` and
+  `gpgcheck=False` passed. It now lists each `gpgcheck` key whose value is not `1`, which is what
+  the V2R9 check text's `grep -w gpgcheck` reads and requires
+- **RHEL-09-672050 failed every host.** It required `/etc/named.conf` to exist, though the check
+  text makes the rule Not Applicable without bind, and its pattern wanted the include at the
+  start of the line with a character after the `;`, while the shipped `named.conf` indents it
+  inside `options` and ends the line there. It now passes when bind is not installed and
+  otherwise requires the include, indented or not
+- **Three tests never ran.** RHEL-09-213095 opened with `command::` and RHEL-09-411060 and
+  RHEL-09-411095 with `exec:`, so the audit binary skipped each file with a warning and the
+  controls had no test. All three now open with `command:`. RHEL-09-213095 also misspelled its
+  `exec` key and expected a file name prefix and single spaces; it now requires `* hard core 0`
+  however the columns are spaced and fails any `hard` or `-` core limit above 0. RHEL-09-411060
+  checked a `contents` attribute a command test does not have; it now fails when an interactive
+  user has no home directory in `/etc/passwd`, which is what the check text asks. RHEL-09-411095
+  is a manual control and now reports `MANUAL` as the other manual tests do
+- **Sixteen sshd tests passed while a drop-in overrode the setting.** RHEL-09-255025 to
+  RHEL-09-255175 read only `/etc/ssh/sshd_config`, but sshd takes the first value it reads and
+  includes `/etc/ssh/sshd_config.d/*.conf` ahead of it, so `X11Forwarding yes` in the shipped
+  `50-redhat.conf` was in force while RHEL-09-255155 passed. Each test now also fails when a drop-in
+  sets the directive to a value its `sshd_config` check would not accept, as the check text's
+  search of every file sshd reads does. Leading blanks, an `=` separator and keyword case are
+  matched as sshd parses them, and a drop-in holding the compliant value still passes. RekeyLimit
+  accepts any data amount and time, and ClientAliveInterval any value from 1 to 600, as the check
+  text allows
+- **RHEL-09-255150 could not fail.** Its `grep` read several files, so each line began with the
+  file name and the `^IgnoreUserKnownHosts` pattern never matched, and nothing required the
+  setting at all, though sshd defaults to `no`. It now checks `sshd_config` for
+  `IgnoreUserKnownHosts yes` and the drop-ins the same way as the sixteen tests above
+- **RHEL-09-255155 failed `X11Forwarding no`.** Its `sshd_config` check matched `^X11forwarding`
+  with a lowercase `f`, so the spelling Red Hat ships was reported as a finding although the check
+  text's `grep -i` accepts it. The match is now case-insensitive, as RHEL-09-255025 already is
 
 - **RHEL-09-255025 asserted a lowercase `banner` keyword.** The paired remediation wrote `banner`
   while RHEL-09-211020 wrote `Banner` into the same `sshd_config`, and both controls matched

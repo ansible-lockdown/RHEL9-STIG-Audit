@@ -43,7 +43,7 @@ command:
     - '/ opensslcnf[.]config -> /usr/share/crypto-policies/FIPS/opensslcnf[.]txt$/'
     - '/ openssl[.]config -> /usr/share/crypto-policies/FIPS/openssl[.]txt$/'
     - '/ openssl_fips[.]config -> /usr/share/crypto-policies/FIPS/openssl_fips[.]txt$/'
-    - '/^-.* nss[.]config$/'
+    - '/(^-.* nss[.]config$| nss[.]config -> /usr/share/crypto-policies/FIPS/nss[.]txt$)/'
     meta:
       Cat: 1
       CCI:
