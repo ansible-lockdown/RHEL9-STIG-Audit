@@ -7,7 +7,28 @@ file:
     path: {{ .Vars.rhel9stig_sshd_config_file }}
     exists: true
     contents:
-    - '/^X11forwarding {{ .Vars.rhel9stig_sshd_config.x11forward }}/'
+    - '/(?i)^X11forwarding {{ .Vars.rhel9stig_sshd_config.x11forward }}/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000366
+      Group_Title:
+      - SRG-OS-000480-GPOS-00227
+      NIST800-53R4:
+      - CM-6
+      Rule_ID: SV-258007r1045073_rule
+      STIG_ID: RHEL-09-255155
+      Vul_ID: V-258007
+command:
+  ssh_dropin_x11forward:
+    title: RHEL-09-255155 | RHEL 9 SSH daemon must disable remote X connections for interactive users.
+    exec: grep -hiE '^[[:blank:]]*X11Forwarding([[:blank:]]|=)' /etc/ssh/sshd_config.d/*.conf 2>/dev/null | grep -viE '^[[:blank:]]*X11Forwarding([[:blank:]]+|[[:blank:]]*=[[:blank:]]*){{ .Vars.rhel9stig_sshd_config.x11forward }}[[:blank:]]*$'
+    exit-status:
+      or:
+      - 0
+      - 1
+    stdout:
+    - '!/(?i)X11Forwarding/'
     meta:
       Cat: 2
       CCI:

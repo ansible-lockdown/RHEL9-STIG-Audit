@@ -1,13 +1,14 @@
 ---
 
 {{ if .Vars.rhel_09_672050 }}
-file:
+command:
   crypto-policies_bind:
     title: RHEL-09-672050 | RHEL 9 must implement DOD-approved encryption in the bind package.
-    exists: true
-    path: /etc/named.conf
-    contents:
-    - '/^include "\/etc\/crypto-policies\/back-ends\/bind.config";./'
+    exec: if ! rpm -q bind >/dev/null 2>&1; then echo "OK - bind not installed"; elif grep -qE '^[[:blank:]]*include[[:blank:]]+"/etc/crypto-policies/back-ends/bind.config";' /etc/named.conf 2>/dev/null; then echo "OK - bind includes the crypto policy"; else echo "Fail - bind does not include the crypto policy"; fi
+    exit-status: 0
+    stdout:
+    - '/^OK - /'
+    - '!/^Fail/'
     meta:
       Cat: 1
       CCI:

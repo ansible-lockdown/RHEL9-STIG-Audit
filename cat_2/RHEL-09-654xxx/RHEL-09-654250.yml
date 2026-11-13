@@ -33,8 +33,8 @@ command:
       - 0
       - 1
     stdout:
-    - '-a always,exit -F arch=b32 -F path=/var/log/faillock -F perm=wa -F auid>=1000 -F auid!=unset -k logins'
-    - '-a always,exit -F arch=b64 -F path=/var/log/faillock -F perm=wa -F auid>=1000 -F auid!=unset -k logins'
+    - '/^-a always,exit -F arch=b32( -S [a-z0-9_,]+)? -F path=\/var\/log\/faillock -F perm=wa -F auid>=1000 -F auid!=-1 -F key=logins$/'
+    - '/^-a always,exit -F arch=b64( -S [a-z0-9_,]+)? -F path=\/var\/log\/faillock -F perm=wa -F auid>=1000 -F auid!=-1 -F key=logins$/'
     meta:
       Cat: 2
       CCI:

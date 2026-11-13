@@ -8,10 +8,10 @@ command:
       or:
       - 0
       - 1
-    exec: grep -cR '.*gpgcheck.*=0' /etc/yum.repos.d/*.repo
+    exec: grep -HiE '^[[:blank:]]*gpgcheck[[:blank:]]*=' /etc/yum.repos.d/*.repo | grep -vE '=[[:blank:]]*1[[:blank:]]*$'
     timeout: {{ .Vars.timeout_ms }}
     stdout:
-    - '!/.*[1-9][0-9]*$/'
+    - '!/(?i)gpgcheck/'
     meta:
       Cat: 1
       CCI:

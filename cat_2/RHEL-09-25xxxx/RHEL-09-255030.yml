@@ -19,4 +19,25 @@ file:
       Rule_ID: SV-257982r1045021_rule
       STIG_ID: RHEL-09-255030
       Vul_ID: V-257982
+command:
+  ssh_dropin_loglevel:
+    title: RHEL-09-255030 | RHEL 9 must log SSH connection attempts and failures to the server.
+    exec: grep -hiE '^[[:blank:]]*LogLevel([[:blank:]]|=)' /etc/ssh/sshd_config.d/*.conf 2>/dev/null | grep -viE '^[[:blank:]]*LogLevel([[:blank:]]+|[[:blank:]]*=[[:blank:]]*){{ .Vars.rhel9stig_sshd_config.loglevel }}[[:blank:]]*$'
+    exit-status:
+      or:
+      - 0
+      - 1
+    stdout:
+    - '!/(?i)LogLevel/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000067
+      Group_Title:
+      - SRG-OS-000032-GPOS-00013
+      NIST800-53R4:
+      - AC-17
+      Rule_ID: SV-257982r1045021_rule
+      STIG_ID: RHEL-09-255030
+      Vul_ID: V-257982
 {{ end }}
