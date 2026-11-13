@@ -19,4 +19,25 @@ file:
       Rule_ID: SV-258008r1268251_rule
       STIG_ID: RHEL-09-255160
       Vul_ID: V-258008
+command:
+  ssh_dropin_strictmodes:
+    title: RHEL-09-255160 | RHEL 9 SSH daemon must perform strict mode checking of home directory configuration files.
+    exec: grep -hiE '^[[:blank:]]*StrictModes([[:blank:]]|=)' /etc/ssh/sshd_config.d/*.conf 2>/dev/null | grep -viE '^[[:blank:]]*StrictModes([[:blank:]]+|[[:blank:]]*=[[:blank:]]*){{ .Vars.rhel9stig_sshd_config.strictmodes }}[[:blank:]]*$'
+    exit-status:
+      or:
+      - 0
+      - 1
+    stdout:
+    - '!/(?i)StrictModes/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000366
+      Group_Title:
+      - SRG-OS-000480-GPOS-00227
+      NIST800-53R4:
+      - CM-6
+      Rule_ID: SV-258008r1268251_rule
+      STIG_ID: RHEL-09-255160
+      Vul_ID: V-258008
 {{ end }}

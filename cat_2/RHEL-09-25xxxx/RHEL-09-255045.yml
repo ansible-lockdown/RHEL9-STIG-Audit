@@ -21,4 +21,27 @@ file:
       Rule_ID: SV-257985r1069364_rule
       STIG_ID: RHEL-09-255045
       Vul_ID: V-257985
+command:
+  ssh_dropin_permitroot:
+    title: RHEL-09-255045 | RHEL 9 must not permit direct logons to the root account using remote access via SSH.
+    exec: grep -hiE '^[[:blank:]]*PermitRootLogin([[:blank:]]|=)' /etc/ssh/sshd_config.d/*.conf 2>/dev/null | grep -viE '^[[:blank:]]*PermitRootLogin([[:blank:]]+|[[:blank:]]*=[[:blank:]]*){{ .Vars.rhel9stig_sshd_config.permitroot }}[[:blank:]]*$'
+    exit-status:
+      or:
+      - 0
+      - 1
+    stdout:
+    - '!/(?i)PermitRootLogin/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000770
+      - CCI-004045
+      Group_Title:
+      - SRG-OS-000109-GPOS-00056
+      - SRG-OS-000480-GPOS-00227
+      NIST800-53R4:
+      - IA-2
+      Rule_ID: SV-257985r1069364_rule
+      STIG_ID: RHEL-09-255045
+      Vul_ID: V-257985
 {{ end }}
