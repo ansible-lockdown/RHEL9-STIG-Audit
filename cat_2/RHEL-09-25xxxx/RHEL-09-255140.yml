@@ -20,4 +20,26 @@ file:
       Rule_ID: SV-258004r1045067_rule
       STIG_ID: RHEL-09-255140
       Vul_ID: V-258004
+command:
+  ssh_dropin_kerbauth:
+    title: RHEL-09-255140 | RHEL 9 SSH daemon must not allow Kerberos authentication.
+    exec: grep -hiE '^[[:blank:]]*KerberosAuthentication([[:blank:]]|=)' /etc/ssh/sshd_config.d/*.conf 2>/dev/null | grep -viE '^[[:blank:]]*KerberosAuthentication([[:blank:]]+|[[:blank:]]*=[[:blank:]]*){{ .Vars.rhel9stig_sshd_config.kerbauth }}[[:blank:]]*$'
+    exit-status:
+      or:
+      - 0
+      - 1
+    stdout:
+    - '!/(?i)KerberosAuthentication/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-001813
+      Group_Title:
+      - SRG-OS-000364-GPOS-00151
+      - SRG-OS-000480-GPOS-00227
+      NIST800-53R4:
+      - CM-5
+      Rule_ID: SV-258004r1045067_rule
+      STIG_ID: RHEL-09-255140
+      Vul_ID: V-258004
 {{ end }}

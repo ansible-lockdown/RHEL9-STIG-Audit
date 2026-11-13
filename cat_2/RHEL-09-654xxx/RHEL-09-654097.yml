@@ -31,10 +31,10 @@ command:
       - 0
       - 1
     stdout:
-    - '-a always,exit -F arch=b64 -S execve -F subj_type=crond_t -F euid=0 -k cron_exec'
-    - '-a always,exit -F arch=b32 -S execve -F subj_type=crond_t -F euid=0 -k cron_exec'
-    - '-a always,exit -F arch=b64 -S execve -F subj_type=crond_t -F auid>=1000 -F auid!=unset -k cron_exec'
-    - '-a always,exit -F arch=b32 -S execve -F subj_type=crond_t -F auid>=1000 -F auid!=unset -k cron_exec'
+    - '-a always,exit -F arch=b64 -S execve -F subj_type=crond_t -F euid=0 -F key=cron_exec'
+    - '-a always,exit -F arch=b32 -S execve -F subj_type=crond_t -F euid=0 -F key=cron_exec'
+    - '-a always,exit -F arch=b64 -S execve -F subj_type=crond_t -F auid>=1000 -F auid!=-1 -F key=cron_exec'
+    - '-a always,exit -F arch=b32 -S execve -F subj_type=crond_t -F auid>=1000 -F auid!=-1 -F key=cron_exec'
     meta:
       Cat: 2
       CCI:

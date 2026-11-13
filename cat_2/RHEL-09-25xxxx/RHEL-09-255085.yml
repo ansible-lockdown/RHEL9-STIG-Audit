@@ -19,4 +19,25 @@ file:
       Rule_ID: SV-257993r1045049_rule
       STIG_ID: RHEL-09-255085
       Vul_ID: V-257993
+command:
+  ssh_dropin_userenv:
+    title: RHEL-09-255085 | RHEL 9 must not allow users to override SSH environment variables.
+    exec: grep -hiE '^[[:blank:]]*PermitUserEnvironment([[:blank:]]|=)' /etc/ssh/sshd_config.d/*.conf 2>/dev/null | grep -viE '^[[:blank:]]*PermitUserEnvironment([[:blank:]]+|[[:blank:]]*=[[:blank:]]*){{ .Vars.rhel9stig_sshd_config.userenv }}[[:blank:]]*$'
+    exit-status:
+      or:
+      - 0
+      - 1
+    stdout:
+    - '!/(?i)PermitUserEnvironment/'
+    meta:
+      Cat: 2
+      CCI:
+      - CCI-000366
+      Group_Title:
+      - SRG-OS-000480-GPOS-00229
+      NIST800-53R4:
+      - CM-6
+      Rule_ID: SV-257993r1045049_rule
+      STIG_ID: RHEL-09-255085
+      Vul_ID: V-257993
 {{ end }}
