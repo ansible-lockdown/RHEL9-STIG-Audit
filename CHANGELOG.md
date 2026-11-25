@@ -103,6 +103,9 @@
 - the dotted form matches the convention the Ubuntu audit content already uses, where a `vXrY`
   remediation pairs with a `vX.Y.0` audit branch. The paired remediation role resolves this branch
   through `audit_git_version: "benchmark_{{ benchmark_version }}"`, so the two must move together
+- **The minimum syver version is now 0.16.0.** `AUDIT_BIN_MIN_VER` moves from `0.13.0` to `0.16.0`,
+  so an older syver or any goss binary fails the version pre-check. A full run gives the same result
+  for every test under syver 0.16.0 as under 0.13.0. The README requirement matches
 
 
 ## Based on STIG V2R9 - 2026 benchmark_v2r9 cycle

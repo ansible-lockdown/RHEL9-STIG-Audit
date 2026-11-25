@@ -28,7 +28,7 @@ The listed variable for every control/benchmark can be turned on/off or section
 
 ## Requirements
 
-[syver](https://github.com/krameff/syver) >= 0.13.0. The audit content uses the goss file format, which syver reads unchanged.
+[syver](https://github.com/krameff/syver) >= 0.16.0. The audit content uses the goss file format, which syver reads unchanged.
 Syver replaces goss as it is a signed fork that is regularly updated.
 root privileges
 
