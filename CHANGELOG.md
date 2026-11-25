@@ -75,6 +75,13 @@ unchanged at 445, and no severity changed, so nothing moved between `cat_` direc
 - **RHEL-09-255155 failed `X11Forwarding no`.** Its `sshd_config` check matched `^X11forwarding`
   with a lowercase `f`, so the spelling Red Hat ships was reported as a finding although the check
   text's `grep -i` accepts it. The match is now case-insensitive, as RHEL-09-255025 already is
+- **RHEL-09-631015 failed every compliant host.** Its `domains =` pattern had no closing `/`, so it
+  was read as the literal text `/^domains =` rather than a regular expression and never matched. With
+  the closing `/`, a `sssd.conf` holding a certmap section with `matchrule`, `maprule` and `domains`
+  passes, and one missing the certmap or its `domains` line still fails
+- **The minimum syver version is now 0.16.0.** `AUDIT_BIN_MIN_VER` moves from `0.13.0` to `0.16.0`,
+  so an older syver or any goss binary fails the version pre-check. A full run gives the same result
+  for every test under syver 0.16.0 as under 0.13.0. The README requirement matches
 
 ## RHEL9 STIG v2.9.0 - 2026 October - Benchmark version string moved to the dotted form
 
