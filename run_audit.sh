@@ -21,6 +21,7 @@
 # January 2025  Added Suse OS discovery
 # May 2025        Added formation typos to help and fixed some typos
 # November 2025   Updates based on v2r5, Added Additional max concurrent process option
+# November 2026   Audit binary syver, minimum 0.16.0
 
 # Variables in upper case tend to be able to be adjusted
 # lower case variables are discovered or built from other variables
@@ -32,7 +33,7 @@ BENCHMARK_OS=RHEL9
 
 # Goss host Variables
 AUDIT_BIN="${AUDIT_BIN:-/usr/local/bin/syver}"  # location of the syver (or goss) executable
-AUDIT_BIN_MIN_VER="0.13.0"
+AUDIT_BIN_MIN_VER="0.16.0"
 AUDIT_FILE="${AUDIT_FILE:-goss.yml}"  # the default goss file used by the audit provided by the audit configuration
 AUDIT_CONTENT_LOCATION="${AUDIT_CONTENT_LOCATION:-/opt}"  # Location of the audit configuration file as available to the OS
 
