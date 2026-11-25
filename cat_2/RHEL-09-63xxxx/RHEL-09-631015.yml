@@ -11,7 +11,7 @@ file:
     - '/^\[certmap\/.*\/.*\]/'
     - '/^matchrule =/'
     - '/^maprule =/'
-    - '/^domains ='
+    - '/^domains =/'
     meta:
       Cat: 2
       CCI:
