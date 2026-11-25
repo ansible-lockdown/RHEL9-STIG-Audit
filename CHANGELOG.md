@@ -103,6 +103,10 @@
 - the dotted form matches the convention the Ubuntu audit content already uses, where a `vXrY`
   remediation pairs with a `vX.Y.0` audit branch. The paired remediation role resolves this branch
   through `audit_git_version: "benchmark_{{ benchmark_version }}"`, so the two must move together
+- **RHEL-09-631015 failed every compliant host.** Its `domains =` pattern had no closing `/`, so it
+  was read as the literal text `/^domains =` rather than a regular expression and never matched. With
+  the closing `/`, a `sssd.conf` holding a certmap section with `matchrule`, `maprule` and `domains`
+  passes, and one missing the certmap or its `domains` line still fails
 - **The minimum syver version is now 0.16.0.** `AUDIT_BIN_MIN_VER` moves from `0.13.0` to `0.16.0`,
   so an older syver or any goss binary fails the version pre-check. A full run gives the same result
   for every test under syver 0.16.0 as under 0.13.0. The README requirement matches
